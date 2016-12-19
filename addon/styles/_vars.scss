@@ -1,0 +1,48 @@
+/***
+ * COLORS
+ */
+ 
+/**
+ * WNYC Red:
+ * `$red`
+ * `#de1e3d`
+ * `rgb(222, 30, 61)`
+ *
+ *      @example
+ *      div.btn--square-small(style='background:#DE1E3D')
+ */
+$red: #DE1E3D;
+
+
+/**
+ * WNYC Blue:
+ * `$blue`
+ * `#128cf4`
+ * `rgb(18, 140, 244)`
+ *
+ *      @example
+ *      div.btn--square-small(style='background:#128CF4')
+ */
+$blue: #128cf4;
+
+/**
+ * Light Gray:
+ * `$lightgray`
+ * `#888`
+ * `rgb(136, 136, 136)`
+ *
+ *      @example
+ *      div.btn--square-small(style='background:#888')
+ */
+$lightgray: #888;
+
+/**
+ * Lightest Gray:
+ * `$lightestgray`
+ * `#ddd`
+ * `rgb(221, 221, 221)`
+ *
+ *      @example
+ *      div.btn--square-small(style='background:#ddd')
+ */
+$lightestgray: #ddd;
