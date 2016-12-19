@@ -6,7 +6,8 @@
   type=type
   class="nypr-input"
   value=value
-  focus-out=(action (mut 'focused') true)}}
+  disabled=disabled
+  focus-out=(action (mut focused) true)}}
 <div class="nypr-input-footer">
   {{#if hasError}}
     <span class="nypr-input-error">
