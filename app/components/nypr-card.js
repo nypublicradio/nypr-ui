@@ -1,1 +1,1 @@
-export { default } from 'nypr-account-settings/components/nypr-card';
+export { default } from 'nypr-ui/components/nypr-card';
