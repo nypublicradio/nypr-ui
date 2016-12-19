@@ -1,0 +1,27 @@
+<label for="{{fieldname}}" class="nypr-input-label">{{label}}</label>
+{{input
+  name=fieldname
+  id=fieldname
+  placeholder=placeholder
+  type=type
+  class="nypr-input"
+  value=value
+  focus-out=(action (mut 'focused') true)}}
+<div class="nypr-input-footer">
+  {{#if hasError}}
+    <span class="nypr-input-error">
+      {{#each errors as |error|}}
+        {{{error}}}<br>
+      {{/each}}
+    </span>
+  {{else}}
+    {{#if clue}}
+      <span class="nypr-input-advice">{{clue}}</span>
+    {{/if}}
+  {{/if}}
+  {{#if helplinkUrl}}
+    <span class="nypr-input-helplink">
+      <a href={{helplinkUrl}}>{{helplinkText}}</a>
+    </span>
+  {{/if}}
+</div>
