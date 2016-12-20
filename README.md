@@ -33,7 +33,7 @@ When using this library in an addon, some things to remember.
 
 * Add an `included` hook to the addon's `index.js`:
 
-```nodejs
+```node
 // index.js
 module.exports = {
   ...
