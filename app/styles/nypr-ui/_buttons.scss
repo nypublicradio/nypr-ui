@@ -45,8 +45,10 @@
 *      button.btn.btn--blank I'm a button but I look like nothing special
 */
 @mixin blank-button {
-  @include btn;
-
+  @include appearance(none);
+  font-family: inherit;
+  @include fontsize(14);
+  cursor: pointer;
   padding: 0;
   border: 0;
   border-radius: 0;
@@ -55,6 +57,13 @@
   color: initial;
   text-align: left;
   background-color: transparent;
+  
+  @include transition(
+    opacity $transition-timing,
+    background-color $transition-timing,
+    border-color $transition-timing,
+    color $transition-timing);
+
 
   &:not([disabled]) {
     &:hover,
@@ -64,4 +73,65 @@
       color: inherit;
     }
   }
+
+  &[disabled] {
+    opacity: 0.15;
+    cursor: not-allowed;
+  }
+}
+
+/**
+ * Fat Button:
+ * `.btn--fat`
+ * When that small circle button is an important call to action.
+ *
+ *      @example
+ *      button.btn.btn--circle.btn--fat
+ *          i.fa.fa-twitter
+ */
+@mixin btn--fat {
+  width: 40px;
+  height: 40px;
+
+  .fa {
+    font-size: 18px;
+  }
+}
+
+/**
+ * Blue Button:
+ * `.btn--blue`
+ *
+ *      @example
+ *      button.btn.btn--blue Click
+ */
+@mixin btn--blue {
+  background-color: $blue;
+  border-color: $blue;
+  color: white;
+
+  &:not([disabled]) {
+    &:hover,
+    &:focus {
+      outline: none;
+      background-color: $darkblue;
+      border-color: $darkblue;
+      color: white;
+      opacity: 1;
+    }
+  }
+}
+
+/**
+ * Large Button:
+ * `.btn--large`
+ * It's a little bigger than your standard button.
+ *
+ *      @example
+ *      button.btn.btn--large Click Me, I'm Bigger!
+ */
+@mixin btn--large {
+  padding: 3px 18px;
+  line-height: 36px;
+  @include fontsize(16);
 }
