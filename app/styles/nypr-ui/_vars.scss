@@ -33,6 +33,17 @@ $red: #DE1E3D;
 $blue: #128cf4;
 
 /**
+ * WNYC Dark Blue (used as hover state for $blue):
+ * `$darkblue`
+ * `#1068b2`
+ * `rgb(16, 104, 178)`
+ *
+ *      @example
+ *      div.btn--square-small(style='background:#1068b2')
+ */
+$darkblue: #1068b2;
+
+/**
  * Dark Gray:
  * `$darkgray`
  * `#444`
@@ -77,6 +88,17 @@ $lightgray: #888;
 $lightestgray: #ddd;
 
 /**
+ * Near White:
+ * `$nearwhite`
+ * `#f1f1f1`
+ * `rgb(241, 241, 241)`
+ *
+ *      @example
+ *      div.btn--square-small(style='background:#f1f1f1;border: 1px solid #ddd')
+ */
+$nearwhite: #f1f1f1;
+
+/**
  * Darker Gray:
  * `$darkergray`
  * `#333`
@@ -86,3 +108,129 @@ $lightestgray: #ddd;
  *      div.btn--square-small(style='background:#333')
  */
 $darkergray: #333;
+
+
+@mixin fontsize($pixels) {
+  font-size: #{$pixels}px;
+  font-size: rems($pixels);
+}
+
+@function rems($size) {
+  @return #{$size/$base-font}rem;
+}
+
+@mixin mq($mq...) {
+  @if length(keywords($mq)) == 1 {
+    @media only screen and #{$mq} {
+      @content;
+    }
+  } @else {
+    $query: 'only screen';
+
+    @each $media in $mq {
+      $query: "#{$query} and #{$media}";
+    }
+
+    @media #{$query} {
+      @content;
+    }
+  }
+}
+
+// MEDIA QUERIES
+// HORIZONTAL
+
+$narrow: 321;
+$middle-narrow: 476;
+$middle-middle: 701;
+$medium: 801;
+$large: 1025;
+$wide: 1249;
+
+$large-and-up: "(min-width: #{$large}px)";
+$medium-and-up: "(min-width: #{$medium}px)";
+$small-and-up: "(min-width: #{$narrow}px)";
+$middle-narrow-and-up: "(min-width: #{$middle-narrow}px)";
+$middle-middle-and-up: "(min-width: #{$middle-middle}px)";
+
+$narrow-only: "(max-width: #{$narrow - 1}px)";
+$middle-narrow-only: "(max-width: #{$middle-narrow - 1}px)";
+$large-only: "(min-width: #{$medium}px) and (max-width: #{$large - 1}px)";
+$small-only: "(max-width: #{$medium - 1}px)";
+$medium-only: "(max-width: #{$large - 1}px)";
+
+$up-to-large: "(max-width: #{$large - 1}px)";
+$up-to-wide: "(max-width: #{$wide - 1}px)";
+
+$ipad-only: "(min-device-width : 768px) and (max-device-width : 1024px)";
+
+.narrow-only {
+    @include mq($small-and-up) {
+        // >= 321px
+        display: none !important;
+    }
+}
+
+.middle-narrow-only {
+    @include mq($middle-narrow-and-up) {
+        // >= 476px
+        display: none !important;
+    }
+}
+
+.small-only {
+    @include mq($medium-and-up) {
+        // >= 801px
+        display: none !important;
+    }
+}
+
+.medium-only {
+    @include mq($large-and-up) {
+        // >= 1025px
+        display: none !important;
+    }
+}
+
+.narrow-up {
+    @include mq($narrow-only) {
+        // < 321 px
+        display: none !important;
+    }
+}
+
+.middle-narrow-up {
+    @include mq($middle-narrow-only) {
+        // < 476px
+        display: none !important;
+    }
+}
+
+.medium-up {
+    @include mq($small-only) {
+        // < 801px
+        display: none !important;
+    }
+}
+
+.large-only {
+    @include mq($medium-only) {
+        // < 1025px
+        display: none !important;
+    }
+}
+
+// VERTICAL
+
+$short: 700;
+
+$short-and-up: "(min-height: #{$short}px)";
+
+$short-only: "(max-height: #{$short}px)";
+
+.short-up {
+  @include mq($short-only) {
+    // < 700px
+    display: none !important;
+  }
+}
