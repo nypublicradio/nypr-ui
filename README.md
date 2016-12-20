@@ -9,12 +9,12 @@ The goal of this ember add on is to centralize all of our common UI components s
 As of this writing, this provides access to these SASS partials:
 ```scss
 @import "nypr-ui/buttons";
-@import "nypr-ui/nypr-card";
-@import "nypr-ui/nypr-input";
+@import "nypr-ui/card";
+@import "nypr-ui/input";
 @import "nypr-ui/vars";
 ```
 
-Careful when using these. `nypr-card`, `nypr-input`, and `buttons` all output CSS, so they should not be imported more than once in a project or else your CSS will become bloated.
+Careful when using these. `nypr-ui/card`, `nypr-ui/input`, and `nypr-ui/buttons` all output CSS, so they should not be imported more than once in a project or else your CSS will become bloated.
 
 ### Most Common Use Case
 Looks like this:
