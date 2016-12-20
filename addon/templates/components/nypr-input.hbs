@@ -7,7 +7,8 @@
   class="nypr-input"
   value=value
   disabled=disabled
-  focus-out=(action (mut focused) true)}}
+  focus-in=(action (mut entered) true)
+  focus-out=(action (mut exited) true)}}
 <div class="nypr-input-footer">
   {{#if hasError}}
     <span class="nypr-input-error">
@@ -16,7 +17,7 @@
       {{/each}}
     </span>
   {{else}}
-    {{#if clue}}
+    {{#if showAdvice}}
       <span class="nypr-input-advice">{{clue}}</span>
     {{/if}}
   {{/if}}
