@@ -4,7 +4,8 @@
   border-radius: 4px;
   background-color: white;
   border: solid 1px $lightestgray;
-  font-size: 18px;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
   
   .has-error & {
     border-color: $red;
@@ -36,7 +37,7 @@
 .nypr-input-footer {
   @include display-flex;
   width: 100%;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   > span {
     @include flex(1);
   }

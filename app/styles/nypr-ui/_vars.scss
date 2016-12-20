@@ -1,3 +1,10 @@
+// VARS
+$base-font: 16;
+$line-height: 24;
+$transition-timing: 250ms;
+$transition-timing-queue: 150ms;
+$spacing: 1.5rem;
+
 /***
  * COLORS
  */
@@ -26,6 +33,28 @@ $red: #DE1E3D;
 $blue: #128cf4;
 
 /**
+ * Dark Gray:
+ * `$darkgray`
+ * `#444`
+ * `rgb(68, 68, 68)`
+ *
+ *      @example
+ *      div.btn--square-small(style='background:#444')
+ */
+$darkgray: #444;
+
+/**
+ * Gray:
+ * `$gray`
+ * `#666`
+ * `rgb(102, 102, 102)`
+ *
+ *      @example
+ *      div.btn--square-small(style='background:#666')
+ */
+$gray: #666;
+
+/**
  * Light Gray:
  * `$lightgray`
  * `#888`
@@ -46,3 +75,14 @@ $lightgray: #888;
  *      div.btn--square-small(style='background:#ddd')
  */
 $lightestgray: #ddd;
+
+/**
+ * Darker Gray:
+ * `$darkergray`
+ * `#333`
+ * `rgb(51, 51, 51)`
+ *
+ *      @example
+ *      div.btn--square-small(style='background:#333')
+ */
+$darkergray: #333;
