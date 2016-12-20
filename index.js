@@ -6,8 +6,5 @@ module.exports = {
   included: function(app) {
     this._super.included(app);
   },
-  
-  isDevelopingAddon: function() {
-    return true;
-  }
+  isDevelopingAddon: () => true
 };
