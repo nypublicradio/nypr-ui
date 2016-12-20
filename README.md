@@ -45,20 +45,20 @@ module.exports = {
 ```
 * If you're using `ember-cli-sass` or `ember-cli-compass-compiler`, special care needs to be taken when arranging your sass files.
 
-```
+```sh
 addon/
 |__ styles/
-    |__ addon.scss // empty file; include it so the compilers don't choke
+    |__ addon.scss # empty file; include it so the compilers don't choke
 
 app/
 |__ styles/
-    |__ <your-addon-name>.scss // put your styles and exportable sass mixins here
+    |__ <your-addon-name>.scss # put your styles and exportable sass mixins here
     
 tests/
 |__ dummy/
     |__ app/
         |__ styles/
-            |__ app.scss // dummy app styles go here, never touched by consuming app or addons
+            |__ app.scss # dummy app styles go here, never touched by consuming app or addons
 ```
 With this structure, apps or addons which consume your addon *should* be have access to your sass mixins through `@import "<your-addon-name>";`.
 
