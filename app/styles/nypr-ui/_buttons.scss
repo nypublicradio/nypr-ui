@@ -17,10 +17,10 @@
   cursor: pointer;
 
   @include transition(
-  opacity $transition-timing,
-  background-color $transition-timing,
-  border-color $transition-timing,
-  color $transition-timing);
+    opacity $transition-timing,
+    background-color $transition-timing,
+    border-color $transition-timing,
+    color $transition-timing);
 
   &:hover,
   &:focus {
