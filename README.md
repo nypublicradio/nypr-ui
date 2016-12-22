@@ -66,7 +66,7 @@ With this structure, apps or addons which consume your addon *should* be have ac
 
 ### Components
 This add-on also provides a few components which can be invoked in templates:
-* `changeset-form`: basic form which abstracts a lot of boilerplate for using changesets
+* `nypr-form`: basic form which abstracts a lot of boilerplate for using changesets
 * `nypr-card`: basic UI widget
 * `nypr-input`: form field with error states. compatible with changesets
 

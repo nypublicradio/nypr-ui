@@ -7,9 +7,10 @@ export default Component.extend({
 
   classNameBindings: ['hasError'],
   type: 'text',
-  focused: false,
-  touched: false,
+  entered: false,
+  exited: false,
   submitted: false,
-  showError: or('focused', 'submitted'),
+  showError: or('exited', 'submitted'),
+  showAdvice: and('entered', 'clue'),
   hasError: and('errors', 'showError'),
 });
