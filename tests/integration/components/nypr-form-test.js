@@ -4,7 +4,7 @@ import sinon from 'sinon';
 import RSVP from 'rsvp';
 
 
-moduleForComponent('changeset-form', 'Integration | Component | changeset form', {
+moduleForComponent('nypr-form', 'Integration | Component | nypr form', {
   integration: true,
   beforeEach() {
     this.mockChangeSet = {
@@ -22,14 +22,14 @@ moduleForComponent('changeset-form', 'Integration | Component | changeset form',
 });
 
 test('it renders', function(assert) {
-  this.render(hbs`{{changeset-form}}`);
+  this.render(hbs`{{nypr-form}}`);
 
   assert.equal(this.$().text().trim(), '');
 
   this.render(hbs`
-    {{#changeset-form}}
+    {{#nypr-form}}
       template block text
-    {{/changeset-form}}
+    {{/nypr-form}}
   `);
 
   assert.equal(this.$().text().trim(), 'template block text');
@@ -46,7 +46,7 @@ test('it succeeds', function(assert) {
   this.set('onFailure', onFailure);
   this.set('onInvalid', onInvalid);
 
-  this.render(hbs`{{#changeset-form
+  this.render(hbs`{{#nypr-form
                     changeset=changeset
                     onSubmit=(action onSubmit)
                     onSuccess=(action onSuccess)
@@ -60,7 +60,7 @@ test('it succeeds', function(assert) {
                       data-failure="{{form.status.failure}}"
                       data-invalid="{{form.status.invalid}}"
                       data-processing="{{form.status.processing}}"></span>
-                  {{/changeset-form}}`);
+                  {{/nypr-form}}`);
   this.$('input').click();
 
   assert.equal(onSubmit.callCount,  1, 'called onSubmit');
@@ -84,7 +84,7 @@ test('it fails', function(assert) {
   this.set('onFailure', onFailure);
   this.set('onInvalid', onInvalid);
 
-  this.render(hbs`{{#changeset-form
+  this.render(hbs`{{#nypr-form
                     changeset=changeset
                     onSubmit=(action onSubmit)
                     onSuccess=(action onSuccess)
@@ -98,7 +98,7 @@ test('it fails', function(assert) {
                       data-failure="{{form.status.failure}}"
                       data-invalid="{{form.status.invalid}}"
                       data-processing="{{form.status.processing}}"></span>
-                  {{/changeset-form}}`);
+                  {{/nypr-form}}`);
   this.$('input').click();
 
   assert.equal(onSubmit.callCount,  1, 'called onSubmit');
@@ -123,7 +123,7 @@ test('it invalids', function(assert) {
   this.set('onFailure', onFailure);
   this.set('onInvalid', onInvalid);
 
-  this.render(hbs`{{#changeset-form
+  this.render(hbs`{{#nypr-form
                     changeset=changeset
                     onSubmit=(action onSubmit)
                     onSuccess=(action onSuccess)
@@ -137,7 +137,7 @@ test('it invalids', function(assert) {
                       data-failure="{{form.status.failure}}"
                       data-invalid="{{form.status.invalid}}"
                       data-processing="{{form.status.processing}}"></span>
-                  {{/changeset-form}}`);
+                  {{/nypr-form}}`);
   this.$('input').click();
 
   assert.equal(onSubmit.callCount,  0, 'called onSubmit');
