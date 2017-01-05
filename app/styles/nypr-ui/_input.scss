@@ -32,6 +32,20 @@
   @include base-input;
 }
 
+.nypr-input-container {
+  position: relative;;
+}
+
+.nypr-input-container .nypr-input-validmark {
+  position: absolute;
+  right: 15px;
+  bottom: 18px;
+  
+  path {
+    fill: $grass;
+  }
+}
+
 .nypr-input-footer {
   @include display-flex;
   width: 100%;

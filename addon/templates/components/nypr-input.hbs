@@ -9,6 +9,10 @@
   disabled=disabled
   focus-in=(action (mut entered) true)
   focus-out=(action (mut exited) true)}}
+{{#if showValidMark}}
+  {{nypr-svg className="nypr-input-validmark" icon="checkmark"}}
+{{/if}}
+
 <div class="nypr-input-footer">
   {{#if hasError}}
     <span class="nypr-input-error">
