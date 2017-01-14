@@ -1,11 +1,26 @@
 .nypr-mini-chrome-top {
   padding: 15px 25px;
   background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: 800px) {
+    margin-bottom: -10px;
+    flex-direction: column;
+
+    * {
+      margin: 3px 0;
+    }
+  }
 }
 
 .nypr-mini-chrome .wnyc-logo {
   width: 77px;
-  height: 24px;
+  height: 30px;
+  position: relative;
+  top: 3px;
+
   path {
     fill: white;
   }
