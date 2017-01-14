@@ -13,15 +13,17 @@
       margin: 3px 0;
     }
   }
-}
 
-.nypr-mini-chrome .wnyc-logo {
-  width: 77px;
-  height: 30px;
-  position: relative;
-  top: 3px;
+  .logo {
+    display: flex;
 
-  path {
-    fill: white;
+    svg {
+      width: 77px;
+      height: 30px;
+
+      path {
+        fill: white;
+      }
+    }
   }
 }
