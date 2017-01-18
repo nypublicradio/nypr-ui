@@ -9,9 +9,18 @@
   align-items: center;
   justify-content: space-between;
 
-  @media (max-width: 400px) {
-    flex-direction: column;
+  .tune-in {
+    color: white;
+    text-align: right;
 
+    @media (max-width: 400px) {
+      font-size: 12px;
+      font-weight: 700;
+      margin-left: 10px;
+    }
+  }
+
+  @media (max-width: 400px) {
     * {
       margin: 3px 0;
     }
