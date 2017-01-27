@@ -17,20 +17,20 @@
 {{/if}}
 
 <div class="nypr-input-footer">
+  {{#if helplinkUrl}}
+    <div class="nypr-input-helplink">
+      <a href={{helplinkUrl}}>{{helplinkText}}</a>
+    </div>
+  {{/if}}
   {{#if hasError}}
-    <span class="nypr-input-error">
+    <div class="nypr-input-error">
       {{#each errors as |error|}}
         {{{error}}}<br>
       {{/each}}
-    </span>
+    </div>
   {{else}}
     {{#if showAdvice}}
-      <span class="nypr-input-advice">{{clue}}</span>
+      <div class="nypr-input-advice">{{clue}}</div>
     {{/if}}
-  {{/if}}
-  {{#if helplinkUrl}}
-    <span class="nypr-input-helplink">
-      <a href={{helplinkUrl}}>{{helplinkText}}</a>
-    </span>
   {{/if}}
 </div>
