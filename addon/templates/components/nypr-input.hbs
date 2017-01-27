@@ -9,6 +9,8 @@
   disabled=disabled
   focus-in=(action (mut focused) true)
   focus-out=(action (mut blurred) true)
+  change=onChange
+  input=onInput
   }}
 {{#if showValidMark}}
   {{nypr-svg className="nypr-input-validmark" icon="checkmark"}}
