@@ -8,11 +8,11 @@ export default Component.extend({
   classNames: ['nypr-input-container'],
   classNameBindings: ['hasError'],
   type: 'text',
-  entered: false,
-  exited: false,
+  focused: false,
+  blurred: false,
   submitted: false,
-  showError: or('exited', 'submitted'),
-  showAdvice: and('entered', 'clue'),
+  showError: or('blurred', 'submitted'),
+  showAdvice: and('focused', 'clue'),
   hasError: and('errors', 'showError'),
   showValidMark: computed('validMark', 'hasError', 'disabled', function() {
     if (!this.get('validMark')) {
