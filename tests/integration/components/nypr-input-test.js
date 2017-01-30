@@ -64,24 +64,6 @@ test('it shows advice text at the right times', function(assert) {
   assert.equal(this.$('.nypr-input-advice').length, 0, "it should not show advice when it shows an error");
 });
 
-test('it shows advice text at the right times', function(assert) {
-  let testClue = 'format: ###';
-  this.set('clue', testClue);
-  this.set('errors', undefined);
-  this.render(hbs`{{nypr-input clue=clue errors=errors}}`);
-  assert.equal(this.$('.nypr-input-advice').length, 0, "it should not show advice before focus");
-
-  this.$('.nypr-input').trigger('focusin');
-  assert.equal(this.$('.nypr-input-advice').length, 1, "it should show advice on focus");
-  assert.equal(this.$('.nypr-input-advice').text().trim(), testClue, "it should show the correct advice");
-
-  this.$('.nypr-input').trigger('focusout');
-  assert.equal(this.$('.nypr-input-advice').length, 1, "it should keep showing advice after touched (focusout)");
-
-  this.set('errors', ['bad input']);
-  assert.equal(this.$('.nypr-input-advice').length, 0, "it should not show advice when it shows an error");
-});
-
 test('it calls the onChange event', function(assert) {
   let onChangeCalls = [];
   this.set('changeAction', (e) => {
