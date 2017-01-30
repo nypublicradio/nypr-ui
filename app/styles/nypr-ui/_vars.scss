@@ -5,9 +5,8 @@ $transition-timing: 250ms;
 $transition-timing-queue: 150ms;
 $spacing: 1.5rem;
 
-
 /***
- * Colors:
+ * COLORS
  */
 
 /**
@@ -21,27 +20,6 @@ $spacing: 1.5rem;
  */
 $red: #DE1E3D;
 
-/**
- * WNYC Dark Red (used as hover state for $red):
- * `$red`
- * `#ba0d29`
- * `rgb(186, 13, 41)`
- *
- *      @example
- *      div.btn--square-small(style='background:#ba0d29')
- */
-$darkred: #ba0d29;
-
-/**
- * WNYC Rouge (used as the background color in the mobile sub-navigation):
- * `$rouge`
- * `#8d2131`
- * `rgb(82, 0, 10)`
- *
- *      @example
- *      div.btn--square-small(style='background:#8d2131')
- */
-$rouge: #8d2131;
 
 /**
  * WNYC Blue:
@@ -66,91 +44,26 @@ $blue: #128cf4;
 $darkblue: #1068b2;
 
 /**
- * Discover Navy (used in the Discover chrome):
- * `$navy`
- * `#2B2F3D`
- * `rgb(43, 47, 61)`
+ * Dark Gray:
+ * `$darkgray`
+ * `#444`
+ * `rgb(68, 68, 68)`
  *
  *      @example
- *      div.btn--square-small(style='background:#2B2F3D')
+ *      div.btn--square-small(style='background:#444')
  */
-$navy: #2B2F3D;
+$darkgray: #444;
 
 /**
- * Discover Navy (used in the Discover chrome):
- * `$discoblue`
- * `#3E4458`
- * `rgb(62, 68, 88)`
+ * Gray:
+ * `$gray`
+ * `#666`
+ * `rgb(102, 102, 102)`
  *
  *      @example
- *      div.btn--square-small(style='background:#3E4458')
+ *      div.btn--square-small(style='background:#666')
  */
-$discoblue: #3E4458;
-
-/**
- * Discover Purple (used for some Discover links):
- * `$discopurple`
- * `#8fa2e5`
- * `rgb(143, 162, 229)`
- *
- *      @example
- *      div.btn--square-small(style='background:#8fa2e5')
- */
-$discopurple: #8fa2e5;
-
-/**
- * Light Green:
- * `$lightgreen`
- * `#0EB8BA`
- * `rgb(14, 184, 186)`
- *
- *      @example
- *      div.btn--square-small(style='background:#0EB8BA')
- */
-$lightgreen: #0EB8BA;
-
-/**
- * Dark Green:
- * `$darkgreen`
- * `#0C999B`
- * `rgb(12, 153, 155)`
- *
- *      @example
- *      div.btn--square-small(style='background:#0C999B')
- */
-$darkgreen: #0C999B;
-
-/**
- * Darkest Gray:
- * `$darkestgray`
- * `#222`
- * `rgb(34, 34, 34)`
- *
- *      @example
- *      div.btn--square-small(style='background:#222')
- */
-$darkestgray: #222;
-
-/**
- * Darker Gray:
- * `$darkergray`
- * `#333`
- * `rgb(51, 51, 51)`
- *
- *      @example
- *      div.btn--square-small(style='background:#333')
- */
-$darkergray: #333;
-
-/**
- * Charcoal Gray:
- * `$charcoal`
- * `#39364a`
- *
- *      @example
- *      div.btn--square-smal(style='background:#39364a')
- */
-$charcoal: #39364a;
+$gray: #666;
 
 /**
  * Light Gray:
@@ -162,17 +75,6 @@ $charcoal: #39364a;
  *      div.btn--square-small(style='background:#888')
  */
 $lightgray: #888;
-
-/**
- * Lighter Gray:
- * `$lightergray`
- * `#bbb`
- * `rgb(187, 187, 187)`
- *
- *      @example
- *      div.btn--square-small(style='background:#bbb')
- */
-$lightergray: #bbb;
 
 /**
  * Lightest Gray:
@@ -197,82 +99,43 @@ $lightestgray: #ddd;
 $nearwhite: #f1f1f1;
 
 /**
- * Gray White:
- * `$graywhite`
- * `#f8f8f8`
- * `rgb(248, 248, 248)`
+ * Darker Gray:
+ * `$darkergray`
+ * `#333`
+ * `rgb(51, 51, 51)`
  *
  *      @example
- *      .searchbox input(style='background:#f8f8f8;')
+ *      div.btn--square-small(style='background:#333')
  */
-$graywhite: #f8f8f8;
+$darkergray: #333;
 
-/**
- TODO: need to phase this button out, and associated styles.
- * WNYC Pink:
- * `$pink`
- * `#d3008c`
- * `rgb(211, 0, 140)`
- *
- *      @example
- *      div.btn--square-small(style='background:#D3008C')
- */
-$pink: #d3008c;
-
-
-$gold: #FBE01A;
-
-$facebook-purple: #3b5998;
-
-// MIXINS and EXTENDS
-%clearfix {
-    &:after {
-        content: '';
-        display: table;
-        clear: both;
-    }
-}
-
-%vertical-rhythm {
-    display: block;
-    margin-top: 0;
-    margin-bottom: #{$line-height/$base-font}rem;
-}
-
-@mixin abscenter {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-}
-
-@mixin mq($mq...) {
-    @if length(keywords($mq)) == 1 {
-        @media only screen and #{$mq} {
-            @content;
-        }
-    } @else {
-        $query: 'only screen';
-
-        @each $media in $mq {
-            $query: "#{$query} and #{$media}";
-        }
-
-        @media #{$query} {
-            @content;
-        }
-    }
-}
+$grass: #45de9b;
 
 @mixin fontsize($pixels) {
-    font-size: #{$pixels}px;
-    font-size: rems($pixels);
+  font-size: #{$pixels}px;
+  font-size: rems($pixels);
 }
 
 @function rems($size) {
-    @return #{$size/$base-font}rem;
+  @return #{$size/$base-font}rem;
+}
+
+@mixin mq($mq...) {
+  @if length(keywords($mq)) == 1 {
+    @media only screen and #{$mq} {
+      @content;
+    }
+  } @else {
+    $query: 'only screen';
+
+    @each $media in $mq {
+      $query: "#{$query} and #{$media}";
+    }
+
+    @media #{$query} {
+      @content;
+    }
+  }
 }
 
 // MEDIA QUERIES
