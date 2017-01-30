@@ -64,4 +64,36 @@ test('it shows advice text at the right times', function(assert) {
   assert.equal(this.$('.nypr-input-advice').length, 0, "it should not show advice when it shows an error");
 });
 
+test('it calls the onChange event', function(assert) {
+  let onChangeCalls = [];
+  this.set('changeAction', (e) => {
+    onChangeCalls.push(e);
+  });
+
+  this.render(hbs`{{nypr-input onChange=(action changeAction)}}`);
+
+  this.$('.nypr-input').val('abc');
+  this.$('.nypr-input').change();
+
+  assert.equal(onChangeCalls.length, 1);
+});
+
+
+test('it calls the onInput event', function(assert) {
+  let onInputCalls = [];
+  this.set('inputAction', (e) => {
+    onInputCalls.push(e);
+  });
+
+  this.render(hbs`{{nypr-input onInput=(action inputAction)}}`);
+
+  this.$('.nypr-input').val('a');
+  this.$('.nypr-input').trigger('input');
+  this.$('.nypr-input').val('ab');
+  this.$('.nypr-input').trigger('input');
+  this.$('.nypr-input').val('abc');
+  this.$('.nypr-input').trigger('input');
+
+  assert.equal(onInputCalls.length, 3);
+});
 
