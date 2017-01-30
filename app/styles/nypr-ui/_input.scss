@@ -47,13 +47,8 @@
 }
 
 .nypr-input-footer {
-  @include display-flex;
   width: 100%;
   margin-bottom: 16px;
-
-  > span {
-    @include flex(1);
-  }
 
   .nypr-input-error {
     color: $red;
@@ -70,8 +65,11 @@
   }
 
   .nypr-input-helplink {
+    float: right;
     font-size: 14px;
     padding-top: 10px;
+    padding-left: 12px;
+    margin-bottom: 16px;
     text-align: right;
   }
 }
