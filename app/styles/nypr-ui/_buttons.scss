@@ -108,6 +108,38 @@
   }
 }
 
+/**
+ * Red Button:
+ * `.btn--red`
+ *
+ *      @example
+ *      button.btn.btn--red Click
+ */
+@mixin btn--red {
+  background-color: $red;
+  border-color: $red;
+  color: white;
+
+  &:not([disabled]) {
+    &:hover,
+    &:focus {
+      outline: none;
+      background-color: darken($red, 10%);
+      border-color: darken($red, 10%);
+      color: white;
+      opacity: 1;
+    }
+  }
+}
+
+/**
+ * Large Button:
+ * `.btn--large`
+ * It's a little bigger than your standard button.
+ *
+ *      @example
+ *      button.btn.btn--large Click Me, I'm Bigger!
+ */
 @mixin btn--large {
   padding: 3px 18px;
   line-height: 36px;
