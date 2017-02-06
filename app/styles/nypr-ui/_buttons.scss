@@ -23,7 +23,7 @@
     color $transition-timing);
 
   &:hover,
-  &:focus {
+  &:active {
     border-color: rgba($darkgray, 0.2);
     color: $gray;
     opacity: 1;
@@ -32,6 +32,11 @@
   &[disabled] {
     opacity: 0.15;
     cursor: not-allowed;
+  }
+  
+  .touchevents &:hover {
+    border-color: initial;
+    color: initial;
   }
 }
 
