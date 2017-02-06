@@ -41,14 +41,11 @@ test('it calls the edit action if included', function(assert) {
   this.$('[data-test-selector=edit-button]').click();
 });
 
-test('it calls the toggle action if included', function(assert) {
-  assert.expect(4);
-  function toggle() {
-    assert.ok('toggle was called');
-  }
+test('it toggles the text if isEditing is switched', function(assert) {
+  assert.expect(2);
   
-  this.set('toggle', toggle);
-  this.render(hbs`{{nypr-card toggle=(action toggle)}}`);
+  this.set('isEditing', false);
+  this.render(hbs`{{nypr-card isEditing=isEditing edit=(action (mut isEditing) (if isEditing false true))}}`);
   
   this.$('[data-test-selector=edit-button]').click();
   assert.equal(this.$('[data-test-selector=edit-button]').text().trim(), 'Cancel');

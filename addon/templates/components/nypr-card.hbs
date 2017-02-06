@@ -3,11 +3,7 @@
   
   {{#if edit}}
   <button class="nypr-card-edit-btn" {{action (action edit)}} data-test-selector="edit-button">
-    Edit info
-  </button>
-  {{else if toggle}}
-  <button class="nypr-card-edit-btn" {{action 'toggle'}} data-test-selector="edit-button">
-    {{if toggled 'Cancel' 'Edit info'}}
+    {{if isEditing 'Cancel' 'Edit info'}}
   </button>
   {{/if}}
 </div> 
