@@ -10,8 +10,8 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{nypr-mini-chrome}}`);
+  this.render(hbs`{{nypr-mini-chrome promo="Promo message"}}`);
 
-  assert.equal(this.$().text().trim(), 'Tune in Monday−Thursday at 8 p.m. ET');
+  assert.equal(this.$().text().trim(), 'Promo message');
 
 });
