@@ -9,3 +9,4 @@ dependencies:
     - gem install compass --no-ri --no-rdoc
     - npm i bower -g
     - bower install
+    - npm install
