@@ -33,7 +33,7 @@
     opacity: 0.15;
     cursor: not-allowed;
   }
-  
+
   .touchevents &:hover {
     border-color: initial;
     color: initial;
@@ -62,7 +62,7 @@
   color: initial;
   text-align: left;
   background-color: transparent;
-  
+
   @include transition(
     opacity $transition-timing,
     background-color $transition-timing,
@@ -83,7 +83,7 @@
     opacity: 0.15;
     cursor: not-allowed;
   }
-  
+
   .touchevents &:hover {
     border-color: initial;
     color: initial;
@@ -109,30 +109,6 @@
 }
 
 /**
- * Blue Button:
- * `.btn--blue`
- *
- *      @example
- *      button.btn.btn--blue Click
- */
-@mixin btn--blue {
-  background-color: $blue;
-  border-color: $blue;
-  color: white;
-
-  &:not([disabled]) {
-    &:hover,
-    &:active {
-      outline: none;
-      background-color: $darkblue;
-      border-color: $darkblue;
-      color: white;
-      opacity: 1;
-    }
-  }
-}
-
-/**
  * Large Button:
  * `.btn--large`
  * It's a little bigger than your standard button.
@@ -140,8 +116,62 @@
  *      @example
  *      button.btn.btn--large Click Me, I'm Bigger!
  */
+
+
+// A button with white text and a solid colored background
+@mixin btn--solid-color ($background-color: $gray, $hover-color: $darkgray) {
+  background-color: $background-color;
+  border-color: $background-color;
+  color: white;
+
+  &:not([disabled]) {
+    &:hover,
+    &:active {
+      outline: none;
+      background-color: $hover-color;
+      border-color: $hover-color;
+      color: white;
+      opacity: 1;
+    }
+  }
+}
+
+// Button with a larger font size than usual and padding to match
 @mixin btn--large {
   padding: 3px 18px;
   line-height: 36px;
   @include fontsize(16);
+}
+
+// Button with bold text
+@mixin btn--strongtext {
+  font-weight: 600;
+}
+
+// Button with facebook colors
+@mixin btn--facebook {
+  @include btn--solid-color(
+    $background-color: $facebook,
+    $hover-color: $facebook-hover
+    );
+}
+
+// Blue button
+@mixin btn--blue {
+  @include btn--solid-color(
+    $background-color: $blue,
+    $hover-color: $darkblue
+  );
+}
+
+// Button style for login/signup and other account forms
+@mixin btn--account-form {
+  @include btn;
+  @include btn--large;
+  @include btn--blue;
+  @include btn--strongtext;
+  white-space: nowrap;
+  text-align: center;
+  height: 46px;
+  width: 100%;
 }
