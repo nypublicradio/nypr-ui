@@ -14,12 +14,4 @@ test('it renders', function(assert) {
 
   assert.equal(this.$().text().trim(), 'Tune in Monday−Thursday at 8 p.m. ET');
 
-  // Template block usage:
-  this.render(hbs`
-    {{#nypr-mini-chrome}}
-      template block text
-    {{/nypr-mini-chrome}}
-  `);
-
-  assert.ok(this.$().text().match(/template block text/));
 });
