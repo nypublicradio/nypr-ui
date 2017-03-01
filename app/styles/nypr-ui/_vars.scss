@@ -5,7 +5,6 @@ $transition-timing: 250ms;
 $transition-timing-queue: 150ms;
 $spacing: 1.5rem;
 
-
 @mixin fontsize($pixels) {
   font-size: #{$pixels}px;
   font-size: rems($pixels);

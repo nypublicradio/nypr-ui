@@ -1,0 +1,5 @@
+.l-unconstrained--sm {
+  @include mq($small-only) {
+    padding: 0;
+  }
+}

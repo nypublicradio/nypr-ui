@@ -1,7 +1,12 @@
-@import "nypr-ui/vars";
+@import "compass/css3/flexbox";
+
 @import "nypr-ui/colors";
+@import "nypr-ui/vars";
+
+@import "nypr-ui/icons";
+@import "nypr-ui/input";
 @import "nypr-ui/z-index";
 @import "nypr-ui/buttons";
-@import "nypr-ui/input";
+
 @import "nypr-ui/card";
 @import "nypr-ui/mini-chrome";
