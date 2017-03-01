@@ -1,4 +1,6 @@
 # nypr-ui
+[![CircleCI](https://img.shields.io/circleci/project/github/nypublicradio/nypr-ui.svg?style=flat-square-blue)](https://circleci.com/gh/nypublicradio/nypr-ui) [![GitHub release](https://img.shields.io/github/release/nypublicradio/nypr-ui.svg?style=flat-square)](https://github.com/nypublicradio/nypr-ui/releases/latest) [![GitHub pull requests](https://img.shields.io/github/issues-pr/nypublicradio/nypr-ui.svg?style=flat-square)](https://github.com/nypublicradio/nypr-ui/pulls) [![GitHub contributors](https://img.shields.io/github/contributors/nypublicradio/nypr-ui.svg?style=flat-square)](https://github.com/nypublicradio/nypr-ui/graphs/contributors)
+
 ### The New York Public Radio UI Library
 The goal of this ember add on is to centralize all of our common UI components so we can avoid branching dependencies and also provide a way for the multiple client apps to share reusable code.
 
