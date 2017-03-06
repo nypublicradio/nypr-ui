@@ -33,7 +33,7 @@ $facebook: #3b5998;             // rgb(59, 89, 152)
 $facebook-hover: #2a457c;
 
 // Image Filters
-$filter: rgba(0, 0, 0, .3);
+$filter--light: rgba(0, 0, 0, .3);
 
 @mixin filter-container {
     top: 0;
