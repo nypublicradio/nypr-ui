@@ -43,12 +43,9 @@ $filter--light: rgba(0, 0, 0, .3);
 }
 
 @mixin classic-filter($filter) {
-    content: "classic filter";
+    content: "";
     overflow: hidden;
     position: absolute;
-    text-indent: -9999rem;
-    font-size: 0;
-    line-height: 0;
     top: 0;
     bottom: 0;
     left: 0;
@@ -57,12 +54,9 @@ $filter--light: rgba(0, 0, 0, .3);
 }
 
 @mixin animate-filter($filter, $opacity) {
-    content: "animated filter";
+    content: "";
     overflow: hidden;
     position: absolute;
-    text-indent: -9999rem;
-    font-size: 0;
-    line-height: 0;
     top: 0;
     bottom: 0;
     left: 0;
