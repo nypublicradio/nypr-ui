@@ -40,15 +40,6 @@
   }
 }
 
-/**
-* Blank Button:
-* `.btn--blank`
-* An empty button. Useful for icons or interactive buttons
-* to be style other ways
-*
-*      @example
-*      button.btn.btn--blank I'm a button but I look like nothing special
-*/
 @mixin blank-button {
   @include appearance(none);
   font-family: inherit;
@@ -90,15 +81,6 @@
   }
 }
 
-/**
- * Fat Button:
- * `.btn--fat`
- * When that small circle button is an important call to action.
- *
- *      @example
- *      button.btn.btn--circle.btn--fat
- *          i.fa.fa-twitter
- */
 @mixin btn--fat {
   width: 40px;
   height: 40px;
@@ -107,16 +89,6 @@
     font-size: 18px;
   }
 }
-
-/**
- * Large Button:
- * `.btn--large`
- * It's a little bigger than your standard button.
- *
- *      @example
- *      button.btn.btn--large Click Me, I'm Bigger!
- */
-
 
 // A button with white text and a solid colored background
 @mixin btn--solid-color ($background-color: $gray, $hover-color: $darkgray) {
@@ -136,7 +108,6 @@
   }
 }
 
-// Button with a larger font size than usual and padding to match
 @mixin btn--large {
   padding: 3px 18px;
   line-height: 36px;
