@@ -1,4 +1,4 @@
-.icon--with-text {
+@mixin icon--with-text {
   @include flexbox((
    display: flex,
    flex-direction: row,
@@ -8,7 +8,7 @@
 
   svg,
   i {
-    margin-right: 7px;
+    margin-right: 10px;
 
     &.fa {
       width: 15px;
@@ -21,4 +21,8 @@
      align-items: flex-start
     ));
   }
+}
+
+.icon--with-text {
+  @include icon--with-text;
 }
