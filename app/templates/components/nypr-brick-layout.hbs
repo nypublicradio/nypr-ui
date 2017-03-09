@@ -1,0 +1,7 @@
+{{#each groups as |group index|}}
+  {{#if (eq index 2)}}
+    {{nypr-brick-card-row items=group}}
+  {{else}}
+    {{nypr-brick-image-row items=group flip=(eq index 1)}}
+  {{/if}}
+{{/each}}
