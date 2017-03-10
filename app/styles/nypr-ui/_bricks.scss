@@ -18,7 +18,7 @@
   }
 }
 
-.brick_row li {
+.brick_row__item {
   @include flexbox((
     display: flex,
     flex-direction: column,
@@ -32,7 +32,7 @@
   }
 }
 
-.brick_row li .item {
+.brick_row__item .item {
   &__icons {
     @include flexbox((
       display: flex,
@@ -81,7 +81,7 @@
   }
 }
 
-.brick_row--images li {
+.brick_row--images .brick_row__item {
   @include filter-container;
   background-repeat: no-repeat;
   background-size: cover;
@@ -116,7 +116,7 @@
   }
 }
 
-.brick_row--images li .item {
+.brick_row--images .brick_row__item .item {
   &__head {
     &__headline {
       @include text--largest;
@@ -129,9 +129,14 @@
   }
 }
 
-.brick_row--images li.row__col {
+.brick_row--images .row__col {
   width: 32%;
-  padding: 0;
+  height: 487px;
+  @include flexbox((
+    display: flex,
+    flex-direction: column,
+    justify-content: space-between
+  ));
 
   &.flipped {
     order: -1;
@@ -149,25 +154,9 @@
       color: black;
     }
   }
-
-  > ul {
-    height: 487px;
-    padding: 0;
-    margin: 0;
-
-    @include flexbox((
-      display: flex,
-      flex-direction: column,
-      justify-content: space-between
-    ));
-
-    @include mq($small-only) {
-      height: auto;
-    }
-  }
 }
 
-.brick_row--images li.row__col li {
+.brick_row--images .row__col .brick_row__item {
   @include filter-container;
   width: 100%;
   height: 237px;
@@ -211,7 +200,7 @@
   }
 }
 
-.brick_row--images li.row__col li .item {
+.brick_row--images .row__col .item {
   &__head {
     &__headline {
       @include fontsize(20);
@@ -234,7 +223,7 @@
   &__icons {
     &__video {
       @include mq($small-only) {
-        display: none;
+        display: none !important;
       }
     }
   }
@@ -246,7 +235,7 @@
       flex-direction: column
     ));
 
-    .story_video {
+    .brick_row__item.story_video {
       .item__head__headline svg {
         display: inline;
       }
@@ -255,7 +244,7 @@
       }
     }
 
-    .item--trending {
+    .brick_row__item.item--trending {
       .item__icons {
         position: absolute;
         right: 25px;
@@ -275,7 +264,7 @@
   }
 }
 
-.brick_row--cards li {
+.brick_row--cards .brick_row__item {
   width: 32%;
   padding: 0;
   height: 495px;
@@ -324,7 +313,7 @@
   }
 }
 
-.brick_row--cards li .item {
+.brick_row--cards .brick_row__item .item {
   &__icons {
     position: absolute;
     z-index: 2;
@@ -337,6 +326,12 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center top;
+    @include filter-container;
+
+    &:before {
+      @include classic-filter($gradient--light);
+      height: 100px;
+    }
   }
 
   &__head {
