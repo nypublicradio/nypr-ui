@@ -1,9 +1,7 @@
-import Ember from 'ember';
+import Component from 'ember-component';
+import computed from 'ember-computed';
 
 export default Ember.Component.extend({
-  tagName: 'ul',
-  classNames: 'brick_row brick_row--cards',
-  group: Ember.computed('items', function() {
-    return this.get('items');
-  })
+  tagName: 'div',
+  classNames: ['brick_row', 'brick_row--cards']
 });

@@ -1,8 +1,6 @@
-{{nypr-brick-item items=group.[0]}}
+{{nypr-brick-item items=items.[0]}}
 
-<li class="row__col {{if flip 'flipped'}}">
-  <ul>
-    {{nypr-brick-item items=group.[1]}}
-    {{nypr-brick-item items=group.[2]}}
-  </ul>
-</li>
+<div class="row__col {{if flip 'flipped'}}">
+  {{nypr-brick-item items=items.[1]}}
+  {{nypr-brick-item items=items.[2]}}
+</div>
