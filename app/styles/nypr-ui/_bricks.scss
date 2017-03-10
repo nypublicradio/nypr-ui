@@ -19,6 +19,7 @@
 }
 
 .brick_row__item {
+  border: 0;
   @include flexbox((
     display: flex,
     flex-direction: column,
@@ -29,6 +30,10 @@
     .item__icons__trending {
       visibility: visible;
     }
+  }
+
+  &:hover {
+    border: 0;
   }
 }
 
