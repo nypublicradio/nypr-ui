@@ -26,3 +26,11 @@
 .icon--with-text {
   @include icon--with-text;
 }
+
+.arrow--down {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 7px solid #fff;
+}
