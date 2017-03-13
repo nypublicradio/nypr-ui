@@ -33,6 +33,16 @@ $spacing: 1.5rem;
 }
 
 // MEDIA QUERIES
+// NEW
+
+$mobile: "(max-width: 768px)";
+$tablet: "(min-width: #{768 + 1}px)";
+$tablet-only: "(min-width: #{768 + 1}px) and (max-width: #{1000 - 1}px)";
+$touch: "(max-width: #{1000 - 1}px)";
+$desktop: "(min-width: 1000px)";
+$desktop-only: "(min-width: 1000px) and (max-width: #{1192 - 1}px)";
+$widescreen: "(min-width: 1192px)";
+
 // HORIZONTAL
 
 $narrow: 321;
