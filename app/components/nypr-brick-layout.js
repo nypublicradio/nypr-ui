@@ -7,8 +7,8 @@ export default Ember.Component.extend({
     let items = this.get('items');
     return [
       items.slice(0, 3),
-      items.slice(3, 6),
-      items.slice(8)
+      items.slice(3, 5),
+      items.slice(5)
     ];
   })
 });
