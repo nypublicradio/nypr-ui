@@ -394,3 +394,19 @@
     }
   }
 }
+
+.brick_grid {
+  @include flexbox((
+    display: flex,
+    flex-wrap: wrap,
+    justify-content: space-around
+  ));
+}
+
+.brick_grid > .brick_row__item {
+  @include mq($tablet) {
+    flex-basis: 32%;
+    margin-bottom: 25px;
+    height: 290px;
+  }
+}
