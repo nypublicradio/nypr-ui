@@ -13,8 +13,4 @@ test('it renders', function(assert) {
   this.render(hbs`{{nypr-brick-grid}}`);
 
   assert.equal(this.$().text().trim(), '');
-
-  this.render(hbs`{{nypr-brick-grid}}`);
-
-  assert.equal(this.$().text().trim(), 'template block text');
 });
