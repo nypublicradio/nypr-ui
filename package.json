@@ -11,7 +11,7 @@
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": "https://github.com/nypublicradio/nypr-ui",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
