@@ -114,6 +114,27 @@
   }
 }
 
+.streambanner-station > .ember-power-select-trigger {
+  background: transparent;
+  height: auto;
+  min-width: 160px;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.streambanner-station .ember-power-select-selected-item {
+  position: static;
+  margin: 0 ;
+}
+
+.streambanner-station .ember-power-select-status-icon {
+  right: 0;
+}
+
+.streambanner-dropdown {
+  @include fontsize(14);
+}
+
 .streambanner--mobile {
   display: none;
   background-repeat: no-repeat;
