@@ -2,16 +2,16 @@
     style="background-image:url('https://images.unsplash.com/photo-1432163230927-a32e4fd5a326?dpr=2&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=')">
   <div>
     <div class="streambanner-station nudge">
-      <span class="streambanner-on-air">On air now on {{activeStream.name}}</span>
+      <span class="streambanner-on-air">On air now on </span>
       {{#power-select
-        dropdownClass="streambanner-select"
+        searchEnabled=false
+        dropdownClass="streambanner-dropdown"
         selected=activeStream
         options=streams
         onchange=(action (mut activeStream))
         as |stream|}}
         {{stream.name}}
       {{/power-select}}
-      <!-- <div class="arrow--down"></div> -->
     </div>
     <div class="streambanner-details">
       <h3 class="streambanner-title">
@@ -23,7 +23,7 @@
         audio=audio
         class='streambanner-listenbutton nudge'
         type='blue-boss'
-        state=(if (eq slug audio.currentAudio.id) audio.playState)
+        state=(if (eq activeStream.slug audio.currentAudio.id) audio.playState)
         itemPK=activeStream.slug
         itemTitle=activeStream.name}}
         Listen Live
