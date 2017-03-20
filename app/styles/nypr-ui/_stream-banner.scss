@@ -62,6 +62,17 @@
     background-size: cover;
     background-position: center;
     text-align: center;
+    color: white;
+    border-top: 8px solid $wqxrblue;
+    @include filter-container;
+
+    &:before {
+      @include classic-filter($filter--light);
+    }
+    
+    @include mq($small-only) {
+      display: none;
+    }
 
     > div {
       position: relative;
@@ -91,26 +102,6 @@
       flex-direction: column,
       align-items: center
     ));
-  }
-  &-link {
-    font-size: 12px;
-    line-height: 22px;
-    text-decoration: none;
-    color: #128cf4;
-  }
-  &--light {
-    color: white;
-    @include filter-container;
-
-    &:before {
-      @include classic-filter($filter--light);
-    }
-  }
-  &--desktop {
-    border-top: 8px solid $wqxrblue;
-    @include mq($small-only) {
-      display: none;
-    }
   }
 }
 
