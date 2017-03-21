@@ -3,6 +3,6 @@ import layout from '../templates/components/nypr-brick-grid';
 
 export default Ember.Component.extend({
   layout,
-  
-  classNames: ['brick_grid']
+
+  classNames: ['brick-grid']
 });
