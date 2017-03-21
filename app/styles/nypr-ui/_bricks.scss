@@ -1,4 +1,4 @@
-.brick_row {
+.brick-row {
   font-family: 'Lato';
   list-style: none;
   padding: 0;
@@ -18,8 +18,10 @@
   }
 }
 
-.brick_row__item {
+.brick-row__item {
   border: 0;
+  position: relative;
+
   @include flexbox((
     display: flex,
     flex-direction: column,
@@ -35,9 +37,18 @@
   &:hover {
     border: 0;
   }
+
+  .item__link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: $zIndex--brickItemLink;
+  }
 }
 
-.brick_row__item .item {
+.brick-row__item .item {
   &__icons {
     @include flexbox((
       display: flex,
@@ -86,7 +97,7 @@
   }
 }
 
-.brick_row--images .brick_row__item {
+.brick-row--images .brick-row__item {
   @include filter-container;
   background-repeat: no-repeat;
   background-size: cover;
@@ -133,7 +144,7 @@
   }
 }
 
-.brick_row--images .brick_row__item .item {
+.brick-row--images .brick-row__item .item {
   &__head {
     &__headline {
       @include text--largest;
@@ -146,7 +157,7 @@
   }
 }
 
-.brick_row--images .row__col {
+.brick-row--images .row__col {
   width: 32%;
   height: 487px;
   @include flexbox((
@@ -173,7 +184,7 @@
   }
 }
 
-.brick_row--images .row__col .brick_row__item {
+.brick-row--images .row__col .brick-row__item {
   @include filter-container;
   width: 100%;
   height: 237px;
@@ -213,7 +224,7 @@
   }
 }
 
-.brick_row--images .row__col .item {
+.brick-row--images .row__col .item {
   &__head {
     &__headline {
       @include fontsize(20);
@@ -242,13 +253,13 @@
   }
 }
 
-.brick_row--cards {
+.brick-row--cards {
   @include mq($small-only) {
     @include flexbox((
       flex-direction: column
     ));
 
-    .brick_row__item.story_video {
+    .brick-row__item.story_video {
       .item__head__headline svg {
         display: inline;
       }
@@ -257,7 +268,7 @@
       }
     }
 
-    .brick_row__item.item--trending {
+    .brick-row__item.item--trending {
       .item__icons {
         position: absolute;
         right: 25px;
@@ -277,7 +288,7 @@
   }
 }
 
-.brick_row--cards .brick_row__item {
+.brick-row--cards .brick-row__item {
   width: 32%;
   padding: 0;
   height: 495px;
@@ -337,7 +348,7 @@
   }
 }
 
-.brick_row--cards .brick_row__item .item {
+.brick-row--cards .brick-row__item .item {
   &__icons {
     position: absolute;
     z-index: 2;
@@ -403,7 +414,7 @@
   ));
 }
 
-.brick_grid > .brick_row__item {
+.brick_grid > .brick-row__item {
   @include mq($tablet) {
     flex-basis: 32%;
     margin-bottom: 25px;

@@ -1,4 +1,4 @@
-<a href="{{item.attributes.url}}" class="brick_row__item {{item.attributes.template}} item--trending"
+<div class="brick-row__item {{item.attributes.template}} item--trending"
     style="background-image: url({{item.attributes.imageMain.url}})">
   <div class="item__icons">
     <div class="item__icons__trending icon--with-text icon--with-text--top">
@@ -28,4 +28,5 @@
         itemTitle=item.attributes.title}}
     {{/if}}
   </div>
-</a>
+  <a class="item__link" href="{{item.attributes.url}}"></a>
+</div>
