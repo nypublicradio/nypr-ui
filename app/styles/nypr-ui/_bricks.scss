@@ -44,7 +44,7 @@
     height: 100%;
     left: 0;
     top: 0;
-    z-index: $zIndex--brickItemLink;
+    z-index: $zIndex--brickItem;
   }
 }
 
@@ -69,6 +69,8 @@
   }
 
   &__head {
+    z-index: $zIndex--brickItemInner;
+
     &__headline,
     &__brand {
       margin: 0;
@@ -128,7 +130,7 @@
   }
 
   > div {
-    z-index: 1;
+    z-index: $zIndex--brickItemInner;
   }
 
   &.story_video {
@@ -351,7 +353,7 @@
 .brick-row--cards .brick-row__item .item {
   &__icons {
     position: absolute;
-    z-index: 2;
+    z-index: $zIndex--brickItemInner;
     width: 100%;
     padding: 20px 25px;
   }
