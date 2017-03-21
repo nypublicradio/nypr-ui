@@ -1,4 +1,4 @@
-<a href="{{item.attributes.url}}" class="brick_row__item {{item.attributes.template}} item--trending"
+<div class="brick-row__item {{item.attributes.template}} item--trending"
     style="background-image: url({{item.attributes.imageMain.url}})">
   <div class="item__icons">
     <div class="item__icons__trending icon--with-text icon--with-text--top">
@@ -30,4 +30,5 @@
       {{/listen-button}}
     {{/if}}
   </div>
-</a>
+  <a class="item__link--hidden" href="{{item.attributes.url}}">{{item.attributes.title}}</a>
+</div>
