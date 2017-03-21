@@ -19,11 +19,13 @@
       {{nypr-svg className="icon" icon="video"}}
       {{item.attributes.title}}
     </a></h2>
-    {{listen-button
-      audio=audio
-      type='blue-boss'
-      state=(if (eq item.id audio.currentAudio.id) audio.playState)
-      itemPK=item.id
-      itemTitle=item.attributes.title}}
+    {{#if item.audio}}
+      {{listen-button
+        audio=audio
+        type='blue-boss'
+        state=(if (eq item.id audio.currentAudio.id) audio.playState)
+        itemPK=item.id
+        itemTitle=item.attributes.title}}
+    {{/if}}
   </div>
 </a>
