@@ -108,12 +108,14 @@
   ));
 }
 
-.streambanner-station > .ember-power-select-trigger {
+.streambanner-station > .ember-basic-dropdown > .ember-power-select-trigger {
+  color: white;
   background: transparent;
   height: auto;
   min-width: 160px;
   text-align: left;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .streambanner-station .ember-power-select-selected-item {
@@ -127,4 +129,5 @@
 
 .streambanner-dropdown {
   @include fontsize(14);
+  background-color: white;
 }

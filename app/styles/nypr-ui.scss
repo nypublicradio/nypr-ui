@@ -1,4 +1,9 @@
+@import "nypr-ui/colors"; // want to use color var below
+
 // stream-banner overrides
+$ember-power-select-highlighted-background: $blue;
+$ember-power-select-background-color: transparent;
+$ember-power-select-text-color: black;
 $ember-power-select-default-border: none;
 $ember-power-select-default-focus-border: none;
 $ember-power-select-trigger-border-bottom: 1px solid white;
@@ -12,7 +17,6 @@ $ember-power-select-trigger-ltr-padding: 0 8px 0 0;
 
 @import "compass/css3/flexbox";
 
-@import "nypr-ui/colors";
 @import "nypr-ui/vars";
 
 @import "nypr-ui/icons";
