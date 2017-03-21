@@ -7,7 +7,7 @@ moduleForComponent('stream-banner', 'Integration | Component | stream banner', {
 
 test('it renders', function(assert) {
   this.render(hbs`{{stream-banner}}`);
-  assert.equal(this.$('.streambanner-on-air').text().trim(), 'On air now on', 'it should render');
+  assert.equal(this.$('.stream-banner').length, 1, 'it should render');
 });
 
 skip('it renders a dropdown of the given stream options');
