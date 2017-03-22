@@ -8,9 +8,11 @@
       {{nypr-svg className="icon" icon="video"}}
     </div>
   </div>
-  <div class="item__img"
-       style="background-image: url({{item.attributes.imageMain.url}})">
-  </div>
+  {{#if vertical}}
+    <div class="item__img"
+         style="background-image: url({{item.attributes.imageMain.url}})">
+    </div>
+  {{/if}}
   <div class="item__head">
     <a class="item__head__brand" href="{{item.attributes.headers.brand.url}}">
       {{item.attributes.headers.brand.title}}
