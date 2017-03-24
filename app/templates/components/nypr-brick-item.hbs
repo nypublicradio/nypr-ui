@@ -20,12 +20,14 @@
       {{item.attributes.title}}
     </a></h2>
     {{#if item.attributes.audio}}
-      {{listen-button
+      {{#listen-button
         audio=audio
         type='blue-boss'
         state=(if (eq item.id audio.currentAudio.id) audio.playState)
         itemPK=item.id
         itemTitle=item.attributes.title}}
+        Play {{item.attributes.audioDurationReadable}}
+      {{/listen-button}}
     {{/if}}
   </div>
 </a>
