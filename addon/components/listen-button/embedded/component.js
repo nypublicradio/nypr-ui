@@ -1,8 +1,7 @@
 import ListenButton from '../component';
 import computed from 'ember-computed';
 import get from 'ember-metal/get';
-// import hbs from 'htmlbars-inline-precompile';
-import Ember from 'ember';
+import hbs from 'htmlbars-inline-precompile';
 
 function wnycEmbeddedAttr() {
   return computed('embeddedAttrs', {
@@ -28,5 +27,7 @@ export default ListenButton.extend({
     }
   }),
 
-  layout: Ember.HTMLbars.compile(`{{listen-button.ui type=type}}{{#if (eq type 'blue-boss')}}Listen <span class="text--small dimmed">{{duration}}</span>{{/if}}`)
+  layout: hbs`
+    {{listen-button.ui type=type}}
+    {{#if (eq type 'blue-boss')}}Listen <span class="text--small dimmed">{{duration}}</span>{{/if}}`
 });

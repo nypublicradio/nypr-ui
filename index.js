@@ -3,8 +3,8 @@
 
 module.exports = {
   name: 'nypr-ui',
-  included: function(app) {
-    this._super.included(app);
+  included: function() {
+    this._super.included.apply(this, arguments);
   },
   isDevelopingAddon: () => true
 };
