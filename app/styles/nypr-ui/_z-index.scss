@@ -1,5 +1,5 @@
 // Z-INDEX REF
-// 
+//
 // Story Page
 // .accordion - 100
 // header.l-bgimg - 200
@@ -27,11 +27,13 @@ $zIndex--accordion:         $zIndex-1;
 $zIndex--lBgImgAfter:       $zIndex-1;
 $zIndex--isVisible:         $zIndex-1;
 $zIndex--djangocontent:     $zIndex-1;
+$zIndex--brickItem:         $zIndex-1;
 
 $zIndex--abs:               $zIndex-2;
 $zIndex--lBgImg:            $zIndex-2;
 $zIndex--lBgImgChildren:    $zIndex-2;
 $zIndex--lBgImgBefore:      $zIndex-2;
+$zIndex--brickItemInner:    $zIndex-2;
 
 $zIndex--dropdownBody:      $zIndex-3;
 $zIndex--fixedNav:          $zIndex-4;

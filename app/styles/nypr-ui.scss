@@ -1,12 +1,32 @@
+@import "nypr-ui/colors"; // want to use color var below
+
+// stream-banner overrides
+$ember-power-select-highlighted-background: $blue;
+$ember-power-select-background-color: transparent;
+$ember-power-select-text-color: black;
+$ember-power-select-default-border: none;
+$ember-power-select-default-focus-border: none;
+$ember-power-select-trigger-border-bottom: 1px solid white;
+$ember-power-select-active-trigger-border-bottom: 1px solid white;
+$ember-power-select-default-border-radius: 0px;
+$ember-power-select-dropdown-box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
+$ember-power-select-trigger-icon-color: white;
+$ember-power-select-trigger-ltr-padding: 0 8px 0 0;
+
+@import "ember-power-select";
+
 @import "compass/css3/flexbox";
 
-@import "nypr-ui/colors";
 @import "nypr-ui/vars";
 
 @import "nypr-ui/icons";
 @import "nypr-ui/input";
+@import "nypr-ui/layout";
 @import "nypr-ui/z-index";
 @import "nypr-ui/buttons";
+@import "nypr-ui/text";
 
+@import "nypr-ui/bricks";
 @import "nypr-ui/card";
 @import "nypr-ui/mini-chrome";
+@import "nypr-ui/stream-banner";
