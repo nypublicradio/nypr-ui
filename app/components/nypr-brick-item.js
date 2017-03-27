@@ -1,7 +1,7 @@
 import Component from 'ember-component';
 import computed, { reads } from 'ember-computed';
 import { equal } from 'ember-computed';
-import htmlSafe from 'ember-string';
+import { htmlSafe } from 'ember-string';
 
 export default Component.extend({
   tagName: '',
