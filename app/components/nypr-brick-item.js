@@ -7,5 +7,9 @@ export default Component.extend({
   pk: computed('item', function() {
     return String(this.get('item.id'));
   }),
-  vertical: Ember.computed.equal('template', 'vertical')
+  vertical: Ember.computed.equal('template', 'vertical'),
+  backgroundImage: Ember.computed('background-image', function() {
+    var imageUrl = this.item.attributes.imageMain.url;
+    return Ember.String.htmlSafe('background-image: url('+ imageUrl +')');
+  })
 });
