@@ -29,12 +29,6 @@
     justify-content: space-between
   ));
 
-  &.item--trending {
-    .item__icons__trending {
-      visibility: visible;
-    }
-  }
-
   &:hover {
     border: 0;
   }
@@ -56,14 +50,8 @@
       display: flex,
       flex-direction: row,
       align-items: center,
-      justify-content: space-between
+      justify-content: flex-end
     ));
-
-    &__trending {
-      visibility: hidden;
-      color: $gold;
-      @include fontsize(14);
-    }
 
     &__video {
       display: none;
@@ -206,22 +194,6 @@
       }
     }
 
-    &.item--trending {
-      .item__icons {
-        position: absolute;
-        right: 25px;
-        top: 25px;
-
-        &__trending {
-          color: $lightgray;
-
-          svg {
-            display: none;
-          }
-        }
-      }
-    }
-
     &:before {
       content: none;
     }
@@ -271,24 +243,6 @@
       }
       .item__icons__video {
         display: none;
-      }
-    }
-
-    .brick__item.item--trending {
-      .item__icons {
-        position: absolute;
-        right: 25px;
-        top: 25px;
-        padding: 0;
-        width: auto;
-
-        &__trending {
-          color: $lightgray;
-
-          svg {
-            display: none;
-          }
-        }
       }
     }
   }
