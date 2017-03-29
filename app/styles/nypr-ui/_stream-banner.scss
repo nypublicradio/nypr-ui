@@ -58,7 +58,7 @@
 
 .streambanner-card {
   margin-bottom: 35px;
-  padding: 15px 10px;
+  padding: 25px 10px;
   background-color: white;
   box-shadow: 0 1px 4px 0 rgba(black, 0.25);
   background-repeat: no-repeat;
@@ -72,7 +72,7 @@
   &:before {
     @include classic-filter($filter--light);
   }
-  
+
   @include mq($small-only) {
     display: none;
   }
