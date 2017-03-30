@@ -1,3 +1,8 @@
+@mixin text--small {
+  @include fontsize(12);
+  line-height: 0.2rem;
+}
+
 @mixin text--largest {
   @include fontsize(50);
   line-height: 3.5rem;

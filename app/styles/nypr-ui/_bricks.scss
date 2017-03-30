@@ -205,19 +205,19 @@
   &__head {
     &__headline {
       @include fontsize(20);
-      line-height: 1.8rem;
+      line-height: 1.7rem;
 
       @include mq($small-only) {
         font-weight: normal;
       }
 
       a {
-        @include icon--with-text;
+        margin-right: 10px;
       }
     }
 
     &__brand {
-      @include fontsize(14);
+      @include text--small;
     }
   }
 
@@ -348,7 +348,7 @@
     }
 
     &__brand {
-      @include fontsize(14);
+      @include text--small;
     }
   }
 
