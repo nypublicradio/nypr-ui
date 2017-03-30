@@ -211,7 +211,7 @@
         font-weight: normal;
       }
 
-      a {
+      a svg {
         margin-right: 10px;
       }
     }
@@ -342,8 +342,8 @@
       font-weight: normal;
       line-height: 2rem;
 
-      a {
-        @include icon--with-text;
+      a svg {
+        margin-right: 10px;
       }
     }
 
