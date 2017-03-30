@@ -211,7 +211,7 @@
         font-weight: normal;
       }
 
-      a {
+      a svg {
         margin-right: 10px;
       }
     }
@@ -304,6 +304,10 @@
       }
       &:after {
         @include animate-filter($filter--wqxr, 1);
+
+        @include mq($mobile) {
+          background: none;
+        }
       }
     }
   }
@@ -342,8 +346,8 @@
       font-weight: normal;
       line-height: 2rem;
 
-      a {
-        @include icon--with-text;
+      a svg {
+        margin-right: 10px;
       }
     }
 
