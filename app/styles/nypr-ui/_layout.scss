@@ -24,3 +24,12 @@
     }
   }
 }
+
+.l-mobile--col {
+  @include mq($mobile) {
+    @include flexbox((
+      display: flex,
+      flex-direction: column
+    ));
+  }
+}
