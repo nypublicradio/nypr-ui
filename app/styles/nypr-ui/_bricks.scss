@@ -304,6 +304,10 @@
       }
       &:after {
         @include animate-filter($filter--wqxr, 1);
+
+        @include mq($mobile) {
+          background: none;
+        }
       }
     }
   }
