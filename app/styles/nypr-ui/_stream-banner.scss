@@ -115,7 +115,11 @@
   min-width: 160px;
   text-align: left;
   margin-left: 10px;
+  padding-right: 8px;
   cursor: pointer;
+  border: none;
+  border-bottom: 1px solid white;
+  border-radius: 0;
 }
 
 .streambanner-station .ember-power-select-selected-item {
@@ -125,9 +129,19 @@
 
 .streambanner-station .ember-power-select-status-icon {
   right: 0;
+  border-top-color: white;
+  border-width: 6px 4px 0 4px;
 }
 
-.streambanner-dropdown {
+.stream-banner .streambanner-dropdown {
   @include fontsize(14);
   background-color: white;
+  color: black;
+  border: none;
+  border-radius: 0;
+  box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.streambanner-dropdown .ember-power-select-option[aria-current=true] {
+  background-color: $blue;
 }
