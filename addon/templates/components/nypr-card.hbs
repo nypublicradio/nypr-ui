@@ -1,11 +1,11 @@
-<div class="nypr-card-header">
-  <span class="nypr-card-title">{{title}}</span>
-  
-  {{#if edit}}
-  <button class="nypr-card-edit-btn" {{action (action edit)}} data-test-selector="edit-button">
-    {{if isEditing 'Cancel' 'Edit info'}}
-  </button>
-  {{/if}}
-</div> 
+{{#if hasBlock}}
+  {{yield (hash
+    header=(component 'nypr-card/header')
+  )}}
+{{else}}
+  {{nypr-card/header
+    title=title
+    buttonAction=buttonAction}}
 
-{{yield}}
+  {{component body}}
+{{/if}}
