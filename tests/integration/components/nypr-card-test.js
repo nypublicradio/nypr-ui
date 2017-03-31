@@ -13,7 +13,7 @@ test('it renders', function(assert) {
   this.render(hbs`{{nypr-card}}`);
 
   assert.equal(this.$().text().trim(), '');
-  assert.notOk(this.$('[data-test-selector=edit-button]').length, "doesn't render an edit button without an edit attr");
+  assert.notOk(this.$('[data-test-selector=nypr-card-button]').length, "doesn't render a button without a buttonAction or button block");
 
   // Template block usage:
   this.render(hbs`
@@ -31,24 +31,32 @@ test('it renders a title', function(assert) {
   assert.ok(/foo/.test(this.$().text().trim()), 'foo should be in there');
 });
 
-test('it calls the edit action if included', function(assert) {
-  function edit() {
-    assert.ok('edit was called');
+test('it calls an action passed from the top level', function(assert) {
+  function foo() {
+    assert.ok('foo was called');
   }
-  this.set('edit', edit);
-  this.render(hbs`{{nypr-card edit=(action edit)}}`);
+  this.set('foo', foo);
+  this.render(hbs`{{nypr-card buttonAction=(action foo)}}`);
   
-  this.$('[data-test-selector=edit-button]').click();
+  this.$('[data-test-selector=nypr-card-button]').click();
 });
 
-test('it toggles the text if isEditing is switched', function(assert) {
+test('it renders a button which can fire an action', function(assert) {
   assert.expect(2);
   
   this.set('isEditing', false);
-  this.render(hbs`{{nypr-card isEditing=isEditing edit=(action (mut isEditing) (if isEditing false true))}}`);
+  this.render(hbs`
+    {{#nypr-card as |card|}}
+      {{#card.header as |header|}}
+        {{#header.button click=(action (mut isEditing) (not isEditing))}}
+          {{if isEditing 'Cancel' 'Edit info'}}
+        {{/header.button}}
+      {{/card.header}}
+    {{/nypr-card}}
+  `);
   
-  this.$('[data-test-selector=edit-button]').click();
-  assert.equal(this.$('[data-test-selector=edit-button]').text().trim(), 'Cancel');
-  this.$('[data-test-selector=edit-button]').click();
-  assert.equal(this.$('[data-test-selector=edit-button]').text().trim(), 'Edit info');
+  this.$('button').click();
+  assert.equal(this.$('button').text().trim(), 'Cancel');
+  this.$('button').click();
+  assert.equal(this.$('button').text().trim(), 'Edit info');
 });
