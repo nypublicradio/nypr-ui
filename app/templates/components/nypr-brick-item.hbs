@@ -21,7 +21,7 @@
       {{#listen-button
         audio=audio
         type='blue-minion'
-        state=(if (eq pk audio.currentAudio.id) audio.playState)
+        state=(if (eq (string pk) audio.currentAudio.id) audio.playState)
         itemPK=item.id
         itemTitle=item.attributes.title}}
         Play {{item.attributes.audioDurationReadable}}
