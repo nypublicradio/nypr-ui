@@ -1,4 +1,11 @@
 {
   "name": "nypr-ui",
-  "dependencies": {}
+  "dependencies": {
+    "remarkable": "^1.7.1",
+    "highlightjs": "^9.10.0"
+  },
+  "resolutions": {
+    "highlightjs": "9.1.0",
+    "remarkable": "1.6.2"
+  }
 }
