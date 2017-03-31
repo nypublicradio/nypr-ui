@@ -20,7 +20,7 @@
     {{#if item.attributes.audio}}
       {{#listen-button
         audio=audio
-        type='blue-boss'
+        type='blue-minion'
         state=(if (eq pk audio.currentAudio.id) audio.playState)
         itemPK=item.id
         itemTitle=item.attributes.title}}
