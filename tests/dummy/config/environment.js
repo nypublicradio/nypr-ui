@@ -43,6 +43,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.rootURL = '/nypr-ui';
+    ENV.locationType = 'hash';
 
   }
 
