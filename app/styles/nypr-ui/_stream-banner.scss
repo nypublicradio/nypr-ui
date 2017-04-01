@@ -1,4 +1,4 @@
-.streambanner-title {
+.wqxr-streambanner-title {
   @include fontsize(18);
   font-weight: 600;
   @include flexbox((
@@ -24,7 +24,7 @@
   }
 }
 
-.streambanner-station {
+.wqxr-streambanner-station {
   @include fontsize(18);
   font-weight: 600;
   @include flexbox((
@@ -34,7 +34,7 @@
   ));
 }
 
-.streambanner-on-air {
+.wqxr-streambanner-on-air {
   @include fontsize(12);
   text-transform: uppercase;
 
@@ -43,7 +43,7 @@
   }
 }
 
-.streambanner-details {
+.wqxr-streambanner-details {
   @include fontsize(14);
   line-height: 24px;
   text-align: center;
@@ -56,7 +56,7 @@
   position: relative;
 }
 
-.streambanner-card {
+.wqxr-streambanner-card {
   margin-bottom: 35px;
   padding: 25px 10px;
   background-color: white;
@@ -82,7 +82,7 @@
   }
 }
 
-.streambanner-select {
+.wqxr-streambanner-select {
   background: transparent;
   margin-left: 10px;
   border: none;
@@ -91,7 +91,7 @@
   text-transform: uppercase;
 }
 
-.streambanner-station {
+.wqxr-streambanner-station {
   @include flexbox((
     flex-direction: row,
     justify-content: center
@@ -108,7 +108,7 @@
   ));
 }
 
-.streambanner-station > .ember-basic-dropdown > .ember-power-select-trigger {
+.wqxr-streambanner-station > .ember-basic-dropdown > .ember-power-select-trigger {
   color: white;
   background: transparent;
   height: auto;
@@ -118,16 +118,16 @@
   cursor: pointer;
 }
 
-.streambanner-station .ember-power-select-selected-item {
+.wqxr-streambanner-station .ember-power-select-selected-item {
   position: static;
   margin: 0 ;
 }
 
-.streambanner-station .ember-power-select-status-icon {
+.wqxr-streambanner-station .ember-power-select-status-icon {
   right: 0;
 }
 
-.streambanner-dropdown {
+.wqxr-streambanner-dropdown {
   @include fontsize(14);
   background-color: white;
 }
