@@ -1,4 +1,4 @@
-.streambanner-title {
+.stream-banner-title {
   @include fontsize(18);
   font-weight: 600;
   @include flexbox((
@@ -24,7 +24,7 @@
   }
 }
 
-.streambanner-station {
+.stream-banner-station {
   @include fontsize(18);
   font-weight: 600;
   @include flexbox((
@@ -34,7 +34,7 @@
   ));
 }
 
-.streambanner-on-air {
+.stream-banner-on-air {
   @include fontsize(12);
   text-transform: uppercase;
 
@@ -43,7 +43,7 @@
   }
 }
 
-.streambanner-details {
+.stream-banner-details {
   @include fontsize(14);
   line-height: 24px;
   text-align: center;
@@ -56,7 +56,7 @@
   position: relative;
 }
 
-.streambanner-card {
+.stream-banner-card {
   margin-bottom: 35px;
   padding: 25px 10px;
   background-color: white;
@@ -73,16 +73,12 @@
     @include classic-filter($filter--light);
   }
 
-  @include mq($small-only) {
-    display: none;
-  }
-
   > div {
     position: relative;
   }
 }
 
-.streambanner-select {
+.stream-banner-select {
   background: transparent;
   margin-left: 10px;
   border: none;
@@ -91,7 +87,7 @@
   text-transform: uppercase;
 }
 
-.streambanner-station {
+.stream-banner-station {
   @include flexbox((
     flex-direction: row,
     justify-content: center
@@ -100,7 +96,7 @@
   text-transform: uppercase;
 }
 
-.streambanner-controls {
+.stream-banner-controls {
   @include flexbox((
     display: flex,
     flex-direction: column,
@@ -108,7 +104,7 @@
   ));
 }
 
-.streambanner-station > .ember-basic-dropdown > .ember-power-select-trigger {
+.stream-banner-station > .ember-basic-dropdown > .ember-power-select-trigger {
   color: white;
   background: transparent;
   height: auto;
@@ -118,16 +114,16 @@
   cursor: pointer;
 }
 
-.streambanner-station .ember-power-select-selected-item {
+.stream-banner-station .ember-power-select-selected-item {
   position: static;
   margin: 0 ;
 }
 
-.streambanner-station .ember-power-select-status-icon {
+.stream-banner-station .ember-power-select-status-icon {
   right: 0;
 }
 
-.streambanner-dropdown {
+.stream-banner-dropdown {
   @include fontsize(14);
   background-color: white;
 }
