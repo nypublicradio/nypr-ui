@@ -1,5 +1,5 @@
 import Component from 'ember-component';
-import computed, { reads, equal } from 'ember-computed';
+import computed, { equal } from 'ember-computed';
 import { htmlSafe } from 'ember-string';
 import get from 'ember-metal/get';
 import layout from '../templates/components/nypr-brick-item';
@@ -12,7 +12,11 @@ export default Component.extend({
   attributeBindings: ['style'],
   
   style: computed.reads('backgroundImage'),
-  pk: reads('item.id'),
+  pk: computed('item.id', function() {
+    // coerce to string b/c ember-data expects
+    // a string for IDs
+    return String(get(this, 'item.id'));
+  }),
   vertical: equal('template', 'vertical'),
   backgroundImage: computed('item.attributes.imageMain.url', function() {
     var imageMain = get(this, 'item.attributes.imageMain');
