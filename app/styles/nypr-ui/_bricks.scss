@@ -281,7 +281,7 @@
     color: $darkergray;
     border: 0;
 
-    @include mq($desktop-only) {
+    @include mq($desktop) {
       &:hover {
         color: $wqxrblue;
       }
