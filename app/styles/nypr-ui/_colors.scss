@@ -14,6 +14,7 @@ $navy: #2B2F3D;                 // rgb(43, 47, 61)    discover chrome
 $pink: #d3008c;                 // rgb(211, 0, 140)
 
 // WQXR
+$wqxrlink: #0073d5;             // rgb(0, 115, 213)
 $wqxrblue: #00aeff;             // rgb(0, 174, 255)
 $wqxrdarkblue: #0064b4;         // rgb(0, 100, 180)
 $filter--wqxr: rgba(0, 174, 255, 0.45);
@@ -31,6 +32,7 @@ $graywhite: #f8f8f8;            // rgb(248, 248, 248)
 
 // Lines
 $line--light: #eaeaea;
+$line--default: $lightestgray;
 
 // Social
 $facebook: #3b5998;             // rgb(59, 89, 152)
