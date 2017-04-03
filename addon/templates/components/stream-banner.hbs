@@ -1,13 +1,13 @@
-<div class="wqxr-streambanner-card"
+<div class="streambanner-card"
      style="background-image:url('/assets/img/backgrounds/streambanner.jpg')">
   <div>
     {{#if streams.isFulfilled}}
-    <div class="wqxr-streambanner-station nudge">
-      <span class="wqxr-streambanner-on-air">On air now on </span>
+    <div class="streambanner-station nudge">
+      <span class="streambanner-on-air">On air now on </span>
       {{#power-select
         renderInPlace=true
         searchEnabled=false
-        dropdownClass="wqxr-streambanner-dropdown"
+        dropdownClass="streambanner-dropdown"
         selected=activeStream
         options=streams
         onchange=(action (mut activeStream))
@@ -15,15 +15,15 @@
         {{stream.name}}
       {{/power-select}}
     </div>
-    <div class="wqxr-streambanner-details">
-      <h3 class="wqxr-streambanner-title">
+    <div class="streambanner-details">
+      <h3 class="streambanner-title">
         {{yield activeStream}}
       </h3>
     </div>
-    <div class="wqxr-streambanner-controls">
+    <div class="streambanner-controls">
       {{#listen-button
         audio=audio
-        class='wqxr-streambanner-listenbutton nudge'
+        class='streambanner-listenbutton nudge'
         type='blue-boss'
         state=(if (eq activeStream.slug audio.currentAudio.id) audio.playState)
         itemPK=activeStream.slug
