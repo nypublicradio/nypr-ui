@@ -1,9 +1,12 @@
 <div class="stream-banner-card"
      style="background-image:url('/assets/img/backgrounds/streambanner.jpg')">
   <div>
+    <h3 class="stream-banner-on-air">On air now</h3>
     {{#if streams.isFulfilled}}
+    
     <div class="stream-banner-station nudge">
-      <span class="stream-banner-on-air">On air now on </span>
+      <span class="stream-banner__active-stream">{{activeStream.name}}</span>
+    
       {{#power-select
         triggerComponent='stream-banner/trigger'
         renderInPlace=true
