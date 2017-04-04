@@ -1,6 +1,6 @@
 .stream-banner-title {
-  @include fontsize(18);
-  font-weight: 600;
+  @include fontsize(24);
+  font-weight: bold;
   @include flexbox((
     display: flex,
     flex-direction: column,
@@ -11,7 +11,6 @@
   position: relative;
 
   @include mq($desktop) {
-    @include fontsize(24);
     line-height: 2rem;
     @include flexbox((
       flex-direction: row,
@@ -26,25 +25,20 @@
 
 .stream-banner-station {
   @include fontsize(18);
-  font-weight: 600;
+  font-weight: bold;
   @include flexbox((
     display: flex,
-    flex-direction: column,
-    align-items: center
+    align-items: center,
+    justify-content: center
   ));
 }
 
 .stream-banner-on-air {
   @include fontsize(12);
   text-transform: uppercase;
-
-  @include mq($desktop) {
-    @include fontsize(14);
-  }
 }
 
 .stream-banner-details {
-  @include fontsize(14);
   line-height: 24px;
   text-align: center;
   @include flexbox((
@@ -87,15 +81,6 @@
   text-transform: uppercase;
 }
 
-.stream-banner-station {
-  @include flexbox((
-    flex-direction: row,
-    justify-content: center
-  ));
-  @include fontsize(14);
-  text-transform: uppercase;
-}
-
 .stream-banner-controls {
   @include flexbox((
     display: flex,
@@ -105,13 +90,19 @@
 }
 
 .stream-banner-station > .ember-basic-dropdown > .ember-power-select-trigger {
+  @include flexbox((
+    display: flex,
+    align-items: center
+  ));
   color: white;
   background: transparent;
   height: auto;
-  min-width: 160px;
   text-align: left;
-  margin-left: 10px;
+  padding-right: 16px;
   cursor: pointer;
+  border: none;
+  border-radius: 0;
+  min-width: auto;
 }
 
 .stream-banner-station .ember-power-select-selected-item {
@@ -123,7 +114,44 @@
   right: 0;
 }
 
-.stream-banner-dropdown {
-  @include fontsize(14);
+.stream-banner .stream-banner-dropdown {
+  @include fontsize(16);
+  font-weight: normal;
   background-color: white;
+  color: black;
+  border: none;
+  border-radius: 0;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  width: 235px;
+}
+
+.stream-banner-dropdown .ember-power-select-option {
+  padding: 8px 17px;
+  border-bottom: 1px solid $lightestgray;
+}
+
+.stream-banner-dropdown .ember-power-select-option[aria-current=true] {
+  background-color: $graywhite;
+  color: black;
+}
+
+.stream-banner-dropdown .ember-power-select-options {
+  max-height: none;
+  text-align: left;
+}
+
+.stream-banner__trigger {
+  border-bottom: 1px solid white;
+  position: relative;
+  @include fontsize(12);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.stream-banner__trigger > .ember-power-select-status-icon {
+  right: -15px;
+}
+
+.stream-banner__active-stream {
+  margin-right: 10px;
 }
