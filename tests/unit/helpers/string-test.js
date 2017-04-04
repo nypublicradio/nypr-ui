@@ -7,6 +7,5 @@ module('Unit | Helper | string');
 // Replace this with your real tests.
 test('it works', function(assert) {
   let result = string([42]);
-  assert.ok(result);
+  assert.equal(result, '42');
 });
-
