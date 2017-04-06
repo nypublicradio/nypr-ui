@@ -3,12 +3,21 @@ import computed from 'ember-computed';
 
 export default Ember.Component.extend({
   tagName: '',
-  groups: Ember.computed('items', function() {
+  groups: Ember.computed('items', 'chunk', function() {
     let items = this.get('items');
-    return [
-      items.slice(0, 3),
-      items.slice(3, 5),
-      items.slice(5)
-    ];
+    if (this.get('chunk')){
+      return [
+        items.slice(0,1),
+        items.slice(1,3),
+        items.slice(3)
+      ];
+    } else {
+      return [
+        items.slice(0, 3),
+        items.slice(3, 5),
+        items.slice(5)
+      ];
+    }
+    
   })
 });
