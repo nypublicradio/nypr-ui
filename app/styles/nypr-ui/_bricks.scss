@@ -117,6 +117,10 @@
     }
     &:after {
       @include animate-filter($filter--wqxr, 1);
+
+      @include mq($mobile) {
+        background: none;
+      }
     }
   }
 
@@ -397,12 +401,9 @@
 }
 
 .brick__item:hover:after,
-.brick-row--images .row__col .brick__item:focus:after {
-  @include mq($mobile) {
-    @include animate-filter($filter--light, 0.1);
-  }
-}
-
+.brick-row--images .row__col .brick__item:hover:after,
 .brick__item--sponsored:hover:after {
-  background: none;
+  @include mq($mobile) {
+    background: none;
+  }
 }
