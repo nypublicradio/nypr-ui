@@ -16,9 +16,13 @@ export default Component.extend({
   vertical: equal('template', 'vertical'),
   backgroundImage: computed('item.attributes.imageMain.url', function() {
     let imageMain = get(this, 'item.attributes.imageMain');
-    let urlString = imageTemplate([imageMain.template, 800,  0, imageMain.crop]);
-    if (urlString) {
-      return htmlSafe(`background-image: url(${urlString});`);
+    var urlString;
+    // just in case we don't get a template and crop from the API, fallback to url
+    if (imageMain.template && imageMain.crop){
+      urlString = imageTemplate([imageMain.template, 800,  0, imageMain.crop]);
+    } else {
+      urlString = imageMain.url;
     }
+    return htmlSafe(`background-image: url(${urlString});`);
   })
 });
