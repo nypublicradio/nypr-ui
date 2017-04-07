@@ -1,9 +1,9 @@
 import Component from 'ember-component';
-import computed, { reads } from 'ember-computed';
-import { equal } from 'ember-computed';
+import computed, { reads, equal } from 'ember-computed';
 import { htmlSafe } from 'ember-string';
 import get from 'ember-metal/get';
 import layout from '../templates/components/nypr-brick-item';
+import { imageTemplate } from 'nypr-ui/helpers/image-template';
 
 export default Component.extend({
   layout,
@@ -15,9 +15,10 @@ export default Component.extend({
   pk: reads('item.id'),
   vertical: equal('template', 'vertical'),
   backgroundImage: computed('item.attributes.imageMain.url', function() {
-    let backgroundImage = get(this, 'item.attributes.imageMain.url');
-    if (backgroundImage) {
-      return htmlSafe(`background-image: url(${backgroundImage});`);
+    let imageMain = get(this, 'item.attributes.imageMain');
+    let urlString = imageTemplate([imageMain.template, 800,  0, imageMain.crop]);
+    if (urlString) {
+      return htmlSafe(`background-image: url(${urlString});`);
     }
   })
 });
