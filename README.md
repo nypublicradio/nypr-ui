@@ -72,6 +72,7 @@ This add-on also provides a few components which can be invoked in templates:
 * `nypr-card`: basic UI widget
 * `nypr-multi-card`: switch between multiple panels in the same card
 * `nypr-input`: form field with error states. compatible with changesets
+* `nypr-social-icons`: a list of links formatted as a row of font awesome icons
 
 ## Installation
 
