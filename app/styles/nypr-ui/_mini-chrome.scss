@@ -17,6 +17,12 @@
 
 .nypr-mini-chrome__left {
   display: flex;
+  border: none;
+
+  &:hover,
+  &:focus {
+      border: none;
+  }
 
   svg {
     width: 77px;
