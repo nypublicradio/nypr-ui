@@ -2,7 +2,7 @@
   padding: 0;
 }
 
-.nypr-mini-chrome-top {
+.nypr-mini-chrome__top {
   padding: 18px 25px;
   background-color: black;
   display: flex;
@@ -15,7 +15,7 @@
   }
 }
 
-.nypr-mini-chrome-left {
+.nypr-mini-chrome__left {
   display: flex;
 
   svg {
@@ -28,7 +28,7 @@
   }
 }
 
-.nypr-mini-chrome-right {
+.nypr-mini-chrome__right {
   color: white;
   text-align: right;
 
