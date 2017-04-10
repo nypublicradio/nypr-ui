@@ -4,7 +4,7 @@
 ### The New York Public Radio UI Library
 The goal of this ember add on is to centralize all of our common UI components so we can avoid branching dependencies and also provide a way for the multiple client apps to share reusable code.
 
-## Usage
+## Install and Setup
 
 `$ npm install --save-dev nypublicradio/nypr-ui`
 
@@ -39,8 +39,8 @@ When using this library in an addon, some things to remember.
 // index.js
 module.exports = {
   ...
-  included: function(app) {
-    this._super.included(app);
+  included: function() {
+    this._super.included(this, arguments);
   }
   ...
 }
@@ -70,6 +70,7 @@ With this structure, apps or addons which consume your addon *should* be have ac
 This add-on also provides a few components which can be invoked in templates:
 * `nypr-form`: basic form which abstracts a lot of boilerplate for using changesets
 * `nypr-card`: basic UI widget
+* `nypr-multi-card`: switch between multiple panels in the same card
 * `nypr-input`: form field with error states. compatible with changesets
 
 ## Installation
