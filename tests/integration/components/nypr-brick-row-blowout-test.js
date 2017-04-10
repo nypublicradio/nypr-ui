@@ -27,8 +27,8 @@ test('blow out variants', function(assert) {
     {{#nypr-brick-row-blowout as |blowout|}}
       {{blowout.main item=bigOne}}
       {{#blowout.column as |column|}}
-        {{column.item item=smallOne}}
-        {{column.item item=otherSmallOne}}
+        {{column.brick item=smallOne}}
+        {{column.brick item=otherSmallOne}}
       {{/blowout.column}}
     {{/nypr-brick-row-blowout}}
   `);
