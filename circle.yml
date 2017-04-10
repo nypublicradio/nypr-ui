@@ -15,6 +15,5 @@ deployment:
   docs:
     branch: master
     commands:
-      - git checkout --orphan gh-pages
-      - git checkout master
+      - git checkout --orphan gh-pages; git commit --allow-empty; git push -u origin gh-pages
       - ./node_modules/ember-cli/bin/ember deploy production
