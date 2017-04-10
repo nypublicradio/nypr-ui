@@ -1,9 +1,0 @@
-{{#if hasBlock}}
-  {{yield (hash
-    brick=(component 'nypr-brick-item' template='vertical')
-  )}}
-{{else}}
-  {{nypr-brick-item item=items.[0] audio=audio template='vertical'}}
-  {{nypr-brick-item item=items.[1] audio=audio template='vertical'}}
-  {{nypr-brick-item item=items.[2] audio=audio template='vertical'}}
-{{/if}}

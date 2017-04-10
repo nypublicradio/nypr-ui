@@ -95,7 +95,7 @@
   }
 }
 
-.brick-row--blowout .brick__item {
+.brick-row--images .brick__item {
   @include filter-container;
   background-repeat: no-repeat;
   background-size: cover;
@@ -146,7 +146,7 @@
   }
 }
 
-.brick-row--blowout .brick__item .item {
+.brick-row--images .brick__item .item {
   &__head {
     &__headline {
       @include text--largest;
@@ -159,7 +159,7 @@
   }
 }
 
-.brick-row--blowout .row__col {
+.brick-row--images .row__col {
   width: 32%;
   height: 487px;
   @include flexbox((
@@ -186,7 +186,7 @@
   }
 }
 
-.brick-row--blowout .row__col .brick__item {
+.brick-row--images .row__col .brick__item {
   @include filter-container;
   width: 100%;
   height: 237px;
@@ -210,7 +210,7 @@
   }
 }
 
-.brick-row--blowout .row__col .item,
+.brick-row--images .row__col .item,
 .brick-grid .item {
   &__head {
     &__headline {
@@ -401,7 +401,7 @@
 }
 
 .brick__item:hover:after,
-.brick-row--blowout .row__col .brick__item:hover:after,
+.brick-row--images .row__col .brick__item:hover:after,
 .brick__item--sponsored:hover:after {
   @include mq($mobile) {
     background: none;

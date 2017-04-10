@@ -9,7 +9,6 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('multi-card');
   this.route('card');
-  this.route('brick');
 });
 
 export default Router;
