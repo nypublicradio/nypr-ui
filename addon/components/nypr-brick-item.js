@@ -7,11 +7,14 @@ import layout from '../templates/components/nypr-brick-item';
 
 export default Component.extend({
   layout,
-  tagName: '',
+  classNames: ['brick__item'],
+  classNameBindings: ['item.attributes.template'],
+  attributeBindings: ['style'],
+  
+  style: computed('backgroundImage', function() {
+    return htmlSafe(`background-image: ${get(this, 'backgroundImage')}`);
+  }),
   pk: reads('item.id'),
   vertical: equal('template', 'vertical'),
-  backgroundImage: computed(function() {
-    var imageUrl = get(this, 'item.attributes.imageMain.url');
-    return htmlSafe(`background-image: url(${imageUrl});`);
-  })
+  backgroundImage: computed.reads('item.attributes.imageMain.url')
 });
