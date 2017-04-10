@@ -1,10 +1,10 @@
 {{md-text
   text="
-## Multi card
+# `nypr-multi-card`
 
 The `nypr-multi-card` component can be used to create simple links between cards by using the yielded `panel` component. At minimum, each `panel` takes a `to` attribute, which points to another panel by its index in the DOM tree.
 
-### Basic Usage
+## Basic Usage
 Use the exposed `button` property on the yielded `panel` to place the button that will switch to another panel.
 ```htmlbars
 {{#nypr-multi-card as |m|}}
@@ -38,7 +38,7 @@ Use the exposed `button` property on the yielded `panel` to place the button tha
 
 {{md-text
   text="
-### Advanced
+## Advanced
 
 `panels` are actually just `nypr-card` components under the hood, and they expose the same API on the `header` property, so you can open up `panel.header` to add a title or even pu the control button in there.
 "
