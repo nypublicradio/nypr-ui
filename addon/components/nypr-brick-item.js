@@ -11,10 +11,13 @@ export default Component.extend({
   classNameBindings: ['item.attributes.template'],
   attributeBindings: ['style'],
   
-  style: computed('backgroundImage', function() {
-    return htmlSafe(`background-image: ${get(this, 'backgroundImage')}`);
-  }),
+  style: computed.reads('backgroundImage'),
   pk: reads('item.id'),
   vertical: equal('template', 'vertical'),
-  backgroundImage: computed.reads('item.attributes.imageMain.url')
+  backgroundImage: computed('item.attributes.imageMain.url', function() {
+    let backgroundImage = get(this, 'item.attributes.imageMain.url');
+    if (backgroundImage) {
+      return htmlSafe(`background-image: url(${backgroundImage});`);
+    }
+  })
 });
