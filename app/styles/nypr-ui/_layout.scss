@@ -1,0 +1,35 @@
+.l-unconstrained--sm {
+  @include mq($small-only) {
+    padding: 0;
+  }
+}
+
+.l-container {
+  width: 100%;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin: 0 auto;
+
+  @include mq($desktop-only) {
+    max-width: 940px;
+  }
+
+  @include mq($widescreen) {
+    max-width: 1200px;
+  }
+
+  &--touch-full {
+    @include mq($mobile) {
+      padding: 0;
+    }
+  }
+}
+
+.l-mobile--col {
+  @include mq($mobile) {
+    @include flexbox((
+      display: flex,
+      flex-direction: column
+    ));
+  }
+}

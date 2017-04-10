@@ -1,0 +1,72 @@
+{{md-text text="
+# `nypr-card`
+"}}
+<h2>basic usage</h2>
+{{code-snippet name="basic.hbs"}}
+
+{{! BEGIN-SNIPPET basic }}
+{{#nypr-card}}
+  hello world
+{{/nypr-card}}
+{{! END-SNIPPET }}
+
+<h2>add a title</h2>
+{{code-snippet name="title.hbs"}}
+
+{{! BEGIN-SNIPPET title }}
+{{#nypr-card as |card|}}
+  {{card.header title="Great Things"}}
+  
+  another thing we've got in here
+{{/nypr-card}}
+{{! END-SNIPPET }}
+
+<h2>add a button</h2>
+{{code-snippet name="button.hbs"}}
+
+{{! BEGIN-SNIPPET button }}
+{{#nypr-card as |card|}}
+  {{#card.header title="Your Card" as |header|}}
+    {{header.title}}
+    {{header.button click=(action (mut foo) (not foo)) text="Toggle Text"}}
+  {{/card.header}}
+  
+  {{#if foo}}
+    Some other text here
+  {{else}}
+    Some text here
+  {{/if}}
+{{/nypr-card}}
+{{! END-SNIPPET button }}
+
+<h2>other params</h2>
+<h3>buttons yeild a block</h3>
+<h3><code>header.title</code> accepts a <code>text</code> param</h3>
+{{code-snippet name="advanced-nypr-card.hbs"}}
+
+{{! BEGIN-SNIPPET advanced-nypr-card }}
+{{#nypr-card as |card|}}
+
+  {{#card.header as |header|}}
+    {{header.title text="Your Stuff"}} 
+    {{#header.button click=(action (mut isSaved) (not isSaved))}}
+      {{if isSaved 'Edit info' 'Save'}}
+    {{/header.button}}
+  {{/card.header}}
+
+  <h4>Your Name</h4>
+  {{#if isSaved}}
+    {{something}}
+  {{else}}
+    {{input value=something placeholder='Enter your name'}}
+  {{/if}}
+  
+{{/nypr-card}}
+{{! END-SNIPPET }}
+
+<h2>use another component for the body</h2>
+{{code-snippet name="nypr-card-body.hbs"}}
+
+{{! BEGIN-SNIPPET nypr-card-body }}
+{{nypr-card title="Your Info" body="your-info"}}
+{{! END-SNIPPET }}

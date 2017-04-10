@@ -1,0 +1,19 @@
+machine:
+  node:
+    version: 6.9.5
+
+dependencies:
+  pre:
+    - sudo apt-get update && sudo apt-get install ruby-sass
+    - gem update --system
+    - gem install compass --no-ri --no-rdoc
+    - npm set progress=false
+    - npm i bower -g
+    - bower install
+
+deployment:
+  docs:
+    branch: master
+    commands:
+      - git checkout --orphan gh-pages; git commit --allow-empty -m 'deploying from circle'; git push -u origin gh-pages
+      - ./node_modules/ember-cli/bin/ember deploy production

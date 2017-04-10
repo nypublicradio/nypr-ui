@@ -1,0 +1,75 @@
+$gold: #FBE01A;                 // rgb(251, 224, 26)
+$lightgreen: #0EB8BA;           // rgb(14, 184, 186)
+$darkgreen: #0C999B;            // rgb(12, 153, 155)
+$grass: #45de9b;                // rgb(69, 222, 155)
+$black: #000;                   // rgb(0, 0, 0)
+
+// WNYC
+$red: #DE1E3D;                  // rgb(222, 30, 61)
+$darkred: #ba0d29;              // rgb(186, 13, 41)   red hover
+$rouge: #8d2131;                // rgb(82, 0, 10)     sub-nav
+$blue: #128cf4;                 // rgb(18, 140, 244)
+$darkblue: #1068b2;             // rgb(16, 104, 178)  blue hover
+$navy: #2B2F3D;                 // rgb(43, 47, 61)    discover chrome
+$pink: #d3008c;                 // rgb(211, 0, 140)
+
+// WQXR
+$wqxrlink: #0073d5;             // rgb(0, 115, 213)
+$wqxrblue: #00aeff;             // rgb(0, 174, 255)
+$wqxrdarkblue: #0064b4;         // rgb(0, 100, 180)
+$filter--wqxr: rgba($wqxrdarkblue, 0.45);
+
+// Blacks & grays
+$darkestgray: #222;             // rgb(34, 34, 34)
+$darkergray: #333;              // rgb(51, 51, 51)
+$darkgray: #444;                // rgb(68, 68, 68)
+$gray: #666;                    // rgb(102, 102, 102)
+$lightgray: #888;               // rgb(136, 136, 136)
+$lightergray: #bbb;             // rgb(187, 187, 187)
+$lightestgray: #ddd;            // rgb(221, 221, 221)
+$nearwhite: #f1f1f1;            // rgb(241, 241, 241)
+$graywhite: #f8f8f8;            // rgb(248, 248, 248)
+
+// Lines
+$line--light: #eaeaea;
+$line--default: $lightestgray;
+
+// Social
+$facebook: #3b5998;             // rgb(59, 89, 152)
+$facebook-hover: #2a457c;
+
+// Image Filters
+$filter--light: rgba(0, 0, 0, 0.45);
+$filter--dark: rgba(0, 0, 0, 0.75);
+$gradient--light: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
+
+@mixin filter-container {
+    top: 0;
+    left: 0;
+    width: 100%;
+    position: relative;
+}
+
+@mixin classic-filter($filter) {
+    content: "";
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: $filter;
+}
+
+@mixin animate-filter($filter, $opacity) {
+    content: "";
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: $filter;
+    transition: opacity 0.125s;
+    opacity: $opacity;
+}

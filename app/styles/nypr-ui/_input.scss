@@ -1,0 +1,74 @@
+@mixin base-input {
+  height: 50px;
+  padding: 12px;
+  border-radius: 4px;
+  background-color: white;
+  border: solid 1px $lightestgray;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+
+  .has-error & {
+    border-color: $red;
+  }
+
+  &:focus {
+    border-color: $blue;
+  }
+}
+
+.nypr-input-label {
+  display: block;
+  margin-bottom: 6px;
+  height: 17px;
+  font-size: 12px;
+  color: $lightgray;
+}
+
+.nypr-input {
+  display: block;
+  width: 100%;
+  @include base-input;
+}
+
+.nypr-input-container {
+  position: relative;;
+}
+
+.nypr-input-container .nypr-input-validmark {
+  position: absolute;
+  right: 15px;
+  bottom: 18px;
+
+  path {
+    fill: $grass;
+  }
+}
+
+.nypr-input-footer {
+  width: 100%;
+  margin-bottom: 16px;
+
+  .nypr-input-error {
+    color: $red;
+    font-size: 12px;
+    line-height: 1.5;
+    padding-top: 5px;
+    padding-left: 12px;
+  }
+
+  .nypr-input-advice {
+    font-size: 12px;
+    padding-top: 10px;
+    padding-left: 12px;
+    color: $lightgray;
+  }
+
+  .nypr-input-helplink {
+    float: right;
+    font-size: 14px;
+    padding-top: 10px;
+    padding-left: 12px;
+    margin-bottom: 16px;
+    text-align: right;
+  }
+}

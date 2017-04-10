@@ -1,0 +1,39 @@
+@mixin icon--with-text {
+  @include flexbox((
+   display: flex,
+   flex-direction: row,
+   align-items: center
+  ));
+  border: 0;
+
+  svg,
+  i {
+    margin-right: 10px;
+
+    &.fa {
+      width: 15px;
+      text-align: center;
+    }
+  }
+
+  &--top {
+    @include flexbox((
+     align-items: flex-start
+    ));
+  }
+}
+
+.icon--with-text {
+  @include icon--with-text;
+}
+
+@mixin arrow--down {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 7px solid #fff;
+}
+.arrow--down {
+  @include arrow--down;
+}

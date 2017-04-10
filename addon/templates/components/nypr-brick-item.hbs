@@ -1,0 +1,37 @@
+{{#if hasBlock}}
+  {{yield}}
+{{else}}
+  <div class="item__icons">
+    <div class="item__icons__video">
+      {{nypr-svg className="icon" icon="video"}}
+    </div>
+  </div>
+  {{#if vertical}}
+    <div class="item__img" style={{backgroundImage}}>
+    </div>
+  {{/if}}
+  <div class="item__head">
+    <a class="item__head__brand" href="{{item.attributes.headers.brand.url}}">
+      {{item.attributes.headers.brand.title}}
+    </a>
+    <h2 class="item__head__headline">
+      {{#link-to 'story' item.attributes.slug}}
+        {{nypr-svg className="icon" icon="video"}}
+        {{item.attributes.title}}
+      {{/link-to}}
+    </h2>
+    {{#if item.attributes.audio}}
+      {{#listen-button
+        audio=audio
+        type='blue-minion'
+        state=(if (eq (string pk) audio.currentAudio.id) audio.playState)
+        itemPK=item.id
+        itemTitle=item.attributes.title}}
+        Listen {{item.attributes.audioDurationReadable}}
+      {{/listen-button}}
+    {{/if}}
+  </div>
+  {{#link-to 'story' item.attributes.slug class="item__link--hidden"}}
+    {{item.attributes.title}}
+  {{/link-to}}
+{{/if}}

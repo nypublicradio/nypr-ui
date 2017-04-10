@@ -1,0 +1,136 @@
+@import "compass/css3/transition";
+@import "compass/css3/appearance";
+
+@mixin btn {
+  position: relative; // for transition icons
+  display: inline-block;
+  border-radius: 25px;
+  border: 2px solid;
+  border-color: rgba($lightgray, 0.2);
+
+  padding: 0px 13px;
+  color: $lightgray;
+  background: transparent;
+  font-size: 14px;
+  line-height: 34px;
+
+  cursor: pointer;
+
+  @include transition(
+    opacity $transition-timing,
+    background-color $transition-timing,
+    border-color $transition-timing,
+    color $transition-timing);
+
+  &:hover,
+  &:active {
+    border-color: rgba($darkgray, 0.2);
+    color: $gray;
+    opacity: 1;
+  }
+
+  &[disabled] {
+    opacity: 0.15;
+    cursor: not-allowed;
+  }
+
+  .touchevents &:hover {
+    border-color: initial;
+    color: initial;
+  }
+}
+
+@mixin blank-button {
+  @include appearance(none);
+  font-family: inherit;
+  @include fontsize(14);
+  cursor: pointer;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  color: #333;
+  // IE doesn't support initial
+  color: initial;
+  text-align: left;
+  background-color: transparent;
+
+  @include transition(
+    opacity $transition-timing,
+    background-color $transition-timing,
+    border-color $transition-timing,
+    color $transition-timing);
+
+
+  &:not([disabled]) {
+    &:hover,
+    &:active {
+      background: none;
+      border: none;
+      color: inherit;
+    }
+  }
+
+  &[disabled] {
+    opacity: 0.15;
+    cursor: not-allowed;
+  }
+
+  .touchevents &:hover {
+    border-color: initial;
+    color: initial;
+  }
+}
+
+@mixin btn--fat {
+  width: 40px;
+  height: 40px;
+
+  .fa {
+    font-size: 18px;
+  }
+}
+
+// A button with white text and a solid colored background
+@mixin btn--solid-color ($background-color: $gray, $hover-color: $darkgray) {
+  background-color: $background-color;
+  border-color: $background-color;
+  color: white;
+
+  &:not([disabled]) {
+    &:hover,
+    &:active {
+      outline: none;
+      background-color: $hover-color;
+      border-color: $hover-color;
+      color: white;
+      opacity: 1;
+    }
+  }
+}
+
+@mixin btn--large {
+  padding: 3px 18px;
+  line-height: 36px;
+  @include fontsize(16);
+}
+
+// Button with bold text
+@mixin btn--strongtext {
+  font-weight: 600;
+}
+
+// Button with facebook colors
+@mixin btn--facebook {
+  @include btn--solid-color(
+    $background-color: $facebook,
+    $hover-color: $facebook-hover
+    );
+}
+
+// Blue button
+@mixin btn--blue {
+  @include btn--solid-color(
+    $background-color: $blue,
+    $hover-color: $darkblue
+  );
+}
