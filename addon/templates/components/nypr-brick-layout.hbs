@@ -1,7 +1,4 @@
-{{#each groups as |group index|}}
-  {{#if (eq index 1)}}
-    {{nypr-brick-card-row items=group audio=audio}}
-  {{else}}
-    {{nypr-brick-image-row items=group flip=(eq index 3) audio=audio}}
-  {{/if}}
-{{/each}}
+{{yield (hash
+  blowout=(component 'nypr-brick-row-blowout')
+  cards=(component 'nypr-brick-card-row')
+)}}
