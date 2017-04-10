@@ -410,6 +410,12 @@
 .brick__item--sponsored:focus:after,
 .brick__item--sponsored:active:after {
   @include mq($mobile) {
-    background: none;
+    opacity: 0;
+  }
+}
+
+.brick-row--images .brick__item:hover:before {
+  @include mq($mobile) {
+    opacity: 1;
   }
 }
