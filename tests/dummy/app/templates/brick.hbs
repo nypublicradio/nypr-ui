@@ -1,0 +1,162 @@
+{{md-text html=true text="
+  # `nypr-brick-layout`
+  Display a series of items as bricks in a floating grid. This component yields a few layers of contextual components which can be used to customize the layout.
+  
+  ## Basic Usage
+  The `nypr-brick-layout` component yields a block with two contextual components: `blowout` and `cards`. Each component accepts an `items` parameter, which should be an array of objects <a href=\"#poor-schema-for-items\">according to our `story` model schema (more below)</a>.
+  
+  Let's say you've got a route that looks like this:
+"}}
+
+{{code-snippet name="brick-route.js"}}
+
+{{md-text text="
+  Then you can render a `blowout` row and a `cards` row like so:
+"}}
+
+{{code-snippet name="basic-brick-layout.hbs"}}
+
+{{! BEGIN-SNIPPET basic-brick-layout }}
+{{#nypr-brick-layout as |layout|}}
+
+  {{layout.blowout items=model.row1}}
+  
+  {{layout.cards items=model.row2}}
+  
+{{/nypr-brick-layout}}
+{{! END-SNIPPET }}
+
+{{md-text text="
+  ## Advanced Usage
+  Let's get a little more complicated. Each of the yielded components will also themselves yield contextual components. 
+  
+  First, **`blowout`**. It yields `main` and `column`. They both accept an `item` parameter or a block.
+  
+  `main` will render a large image and `column` will yield the side column area.
+"}}
+
+{{code-snippet name="brick-layout-advanced.hbs"}}
+
+{{! BEGIN-SNIPPET brick-layout-advanced }}
+{{#nypr-brick-layout as |layout|}}
+
+  {{#layout.blowout as |blowout|}}
+  
+    {{blowout.main item=model.row1.[0]}}
+    
+    {{#blowout.column}}
+      I'm in the column
+    {{/blowout.column}}
+    
+  {{/layout.blowout}}
+  
+{{/nypr-brick-layout}}
+{{! END-SNIPPET }}
+
+{{md-text text="
+  `cards` will yield a `brick` component which accepts either an `item` parameter or a block.
+"}}
+
+{{code-snippet name="brick-layout-advanced-cards.hbs"}}
+
+{{! BEGIN-SNIPPET brick-layout-advanced-cards }}
+{{#nypr-brick-layout as |layout|}}
+  
+  {{#layout.cards as |row|}}
+  
+    {{row.brick item=model.row1.[0]}}
+    {{row.brick item=model.row1.[1]}}
+    
+    {{#row.brick}}
+      custom brick
+    {{/row.brick}}
+    
+  {{/layout.cards}}
+  
+{{/nypr-brick-layout}}
+{{! END-SNIPPET }}
+
+{{md-text text="
+  Going one level deeper, the `column` component will *also* yield its own `brick` contextual component. It accepts either an `item` parameter or a block, both of which will be rendered within a `nypr-brick-item` component.
+"}}
+
+{{code-snippet name="brick-layout-advanced2.hbs"}}
+
+{{! BEGIN-SNIPPET brick-layout-advanced2 }}
+{{#nypr-brick-layout as |layout|}}
+
+  {{#layout.blowout as |blowout|}}
+    
+    {{blowout.main item=model.row1.[0]}}
+    
+    {{#blowout.column as |column|}}
+    
+      {{column.brick item=model.row1.[1]}}
+      
+      {{#column.brick}}
+        in the card
+      {{/column.brick}}
+      
+    {{/blowout.column}}
+    
+  {{/layout.blowout}}
+  
+{{/nypr-brick-layout}}
+{{! END-SNIPPET }}
+
+
+{{md-text text="
+  You can also use the block syntax to render different layout combinations.
+"}}
+
+{{code-snippet name="brick-layout-advanced3.hbs"}}
+
+{{! BEGIN-SNIPPET brick-layout-advanced3 }}
+{{#nypr-brick-layout as |layout|}}
+
+  {{#layout.blowout as |blowout|}}
+  
+    {{#blowout.column as |column|}}
+      {{column.brick item=model.row1.[0]}}
+      {{column.brick item=model.row1.[1]}}
+    {{/blowout.column}}
+    
+    {{blowout.main item=model.row1.[2]}}
+    
+  {{/layout.blowout}}
+  
+  {{layout.blowout items=model.row2}}
+    
+  {{layout.cards items=model.row3}}
+    
+{{/nypr-brick-layout}}
+{{! END-SNIPPET }}
+
+{{md-text html=true text="
+  ## Current Limitations
+  There are a few limitations to the current implementation.
+  
+  ### <a name=\"poor-schema-for-items\"></a>Poor schema for items
+  Currently, the `nypr-brick-item` takes in an `item` parameter which it expects to have an `attributes` key that holds a specific set of fields according to the following schema:
+  ```
+  title: String
+  slug: String
+  audio: String
+  audioDurationReadable: String
+  template: String
+  imageMain:
+    url: String
+    template: String
+  headers:
+    brand:
+      title: String
+      url: String
+  ```
+  At the very least, this should be refactored to expect the `attributes` object directly, instead of expecting to traverse the entire `item.attributes.<key>` path in the template. 
+
+  ### Item links hardcoded to `story` routes
+  This is expected to render arbitrary items, but the link surrounding the title is hard coded to route to the `story` template.
+  
+  ### `nypr-brick-item` layout is fixed
+  Might want to open up `nypr-brick-item` to yield more contextual components.
+"}}
