@@ -401,8 +401,14 @@
 }
 
 .brick__item:hover:after,
-.brick-row--blowout .row__col .brick__item:hover:after,
-.brick__item--sponsored:hover:after {
+.brick__item:focus:after,
+.brick__item:active:after,
+.brick-row--images .row__col .brick__item:hover:after,
+.brick-row--images .row__col .brick__item:focus:after,
+.brick-row--images .row__col .brick__item:active:after,
+.brick__item--sponsored:hover:after,
+.brick__item--sponsored:focus:after,
+.brick__item--sponsored:active:after {
   @include mq($mobile) {
     background: none;
   }
