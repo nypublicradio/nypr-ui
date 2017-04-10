@@ -7,19 +7,21 @@ moduleForComponent('nypr-card/header', 'Integration | Component | nypr card/head
 
 test('it renders', function(assert) {
 
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  assert.expect(4);
+  this.set('buttonAction', () => assert.ok('buttonAction fired'));
+  this.render(hbs`{{nypr-card/header title="hello world" buttonAction=buttonAction}}`);
 
-  this.render(hbs`{{nypr-card/header}}`);
-
-  assert.equal(this.$().text().trim(), '');
+  assert.equal(this.$().text().trim(), 'hello world');
+  this.$('[data-test-selector="nypr-card-button"]').click();
 
   // Template block usage:
   this.render(hbs`
-    {{#nypr-card/header}}
-      template block text
+    {{#nypr-card/header as |header|}}
+      {{header.title text="hello world"}}
+      {{header.button text="the button"}}
     {{/nypr-card/header}}
   `);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$('.nypr-card-title').text().trim(), 'hello world');
+  assert.equal(this.$('.nypr-card-button').text().trim(), 'the button');
 });

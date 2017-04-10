@@ -13,6 +13,9 @@ test('it renders', function(assert) {
   this.render(hbs`{{nypr-card/title}}`);
 
   assert.equal(this.$().text().trim(), '');
+  
+  this.render(hbs`{{nypr-card/title text="hello world"}}`);
+  assert.equal(this.$().text().trim(), 'hello world', 'accepts a text param');
 
   // Template block usage:
   this.render(hbs`

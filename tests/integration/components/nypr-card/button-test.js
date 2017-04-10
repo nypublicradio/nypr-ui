@@ -10,9 +10,9 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{nypr-card/button}}`);
+  this.render(hbs`{{nypr-card/button text='button text'}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.equal(this.$().text().trim(), 'button text');
 
   // Template block usage:
   this.render(hbs`
