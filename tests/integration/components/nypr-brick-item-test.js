@@ -10,16 +10,16 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{nypr-brick-item}}`);
+  this.set('item', {attributes: {title: 'foo'}});
+  this.render(hbs`{{nypr-brick-item item=item}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
+  assert.ok(this.$().text().match('foo'));
+  
   this.render(hbs`
     {{#nypr-brick-item}}
-      template block text
+      ahoy
     {{/nypr-brick-item}}
   `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  
+  assert.ok(this.$().text().match('ahoy'));
 });
