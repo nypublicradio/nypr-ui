@@ -26,7 +26,7 @@ export default Component.extend({
       }
       return htmlSafe(`background-image: url(${urlString});`);
     } else {
-      return null;
+      return '';
     }
   })
 });
