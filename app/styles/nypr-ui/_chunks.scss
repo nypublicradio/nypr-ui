@@ -1,0 +1,22 @@
+//wrapper for a chunk iframe within the brick grid
+.chunk__item {
+  padding: 0;
+  iframe {
+    max-width: 100%;
+  }
+  @include mq($small-only) {
+    padding: 25px 20px;
+     iframe {
+      display: block;
+      margin: 0 auto;
+     }
+  }
+}
+
+// wqxr typically will have just text in this chunk, make sure it has some room
+.wartop-chunk {
+  @include mq($mobile) {
+    padding: 0 25px; 
+    margin-bottom: 48px;
+  }
+}
