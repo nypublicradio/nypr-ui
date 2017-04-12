@@ -331,8 +331,12 @@
   &__icons {
     position: absolute;
     z-index: $zIndex--brickItemInner;
-    width: auto;
+    width: 100%;
     padding: 20px 25px;
+
+    @include mq($mobile) {
+      display: none;
+    }
   }
 
   &__img {
@@ -342,10 +346,13 @@
     background-position: center top;
     @include filter-container;
 
-    &:before {
-      @include animate-filter($gradient--light, 1);
-      height: 100px;
+    &.story_video {
+      &:before {
+        @include animate-filter($gradient--light, 1);
+        height: 100px;
+      }
     }
+
     &:after {
       @include animate-filter($filter--wqxr, 0);
     }
