@@ -11,9 +11,13 @@ dependencies:
     - npm i bower -g
     - bower install
 
+tests:
+  override:
+    - echo "testing deploy"
+
 deployment:
   docs:
     branch: master
     commands:
-      - git checkout --orphan gh-pages; git commit --allow-empty -m 'deploying from circle'; git push -u origin gh-pages
+      - git checkout gh-pages; git checkout master
       - ./node_modules/ember-cli/bin/ember deploy production
