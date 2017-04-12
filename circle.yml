@@ -11,10 +11,6 @@ dependencies:
     - npm i bower -g
     - bower install
 
-tests:
-  override:
-    - echo "testing deploy"
-
 deployment:
   docs:
     branch: master
