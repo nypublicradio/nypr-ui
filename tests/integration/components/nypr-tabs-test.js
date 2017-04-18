@@ -23,3 +23,33 @@ test('it renders', function(assert) {
 
   assert.equal(this.$().text().trim(), 'template block text');
 });
+
+test('each tab renders its own content', function(assert) {
+
+  this.render(hbs`
+    {{#nypr-tabs selection=selection as |tabs|}}
+    {{#tabs.tablist as |tablist|}}
+      {{#tablist.tab "TabA" classNames="tab1" on-select=(action (mut selection))}}Tab A{{/tablist.tab}}
+      {{#tablist.tab "TabB" classNames="tab2" on-select=(action (mut selection))}}Tab B{{/tablist.tab}}
+    {{/tabs.tablist}}
+
+    {{#tabs.tabpanel "TabA" classNames="tabArea1"}}
+      <p>Tab A area</p>
+    {{/tabs.tabpanel}}
+
+    {{#tabs.tabpanel "TabB" classNames="tabArea2"}}
+      <p>Tab B area</p>
+    {{/tabs.tabpanel}}
+
+    {{/nypr-tabs}}
+  `);
+
+  this.$('.tab1').click();
+  assert.equal($('.tabArea1').is(':visible'), true);
+  assert.equal($('.tabArea2').is(':visible'), false);
+
+  this.$('.tab2').click();
+  assert.equal($('.tabArea1').is(':visible'), false);
+  assert.equal($('.tabArea2').is(':visible'), true);
+
+});
