@@ -2,12 +2,22 @@
   .ivy-tabs-tablist {
     @include display-flex;
     @include flex-direction(row);
+
+    & a:not(:first-child) {
+      margin-left: -1px;
+    }
+
+    .tablist-buffer {
+      @include flex(1 1);
+
+      border-bottom: 1px solid #f1f1f1;
+    }
   }
 
   a.ivy-tabs-tab {
     @include align-items(center);
     @include display-flex;
-    @include flex(1 1 150px);
+    @include flex(0 1 150px);
     @include fontsize(12);
     @include justify-content(center);
 
