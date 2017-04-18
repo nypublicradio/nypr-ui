@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('multi-card');
   this.route('card');
   this.route('brick');
+  this.route('tabs');
 });
 
 export default Router;
