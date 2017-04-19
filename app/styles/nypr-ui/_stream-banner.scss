@@ -5,6 +5,12 @@
     align-items: center,
     justify-content: center
   ));
+
+  @include mq($mobile) {
+    border-bottom: 1px solid rgba(256, 256, 256, .2);
+    padding-bottom: 13px;
+    margin-bottom: 10px;
+  }
 }
 
 .stream-banner-details {
@@ -32,6 +38,11 @@
   border-top: 6px solid $wqxrblue;
   @include filter-container;
   min-height: 190px;
+
+  @include mq($mobile) {
+    margin: -24px 0 0 0;
+    border: 0;
+  }
 
   &:before {
     @include classic-filter($filter--wqxrdark);
