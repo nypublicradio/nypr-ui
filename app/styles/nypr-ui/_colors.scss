@@ -75,3 +75,11 @@ $gradient--light: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0
     transition: opacity 0.125s;
     opacity: $opacity;
 }
+
+@mixin background--light {
+  background-color: $nearwhite;
+}
+
+.background--light {
+  @include background--light;
+}
