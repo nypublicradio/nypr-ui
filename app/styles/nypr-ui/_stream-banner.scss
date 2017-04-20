@@ -85,6 +85,10 @@
   min-width: auto;
 }
 
+.stream-banner-station > .ember-basic-dropdown {
+  flex-grow: 0;
+}
+
 .stream-banner-station .ember-power-select-selected-item {
   position: static;
   margin: 0 ;
