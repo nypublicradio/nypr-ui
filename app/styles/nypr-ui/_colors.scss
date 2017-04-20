@@ -17,7 +17,9 @@ $pink: #d3008c;                 // rgb(211, 0, 140)
 $wqxrlink: #0073d5;             // rgb(0, 115, 213)
 $wqxrblue: #00aeff;             // rgb(0, 174, 255)
 $wqxrdarkblue: #0064b4;         // rgb(0, 100, 180)
+$wqxrdarkestblue: #002F55;      // rgb(0, 47, 85)
 $filter--wqxr: rgba($wqxrdarkblue, 0.45);
+$filter--wqxrdark: rgba($wqxrdarkestblue, 0.85);
 
 // Blacks & grays
 $darkestgray: #222;             // rgb(34, 34, 34)

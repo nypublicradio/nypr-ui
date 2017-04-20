@@ -12,5 +12,5 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{stream-banner/trigger}}`);
 
-  assert.equal(this.$().text().trim(), 'Change Stream');
+  assert.equal(this.$('.stream-banner__trigger-label').text().trim(), "Change stream", 'The change stream trigger should display');
 });
