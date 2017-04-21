@@ -34,7 +34,11 @@ export default Component.extend({
     }
   }),
   analyticsTitle: computed('item.attributes', function() {
-    let { headers, title } = this.get('item.attributes');
+    let attributes = this.get('item.attributes');
+    if (!attributes) {
+      return;
+    }
+    let { headers, title } = attributes;
     if (!headers || !headers.links) {
       return title;
     }
