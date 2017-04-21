@@ -49,7 +49,7 @@ export default Component.extend({
   measurableState: computed('state', 'wasMeasured', 'isExpandable', function() {
     let { state, wasMeasured, isExpandable } = getProperties(this, 'state', 'wasMeasured', 'isExpandable');
     if (isExpandable && !wasMeasured) {
-      return (STATES.PAUSED); // consider paused until we measure so we get full width of paused state
+      return STATES.PAUSED; // consider paused until we measure so we get full width of paused state
     } else {
       return state || STATES.PAUSED;
     }
