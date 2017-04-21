@@ -51,7 +51,7 @@ export default Component.extend({
     if (isExpandable && !wasMeasured) {
       return (STATES.PAUSED); // consider paused until we measure so we get full width of paused state
     } else {
-      return state;
+      return state || STATES.PAUSED;
     }
   }),
   didUpdateAttrs({ oldAttrs, newAttrs }) {
