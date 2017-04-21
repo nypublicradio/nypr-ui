@@ -1,15 +1,19 @@
 machine:
   node:
-    version: 6.9.5
+    version: 6.10.2
 
 dependencies:
-  pre:
+  override:
     - sudo apt-get update && sudo apt-get install ruby-sass
     - gem update --system
     - gem install compass --no-ri --no-rdoc
-    - npm set progress=false
-    - npm i bower -g
+    - yarn global add bower
     - bower install
+    - yarn
+
+test:
+  override:
+    - yarn test
 
 deployment:
   docs:
