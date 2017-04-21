@@ -12,7 +12,7 @@
     </div>
   {{/if}}
   <div class="item__head">
-    <a class="item__head__brand" href="{{item.attributes.headers.brand.url}}">
+    <a class="item__head__brand" title={{item.attributes.headers.brand.title}} href={{item.attributes.headers.brand.url}}>
       {{item.attributes.headers.brand.title}}
     </a>
     <h2 class="item__head__headline">
@@ -32,7 +32,7 @@
       {{/listen-button}}
     {{/if}}
   </div>
-  {{#link-to 'story' item.attributes.slug class="item__link--hidden"}}
+  {{#link-to 'story' item.attributes.slug class="item__link--hidden" title=analyticsTitle}}
     {{if item.attributes.shortTitle item.attributes.shortTitle item.attributes.title}}
   {{/link-to}}
 {{/if}}

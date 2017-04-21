@@ -32,5 +32,10 @@ export default Component.extend({
     } else {
       return htmlSafe('');
     }
+  }),
+  analyticsTitle: computed(function() {
+    let { headers, title } = this.get('item.attributes');
+    let string = headers.links.reverse().map(l => l.title).join(' | ');
+    return string += ` | ${title}`;
   })
 });
