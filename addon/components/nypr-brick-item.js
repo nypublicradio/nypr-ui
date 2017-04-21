@@ -33,9 +33,12 @@ export default Component.extend({
       return htmlSafe('');
     }
   }),
-  analyticsTitle: computed(function() {
+  analyticsTitle: computed('item.attributes', function() {
     let { headers, title } = this.get('item.attributes');
-    let string = headers.links.reverse().map(l => l.title).join(' | ');
-    return string += ` | ${title}`;
+    if (!headers || !headers.links) {
+      return title;
+    }
+    let shows = headers.links.reverse().map(l => l.title).join(' | ');
+    return shows += ` | ${title}`;
   })
 });
