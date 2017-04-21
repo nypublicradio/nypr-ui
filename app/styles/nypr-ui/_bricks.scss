@@ -274,6 +274,7 @@
   ));
 
   &--sponsored {
+    overflow: hidden;
     box-shadow: none;
     background: $nearwhite;
     @include flexbox((
