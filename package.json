@@ -50,8 +50,10 @@
     "ember-remarkable": "3.6.0",
     "ember-resolver": "^2.0.3",
     "ember-sinon": "0.6.0",
+    "loader.js": "^4.0.10",
     "ember-source": "~2.11.0",
-    "loader.js": "^4.0.10"
+    "loader.js": "^4.0.10",
+    "minimatch": "^3.0.3"
   },
   "engines": {
     "node": ">= 0.12.0"
