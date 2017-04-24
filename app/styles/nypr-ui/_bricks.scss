@@ -127,6 +127,7 @@
   a {
     color: white;
     border: 0;
+    display: block;
   }
 
   > div {
@@ -284,6 +285,7 @@
   a {
     color: $darkergray;
     border: 0;
+    display: block;
 
     @include mq($desktop) {
       &:hover {
