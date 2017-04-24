@@ -7,32 +7,31 @@
     </div>
   </div>
   {{#if vertical}}
-    <div class="item__img {{ item.attributes.template }}"
-         style={{backgroundImage}}>
+    <div class="item__img {{ item.template }}" style={{backgroundImage}}>
     </div>
   {{/if}}
   <div class="item__head">
-    <a class="item__head__brand" title={{item.attributes.headers.brand.title}} href={{item.attributes.headers.brand.url}}>
-      {{item.attributes.headers.brand.title}}
+    <a class="item__head__brand" title={{item.headers.brand.title}} href={{item.headers.brand.url}}>
+      {{item.headers.brand.title}}
     </a>
     <h2 class="item__head__headline">
-      {{#link-to 'story' item.attributes.slug title=analyticsTitle}}
+      {{#link-to modelName item.slug title=analyticsTitle}}
         {{nypr-svg className="icon" icon="video"}}
-        {{if item.attributes.shortTitle item.attributes.shortTitle item.attributes.title}}
+        {{or item.shortTitle item.title}}
       {{/link-to}}
     </h2>
-    {{#if item.attributes.audio}}
+    {{#if item.audio}}
       {{#listen-button
         audio=audio
         type='blue-minion'
         state=(if (eq pk audio.currentId) audio.playState)
         itemPK=pk
-        itemTitle=(if item.attributes.shortTitle item.attributes.shortTitle item.attributes.title)}}
-        Listen {{item.attributes.audioDurationReadable}}
+        itemTitle=(if item.shortTitle item.shortTitle item.title)}}
+        Listen {{item.audioDurationReadable}}
       {{/listen-button}}
     {{/if}}
   </div>
-  {{#link-to 'story' item.attributes.slug class="item__link--hidden" title=analyticsTitle}}
-    {{if item.attributes.shortTitle item.attributes.shortTitle item.attributes.title}}
+  {{#link-to modelName item.slug class="item__link--hidden" title=analyticsTitle}}
+    {{or item.shortTitle item.title}}
   {{/link-to}}
 {{/if}}

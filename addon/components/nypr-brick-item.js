@@ -8,7 +8,7 @@ import { imageTemplate } from 'nypr-ui/helpers/image-template';
 export default Component.extend({
   layout,
   classNames: ['brick__item'],
-  classNameBindings: ['item.attributes.template'],
+  classNameBindings: ['item.template'],
   attributeBindings: ['style'],
   
   style: computed.reads('backgroundImage'),
@@ -18,8 +18,8 @@ export default Component.extend({
     return String(get(this, 'item.id'));
   }),
   vertical: equal('template', 'vertical'),
-  backgroundImage: computed('item.attributes.imageMain.url', function() {
-    var imageMain = get(this, 'item.attributes.imageMain');
+  backgroundImage: computed('item.imageMain.url', function() {
+    var imageMain = get(this, 'item.imageMain');
     var urlString;
     if (imageMain){
       // just in case we don't get a template and crop from the API, fallback to url
@@ -33,16 +33,16 @@ export default Component.extend({
       return htmlSafe('');
     }
   }),
-  analyticsTitle: computed('item.attributes', function() {
-    let attributes = this.get('item.attributes');
-    if (!attributes) {
-      return;
-    }
-    let { headers, title } = attributes;
+  analyticsTitle: computed('item', function() {
+    let { headers, title } = this.get('item');
     if (!headers || !headers.links) {
       return title;
     }
     let shows = headers.links.reverse().map(l => l.title).join(' | ');
     return shows += ` | ${title}`;
+  }),
+  // why?
+  modelName: computed('item', function() {
+    return this.get('item.content.constructor.modelName');
   })
 });
