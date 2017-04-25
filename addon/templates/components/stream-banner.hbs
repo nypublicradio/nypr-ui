@@ -35,7 +35,7 @@
       {{/listen-button}}
     </div>
     {{#if (and activeStream.currentComposer.name activeStream.currentPiece)}}
-      {{#link-to 'playlist-daily' class='stream-banner-recently link--blue'}}
+      {{#link-to 'playlist-daily' (query-params scheduleStation=activeStream.slug) class='stream-banner-recently link--blue'}}
         Recently played
         {{nypr-svg className="icon rotate-minus90" icon="caret-down"}}
       {{/link-to}}
