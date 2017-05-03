@@ -34,7 +34,8 @@ export default Component.extend({
     }
   }),
   analyticsTitle: computed('item', function() {
-    let { headers, title } = this.get('item');
+    let item = this.get('item');
+    let { headers, title } = item.getProperties('headers', 'title');
     if (!headers || !headers.links) {
       return title;
     }
@@ -43,6 +44,6 @@ export default Component.extend({
   }),
   // why?
   modelName: computed('item', function() {
-    return this.get('item.content.constructor.modelName');
+    return this.get('item.constructor.modelName');
   })
 });
