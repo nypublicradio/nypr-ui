@@ -16,7 +16,7 @@
       {{item.attributes.headers.brand.title}}
     </a>
     <h2 class="item__head__headline">
-      {{#link-to 'story' item.attributes.slug}}
+      {{#link-to 'story' item.attributes.slug title=analyticsTitle}}
         {{nypr-svg className="icon" icon="video"}}
         {{if item.attributes.shortTitle item.attributes.shortTitle item.attributes.title}}
       {{/link-to}}
