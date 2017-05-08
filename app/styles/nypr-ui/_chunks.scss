@@ -1,11 +1,16 @@
 //wrapper for a chunk iframe within the brick grid
+
 .chunk__item {
   padding: 0;
   iframe {
     max-width: 100%;
   }
+  @include mq($medium-and-up){
+    height: 237px;
+    overflow: hidden;
+  }
   @include mq($small-only) {
-    padding: 25px 20px;
+    padding: 25px 0;
      iframe {
       display: block;
       margin: 0 auto;
