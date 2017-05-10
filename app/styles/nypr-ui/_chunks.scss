@@ -11,6 +11,7 @@
   }
   @include mq($small-only) {
     padding: 25px 0;
+    border-bottom: 1px solid $lightestgray;
      iframe {
       display: block;
       margin: 0 auto;
