@@ -1,0 +1,8 @@
+.nypr-notification {
+  @include fontsize(14);
+
+  background-color: $darkgreen;
+  color: #fff;
+  padding: 15px;
+  font-family: $base-font-stack;
+}

@@ -1,0 +1,51 @@
+{{md-text
+  text="
+## Tabs
+
+The `nypr-tabs` component allows for tabbed navigation between different
+states. It uses the Ember addon [ivy-tabs](https://github.com/IvyApp/ivy-tabs)
+to power it.
+
+### Basic Usage
+The tab structure uses higher order components to allow for an arbitrary number
+of tabs. Each `tablist.tab` and its corresponding `tabs.tabpanel` must have the
+same \"model\" (as ivy-tabs puts it), which is the `\"TabA\"` identification
+following the component name.
+
+```htmlbars
+{{#nypr-tabs selection=selection as |tabs|}}
+{{#tabs.tablist as |tablist|}}
+  {{#tablist.tab \"TabA\" on-select=(action (mut selection))}}Tab A{{/tablist.tab}}
+  {{#tablist.tab \"TabB\" on-select=(action (mut selection))}}Tab B{{/tablist.tab}}
+{{/tabs.tablist}}
+
+{{#tabs.tabpanel \"TabA\"}}
+  <p>Tab A area</p>
+{{/tabs.tabpanel}}
+
+{{#tabs.tabpanel \"TabB\"}}
+  <p>Tab B area</p>
+{{/tabs.tabpanel}}
+
+{{/nypr-tabs}}
+```
+
+### Example component
+"
+}}
+{{#nypr-tabs selection=selection as |tabs|}}
+{{#tabs.tablist as |tablist|}}
+  {{#tablist.tab "TabA" on-select=(action (mut selection))}}Tab A{{/tablist.tab}}
+  {{#tablist.tab "TabB" on-select=(action (mut selection))}}Tab B{{/tablist.tab}}
+{{/tabs.tablist}}
+
+{{#tabs.tabpanel "TabA"}}
+  <p>Tab A area</p>
+{{/tabs.tabpanel}}
+
+{{#tabs.tabpanel "TabB"}}
+  <p>Tab B area</p>
+{{/tabs.tabpanel}}
+
+{{/nypr-tabs}}
+{{outlet}}

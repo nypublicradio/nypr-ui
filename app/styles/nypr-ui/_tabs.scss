@@ -1,0 +1,45 @@
+.nypr-tabs {
+  .ivy-tabs-tablist {
+    @include display-flex;
+    @include flex-direction(row);
+
+    & a:not(:first-child) {
+      margin-left: -1px;
+    }
+
+    .tablist-buffer {
+      @include flex(1 1);
+
+      border-bottom: 1px solid #f1f1f1;
+    }
+  }
+
+  a.ivy-tabs-tab {
+    @include align-items(center);
+    @include display-flex;
+    @include flex(0 1 150px);
+    @include fontsize(12);
+    @include justify-content(center);
+
+    box-sizing: border-box;
+    border: 1px solid $nearwhite;
+    border-bottom: 0;
+    background-color: $graywhite;
+    color: $darkergray;
+    font-family: $base-font-stack;
+    height: 43px;
+    text-decoration: none;
+
+    &.active {
+      background-color: white;
+    }
+  }
+
+  .ivy-tabs-tabpanel {
+    display: none;
+
+    &.active {
+      display: initial;
+    }
+  }
+}
