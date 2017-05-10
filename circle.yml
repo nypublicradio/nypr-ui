@@ -9,7 +9,7 @@ dependencies:
     - gem install compass --no-ri --no-rdoc
     - yarn global add bower
     - bower install
-    - yarn
+    - yarn --pure-lockfile
 
 test:
   override:
