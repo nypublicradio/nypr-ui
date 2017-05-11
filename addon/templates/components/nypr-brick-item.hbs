@@ -25,7 +25,6 @@
       {{#listen-button
         audio=audio
         type='blue-minion'
-        state=(if (eq pk audio.currentId) audio.playState)
         itemPK=pk
         itemTitle=(if item.attributes.shortTitle item.attributes.shortTitle item.attributes.title)}}
         Listen {{item.attributes.audioDurationReadable}}
