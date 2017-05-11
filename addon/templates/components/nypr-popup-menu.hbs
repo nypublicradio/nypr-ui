@@ -1,0 +1,12 @@
+{{#click-outside action=(action 'closePopup')}}
+<button class="nypr-popupmenu-button" {{action 'togglePopup'}}>
+{{#if icon}}
+  {{nypr-svg className="icon" icon=icon}}
+{{/if}}
+{{text}}
+</button>
+<div class="nypr-popupmenu-popup" style={{popupStyle}}>
+  {{yield (action 'closePopup')}}
+  <div class="nypr-popupmenu-popup-pointer" style={{pointerStyle}}></div>
+</div>
+{{/click-outside}}
