@@ -10,7 +10,7 @@
     overflow: hidden;
   }
   @include mq($small-only) {
-    padding: 25px 0;
+    padding: 0;
      iframe {
       display: block;
       margin: 0 auto;
