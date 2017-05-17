@@ -1,6 +1,7 @@
 {{#if hasBlock}}
   {{yield (hash
     header=(component 'nypr-card/header')
+    alert=(component 'nypr-card/alert')
   )}}
 {{else}}
   {{nypr-card/header
