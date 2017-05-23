@@ -3,6 +3,7 @@
     {{yield (hash
       button=(component 'nypr-card/button' click=(action 'goTo' to))
       header=(component (get card 'header') title=title)
+      alert=(component 'nypr-card/alert')
     )}}
   {{/nypr-card}}
 {{/if}}

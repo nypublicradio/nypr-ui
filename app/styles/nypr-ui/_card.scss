@@ -26,10 +26,28 @@
 
 .nypr-card-edit-btn {
   @include blank-button;
-  
+
   color: $blue;
-  
+
   .touchevents &:hover {
     color: $blue;
+  }
+}
+
+.nypr-card-alert {
+  margin-bottom: 16px;
+  padding: 16px;
+  width: 100%;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1.5;
+  background: $lightgreen;
+  color: white;
+  a {
+    color: white;
+    &:hover,
+    &:focus {
+      border-bottom-color: white;
+    }
   }
 }
