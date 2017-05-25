@@ -8,9 +8,13 @@ export default Ember.Component.extend({
   tagName: "span",
 
   url: computed('sourceUrl', 'org.url',  function() {
-    let sourceUrl = get(this, 'sourceUrl');
-    let orgUrl = get(this, 'org.url');
-    return orgUrl;
+    let sourceUrl = this.get('sourceUrl');
+    let orgUrl = this.get('org.url');
+    if (sourceUrl) {
+      return sourceUrl;
+    } else {
+      return orgUrl;
+    }
   }),
 
   didRender() {
