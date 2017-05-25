@@ -1,0 +1,41 @@
+<figure class="figure" id="imageMain">
+  <img class="figure-image" alt="{{story.imageMain.caption}}" src="{{image-template story.imageMain.template 800 0 story.imageMain.crop}}">
+  <figcaption class="figure-caption">
+      <div class="figure-caption-body js-captionBody {{if captionOpen 'is-open'}}" data-state="is-closed" id="figureCaption" aria-hidden="true">
+          <div class="text text--medium text--white flush">
+              {{#if story.imageMain.caption}}{{{story.imageMain.caption}}}<br>{{/if}}
+              {{#if story.imageMain.creditsName}}
+                (
+                {{#if story.imageMain.creditsUrl}}
+                  <a href="{{story.imageMain.creditsUrl}}">{{story.imageMain.creditsName}}</a>)
+                {{else}}
+                  {{story.imageMain.creditsName}}
+                {{/if}}
+                {{#if story.imageMain.source}} 
+                  / 
+                  {{#if story.imageMain.source.url}}
+                      <a href="{{story.imageMain.source.url}}">{{story.imageMain.source.name}}</a>
+                  {{else}}
+                    {{story.imageMain.source.name}} 
+                  {{/if}}
+                {{/if}}
+                )
+              {{/if}}
+          </div>
+      </div>
+      <!-- .figure-caption-body -->
+
+      <div class="figure-caption-button">
+          <button class="btn btn--black btn--strictsquare btn--square-small btn--toggle js-captionBtn js-toggleButton" data-state="{{unless captionOpen 'first' 'second'}}" role="button" aria-controls="figureCaption" onclick={{action 'toggleCaption'}} >
+              <div class="btn-togglecontent">
+                  <i class="icon icon--info">i</i>
+              </div>
+              <div class="btn-togglecontent">
+                  <i class="fa fa-times icon--captionclose"></i>
+              </div>
+          </button>
+      </div>
+      <!-- .figure-caption-button -->
+
+  </figcaption>
+</figure>
