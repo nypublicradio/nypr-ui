@@ -1,37 +1,37 @@
 <div class="flag nudge">
-    {{#if story.headers.brand.logoImage}}
-    <a class="flag-image inherit" href="{{story.headers.brand.url}}">
-        <img alt="{{story.headers.brand.title}}" class="badge squarebadge" 
-            src="{{image-template story.headers.brand.logoImage.template 50 50 story.headers.brand.logoImage.crop 99}}"
-            srcset="{{image-template story.headers.brand.logoImage.template 100 100 story.headers.brand.logoImage.crop 99}} 2x,
-                {{image-template story.headers.brand.logoImage.template 150 150 story.headers.brand.logoImage.crop 99}} 3x"
-            width="50" height="50">
-        <span class="for-screenreaders">{{{story.headers.brand.title}}}</span>
-    </a>
-    <!-- .flag-image -->
-    {{/if}}
+  {{#if story.headers.brand.logoImage}}
+  <a class="flag-image inherit" href="{{story.headers.brand.url}}">
+    <img alt="{{story.headers.brand.title}}" class="badge squarebadge" 
+      src="{{image-template story.headers.brand.logoImage.template 50 50 story.headers.brand.logoImage.crop 99}}"
+      srcset="{{image-template story.headers.brand.logoImage.template 100 100 story.headers.brand.logoImage.crop 99}} 2x,
+        {{image-template story.headers.brand.logoImage.template 150 150 story.headers.brand.logoImage.crop 99}} 3x"
+      width="50" height="50">
+    <span class="for-screenreaders">{{{story.headers.brand.title}}}</span>
+  </a>
+  <!-- .flag-image -->
+  {{/if}}
 
-    <div class="flag-body">
-        <div class="media media--rev">
-            <div class="media-image">
-                <div id="edit-story"></div>
-            </div>
+  <div class="flag-body">
+    <div class="media media--rev">
+      <div class="media-image">
+        <div id="edit-story"></div>
+      </div>
 
-            {{#if story.headers.links}}
-            <div class="media-body">
-                <div class="text--small dimmed">Published by</div>
-                {{#each story.headers.links as |link|}}
-                <a class="text--mq-bluewhite"  href="{{link.url}}">
-                    {{{link.title}}}
-                </a> {{#unless (eq link story.headers.links.lastObject)}}<span class="text--small dimmed"> by </span>{{/unless}}
-                {{/each}}
-            </div>
-            {{/if}}
+      {{#if story.headers.links}}
+      <div class="media-body">
+        <div class="text--small dimmed">Published by</div>
+        {{#each story.headers.links as |link|}}
+        <a class="text--mq-bluewhite"  href="{{link.url}}">
+          {{{link.title}}}
+        </a> {{#unless (eq link story.headers.links.lastObject)}}<span class="text--small dimmed"> by </span>{{/unless}}
+        {{/each}}
+      </div>
+      {{/if}}
 
-        </div>
-        <!-- .media -->
     </div>
-    <!-- .flag-body -->
+    <!-- .media -->
+  </div>
+  <!-- .flag-body -->
 </div>                                
 <!-- .flag -->
 
@@ -39,92 +39,91 @@
 
 <div class="l-split flush">
 
-    {{#if story.audioEventually}}
-        {{#if story.audioAvailable}}
-        <div class="btn-group btn-group--withvr btn-group--storyheader">
-          {{!--   <span
-              data-ember-component="listen-button.embedded"
-              data-ember-args='{ "itemPK": "{{story.id}}", "itemTitle": "{{urlquote story.title}}", "duration": "{{story.audioDurationReadable}}", "playContext": "story-header", "type": "blue-boss" }'>
-            </span> --}}
-             {{#listen-button
-                audio=audio
-                type='blue-boss'
-                playConext="story-header"
-                state=(if (eq pk audio.currentId) audio.playState)
-                itemPK=story.id
-                itemTitle=story.title}}
-                Listen {{story.audioDurationReadable}}
-              {{/listen-button}}
+  {{#if story.audioEventually}}
+    {{#if story.audioAvailable}}
+    <div class="btn-group btn-group--withvr btn-group--storyheader">
 
-            <span
-              data-ember-component="queue-button.embedded"
-              data-ember-args='{ "itemPK": "{{story.id}}", "itemTitle": "{{url-encode story.title}}", "type": "queue-button--storyheader", "region": "StoryHeader" }'>
-            queue button</span>
+      {{#listen-button
+        audio=audio
+        type='blue-boss'
+        playConext="story-header"
+        state=(if (eq pk audio.currentId) audio.playState)
+        itemPK=pk
+        itemTitle=story.title}}
+        Listen {{story.audioDurationReadable}}
+        {{/listen-button}}
 
-            {{#if story.audioShowOptions}}
-            <div class="dropdown dropdown--bl dropdown--white">
-                <button aria-haspopup="true" aria-label="More Options" aria-owns="{{story.id}}" class="btn btn--circle btn--white medium-up js-dropdownClickable">
-                    <i class="fa fa-ellipsis-h"></i>
-                </button>
-                {{! prevent overflow scrolling on mobile by hiding dropdown-body}}
-                <div class="dropdown-body medium-up" id="{{story.id}}">
-                    <div class="panel">
+      {{queue-button.embedded
+          audio=audio
+          itemPK=pk
+          itemTitle=story.title
+          type="queue-button--storyheader"
+          region="StoryHeader"}}
 
-                        {{#if story.audioMayDownload}}
-                        <a href="{{story.audio}}" download="{{story.title}}" class="panel-link link--dark text--medium">
-                            <i class="fa fa-cloud-download panel-linkicon"></i>
-                            Download this audio
-                        </a>
-                        <!-- .panel-link -->
-                        {{/if}}
+      {{#if story.audioShowOptions}}
+      <div class="dropdown dropdown--bl dropdown--white">
+        <button aria-haspopup="true" aria-label="More Options" aria-owns="{{story.id}}" class="btn btn--circle btn--white medium-up js-dropdownClickable">
+          <i class="fa fa-ellipsis-h"></i>
+        </button>
+        {{! prevent overflow scrolling on mobile by hiding dropdown-body}}
+        <div class="dropdown-body medium-up" id="{{story.id}}">
+          <div class="panel">
 
-                        {{#if story.audioMayEmbed}}
-                        <div class="panel-body box--nearwhite">
-                            <div class="text flush">
-                                <p class="h4 flush">Want to embed this player?</p>
-                                <p class="text--small nudge" id="dropdownLabel_{{story.id}}">Use the code below. <a href="/audio/help" target="_blank">More info</a>.</p>
-                                <textarea aria-labelledby="dropdownLabel_{{story.id}}" aria-readonly="true" class="js-embedText textarea textarea--noresize" cols="40" data-category="SelectEmbed" rows="6" readonly>{{story.extendedStory.embedCode}}</textarea>
-                            </div>
-                        </div>
-                        <!-- .panel-body -->
-                        {{/if}}
-
-                    </div>
-                    <!-- .panel -->
-                </div>
-                <!-- .dropdown-body -->
-            </div>
-            <!-- .dropdown -->
+            {{#if story.audioMayDownload}}
+            <a href="{{story.audio}}" download="{{story.title}}" class="panel-link link--dark text--medium">
+              <i class="fa fa-cloud-download panel-linkicon"></i>
+              Download this audio
+            </a>
+            <!-- .panel-link -->
             {{/if}}
-        </div>
-        <!-- .btn-group -->
-        {{else}}
-        <div class="text text--medium text--lightergray flush--medium">
-            <em>Audio not yet available</em>
-        </div>
-        {{/if}}
-    {{/if}}
 
-    <div class="btn-group">
-        {{!
-          when twitter's widgets.js is loaded on a page because of an embedded tweet or some such thing, 
-          it captures clicks to links that match the url we're opening.
-          not every page has it on there, and can't reliably predict when it will, so we're making
-          these elements buttons and updating story/share.js to respond accordingly.
-        }}
-        <button data-action="https://www.facebook.com/sharer/sharer.php?u={{story.url}}" class="btn btn--circle btn--mq-graywhite js-share" data-category="SharedF" target="_blank" title="Share on Facebook">
-            <i class="fa fa-facebook"></i>
-            <span class="for-screenreaders">Share on Facebook</span>
-        </button>
-        <button data-action="https://twitter.com/intent/tweet/?text={{url-encode story.extendedStory.twitterHeadline}}&via={{story.extendedStory.twitterHandle}}&url={{story.url}}" class="btn btn--circle btn--mq-graywhite js-share" data-category="SharedT" id="shareTwitter" target="_blank" title="Share on Twitter">
-            <i class="fa fa-twitter"></i>
-            <span class="for-screenreaders">Share on Twitter</span>
-        </button>
-        <a href="mailto:?subject={{url-encode story.title}}&body={{story.url}}" class="btn btn--circle btn--mq-graywhite js-share" data-category="SharedE" id="shareEmail" title="Email a Friend">
-            <i class="fa fa-envelope"></i>
-            <span class="for-screenreaders">Email a Friend</span>
-        </a>
+            {{#if story.audioMayEmbed}}
+            <div class="panel-body box--nearwhite">
+              <div class="text flush">
+                <p class="h4 flush">Want to embed this player?</p>
+                <p class="text--small nudge" id="dropdownLabel_{{story.id}}">Use the code below. <a href="/audio/help" target="_blank">More info</a>.</p>
+                <textarea aria-labelledby="dropdownLabel_{{story.id}}" aria-readonly="true" class="js-embedText textarea textarea--noresize" cols="40" data-category="SelectEmbed" rows="6" readonly>{{story.extendedStory.embedCode}}</textarea>
+              </div>
+            </div>
+            <!-- .panel-body -->
+            {{/if}}
+
+          </div>
+          <!-- .panel -->
+        </div>
+        <!-- .dropdown-body -->
+      </div>
+      <!-- .dropdown -->
+      {{/if}}
     </div>
     <!-- .btn-group -->
+    {{else}}
+    <div class="text text--medium text--lightergray flush--medium">
+      <em>Audio not yet available</em>
+    </div>
+    {{/if}}
+  {{/if}}
+
+  <div class="btn-group">
+    {{!
+      when twitter's widgets.js is loaded on a page because of an embedded tweet or some such thing, 
+      it captures clicks to links that match the url we're opening.
+      not every page has it on there, and can't reliably predict when it will, so we're making
+      these elements buttons and updating story/share.js to respond accordingly.
+    }}
+    <button data-action="https://www.facebook.com/sharer/sharer.php?u={{story.url}}" class="btn btn--circle btn--mq-graywhite js-share" data-category="SharedF" target="_blank" title="Share on Facebook">
+      <i class="fa fa-facebook"></i>
+      <span class="for-screenreaders">Share on Facebook</span>
+    </button>
+    <button data-action="https://twitter.com/intent/tweet/?text={{url-encode story.extendedStory.twitterHeadline}}&via={{story.extendedStory.twitterHandle}}&url={{story.url}}" class="btn btn--circle btn--mq-graywhite js-share" data-category="SharedT" id="shareTwitter" target="_blank" title="Share on Twitter">
+      <i class="fa fa-twitter"></i>
+      <span class="for-screenreaders">Share on Twitter</span>
+    </button>
+    <a href="mailto:?subject={{url-encode story.title}}&body={{story.url}}" class="btn btn--circle btn--mq-graywhite js-share" data-category="SharedE" id="shareEmail" title="Email a Friend">
+      <i class="fa fa-envelope"></i>
+      <span class="for-screenreaders">Email a Friend</span>
+    </a>
+  </div>
+  <!-- .btn-group -->
 </div>
 <!-- .l-split -->
