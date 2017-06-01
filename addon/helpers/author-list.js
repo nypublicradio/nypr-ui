@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import { listSeparator } from 'nypr-ui/helpers/list-separator';
 const {
   Helper
 } = Ember;
@@ -6,19 +7,18 @@ const {
 export function authorList([ authors ]/*, hash*/, {unlinked=false}={}) {
   let finalString = '';
 
+  let separators = authors.map(function(val, idx, arr){
+    return listSeparator([arr,idx]);
+  });
+
   authors.forEach((author, idx) => {
     let line = '';
+    line += separators[idx];
     
     if (unlinked){
-      line = author.name;
+      line += author.name;
     } else {
-      line = `<a href="${author.url}" >${author.name}</a>`;
-    }
-
-    if (idx === authors.length - 2){
-      line += ' and ';
-    } else if (idx < authors.length - 1){
-      line += ', ';
+      line += `<a href="${author.url}" >${author.name}</a>`;
     }
 
     finalString += line;

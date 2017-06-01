@@ -1,7 +1,7 @@
 <div class="accordion flush" data-category="segments" data-state="{{if accordionOpen 'is-expanded' 'is-collapsed'}}" id="segments">
   <div class="accordion-header">
     <div class="text text--white text--medium flush">
-      {{story.extendedStory.segmentCount}} segments 
+      {{segmentCount}} segments 
       <button class="btn btn--blank btn--bluetext btn--toggle js-accordionButton js-toggleButton" data-state="{{if accordionOpen 'first' 'second'}}" role="button" aria-expanded="true" aria-controls="segmentsList" aria-label="Toggle Segment Visibility" data-category="AccordionToggle" onclick={{action 'toggleAccordion'}}>
         <div class="btn-togglecontent">hide <i class="icon icon--inline icon-arrow icon-arrow--up"></i></div>
         <div class="btn-togglecontent">show <i class="icon icon--inline icon-arrow icon-arrow--down"></i></div>
@@ -12,7 +12,7 @@
 
   <div class="accordion-collapsable" id="segmentsList">
       <ul class="list flush">
-      {{#each story.extendedStory.segments as |segment|}}
+      {{#each segments as |segment|}}
         {{nypr-story/segment audio=audio segment=segment}}
       {{/each}}
       </ul>

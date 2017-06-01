@@ -1,0 +1,24 @@
+<section class="list">
+  <div class="list-heading">
+    <h3 class="h5">Music Playlist</h3>
+  </div>
+  <ol>
+    {{#each playlist as |song|}}
+      <li class="list-item">
+        <h4 class="h3 flush">{{{song.title}}}</h4>
+        {{#if song.artists}}
+        <div class="text flush">Artist: {{song.artists}}</div>
+        {{/if}}
+        {{#if song.album}}
+        <div class="text flush">Album: {{song.album}}</div>
+        {{/if}}
+        {{#if song.label}}
+        <div class="text flush">Label: {{song.label}}</div>
+        {{/if}}
+        {{#if song.asin}}
+        <div class="text flush"><a href="http://www.amazon.com/exec/obidos/ASIN/{{song.asin}}/wnycorg-20" target="_blank">Buy on Amazon</a></div>
+        {{/if}}
+      </li>
+    {{/each}}
+  </ol>
+</section>

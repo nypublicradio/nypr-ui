@@ -1,27 +1,11 @@
 import Ember from 'ember';
 import layout from '../../templates/components/nypr-story/producing-org';
 import computed from 'ember-computed';
+import imageLoaderMixin from 'nypr-ui/mixins/image-loader';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(imageLoaderMixin, {
   layout,
   classNames: ['producing-org'],
   tagName: "span",
-
-  url: computed('sourceUrl', 'org.url',  function() {
-    let sourceUrl = this.get('sourceUrl');
-    let orgUrl = this.get('org.url');
-    if (sourceUrl) {
-      return sourceUrl;
-    } else {
-      return orgUrl;
-    }
-  }),
-
-  didRender() {
-    this.$().imagesLoaded().progress((i, image) => {
-      Ember.run(() => {
-        image.img.classList.add('is-loaded');
-      });
-    });
-  }
+  url: computed.or('sourceUrl', 'org.url'),
 });

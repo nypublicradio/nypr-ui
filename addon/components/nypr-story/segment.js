@@ -9,6 +9,4 @@ export default Ember.Component.extend({
     // a string for IDs
     return String(get(this, 'segment.id'));
   }),
-
-
 });

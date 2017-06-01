@@ -3,5 +3,5 @@ import layout from '../../templates/components/nypr-story/byline';
 
 export default Ember.Component.extend({
   layout,
-  classNames: ['byline'],
+  classNames: ['nypr-story-byline'],
 });

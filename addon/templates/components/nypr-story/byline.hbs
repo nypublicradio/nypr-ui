@@ -1,16 +1,16 @@
 <footer class="text text--medium text--dotted" id="byLine">
-    <time datetime="{{moment-format story.dateLineDatetime 'YYYY-MM-DD'}}">{{moment-format story.dateLineDatetime 'MMMM D, YYYY'}}</time>
-    {{#if story.extendedStory.appearances.authors}}
+    <time datetime="{{moment-format dateLineDatetime 'YYYY-MM-DD'}}">{{moment-format dateLineDatetime 'MMMM D, YYYY'}}</time>
+    {{#if authors}}
          &middot; by
-         {{author-list story.extendedStory.appearances.authors}}
+         {{author-list authors}}
     {{/if}}
 
-    {{#if story.extendedStory.producingOrganizations}}
+    {{#if producingOrganizations}}
       <div>From
-      {{#each story.extendedStory.producingOrganizations as |org index|}}
+      {{#each producingOrganizations as |org index|}}
 
-        {{list-separator story.extendedStory.producingOrganizations index }}
-        {{nypr-story/producing-org sourceUrl=story.extendedStory.sourceUrl org=org}}
+        {{list-separator producingOrganizations index }}
+        {{nypr-story/producing-org sourceUrl=sourceUrl org=org}}
 
       {{/each}}
       </div> 

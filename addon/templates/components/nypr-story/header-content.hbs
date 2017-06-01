@@ -53,14 +53,14 @@
         Listen {{story.audioDurationReadable}}
         {{/listen-button}}
 
-      {{queue-button.embedded
+      {{queue-button
           audio=audio
           itemPK=pk
           itemTitle=story.title
           type="queue-button--storyheader"
           region="StoryHeader"}}
 
-      {{#if story.audioShowOptions}}
+      {{#if (or story.audioMayDownload story.audioMayEmbed)}}s
       <div class="dropdown dropdown--bl dropdown--white">
         <button aria-haspopup="true" aria-label="More Options" aria-owns="{{story.id}}" class="btn btn--circle btn--white medium-up js-dropdownClickable">
           <i class="fa fa-ellipsis-h"></i>

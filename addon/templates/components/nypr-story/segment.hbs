@@ -1,38 +1,38 @@
   <li class="list-item list-item--short list-item--dimmed">
-        <div class="l-split l-split--padsides flush">
+    <div class="l-split l-split--padsides flush">
       <div class="text text--white flush--medium">
           <a href="{{segment.url}}" class="link--white">{{{segment.title}}}</a>
           {{#if segment.audioAvailable}}<span class="text--small text--gray">&nbsp;{{segment.audioDurationReadable}}</span>{{/if}}
       </div>
       {{#if segment.audioEventually}}
-      {{#if segment.audioAvailable}}
-      <div class="l-split flush">
-          <div class="btn-group">
-            {{listen-button  
-              audio=audio 
-              playContext="story-list" 
-              itemPK=pk 
-              itemTitle=segment.title
-              state=(if (eq pk audio.currentId) audio.playState)
-              type="blue-circle"}}
-        
-            {{queue-button
-              audio=audio
-              itemPK=pk
-              itemTitle=segment.title
-              type="small-blue"
-              region="StoryList"}}
-        
+        {{#if segment.audioAvailable}}
+          <div class="l-split flush">
+            <div class="btn-group">
+              {{listen-button  
+                  audio=audio 
+                  playContext="story-list" 
+                  itemPK=pk 
+                  itemTitle=segment.title
+                  state=(if (eq pk audio.currentId) audio.playState)
+                  type="blue-circle"}}
+            
+              {{queue-button
+                  audio=audio
+                  itemPK=pk
+                  itemTitle=segment.title
+                  type="small-blue"
+                  region="StoryList"}}
+            
+            </div>
+            <!-- .btn-group -->
           </div>
-          <!-- .btn-group -->
-      </div>
-      <!-- .l-split-child128 -->
-      {{else}}
-      <div class="text text--medium text--lightergray flush--medium">
-          <em>Audio not yet available</em>
-      </div>
+          <!-- .l-split -->
+        {{else}}
+          <div class="text text--medium text--lightergray flush--medium">
+              <em>Audio not yet available</em>
+          </div>
+        {{/if}}
       {{/if}}
-      {{/if}}
-        </div>
-        <!-- .l-split -->
-    </li>
+      </div>
+      <!-- .l-split -->
+  </li>

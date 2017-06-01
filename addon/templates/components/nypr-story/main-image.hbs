@@ -1,22 +1,22 @@
-<figure class="figure" id="imageMain">
-  <img class="figure-image" alt="{{story.imageMain.caption}}" src="{{image-template story.imageMain.template 800 0 story.imageMain.crop}}">
+<figure class="figure" id="image">
+  <img class="figure-image" alt="{{image.caption}}" src="{{image-template image.template 800 0 image.crop}}">
   <figcaption class="figure-caption">
       <div class="figure-caption-body js-captionBody {{if captionOpen 'is-open'}}" data-state="is-closed" id="figureCaption" aria-hidden="true">
           <div class="text text--medium text--white flush">
-              {{#if story.imageMain.caption}}{{{story.imageMain.caption}}}<br>{{/if}}
-              {{#if story.imageMain.creditsName}}
+              {{#if image.caption}}{{{image.caption}}}<br>{{/if}}
+              {{#if image.creditsName}}
                 (
-                {{#if story.imageMain.creditsUrl}}
-                  <a href="{{story.imageMain.creditsUrl}}">{{story.imageMain.creditsName}}</a>)
+                {{#if image.creditsUrl}}
+                  <a href="{{image.creditsUrl}}">{{image.creditsName}}</a>)
                 {{else}}
-                  {{story.imageMain.creditsName}}
+                  {{image.creditsName}}
                 {{/if}}
-                {{#if story.imageMain.source}} 
+                {{#if image.source}} 
                   / 
-                  {{#if story.imageMain.source.url}}
-                      <a href="{{story.imageMain.source.url}}">{{story.imageMain.source.name}}</a>
+                  {{#if image.source.url}}
+                      <a href="{{image.source.url}}">{{image.source.name}}</a>
                   {{else}}
-                    {{story.imageMain.source.name}} 
+                    {{image.source.name}} 
                   {{/if}}
                 {{/if}}
                 )

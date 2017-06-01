@@ -7,11 +7,7 @@ export default Ember.Component.extend({
 
   actions: {
     toggleAccordion(){
-      if (this.get("accordionOpen")){
-        this.set("accordionOpen", false);
-      } else {
-        this.set("accordionOpen", true);
-      }
+      this.toggleProperty('accordionOpen')
     }, 
   }
 });
