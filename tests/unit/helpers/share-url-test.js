@@ -32,7 +32,7 @@ test('it generates the correct share urls', function(assert) {
   },];
 
   testCases.forEach(testCase => {
-    let actual = shareUrl([testCase.service, testCase.metadata]);
+    let actual = shareUrl([testCase.service, testCase.shareUrl, testCase.shareText]);
     const expected = testCase.expectedResult;
     assert.deepEqual(actual, expected, testCase.description);
   });
