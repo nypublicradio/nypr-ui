@@ -1,7 +1,5 @@
 import layout from '../templates/components/nypr-share-button';
 import Component from 'ember-component';
-import { readOnly } from 'ember-computed';
-import get, {getProperties} from 'ember-metal/get';
 
 export default Component.extend({
   layout,

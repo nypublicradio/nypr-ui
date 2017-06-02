@@ -45,11 +45,11 @@ test('each tab renders its own content', function(assert) {
   `);
 
   this.$('.tab1').click();
-  assert.equal($('.tabArea1').is(':visible'), true);
-  assert.equal($('.tabArea2').is(':visible'), false);
+  assert.equal(this.$('.tabArea1').is(':visible'), true);
+  assert.equal(this.$('.tabArea2').is(':visible'), false);
 
   this.$('.tab2').click();
-  assert.equal($('.tabArea1').is(':visible'), false);
-  assert.equal($('.tabArea2').is(':visible'), true);
+  assert.equal(this.$('.tabArea1').is(':visible'), false);
+  assert.equal(this.$('.tabArea2').is(':visible'), true);
 
 });
