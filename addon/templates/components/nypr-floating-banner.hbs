@@ -4,7 +4,7 @@
       
       {{yield}}
     
-      <button class="nypr-floating-banner__close" {{action (mut hideBanner) true}}>
+      <button class="nypr-floating-banner__close" {{action (action (mut hideBanner) true)}}>
         {{nypr-svg icon="close"}}
       </button>
     {{/nypr-card}}

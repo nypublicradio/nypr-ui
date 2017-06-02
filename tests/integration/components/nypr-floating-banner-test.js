@@ -23,3 +23,10 @@ test('it renders', function(assert) {
 
   assert.equal(this.$().text().trim(), 'template block text');
 });
+
+test('it can be dismissed', function(assert) {
+  this.render(hbs`{{nypr-floating-banner}}`);
+  this.$('.nypr-floating-banner__close').click();
+  
+  assert.notOk(this.$('.nypr-floating-banner__wrapper').length);
+});
