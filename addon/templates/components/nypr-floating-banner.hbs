@@ -1,0 +1,12 @@
+{{#unless hideBanner}}
+  <div class="nypr-floating-banner__wrapper{{if arrow ' nypr-floating-banner__with-arrow'}}">
+    {{#nypr-card class='nypr-floating-banner'}}
+      
+      {{yield}}
+    
+      <button class="nypr-floating-banner__close" {{action (action (mut hideBanner) true)}}>
+        {{nypr-svg icon="close"}}
+      </button>
+    {{/nypr-card}}
+  </div>
+{{/unless}}
