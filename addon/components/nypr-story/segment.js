@@ -7,6 +7,6 @@ export default Ember.Component.extend({
   pk: computed('segment.id', function() {
     // coerce to string b/c ember-data expects
     // a string for IDs
-    return String(get(this, 'segment.id'));
+    return String(this.get('segment.id'));
   }),
 });

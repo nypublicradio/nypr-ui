@@ -14,9 +14,12 @@
   <div class="flag-body">
     <div class="media media--rev">
       <div class="media-image">
-        <div id="edit-story"></div>
+        {{#if isStaff}}
+          <div id="edit-story">
+            <a href="{{adminURL}}/{{story.editLink}}" class="btn btn--green" target="_blank" data-test-selector="admin-link">Edit this</a>
+          </div>
+          {{/if}}
       </div>
-
       {{#if story.headers.links}}
       <div class="media-body">
         <div class="text--small dimmed">Published by</div>

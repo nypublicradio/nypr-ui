@@ -8,6 +8,6 @@ export default Ember.Component.extend(imageLoaderMixin, {
   pk: computed('story.id', function() {
     // coerce to string b/c ember-data expects
     // a string for IDs
-    return String(get(this, 'story.id'));
+    return String(this.get('story.id'));
   })
 });
