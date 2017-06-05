@@ -16,22 +16,30 @@ article section.transcript blockquote {
   }
 
   a.ivy-tabs-tab {
-    @include flex(0 1 100px);
+    @include flex(0 1 auto);
     @include fontsize(14);
     @include justify-content(flex-start);
 
     font-weight: bold;
     border: none;
+    border-bottom: 4px solid white;
     background-color: white;
+    margin-right: 24px;
+    height: auto;
+    padding-bottom: 5px;
+
+    &.active {
+      border-bottom: 4px solid #d3008c;
+    }
   }
 
   .ivy-tabs-tabpanel {
     display:none;
-    opacity: 0;
-    transition: opacity 250ms ease-in-out;
+    // opacity: 0;
+    // transition: opacity 250ms ease-in-out;
     &.active {
       display:block;
-      opacity: 1;
+      //opacity: 1;
     }
   }
 }
