@@ -17,7 +17,7 @@
   a.ivy-tabs-tab {
     @include align-items(center);
     @include display-flex;
-    @include flex(0 1 150px);
+    @include flex(0 1 170px);
     @include fontsize(12);
     @include justify-content(center);
 
