@@ -1,0 +1,32 @@
+<div class="eb-dropdown eb-dropdown--bl eb-dropdown--white">
+  {{#basic-dropdown renderInPlace=true as |dd|}}
+    {{#dd.trigger}} <button aria-haspopup="true" aria-label="More Options" aria-owns="{{story.id}}" class="btn btn--circle btn--white medium-up">
+        <i class="fa fa-ellipsis-h"></i>
+      </button>{{/dd.trigger}}
+    {{#dd.content class="eb-dropdown-body medium-up dropdown-fade" id="{{story.id}}"}} 
+        <div class="panel">
+          {{#if story.audioMayDownload}}
+          <a href="{{story.audio}}" download="{{story.title}}" class="panel-link link--dark text--medium">
+            <i class="fa fa-cloud-download panel-linkicon"></i>
+            Download this audio
+          </a>
+          <!-- .panel-link -->
+          {{/if}}
+
+          {{#if story.audioMayEmbed}}
+          <div class="panel-body box--nearwhite">
+            <div class="text flush">
+              <p class="h4 flush">Want to embed this player?</p>
+              <p class="text--small nudge" id="dropdownLabel_{{story.id}}">Use the code below. <a href="/audio/help" target="_blank">More info</a>.</p>
+              <textarea aria-labelledby="dropdownLabel_{{story.id}}" aria-readonly="true" class="js-embedText textarea textarea--noresize" cols="40" data-category="SelectEmbed" rows="6" readonly>{{story.extendedStory.embedCode}}</textarea>
+            </div>
+          </div>
+          <!-- .panel-body -->
+          {{/if}}
+
+        </div>
+        <!-- .panel -->
+    {{/dd.content}}
+  {{/basic-dropdown}}
+</div>
+<!-- .dropdown -->

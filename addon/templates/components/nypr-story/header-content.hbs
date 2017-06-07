@@ -63,40 +63,8 @@
           type="queue-button--storyheader"
           region="StoryHeader"}}
 
-      {{#if (or story.audioMayDownload story.audioMayEmbed)}}s
-      <div class="dropdown dropdown--bl dropdown--white">
-        <button aria-haspopup="true" aria-label="More Options" aria-owns="{{story.id}}" class="btn btn--circle btn--white medium-up js-dropdownClickable">
-          <i class="fa fa-ellipsis-h"></i>
-        </button>
-        {{! prevent overflow scrolling on mobile by hiding dropdown-body}}
-        <div class="dropdown-body medium-up" id="{{story.id}}">
-          <div class="panel">
-
-            {{#if story.audioMayDownload}}
-            <a href="{{story.audio}}" download="{{story.title}}" class="panel-link link--dark text--medium">
-              <i class="fa fa-cloud-download panel-linkicon"></i>
-              Download this audio
-            </a>
-            <!-- .panel-link -->
-            {{/if}}
-
-            {{#if story.audioMayEmbed}}
-            <div class="panel-body box--nearwhite">
-              <div class="text flush">
-                <p class="h4 flush">Want to embed this player?</p>
-                <p class="text--small nudge" id="dropdownLabel_{{story.id}}">Use the code below. <a href="/audio/help" target="_blank">More info</a>.</p>
-                <textarea aria-labelledby="dropdownLabel_{{story.id}}" aria-readonly="true" class="js-embedText textarea textarea--noresize" cols="40" data-category="SelectEmbed" rows="6" readonly>{{story.extendedStory.embedCode}}</textarea>
-              </div>
-            </div>
-            <!-- .panel-body -->
-            {{/if}}
-
-          </div>
-          <!-- .panel -->
-        </div>
-        <!-- .dropdown-body -->
-      </div>
-      <!-- .dropdown -->
+      {{#if (or story.audioMayDownload story.audioMayEmbed)}}
+        {{nypr-story/audio-options story=story}}
       {{/if}}
     </div>
     <!-- .btn-group -->
@@ -107,26 +75,6 @@
     {{/if}}
   {{/if}}
 
-  <div class="btn-group">
-    {{!
-      when twitter's widgets.js is loaded on a page because of an embedded tweet or some such thing, 
-      it captures clicks to links that match the url we're opening.
-      not every page has it on there, and can't reliably predict when it will, so we're making
-      these elements buttons and updating story/share.js to respond accordingly.
-    }}
-    <button data-action="https://www.facebook.com/sharer/sharer.php?u={{story.url}}" class="btn btn--circle btn--mq-graywhite js-share" data-category="SharedF" target="_blank" title="Share on Facebook">
-      <i class="fa fa-facebook"></i>
-      <span class="for-screenreaders">Share on Facebook</span>
-    </button>
-    <button data-action="https://twitter.com/intent/tweet/?text={{url-encode story.extendedStory.twitterHeadline}}&via={{story.extendedStory.twitterHandle}}&url={{story.url}}" class="btn btn--circle btn--mq-graywhite js-share" data-category="SharedT" id="shareTwitter" target="_blank" title="Share on Twitter">
-      <i class="fa fa-twitter"></i>
-      <span class="for-screenreaders">Share on Twitter</span>
-    </button>
-    <a href="mailto:?subject={{url-encode story.title}}&body={{story.url}}" class="btn btn--circle btn--mq-graywhite js-share" data-category="SharedE" id="shareEmail" title="Email a Friend">
-      <i class="fa fa-envelope"></i>
-      <span class="for-screenreaders">Email a Friend</span>
-    </a>
-  </div>
-  <!-- .btn-group -->
+ {{nypr-story/share-buttons story=story}}
 </div>
 <!-- .l-split -->
