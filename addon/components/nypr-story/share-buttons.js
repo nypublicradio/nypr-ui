@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import computed from 'ember-computed';
 import layout from '../../templates/components/nypr-story/share-buttons';
 import { shareUrl } from 'nypr-ui/helpers/share-url';
 
