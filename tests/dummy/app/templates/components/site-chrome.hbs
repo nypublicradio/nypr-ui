@@ -1,0 +1,22 @@
+<div class="site-chrome__nav">
+  <h1 class="site-chrome__title">{{#link-to 'index'}}<code>nypr-ui</code>{{/link-to}}</h1>
+  
+  <ul class="site-chrome__links">
+    <li>
+      {{link-to 'nypr-card' 'card'}}
+    </li>
+    <li>
+      {{link-to 'nypr-multi-card' 'multi-card'}}
+    </li>
+    <li>
+      {{link-to 'nypr-brick-layout' 'brick'}}
+    </li>
+    <li>
+      {{link-to 'nypr-tabs' 'tabs'}}
+    </li>
+  </ul>
+</div>
+
+<div class="site-chrome__body">
+  {{yield}}
+</div>
