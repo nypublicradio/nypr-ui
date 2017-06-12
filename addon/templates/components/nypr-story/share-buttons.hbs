@@ -5,15 +5,15 @@
       not every page has it on there, and can't reliably predict when it will, so we're making
       these elements buttons and updating story/share.js to respond accordingly.
     }}
-    <button class="btn btn--circle btn--mq-graywhite js-share" {{action 'popupShareWindow' 'Facebook'}} title="Share on Facebook">
+    <button class="btn btn--circle btn--mq-graywhite" {{action 'popupShareWindow' 'Facebook'}} title="Share on Facebook">
       <i class="fa fa-facebook"></i>
       <span class="for-screenreaders">Share on Facebook</span>
     </button>
-    <button class="btn btn--circle btn--mq-graywhite js-share" {{action 'popupShareWindow' 'Twitter'}} title="Share on Twitter">
+    <button class="btn btn--circle btn--mq-graywhite" {{action 'popupShareWindow' 'Twitter'}} title="Share on Twitter">
       <i class="fa fa-twitter"></i>
       <span class="for-screenreaders">Share on Twitter</span>
     </button>
-    <a href="mailto:?subject={{url-encode story.title}}&body={{story.url}}" class="btn btn--circle btn--mq-graywhite js-share" data-category="SharedE" id="shareEmail" title="Email a Friend">
+    <a href="mailto:?subject={{url-encode story.title}}&body={{story.url}}" class="btn btn--circle btn--mq-graywhite" data-category="SharedE" id="shareEmail" title="Email a Friend">
       <i class="fa fa-envelope"></i>
       <span class="for-screenreaders">Email a Friend</span>
     </a>

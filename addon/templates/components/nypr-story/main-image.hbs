@@ -1,7 +1,7 @@
 <figure class="figure" id="image">
   <img class="figure-image" alt="{{image.caption}}" src="{{image-template image.template 800 0 image.crop}}">
   <figcaption class="figure-caption">
-      <div class="figure-caption-body js-captionBody {{if captionOpen 'is-open'}}" data-state="is-closed" id="figureCaption" aria-hidden="true">
+      <div class="figure-caption-body {{if captionOpen 'is-open'}}" data-state="is-closed" id="figureCaption" aria-hidden="true">
           <div class="text text--medium text--white flush">
               {{#if image.caption}}{{{image.caption}}}<br>{{/if}}
               {{#if image.creditsName}}
@@ -26,7 +26,7 @@
       <!-- .figure-caption-body -->
 
       <div class="figure-caption-button">
-          <button class="btn btn--black btn--strictsquare btn--square-small btn--toggle js-captionBtn js-toggleButton" data-state="{{unless captionOpen 'first' 'second'}}" role="button" aria-controls="figureCaption" onclick={{action 'toggleCaption'}} >
+          <button class="btn btn--black btn--strictsquare btn--square-small btn--toggle" data-state="{{unless captionOpen 'first' 'second'}}" role="button" aria-controls="figureCaption" onclick={{action 'toggleCaption'}} >
               <div class="btn-togglecontent">
                   <i class="icon icon--info">i</i>
               </div>

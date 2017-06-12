@@ -1,0 +1,1 @@
+export { default } from 'nypr-ui/components/nypr-story/show-sidebar-top';
