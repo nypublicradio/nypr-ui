@@ -2,7 +2,9 @@ import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import sinon from 'sinon';
 import RSVP from 'rsvp';
+import Ember from 'ember';
 
+let originalTestAdapterException;
 
 moduleForComponent('nypr-form', 'Integration | Component | nypr form', {
   integration: true,
@@ -18,6 +20,11 @@ moduleForComponent('nypr-form', 'Integration | Component | nypr form', {
       restore()   {},
       isValid: true,
     };
+    originalTestAdapterException = Ember.Test.adapter.exception;
+    Ember.Test.adapter.exception = function() {};
+  },
+  afterEach() {
+    Ember.Test.adapter.exception = originalTestAdapterException;
   }
 });
 
