@@ -9,8 +9,8 @@ export default Ember.Component.extend({
       let href = shareUrl([destination, {
         shareText: this.get('story.title'),
         shareUrl: this.get('story.url'),
-        via: this.get('story.extendedStory.twitterHandle'),
-        twitterHeadline: this.get('story.extendedStory.twitterHeadline')
+        via: this.get('story.twitterHandle'),
+        twitterHeadline: this.get('story.twitterHeadline')
         }]);
       const heights = {
         'Twitter': 443,
