@@ -4,12 +4,12 @@
     {{#each series as |item|}}
     <article class="list-item">
       <div class="flag flush">
-        {{#if item.logoImage}}
+        {{#if item.image}}
         <div class="flag-image">
           <img alt="{{item.title}}" class="squarebadge badge--large" 
-            src="{{image-template item.logoImage.template 100 100 item.logoImage.crop 99}}"
-            srcset="{{image-template item.logoImage.template 200 200 item.logoImage.crop 99}} 2x,
-              {{image-template item.logoImage.template 300 300 item.logoImage.crop 99}} 3x"
+            src="{{image-template item.image.template 100 100 item.image.crop 99}}"
+            srcset="{{image-template item.image.template 200 200 item.image.crop 99}} 2x,
+              {{image-template item.image.template 300 300 item.image.crop 99}} 3x"
             width="100" height="100">
         </div>
         {{/if}}
