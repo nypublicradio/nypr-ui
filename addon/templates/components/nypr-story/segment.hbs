@@ -11,9 +11,9 @@
               {{listen-button  
                   audio=audio 
                   playContext="story-list" 
-                  itemPK=pk 
+                  itemPK=segment.slug
                   itemTitle=segment.title
-                  state=(if (eq pk audio.currentId) audio.playState)
+                  state=(if (eq segment.slug audio.currentId) audio.playState)
                   type="blue-circle"}}
             
               {{queue-button
