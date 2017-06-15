@@ -20,21 +20,21 @@
     {{/if}}
 
     {{#if podcasts}}
-      <div class="btn-group">
-        <div class="eb-dropdown eb-dropdown--br eb-dropdown--nearwhite">
-          {{#basic-dropdown renderInPlace=true as |dd|}}
-           {{#dd.trigger}}
-              <button class="btn">Subscribe to the podcast <i class="fa fa-caret-down"></i></button>
-            {{/dd.trigger}}
-           {{#dd.content class="eb-dropdown-body dropdown-fade"}}
-             <div class="panel">
-              {{#each podcasts as |podcast|}}
-                <a class="panel-link text--medium link--dark" href="{{podcast.href}}" target="_blank"><i class="fa {{if (eq podcast.title 'via RSS') 'fa-rss' 'fa-mobile'}}"></i> {{podcast.title}}</a>
-                {{/each}}
-              </div><!-- .panel -->
-            {{/dd.content}}
-            {{/basic-dropdown}}
-         </div><!-- .eb-dropdown -->
+    <div class="btn-group">
+      <div class="eb-dropdown eb-dropdown--br eb-dropdown--nearwhite">
+        {{#basic-dropdown renderInPlace=true as |dd|}}
+         {{#dd.trigger}}
+            <button class="btn">Subscribe to the podcast <i class="fa fa-caret-down"></i></button>
+          {{/dd.trigger}}
+         {{#dd.content class="eb-dropdown-body dropdown-fade"}}
+           <div class="panel">
+            {{#each podcasts as |podcast|}}
+              <a class="panel-link text--medium link--dark" href="{{podcast.href}}" target="_blank"><i class="fa {{if (eq podcast.title 'via RSS') 'fa-rss' 'fa-mobile'}}"></i> {{podcast.title}}</a>
+              {{/each}}
+            </div><!-- .panel -->
+          {{/dd.content}}
+          {{/basic-dropdown}}
+       </div><!-- .eb-dropdown -->
       </div><!-- .btn-group -->
     {{/if}}
 

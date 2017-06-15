@@ -1,19 +1,20 @@
 <footer class="text text--medium text--dotted" id="byLine">
-    <time datetime="{{moment-format dateLineDatetime 'YYYY-MM-DD'}}">{{moment-format dateLineDatetime 'MMMM D, YYYY'}}</time>
-    {{#if authors}}
-         &middot; by
-         {{author-list authors}}
-    {{/if}}
+  <time datetime="{{moment-format dateLineDatetime 'YYYY-MM-DD'}}">
+    {{moment-format dateLineDatetime 'MMMM D, YYYY'}}
+  </time>
 
-    {{#if producingOrganizations}}
-      <div>From
-      {{#each producingOrganizations as |org index|}}
+  {{#if authors}}
+    &middot; by {{author-list authors}}
+  {{/if}}
 
-        {{list-separator producingOrganizations index }}
-        {{nypr-story/producing-org sourceUrl=sourceUrl org=org}}
+  {{#if producingOrganizations}}
+    <div>From
+    {{#each producingOrganizations as |org index|}}
 
-      {{/each}}
-      </div> 
-    {{/if}}
+      {{list-separator producingOrganizations index}}
+      {{nypr-story/producing-org sourceUrl=sourceUrl org=org}}
+
+    {{/each}}
+    </div> 
+  {{/if}}
 </footer>
-
