@@ -50,8 +50,8 @@
         audio=audio
         type='blue-boss'
         playConext="story-header"
-        state=(if (eq item.attributes.slug audio.currentId) audio.playState)
-        itemPK=item.attributes.slug
+        state=(if (eq story.slug audio.currentId) audio.playState)
+        itemPK=story.slug
         itemTitle=story.title}}
         Listen <span class="text--small dimmed">{{story.audioDurationReadable}}</span>
         {{/listen-button}}
