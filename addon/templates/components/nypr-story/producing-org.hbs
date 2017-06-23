@@ -1,6 +1,6 @@
 {{#if url}}
   <a href="{{url}}" class="link--dark">
-  {{#if org.logo}}
+  {{#if (and org.logo org.logo.template)}}
     <img class="img--inline" 
     src="{{image-template org.logo.template 0 15 org.logo.crop 99}}"
     srcset="{{image-template org.logo.template 0 30 org.logo.crop 99}} 2x,
@@ -11,7 +11,7 @@
   {{/if}}
   </a>
 {{else}}
-  {{#if org.logo}}
+  {{#if (and org.logo org.logo.template)}}
     <img class="img--inline" 
     src="{{image-template org.logo.template 0 15 org.logo.crop 99}}"
     srcset="{{image-template org.logo.template 0 30 org.logo.crop 99}} 2x,
