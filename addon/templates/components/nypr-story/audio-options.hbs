@@ -8,7 +8,7 @@
 
     {{#dd.content class="eb-dropdown-body medium-up dropdown-fade" id="{{story.id}}"}} 
       <div class="panel">
-        {{#if story.audioMayDownload}}
+        {{#if (and story.audio story.audioMayDownload)}}
         <a href="{{story.audio}}" download="{{story.title}}" class="panel-link link--dark text--medium">
           <i class="fa fa-cloud-download panel-linkicon"></i>
           Download this audio

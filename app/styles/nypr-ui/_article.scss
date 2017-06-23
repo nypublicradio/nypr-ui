@@ -1,9 +1,34 @@
-article section.transcript blockquote {
-  border-left: 4px solid #f1f1f1;
-  padding-left: 20px;
-  font-size: 18px;
-  line-height: 1.6em;
-  font-weight: 700;
+article {
+  footer, section.text {
+    max-width: 630px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .nypr-tabs section.text {
+    max-width: 100%;
+  }
+
+  .nypr-story-byline footer.text{
+    color: $lightgray;
+  }
+
+  section.text {
+    font-size: 18px;
+    line-height: 1.875rem;
+  }
+
+  section.transcript blockquote {
+    border-left: 4px solid #f1f1f1;
+    padding-left: 20px;
+    font-size: 18px;
+    line-height: 1.6em;
+    font-weight: 700;
+  }
+
+  .nypr-story-audio-options .panel textarea {
+    white-space: normal;
+  }
 }
 
 /* style overrides for nypr tabs */
