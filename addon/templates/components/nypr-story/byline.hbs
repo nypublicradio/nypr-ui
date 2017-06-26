@@ -8,10 +8,11 @@
   {{/if}}
 
   {{#if producingOrganizations}}
-    <div>From
+    <div class="byline-producing-orgs">
+      <span class="separator">From </span>
     {{#each producingOrganizations as |org index|}}
 
-      {{list-separator producingOrganizations index}}
+      <span class="separator">{{list-separator producingOrganizations index}}</span>
       {{nypr-story/producing-org sourceUrl=sourceUrl org=org}}
 
     {{/each}}

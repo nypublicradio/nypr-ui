@@ -9,8 +9,18 @@ article {
     max-width: 100%;
   }
 
-  .nypr-story-byline footer.text{
-    color: $lightgray;
+  .nypr-story-byline {
+    footer.text {
+      color: $lightgray;
+    }
+    .byline-producing-orgs {
+      @include flexbox((
+        display: flex,
+        justify-content: flex-start));
+      span.separator {
+        white-space: pre;
+      }
+    }
   }
 
   section.text {
