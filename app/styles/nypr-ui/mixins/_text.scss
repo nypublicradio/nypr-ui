@@ -1,0 +1,50 @@
+@mixin link--dark {
+  color: $darkergray;
+  border: none;
+
+  &:hover,
+  &:focus {
+      color: $wqxrlink;
+  }
+}
+
+@mixin text--small {
+  @include fontsize(12);
+  line-height: 1.125rem;
+}
+
+@mixin text--default {
+  @include fontsize(16);
+
+  @include mq($mobile) {
+    @include fontsize(14);
+  }
+}
+
+@mixin text--largest {
+  @include fontsize(50);
+  line-height: 3.5rem;
+}
+
+@mixin h2 {
+  font-family: Lato, sans-serif;
+  @include fontsize($base-font*1.5); /* 24px */
+  font-weight: 600;
+  line-height: 2.125rem;
+
+  @include mq($small-only) {
+    @include fontsize($base-font*1.25); /* 20px */
+    line-height: 1.5;
+  }
+}
+
+@mixin h3 {
+  font-family: Lato, sans-serif;
+  @include fontsize($base-font*1.25); /* 20px */
+  font-weight: 600;
+
+  @include mq($small-only) {
+      @include fontsize($base-font*1.125); /* 18px */
+      line-height: 1.5rem;
+  }
+}
