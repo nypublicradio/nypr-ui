@@ -39,6 +39,11 @@ article {
   .nypr-story-audio-options .panel textarea {
     white-space: normal;
   }
+
+  /*slideshows are broken */
+  .slideshow {
+    // display: none;
+  }
 }
 
 /* style overrides for nypr tabs */
