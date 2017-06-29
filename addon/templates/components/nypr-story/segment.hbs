@@ -1,7 +1,7 @@
 <li class="list-item list-item--short list-item--dimmed">
   <div class="l-split l-split--padsides flush">
     <div class="text text--white flush--medium">
-      <a href="{{segment.url}}" class="link--white">{{{segment.title}}}</a>
+      <a href="/story/{{segment.slug}}" class="link--white">{{{segment.title}}}</a>
       {{#if segment.audioAvailable}}<span class="text--small text--gray">&nbsp;{{segment.audioDurationReadable}}</span>{{/if}}
     </div>
     {{#if segment.audioEventually}}
