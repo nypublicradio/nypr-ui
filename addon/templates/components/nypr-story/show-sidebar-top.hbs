@@ -13,13 +13,15 @@
   </div>
 
   <div class="l-split flush">
-    {{#if hasBlock}}
-      <div class="btn-group btn-group--withvr">
-        {{yield}}
-      </div>
+    {{#if donateButton}}
+      {{#if hasBlock}}
+        <div class="btn-group btn-group--withvr">
+          {{yield}}
+        </div>
+      {{/if}}
     {{/if}}
 
-    {{#if podcasts}}
+  {{#if podcasts}}
     <div class="btn-group">
       <div class="eb-dropdown eb-dropdown--br eb-dropdown--nearwhite">
         {{#basic-dropdown renderInPlace=true as |dd|}}
