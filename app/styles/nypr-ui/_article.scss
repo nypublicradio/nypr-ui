@@ -1,12 +1,14 @@
 article {
-  footer, section.text {
+  footer, section.text, section.transcript {
     max-width: 630px;
     margin-left: auto;
     margin-right: auto;
   }
 
-  .nypr-tabs section.text {
-    max-width: 100%;
+  .nypr-tabs-tablist {
+    max-width: 630px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .nypr-story-byline {
