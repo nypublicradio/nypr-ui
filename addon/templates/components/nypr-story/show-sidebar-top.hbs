@@ -23,6 +23,13 @@
 
   {{#if podcasts}}
     <div class="btn-group">
+      {{#dropdown-panel
+        text="Subscribe to the podcast ▾" 
+        items=model.podcastLinks as |podcast|}}
+        <i class="fa {{if (eq podcast.title 'via RSS') 'fa-rss' 'fa-mobile'}}"></i> {{podcast.title}}
+      {{/dropdown-panel}}
+    </div><!-- .btn-group -->
+  {{/if}}
 
   </div><!-- .l-flush -->
 </div><!-- .text -->
