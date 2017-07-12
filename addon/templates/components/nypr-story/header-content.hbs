@@ -41,39 +41,10 @@
 <h1 class="h1">{{{story.title}}}</h1>
 
 <div class="l-split flush">
-
-  {{#if story.audioEventually}}
-    {{#if story.audioAvailable}}
-    <div class="btn-group btn-group--withvr btn-group--storyheader">
-
-      {{#listen-button
-        audio=audio
-        type='blue-boss'
-        playConext="story-header"
-        state=(if (eq story.slug audio.currentId) audio.playState)
-        itemPK=story.slug
-        itemTitle=story.title}}
-        Listen <span class="text--small dimmed">{{story.audioDurationReadable}}</span>
-        {{/listen-button}}
-
-      {{queue-button
-        audio=audio
-        itemPK=story.slug
-        itemTitle=story.title
-        type="queue-button--storyheader"
-        region="StoryHeader"}}
-
-      {{#if (or story.audioMayDownload story.audioMayEmbed)}}
-        {{nypr-story/audio-options story=story}}
-      {{/if}}
-    </div>
-    <!-- .btn-group -->
-    {{else}}
-    <div class="text text--medium text--lightergray flush--medium">
-      <em>Audio not yet available</em>
-    </div>
-    {{/if}}
-  {{/if}}
+  {{yield (hash
+    buttons=(component 'nypr-story/header-content/buttons')
+    message=(component 'nypr-story/header-content/message')
+  )}}
 
  {{nypr-story/share-buttons story=story}}
 </div>
