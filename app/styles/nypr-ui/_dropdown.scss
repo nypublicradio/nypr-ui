@@ -1,11 +1,3 @@
-.eb-dropdown {
-    position: relative;
-}
-
-.eb-dropdown--inline {
-  display: inline-block;
-}
-
 @keyframes fade-in {
   0%   {
     opacity: 0;
@@ -16,7 +8,6 @@
 }
 
 .dropdown-fade {
-    will-change: opacity;
     &.ember-basic-dropdown--transitioning-in {
         animation: fade-in .25s;
     }
@@ -25,9 +16,15 @@
     }
 }
 
-.eb-dropdown-body {
-    z-index: 500;
-    width: 240px;
+.dropdown {
+  position: relative;
+}
+
+.dropdown--inline {
+  display: inline-block;
+}
+
+.dropdown-body {
     box-shadow: 0px 0px 20px -5px rgba(0,0,0,0);
 
     &:after {
@@ -36,7 +33,7 @@
         border: 11px solid transparent;
     }
 
-    .eb-dropdown--bl & {
+    .dropdown--bl  & {
         top: calc(100% + 12px);
         left: -13px;
 
@@ -46,7 +43,7 @@
         }
     }
 
-    .eb-dropdown--br & {
+    .dropdown--br  & {
         top: calc(100% + 12px);
         right: -13px;
 
@@ -56,17 +53,17 @@
         }
     }
 
-    .eb-dropdown--nearwhite.eb-dropdown--br &:after,
-    .eb-dropdown--nearwhite.eb-dropdown--bl &:after {
+    .dropdown--nearwhite.dropdown--br &:after,
+    .dropdown--nearwhite.dropdown--bl &:after {
       border-bottom-color: $lightestgray;
     }
 
-    .eb-dropdown--white.eb-dropdown--br &:after,
-    .eb-dropdown--white.eb-dropdown--bl &:after {
+    .dropdown--white.dropdown--br &:after,
+    .dropdown--white.dropdown--bl &:after {
       border-bottom-color: white;
     }
 
-    .eb-dropdown--tl & {
+    .dropdown--tl & {
       bottom: calc(100% + 12px);
       left: -13px;
 
@@ -76,11 +73,11 @@
       }
     }
 
-    .eb-dropdown--nearwhite.eb-dropdown--tl &:after {
+    .dropdown--nearwhite.dropdown--tl &:after {
       border-top-color: $lightestgray;
     }
 
-    .eb-dropdown--white.eb-dropdown--tl &:after {
+    .dropdown--white.dropdown--tl &:after {
       border-top-color: white;
     }
 }

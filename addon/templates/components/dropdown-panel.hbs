@@ -1,0 +1,15 @@
+{{#basic-dropdown renderInPlace=true as |dd|}}
+  {{#dd.trigger class="btn"}}
+    {{{text}}}
+  {{/dd.trigger}}
+
+  {{#dd.content class="dropdown-body dropdown-fade"}}
+    <div class="panel">
+      {{#each items as |item|}}
+        <a class="panel-link text--medium link--dark" href={{item.href}} target="_blank">
+          {{yield item}}
+        </a>
+      {{/each}}
+    </div>
+  {{/dd.content}}
+{{/basic-dropdown}}
