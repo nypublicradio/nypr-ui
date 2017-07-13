@@ -19,8 +19,13 @@ test('it renders', function(assert) {
   let items = ['foo', 'bar'];
   this.set('items', items);
   this.render(hbs`
-    {{#dropdown-panel text="button" items=items as |i|}}
-      {{i}}
+    {{#dropdown-panel as |panel|}}
+      {{#panel.button}}button{{/panel.button}}
+      {{#panel.body}}
+        {{#each items as |i|}}
+          {{i}}
+        {{/each}}
+      {{/panel.body}}
     {{/dropdown-panel}}
   `);
 
