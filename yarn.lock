@@ -2303,7 +2303,7 @@ ember-ajax@^3.0.0:
   dependencies:
     ember-cli-babel "^6.0.0"
 
-ember-basic-dropdown@^0.33.1:
+ember-basic-dropdown@0.33.1, ember-basic-dropdown@^0.33.1:
   version "0.33.1"
   resolved "https://registry.yarnpkg.com/ember-basic-dropdown/-/ember-basic-dropdown-0.33.1.tgz#8eab4181618d32edd88e1c90835d2a8791f09064"
   dependencies:
