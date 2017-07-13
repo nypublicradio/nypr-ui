@@ -40,6 +40,10 @@ article {
       margin-bottom: 0;
     }
 
+    a {
+      border-bottom: .08em solid rgba(black, .1);
+    }
+
     blockquote {
       border-left: 4px solid $nearwhite;
       padding-left: 20px;
