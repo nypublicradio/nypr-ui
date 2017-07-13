@@ -13,7 +13,13 @@
   <div class="accordion-collapsable" id="segmentsList">
     <ul class="list flush">
     {{#each segments as |segment|}}
-      {{nypr-story/segment audio=audio segment=segment}}
+      {{#nypr-story/segment segment=segment as |s|}}
+        {{yield (hash
+          segment=segment
+          buttons=s.buttons
+          message=s.message
+        )}}
+      {{/nypr-story/segment}}
     {{/each}}
     </ul>
   </div>
