@@ -12,7 +12,7 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{nypr-story/segment/message}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.equal(this.$().text().trim(), 'Audio not yet available');
 
   // Template block usage:
   this.render(hbs`
