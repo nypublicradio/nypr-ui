@@ -1,37 +1,59 @@
-article figure {
-  margin-bottom: 30px;
-}
-
-article > footer {
-  max-width: 630px;
-  margin-left: auto;
-  margin-right: auto;
-
-  &.text {
-    color: $lightgray;
-  }
-}
-
-article > section {
-  a {
-    border-bottom: .08em solid rgba(black, .1);
-  }
-
-  h2 {
-    margin-bottom: 1rem;
-  }
-
-  h3, h4 {
-    margin-bottom: 0;
-  }
-
-  &.text {
+article {
+  footer, section.text, section.transcript {
     max-width: 630px;
     margin-left: auto;
     margin-right: auto;
+
+    .story--interactive & {
+      max-width: 100%;
+    }
   }
 
-  &.text {
+  footer .text {
+    color: $lightgray;
+  }
+
+  .nypr-story-byline {
+    footer.text {
+      color: $lightgray;
+    }
+    .byline-producing-orgs {
+      @include flexbox((
+        display: flex,
+        justify-content: flex-start));
+      span.separator {
+        white-space: pre;
+      }
+    }
+  }
+  
+  figure {
+    margin-bottom: 30px;
+  }
+
+  section {
+    h2 {
+      margin-bottom: 1rem;
+    }
+
+    h3, h4 {
+      margin-bottom: 0;
+    }
+
+    blockquote {
+      border-left: 4px solid $nearwhite;
+      padding-left: 20px;
+      font-size: 18px;
+      line-height: 1.6em;
+      font-weight: 700;
+    }
+
+    .storify, p > iframe, .embedded-image {
+      margin: 30px 0;
+    }
+  }
+
+  section.text {
     font-size: 18px;
     line-height: 1.875rem;
 
@@ -41,28 +63,61 @@ article > section {
     }
   }
 
-  blockquote {
-    border-left: 4px solid $nearwhite;
-    padding-left: 20px;
-    font-size: 18px;
-    line-height: 1.6em;
-    font-weight: bold;
+
+
+  .nypr-story-audio-options .panel textarea {
+    white-space: normal;
   }
 
-  .storify, p > iframe, .embedded-image {
-    margin: 30px 0;
-  }
-}
-
-.story--interactive {
-  article > footer,
-  article > section.text {
-    max-width: 100%;
+  /*slideshows are broken */
+  .slideshow {
+    display: none;
   }
 }
 
 .nypr-story-show-sidebar-top {
   .text .nudge-big p {
     margin-bottom: 0;
+  }
+}
+
+/* style overrides for nypr tabs */
+.article-tabs.nypr-tabs {
+  .tablist-buffer {
+    border-bottom: none;
+  }
+  .nypr-tabs-tablist {
+    margin-bottom: 1.5rem;
+    max-width: 630px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  a.ivy-tabs-tab {
+    @include flex(0 1 auto);
+    @include fontsize(14);
+    @include justify-content(flex-start);
+
+    font-weight: bold;
+    border: none;
+    border-bottom: 4px solid white;
+    background-color: white;
+    margin-right: 24px;
+    height: auto;
+    padding-bottom: 5px;
+
+    &.active {
+      border-bottom: 4px solid #d3008c;
+    }
+  }
+
+  .ivy-tabs-tabpanel {
+    display:none;
+    // opacity: 0;
+    // transition: opacity 250ms ease-in-out;
+    &.active {
+      display:block;
+      //opacity: 1;
+    }
   }
 }
