@@ -278,6 +278,8 @@ $site-chrome-button-hover: #333 !default;
     padding-bottom: 9px;
     
     @include mq($large-and-up) {
+      @include fontsize(18);
+      font-weight: 700;
       color: $site-chrome-link-color-large;
       padding-bottom: 0;
     }
