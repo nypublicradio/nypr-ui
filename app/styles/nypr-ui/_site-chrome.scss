@@ -48,13 +48,14 @@ $site-chrome-button-hover: #333 !default;
 .site-chrome__top {
   padding-top: 20px;
   @extend %vertical-rhythm;
+  background-color: $site-chrome-top-bg-small;
 
   @include mq($up-to-large) {
     margin-bottom: 0;
   }
 
   @include mq($large-and-up) {
-    background: white;
+    background: $site-chrome-top-bg-large;
     padding-top: 0;
     height: 83px;
   }
@@ -464,19 +465,17 @@ $site-chrome-button-hover: #333 !default;
     text-decoration: none;
   }
 
-  @include transition(background-color $transition-timing, color $transition-timing);
-
-  @include flex-shrink(0);
+  transition: background-color $transition-timing, color $transition-timing;
 
   @include mq($large-and-up) {
-    background: $wqxrdarkblue;
-    color: white;
+    background-color: $site-chrome-button-bg-large;
+    color: $site-chrome-button-text-large;
     line-height: 36px;
 
     &:hover,
     &:focus {
       color: white;
-      background: rgba($wqxrdarkblue, 0.8);
+      background: rgba($site-chrome-button-hover, 0.8);
     }
   }
 
@@ -569,4 +568,5 @@ $site-chrome-button-hover: #333 !default;
       border-bottom: none;
     }
   }
+  background-color: $site-chrome-footer-bg;
 }
