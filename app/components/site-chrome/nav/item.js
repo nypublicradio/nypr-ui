@@ -1,1 +1,0 @@
-export { default } from 'nypr-ui/components/site-chrome/nav/item';

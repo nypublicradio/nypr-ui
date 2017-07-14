@@ -1,3 +1,7 @@
-{{#link-to route tagName='li' href=false class="site-chrome__link" current-when=currentWhen}}
-  {{link-to text route class="inherit" preventDefault=false}}
-{{/link-to}}
+{{#if hasBlock}}
+  {{yield}}
+{{else}}
+  {{#link-to route tagName='li' href=false class="site-chrome__link" current-when=currentWhen}}
+    {{link-to text route class="inherit" preventDefault=false}}
+  {{/link-to}}
+{{/if}}
