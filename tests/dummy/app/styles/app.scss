@@ -1,6 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 @import "base";
 @import "text";
-@import "site-chrome";
 
 @import "nypr-ui";
+
+$site-chrome-link-color: blue;
+$site-chrome-link-hover: blue;
+@import "nypr-ui/site-chrome";
+
+.site-title {
+  color: blue;
+}
