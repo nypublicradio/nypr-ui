@@ -38,17 +38,6 @@ $site-chrome-button-hover: #333 !default;
   }
 }
 
-.site-chrome__corner {
-  > h1 {
-    margin: 0;
-    padding: 0;
-
-    > a:hover {
-      opacity: 1;
-    }
-  }
-}
-
 .site-chrome__top {
   @extend %vertical-rhythm;
   padding-top: 20px;
@@ -179,21 +168,6 @@ $site-chrome-button-hover: #333 !default;
     }
   }
 }
-
-.site-chrome__left-corner > h1 {
-  margin: 0;
-  padding: 0;
-
-  a,
-  a:hover {
-    padding: 29px 17px 29px 19px;
-  }
-
-  a:focus {
-    opacity: 1;
-  }
-}
-
 
 .site-chrome__nav {
   background-color: $site-chrome-nav-bg-small;
