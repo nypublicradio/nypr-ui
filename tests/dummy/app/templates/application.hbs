@@ -1,3 +1,21 @@
-{{#site-chrome}}
-  {{outlet}}
+{{#site-chrome as |chrome|}}
+  {{#chrome.nav as |nav|}}
+    {{#nav.corner}}
+      <h1 class="site-title">
+        {{#link-to 'index'}}<code>nypr-ui</code>{{/link-to}}
+      </h1>
+    {{/nav.corner}}
+
+    {{#nav.links as |links|}}
+      {{component links.link route='card' text='nypr-card'}}
+      {{component links.link route='multi-card' text='nypr-multi-card'}}
+      {{component links.link route='brick' text='nypr-brick-layout'}}
+      {{component links.link route='tabs' text='nypr-tabs'}}
+    {{/nav.links}}
+
+  {{/chrome.nav}}
+  
+  {{#chrome.body}}
+    {{outlet}}
+  {{/chrome.body}}
 {{/site-chrome}}
