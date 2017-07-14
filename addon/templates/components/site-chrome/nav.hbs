@@ -1,0 +1,10 @@
+{{yield (hash
+  corner=(component 'site-chrome/nav/corner')
+  links=(component 'site-chrome/nav/links')
+)}}
+
+{{#if media.isLargeAndUp}}
+  <div class="site-chrome__nav__footer">
+    {{nypr-social-icons title="Follow WQXR" items=socialIcons}}
+  </div>
+{{/if}}
