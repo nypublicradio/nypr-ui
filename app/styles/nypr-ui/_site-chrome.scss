@@ -4,10 +4,11 @@
 @import 'mixins/_transitions';
 @import 'mixins/_lists';
 
-$site-chrome-top-bg-small: #eaeaea !default;
-$site-chrome-top-bg-large: white !default;
+$site-chrome-top-bg: white !default;
+$site-chrome-top-bg-small: $site-chrome-top-bg;
+$site-chrome-top-bg-large: $site-chrome-top-bg;
 
-$site-chrome-nav-bg: white;
+$site-chrome-nav-bg: white !default;
 $site-chrome-nav-bg-small: $site-chrome-nav-bg;
 $site-chrome-nav-bg-large: $site-chrome-nav-bg;
 
@@ -18,14 +19,17 @@ $site-chrome-link-color-large: $site-chrome-link-color;
 $site-chrome-link-hover: white !default;
 $site-chrome-active-link-bottom-border: white !default;
 $site-chrome-active-link-right-border:  white !default;
-$site-chrome-active-link-bg: $site-chrome-nav-bg-small !default;
+$site-chrome-active-link-bg: $site-chrome-nav-bg;
 
 $site-chrome-footer-bg: black !default;
 
-$site-chrome-button-text-small: white !default; 
-$site-chrome-button-text-large: white !default; 
-$site-chrome-button-bg-small: white !default; 
-$site-chrome-button-bg-large: white !default; 
+$site-chrome-button-text: white !default;
+$site-chrome-button-text-small: $site-chrome-button-text;
+$site-chrome-button-text-large: $site-chrome-button-text;
+
+$site-chrome-button-bg: black !default;
+$site-chrome-button-bg-small: $site-chrome-button-bg;
+$site-chrome-button-bg-large: $site-chrome-button-bg;
 $site-chrome-button-hover: #333 !default; 
 
 .site-chrome {
