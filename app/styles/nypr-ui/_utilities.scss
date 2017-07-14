@@ -39,6 +39,10 @@
     }
 }
 
+.visuallyhidden {
+  @extend %visuallyhidden;
+}
+
 /*
  * Hide visually and from screen readers, but maintain layout
  */
