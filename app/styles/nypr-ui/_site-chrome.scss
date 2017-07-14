@@ -256,6 +256,7 @@ $site-chrome-button-hover: #333 !default;
   margin-right: 10px;
   display: inline-block;
   padding: 0.5rem 0 0;
+  border-right: 3px solid transparent;
   
   @include mq($medium-and-up) {
     margin-right: 25px;
@@ -274,7 +275,7 @@ $site-chrome-button-hover: #333 !default;
     @include fontsize(14);
     font-weight: 600;
     line-height: 1.4;
-    padding-bottom: 13px;
+    padding-bottom: 9px;
     
     @include mq($large-and-up) {
       color: $site-chrome-link-color-large;
@@ -284,6 +285,9 @@ $site-chrome-button-hover: #333 !default;
   
   > a {
     text-decoration: none;
+    @include mq($medium-only) {
+      border-bottom: 4px solid transparent;
+    }
   }
   
   > a:hover,
@@ -299,14 +303,14 @@ $site-chrome-button-hover: #333 !default;
 .site-chrome__link.active,
 .site-chrome__link.ember-transitioning-in {
   @include mq($large-and-up) {
-    border-right: 3px solid $site-chrome-active-link-right-border;
+    border-right-color: $site-chrome-active-link-right-border;
     background-color: rgba($site-chrome-active-link-bg, .15);
   }
 }
 .site-chrome__link.active > a,
 .site-chrome__link.ember-transitioning-in > a {
   @include mq($medium-only) {
-    border-bottom: 4px solid $site-chrome-active-link-bottom-border;
+    border-bottom-color: $site-chrome-active-link-bottom-border;
   }
 }
 
