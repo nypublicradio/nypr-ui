@@ -1,9 +1,7 @@
 <div class="site-chrome__links-wrapper">
-  <ul class="site-chrome__links-list {{unless media.isLargeAndUp 'list--inline list--spaced text--small' 'alignright'}}">
-    
+  <ul class="site-chrome__links-list">
     {{yield (hash
       link=(component 'site-chrome/nav/link')
     )}}
-
   </ul>
 </div>
