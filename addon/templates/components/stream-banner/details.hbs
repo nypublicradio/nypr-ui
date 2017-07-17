@@ -1,0 +1,13 @@
+{{#if hasBlock}}
+  {{yield activeStream}}
+{{else}}
+  {{#if (and activeStream.currentComposer.name activeStream.currentPiece)}}
+    <h2 class="h2">{{activeStream.currentComposer.name}}</h2>
+    <h3 class="h3">{{activeStream.currentPiece}}</h3>
+  {{else}}
+    <h2 class="h2">{{activeStream.currentShow.showTitle}}</h2>
+      {{#if activeStream.currentShow.episodeTitle}}
+        <h3 class="h3">{{activeStream.currentShow.episodeTitle}}</h3>
+      {{/if}}
+  {{/if}}
+{{/if}}

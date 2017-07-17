@@ -1,0 +1,11 @@
+{{#power-select
+  triggerComponent='stream-banner/trigger'
+  renderInPlace=true
+  searchEnabled=false
+  dropdownClass="stream-banner-dropdown"
+  selected=activeStream
+  options=streams
+  onchange=(action (mut activeStream))
+  as |stream|}}
+  {{stream.name}}
+{{/power-select}}
