@@ -75,7 +75,7 @@ test('it succeeds', function(assert) {
   assert.equal(onFailure.callCount, 0, 'called onFailure');
   assert.equal(onInvalid.callCount, 0, 'called onInvalid');
 
-  let data = $('.status').data();
+  let data = this.$('.status').data();
   let formState = Object.keys(data).filter(key => !!data[key]).sort();
   assert.deepEqual(formState, ['tried', 'success'].sort());
 });
@@ -113,7 +113,7 @@ test('it fails', function(assert) {
   assert.equal(onFailure.callCount, 1, 'called onFailure');
   assert.equal(onInvalid.callCount, 0, 'called onInvalid');
 
-  let data = $('.status').data();
+  let data = this.$('.status').data();
   let formState = Object.keys(data).filter(key => !!data[key]).sort();
   assert.deepEqual(formState, ['tried', 'failure'].sort());
 });
@@ -152,7 +152,7 @@ test('it invalids', function(assert) {
   assert.equal(onFailure.callCount, 0, 'called onFailure');
   assert.equal(onInvalid.callCount, 1, 'called onInvalid');
 
-  let data = $('.status').data();
+  let data = this.$('.status').data();
   let formState = Object.keys(data).filter(key => !!data[key]).sort();
   assert.deepEqual(formState, ['tried', 'invalid'].sort());
 });
