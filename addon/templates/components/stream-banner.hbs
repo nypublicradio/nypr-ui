@@ -1,7 +1,7 @@
 <div class="stream-banner-card"
      style="background-image:url('/assets/img/backgrounds/streambanner.jpg')">
   <div>
-    {{#if streams.isFulfilled}}
+    {{#if (or streams.isFulfilled activeStream)}}
       {{yield activeStream (hash
         header=(component 'stream-banner/station' activeStream=activeStream streams=streams)
         details=(component 'stream-banner/details' activeStream=activeStream)
