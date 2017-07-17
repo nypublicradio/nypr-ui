@@ -13,7 +13,6 @@ export function serialLinks([ links ], {unlinked=false, textKey='name', urlKey='
   });
 
   links.forEach((link, idx) => {
-    console.log("links",links);
     let line = '';
     line += separators[idx];
     
