@@ -10,16 +10,17 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{stream-banner/station-name}}`);
+  this.set('activeStream', {name: 'foo'});
+  this.render(hbs`{{stream-banner/station-name activeStream=activeStream}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.equal(this.$().text().trim(), 'foo');
 
-  // Template block usage:
-  this.render(hbs`
-    {{#stream-banner/station-name}}
-      template block text
-    {{/stream-banner/station-name}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  // // Template block usage:
+  // this.render(hbs`
+  //   {{#stream-banner/station-name}}
+  //     template block text
+  //   {{/stream-banner/station-name}}
+  // `);
+  // 
+  // assert.equal(this.$().text().trim(), 'template block text');
 });

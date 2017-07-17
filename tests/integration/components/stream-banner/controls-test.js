@@ -12,7 +12,7 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{stream-banner/controls}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.equal(this.$().text().trim(), 'Listen Live');
 
   // Template block usage:
   this.render(hbs`

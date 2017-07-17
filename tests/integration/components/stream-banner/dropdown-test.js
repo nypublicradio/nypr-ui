@@ -12,14 +12,14 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{stream-banner/dropdown}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.equal(this.$().text().trim(), 'Change stream');
 
-  // Template block usage:
-  this.render(hbs`
-    {{#stream-banner/dropdown}}
-      template block text
-    {{/stream-banner/dropdown}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  // // Template block usage:
+  // this.render(hbs`
+  //   {{#stream-banner/dropdown}}
+  //     template block text
+  //   {{/stream-banner/dropdown}}
+  // `);
+  // 
+  // assert.equal(this.$().text().trim(), 'template block text');
 });
