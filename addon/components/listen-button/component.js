@@ -54,8 +54,9 @@ export default Component.extend({
       return state || STATES.PAUSED;
     }
   }),
-  didUpdateAttrs({ newAttrs }) {
-    if (newAttrs.isLive && newAttrs.isLive.value) {
+  didUpdateAttrs() {
+    let isLive = this.get('isLive');
+    if (isLive) {
       schedule('afterRender', this, () => {
         let contentWidth = this.element.scrollWidth + parseInt(this.$().css('paddingLeft'), 10) + parseInt(this.$().css('paddingRight'), 10);
         set(this, 'contentWidth', contentWidth);
