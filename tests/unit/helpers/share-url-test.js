@@ -5,7 +5,7 @@ module('Unit | Helper | share url');
 
 // Replace this with your real tests.
 test('it generates the correct share urls', function(assert) {
-  let data = {shareText: 'Cool Story', shareUrl: 'http://wnyc.org'};
+  let data = {shareText: 'Cool Story', shareUrl: 'http://wnyc.org', via: 'WNYC'};
   let testCases = [{
     description: 'facebook',
     service: 'Facebook',
@@ -17,6 +17,7 @@ test('it generates the correct share urls', function(assert) {
     service: 'Twitter',
     shareText: data.shareText,
     shareUrl: data.shareUrl,
+    via: data.via,
     expectedResult: 'https://twitter.com/intent/tweet?url=http%3A%2F%2Fwnyc.org&text=Cool%20Story&via=WNYC'
   },{
     description: 'email',
@@ -32,7 +33,7 @@ test('it generates the correct share urls', function(assert) {
   },];
 
   testCases.forEach(testCase => {
-    let actual = shareUrl([testCase.service, testCase.metadata]);
+    let actual = shareUrl([testCase.service, testCase.shareUrl, testCase.shareText, testCase.via]);
     const expected = testCase.expectedResult;
     assert.deepEqual(actual, expected, testCase.description);
   });
