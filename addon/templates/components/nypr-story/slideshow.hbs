@@ -1,0 +1,29 @@
+<section id="slideshow" class="slideshow" role="listbox" aria-activedescendant="listbox1-1">
+  {{#each slideshow as |slide index|}}
+  <figure role="option" id="listbox1-{{index}}">
+    <div class="slideshow-image">
+      <img alt="{{slide.caption}}"
+        src="{{image-template slide.template 350 0 slide.crop 99}}"
+        srcset="{{image-template slide.template 700 0 slide.crop 99}} 2x,
+                {{image-template slide.template 1050 0 slide.crop 99}} 3x"
+        title="{{slide.caption}}">
+    </div>
+    <figcaption class="slideshow-caption">
+      {{{slide.caption}}}
+      {{{slide.longCaption}}}
+      {{#if slide.creditsName}} 
+        {{#if slide.creditsUrl}}
+          (<a href="{{slide.creditsUrl}}" target="_blank">{{slide.creditsName}}</a>)
+        {{else}}
+          ({{slide.creditsName}})
+        {{/if}}
+      {{/if}}
+    </figcaption>
+  </figure>
+  {{/each}}
+  <div class="slideshow-controls" id="slideshowButtons">
+    <button aria-controls="slideshow" id="previous" class="btn btn--small btn--strictsquare btn--blue"><i class="icon icon-arrow icon-arrow--left"></i></button>
+    <span id="slideshowCurrent"></span> of <span id="slideshowTotal"></span>
+    <button aria-controls="slideshow" id="next" class="btn btn--small btn--strictsquare btn--blue"><i class="icon icon-arrow icon-arrow--right"></i></button>
+  </div>
+</section>

@@ -1,0 +1,40 @@
+<figure class="figure" id="image">
+  <img class="figure-image" alt="{{image.caption}}" src="{{image-template image.template 800 0 image.crop}}">
+  <figcaption class="figure-caption">
+    <div class="figure-caption-body {{if captionOpen 'is-open'}}" data-state="is-closed" id="figureCaption" aria-hidden="true">
+      <div class="text text--medium text--white flush">
+        {{#if image.caption}}{{{image.caption}}}<br>{{/if}}
+        {{#if image.creditsName}}
+          (
+            {{#if image.creditsUrl}}
+              <a href="{{image.creditsUrl}}">{{image.creditsName}}</a>)
+            {{else}}
+              {{image.creditsName}}
+            {{/if}}
+            {{#if image.source}} 
+              / 
+              {{#if image.source.url}}
+                <a href="{{image.source.url}}">{{image.source.name}}</a>
+              {{else}}
+                {{image.source.name}} 
+              {{/if}}
+            {{/if}}
+          )
+        {{/if}}
+      </div>
+    </div>
+    <!-- .figure-caption-body -->
+
+    <div class="figure-caption-button">
+      <button class="btn btn--black btn--strictsquare btn--square-small btn--toggle" data-state="{{unless captionOpen 'first' 'second'}}" role="button" aria-controls="figureCaption" onclick={{action 'toggleCaption'}} >
+        <div class="btn-togglecontent">
+          <i class="icon icon--info">i</i>
+        </div>
+        <div class="btn-togglecontent">
+          <i class="fa fa-times icon--captionclose"></i>
+        </div>
+      </button>
+    </div>
+    <!-- .figure-caption-button -->
+  </figcaption>
+</figure>

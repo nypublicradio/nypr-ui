@@ -4,16 +4,25 @@ machine:
 
 dependencies:
   override:
-    - sudo apt-get update && sudo apt-get install ruby-sass
+    - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+    - echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+    - sudo apt-get update && sudo apt-get install ruby-sass yarn
     - gem update --system
     - gem install compass --no-ri --no-rdoc
-    - yarn global add bower
+    - yarn global add bower:
+        environment:
+          PATH: "/usr/bin:${PATH}"
     - bower install
-    - yarn --pure-lockfile
+    - yarn --pure-lockfile:
+        environment:
+          PATH: "/usr/bin:${PATH}"
+
 
 test:
   override:
-    - yarn test
+    - yarn test:
+        environment:
+          PATH: "/usr/bin:${PATH}"
 
 deployment:
   docs:

@@ -1,0 +1,6 @@
+{{#basic-dropdown renderInPlace=true as |dd|}}
+  {{yield (hash
+    button=(component dd.trigger class="btn")
+    body=(component 'dropdown-panel/body' content=dd.content)
+  )}}
+{{/basic-dropdown}}

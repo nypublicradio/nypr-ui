@@ -1,0 +1,40 @@
+<div class="box-heading">
+  <h1 class="h4">{{showName}}</h1>
+</div>
+
+<div class="text text--medium">
+  <div class="nudge-big">
+    {{{showTease}}}
+    {{#if showProducingOrgs}}
+      <p>Produced by 
+      {{serial-links showProducingOrgs}}.
+      </p> 
+    {{/if}}
+  </div>
+
+  <div class="l-split flush">
+    {{#if donateButton}}
+      {{#if hasBlock}}
+        <div class="btn-group btn-group--withvr">
+          {{yield}}
+        </div>
+      {{/if}}
+    {{/if}}
+
+  {{#if podcasts}}
+    <div class="btn-group">
+      {{#dropdown-panel direction="br" as |panel|}}
+        {{#panel.button}}Subscribe to the podcast ▾{{/panel.button}}
+        {{#panel.body}}
+          {{#each podcasts as |podcast|}}
+            <a class="panel-link text--medium link--dark" href={{podcast.href}} target="_blank">
+              <i class="fa {{if (eq podcast.title 'via RSS') 'fa-rss' 'fa-mobile'}}"></i> {{podcast.title}}
+            </a>
+          {{/each}}
+        {{/panel.body}}
+      {{/dropdown-panel}}
+    </div><!-- .btn-group -->
+  {{/if}}
+
+  </div><!-- .l-flush -->
+</div><!-- .text -->

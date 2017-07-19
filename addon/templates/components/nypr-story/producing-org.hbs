@@ -1,0 +1,23 @@
+{{#if url}}
+  <a href="{{url}}" class="link--dark">
+  {{#if (and org.logo org.logo.template)}}
+    <img class="img--inline" 
+    src="{{image-template org.logo.template 0 15 org.logo.crop 99}}"
+    srcset="{{image-template org.logo.template 0 30 org.logo.crop 99}} 2x,
+            {{image-template org.logo.template 0 45 org.logo.crop 99}} 3x"
+    height="15">
+  {{else}}
+    <span>{{org.name}}</span>
+  {{/if}}
+  </a>
+{{else}}
+  {{#if (and org.logo org.logo.template)}}
+    <img class="img--inline" 
+    src="{{image-template org.logo.template 0 15 org.logo.crop 99}}"
+    srcset="{{image-template org.logo.template 0 30 org.logo.crop 99}} 2x,
+            {{image-template org.logo.template 0 45 org.logo.crop 99}} 3x"
+    height="15">
+  {{else}}
+    <span>{{org.name}}</span>
+  {{/if}}
+{{/if}}

@@ -1,0 +1,25 @@
+{{#if transcript}}
+
+  {{#nypr-tabs selection=selection class="article-tabs" as |tabs|}}
+    {{#tabs.tablist as |tablist|}}
+      {{#tablist.tab "TabA" on-select=(action (mut selection))}}Summary{{/tablist.tab}}
+      {{#tablist.tab "TabB" on-select=(action (mut selection))}}Transcript{{/tablist.tab}}
+    {{/tabs.tablist}}
+
+    {{#tabs.tabpanel "TabA"}}
+      {{yield}}
+    {{/tabs.tabpanel}}
+
+    {{#tabs.tabpanel "TabB"}}
+    <section class="transcript">
+      <div class="for-print" aria-hidden="true">Transcript</div>
+        <div class="text">
+          {{{transcript}}}
+        </div>
+      </section>
+    {{/tabs.tabpanel}}
+  {{/nypr-tabs}}
+
+{{else}}
+  {{yield}}
+{{/if}}

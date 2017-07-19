@@ -1,0 +1,51 @@
+<div class="flag nudge">
+  {{#if story.headers.brand.logoImage}}
+  <a class="flag-image inherit" href="{{story.headers.brand.url}}">
+    <img alt="{{story.headers.brand.title}}" class="badge squarebadge" 
+      src="{{image-template story.headers.brand.logoImage.template 50 50 story.headers.brand.logoImage.crop 99}}"
+      srcset="{{image-template story.headers.brand.logoImage.template 100 100 story.headers.brand.logoImage.crop 99}} 2x,
+        {{image-template story.headers.brand.logoImage.template 150 150 story.headers.brand.logoImage.crop 99}} 3x"
+      width="50" height="50">
+    <span class="for-screenreaders">{{{story.headers.brand.title}}}</span>
+  </a>
+  <!-- .flag-image -->
+  {{/if}}
+
+  <div class="flag-body">
+    <div class="media media--rev">
+      <div class="media-image">
+        {{#if isStaff}}
+        <div id="edit-story">
+          <a href="{{adminURL}}/{{story.editLink}}" class="btn btn--green" target="_blank" data-test-selector="admin-link">Edit this</a>
+        </div>
+        {{/if}}
+      </div>
+      {{#if story.headers.links}}
+      <div class="media-body">
+        <div class="text--small dimmed">Published by</div>
+        {{#each story.headers.links as |link|}}
+        <a class="text--mq-bluewhite"  href="{{link.url}}">
+          {{{link.title}}}
+        </a> {{#unless (eq link story.headers.links.lastObject)}}<span class="text--small dimmed"> by </span>{{/unless}}
+        {{/each}}
+      </div>
+      {{/if}}
+
+    </div>
+    <!-- .media -->
+  </div>
+  <!-- .flag-body -->
+</div>
+<!-- .flag -->
+
+<h1 class="h1">{{{story.title}}}</h1>
+
+<div class="l-split flush">
+  {{yield (hash
+    buttons=(component 'nypr-story/header-content/buttons')
+    message=(component 'nypr-story/header-content/message')
+  )}}
+
+ {{nypr-story/share-buttons story=story}}
+</div>
+<!-- .l-split -->
