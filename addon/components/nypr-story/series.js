@@ -1,13 +1,7 @@
 import Ember from 'ember';
 import layout from '../../templates/components/nypr-story/series';
+import imageLoaderMixin from 'nypr-ui/mixins/image-loader';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(imageLoaderMixin, {
   layout,
-
-  didInsertElement() {
-    this.$().imagesLoaded()
-      .progress(function(instance, image) {
-        Ember.$(image.img).addClass('is-loaded');
-      });
-  }
 });
