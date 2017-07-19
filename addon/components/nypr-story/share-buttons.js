@@ -9,7 +9,7 @@ export default Ember.Component.extend({
       let href = shareUrl([destination, {
         shareText: this.get('story.title'),
         shareUrl: this.get('story.url'),
-        via: this.get('story.twitterHandle'),
+        via: this.get('story.twitterHandle') || this.get('via'),
         twitterHeadline: this.get('story.twitterHeadline')
         }]);
       const heights = {
