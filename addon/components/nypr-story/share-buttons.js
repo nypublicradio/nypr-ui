@@ -4,6 +4,7 @@ import { shareUrl } from 'nypr-ui/helpers/share-url';
 
 export default Ember.Component.extend({
   layout,
+  classNames: ['btn-group'],
   actions: {
     popupShareWindow(destination) {
       let href = shareUrl([destination, {
