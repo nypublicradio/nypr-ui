@@ -3,6 +3,7 @@ import { listSeparator } from 'nypr-ui/helpers/list-separator';
 const {
   Helper
 } = Ember;
+import get from 'ember-metal/get';
 
 //this helper is expecting an array of objects with text and url keys
 export function serialLinks([ links ], {unlinked=false, textKey='name', urlKey='url'}={}) {
@@ -17,9 +18,9 @@ export function serialLinks([ links ], {unlinked=false, textKey='name', urlKey='
     line += separators[idx];
     
     if (unlinked){
-      line += link[textKey];
+      line += get(link, textKey);
     } else {
-      line += `<a href="${link[urlKey]}" >${link[textKey]}</a>`;
+      line += `<a href="${get(link, urlKey)}" >${get(link, textKey)}</a>`;
     }
 
     finalString += line;
