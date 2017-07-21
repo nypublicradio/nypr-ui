@@ -1,5 +1,5 @@
 <div class="stream-banner-card"
-     style="background-image:url('/assets/img/backgrounds/streambanner.jpg')">
+     style="background-image:url({{background}})">
   <div>
     {{#if (or streams.isFulfilled activeStream)}}
       {{yield activeStream (hash
