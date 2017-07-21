@@ -1,8 +1,6 @@
-import Ember from 'ember';
+import { helper } from 'ember-helper';
 import { listSeparator } from 'nypr-ui/helpers/list-separator';
-const {
-  Helper
-} = Ember;
+import { htmlSafe } from 'ember-string';
 import get from 'ember-metal/get';
 
 //this helper is expecting an array of objects with text and url keys
@@ -26,7 +24,7 @@ export function serialLinks([ links ], {unlinked=false, textKey='name', urlKey='
     finalString += line;
   });
 
-  return Ember.String.htmlSafe(`${finalString}`);
+  return htmlSafe(`${finalString}`);
 }
 
-export default Helper.helper(serialLinks);
+export default helper(serialLinks);
