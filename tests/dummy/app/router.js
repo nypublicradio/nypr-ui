@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('card');
   this.route('brick');
   this.route('tabs');
+  this.route('chrome');
 });
 
 export default Router;

@@ -1,0 +1,48 @@
+{{md-text text="
+# `site-chrome`
+"}}
+<h2>basic usage</h2>
+{{code-snippet name="site-chrome.hbs"}}
+
+<div style="transform: translate3d(0,0,0)">
+{{! BEGIN-SNIPPET site-chrome }}
+{{#site-chrome as |chrome|}}
+
+  {{#chrome.top as |top|}}
+    This is on the far left
+    {{#top.body as |body|}}
+      This is inside a full wrapper
+      {{#body.corner as |button|}}
+        Inside the corner with a button
+        {{#component button}}
+          The Button
+        {{/component}}
+      {{/body.corner}}
+    {{/top.body}}
+  {{/chrome.top}}
+
+  {{#chrome.nav as |nav|}}
+    {{#nav.corner}}
+      The upper left corner
+    {{/nav.corner}}
+    
+    {{#nav.links as |links|}}
+      {{links.link text='foo'}}
+      {{#links.link}}non link item{{/links.link}}
+    {{/nav.links}}
+    
+    {{#nav.footer}}
+      footer of the nav
+    {{/nav.footer}}
+  {{/chrome.nav}}
+  
+  {{#chrome.body}}
+    body area
+  {{/chrome.body}}
+  
+  {{#chrome.footer}}
+    <span style="color: white">site footer</span>
+  {{/chrome.footer}}
+{{/site-chrome}}
+{{! END-SNIPPET }}
+</div>
