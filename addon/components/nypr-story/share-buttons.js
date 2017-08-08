@@ -8,11 +8,11 @@ export default Ember.Component.extend({
   actions: {
     popupShareWindow(destination) {
       let shareText = this.get('story.title');
-      let shareUrl = this.get('story.url');
+      let url = this.get('story.url');
       let via = this.get('story.twitterHandle') || this.get('via');
       let twitterHeadline = this.get('story.twitterHeadline') || shareText;
 
-      let href = shareUrl([destination, shareUrl, shareText, via, twitterHeadline]);
+      let href = shareUrl([destination, url, shareText, via, twitterHeadline]);
       const heights = {
         'Twitter': 443,
         'Facebook': 620
