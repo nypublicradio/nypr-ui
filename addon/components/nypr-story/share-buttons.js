@@ -7,12 +7,12 @@ export default Ember.Component.extend({
   classNames: ['btn-group'],
   actions: {
     popupShareWindow(destination) {
-      let href = shareUrl([destination, {
-        shareText: this.get('story.title'),
-        shareUrl: this.get('story.url'),
-        via: this.get('story.twitterHandle') || this.get('via'),
-        twitterHeadline: this.get('story.twitterHeadline')
-        }]);
+      let shareText = this.get('story.title');
+      let shareUrl = this.get('story.url');
+      let via = this.get('story.twitterHandle') || this.get('via');
+      let twitterHeadline = this.get('story.twitterHeadline') || shareText;
+
+      let href = shareUrl([destination, shareUrl, shareText, via, twitterHeadline]);
       const heights = {
         'Twitter': 443,
         'Facebook': 620
