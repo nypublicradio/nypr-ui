@@ -4864,7 +4864,7 @@ Object.defineProperty(e,"__esModule",{value:!0}),e.default=t.default.Component.e
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=t.default.Component.extend({layout:n.default,classNames:["stream-banner-station","nudge"]})}),define("nypr-ui/components/stream-banner/trigger",["exports","ember","nypr-ui/templates/components/stream-banner/trigger"],function(e,t,n){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=t.default.Component.extend({layout:n.default,classNames:["stream-banner__trigger"]})}),define("nypr-ui/helpers/image-template",["exports","ember-helper"],function(e,t){"use strict"
 function n(e){function t(e,t,n){return t+"/"+a+"/"+o+"/"+s+"/99/"+n}var n=r(e,4),i=n[0],a=n[1],o=n[2],s=n[3]
-return i.replace(/(.*\/i)\/%s\/%s\/%s\/%s\/(.*)/,t)}Object.defineProperty(e,"__esModule",{value:!0}),e.imageTemplate=n
+return i&&i.replace(/(.*\/i)\/%s\/%s\/%s\/%s\/(.*)/,t)}Object.defineProperty(e,"__esModule",{value:!0}),e.imageTemplate=n
 var r=function(){function e(e,t){var n=[],r=!0,i=!1,a=void 0
 try{for(var o,s=e[Symbol.iterator]();!(r=(o=s.next()).done)&&(n.push(o.value),!t||n.length!==t);r=!0);}catch(e){i=!0,a=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw a}}return n}return function(t,n){if(Array.isArray(t))return t
 if(Symbol.iterator in Object(t))return e(t,n)
