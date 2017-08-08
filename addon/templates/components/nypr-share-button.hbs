@@ -7,7 +7,7 @@
       >Facebook</button>
     </li>
     <li class="nypr-sharebutton-listitem">
-      <button {{action (queue (action 'popupShareWindow' 'Twitter' (share-url 'Twitter' shareUrl shareText))
+      <button {{action (queue (action 'popupShareWindow' 'Twitter' (share-url 'Twitter' shareUrl shareText via))
                               (action (optional onShare) 'Twitter'))}}
       onclick={{action closePopup}}
       >Twitter</button>
