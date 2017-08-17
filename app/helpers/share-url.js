@@ -1,1 +1,1 @@
-export { default, authorList } from 'nypr-ui/helpers/share-url';
+export { default, shareUrl } from 'nypr-ui/helpers/share-url';

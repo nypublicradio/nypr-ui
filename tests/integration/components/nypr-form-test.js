@@ -82,7 +82,7 @@ test('it succeeds', function(assert) {
 
 test('it fails', function(assert) {
   this.set('changeset', this.mockChangeSet);
-  let onSubmit = sinon.stub().returns( RSVP.Promise.reject({}) );
+  let onSubmit = sinon.stub().returns( RSVP.Promise.reject() );
   let onSuccess = sinon.spy();
   let onFailure = sinon.spy();
   let onInvalid = sinon.spy();
@@ -115,7 +115,7 @@ test('it fails', function(assert) {
 
   let data = this.$('.status').data();
   let formState = Object.keys(data).filter(key => !!data[key]).sort();
-  assert.deepEqual(formState, ['tried', 'failure'].sort());
+  assert.deepEqual(formState, ['tried', 'failure'].sort(), "event order is correct");
 });
 
 test('it invalids', function(assert) {

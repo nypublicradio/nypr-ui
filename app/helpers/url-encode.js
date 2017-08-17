@@ -1,1 +1,1 @@
-export { default, imageTemplate } from 'nypr-ui/helpers/url-encode';
+export { default, urlEncode } from 'nypr-ui/helpers/url-encode';

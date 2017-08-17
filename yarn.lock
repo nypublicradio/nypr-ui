@@ -2694,6 +2694,13 @@ ember-cli@~2.14.0:
     walk-sync "^0.3.0"
     yam "0.0.22"
 
+ember-click-outside@0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/ember-click-outside/-/ember-click-outside-0.1.9.tgz#a8bf22739814ae44785919faa62102cf7d70a123"
+  dependencies:
+    ember-cli-babel "^6.0.0"
+    ember-cli-htmlbars "^1.1.1"
+
 ember-code-snippet@^1.8.1:
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/ember-code-snippet/-/ember-code-snippet-1.8.1.tgz#b75761864686bf542c8b492beeb56e0948be25fc"
@@ -2706,6 +2713,13 @@ ember-code-snippet@^1.8.1:
     es6-promise "^1.0.0"
     glob "^4.0.4"
     highlight.js "^9.5.0"
+
+ember-composable-helpers@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/ember-composable-helpers/-/ember-composable-helpers-2.0.1.tgz#1568849ee176927fb73b0ed0a16e20b0ac90d774"
+  dependencies:
+    broccoli-funnel "^1.0.1"
+    ember-cli-babel "^5.1.7"
 
 ember-concurrency@^0.8.1:
   version "0.8.5"
