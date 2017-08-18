@@ -2,6 +2,7 @@
 @import "compass/css3/appearance";
 
 @mixin btn {
+  appearance: none;
   position: relative; // for transition icons
   display: inline-block;
   border-radius: 25px;
@@ -38,6 +39,37 @@
     border-color: initial;
     color: initial;
   }
+  
+  > * {
+    pointer-events: none;
+  }
+}
+
+@mixin thickbtn {
+  border-width: 2px;
+
+  &.btn--white {
+    border-color: white;
+    background-color: rgba(white, 0);
+
+    &:hover,
+    &:focus {
+      border-color: white;
+      background-color: rgba(white, 0.15);
+    }
+
+    &:active {
+      opacity: 0.60;
+    }
+  }
+}
+
+@mixin btn--circle {
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  text-align: center;
 }
 
 @mixin blank-button {
@@ -164,5 +196,60 @@
   @include btn--solid-color(
     $background-color: $blue,
     $hover-color: $darkblue
+  );
+}
+
+// sometimes you need to manually control an element's
+// hover state with javascript because of weird
+// animaton/ember/liquid-fire stuff
+@mixin js-hover($props: (), $base: (), $hover: ()) {
+  @each $prop, $value in zip($props, $base) {
+    #{$prop}: #{$value};
+  }
+  // override the :hover pseudo-class to match the base state
+  &:hover {
+     @each $prop, $value in zip($props, $base) {
+      #{$prop}: #{$value};
+    }
+  }
+  // hover state will be controlled manually in javascript with .is-hovering class
+  // focus state for these buttons should match hover state
+  &.is-hovering,
+  &:focus {
+    @each $prop, $value in zip($props, $hover) {
+      #{$prop}: #{$value};
+    }
+  }
+}
+
+@mixin gray-btn-jshover {
+  @include js-hover(
+    $props:  (color,       border-color),
+    $base:   ($darkergray, rgba($lightgray, 0.2)),
+    $hover:  ($darkergray, rgba($darkgray, 0.3))
+  );
+}
+
+@mixin white-btn-jshover {
+  @include js-hover(
+    $props:  (color, border-color),
+    $base:   (white, rgba($lightgray, 0.6)),
+    $hover:  (white, white)
+  );
+}
+
+@mixin blue-btn-jshover {
+  @include js-hover(
+    $props:  (background-color, border-color),
+    $base:   ($blue, $blue),
+    $hover:  ($darkblue, $darkblue)
+  );
+}
+
+@mixin red-btn-jshover {
+  @include js-hover(
+    $props:  (background-color, border-color),
+    $base:   ($red, $red),
+    $hover:  ($darkred, $darkred)
   );
 }
