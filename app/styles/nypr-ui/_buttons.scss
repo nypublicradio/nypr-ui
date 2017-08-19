@@ -122,6 +122,10 @@
   }
 }
 
+@mixin btn--smalltext {
+  @include fontsize(12);
+}
+
 // A button with white text and a solid colored background
 @mixin btn--solid-color ($background-color: $gray, $hover-color: $darkgray) {
   background-color: $background-color;
@@ -136,6 +140,19 @@
       border-color: $hover-color;
       color: white;
       opacity: 1;
+    }
+  }
+}
+
+@mixin btn--white {
+  border-color: rgba(white, 0.2);
+  color: white;
+
+  &:not([disabled]) {
+    &:hover,
+    &:focus {
+      color: white;
+      border-color: rgba(white,.7);
     }
   }
 }
