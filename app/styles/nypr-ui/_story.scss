@@ -18,9 +18,9 @@ article {
       color: $lightgray;
     }
     .byline-producing-orgs {
-      @include flexbox((
-        display: flex,
-        justify-content: flex-start));
+      display: flex;
+      justify-content: flex-start;
+      
       span.separator {
         white-space: pre;
       }
@@ -102,9 +102,9 @@ article {
   }
 
   a.ivy-tabs-tab {
-    @include flex(0 1 auto);
+    flex: 0 1 auto;
+    justify-content: flex-start;
     @include fontsize(14);
-    @include justify-content(flex-start);
 
     font-weight: bold;
     border: none;

@@ -1,4 +1,4 @@
-@import 'nypr-ui/mixins/lists';
+@import 'mixins/lists';
 
 .nypr-social-icons {
   padding: 0 18px 26px 24px;
@@ -15,8 +15,8 @@
 
 .nypr-social-icons__list {
   @include list-base;
-  @include display-flex;
-  @include justify-content(space-between);
+  display: flex;
+  justify-content: space-between;
   margin: 0;
 }
 
