@@ -9,3 +9,61 @@
     transform: translateY(-125%);
   }
 }
+
+.transition-plus-to-check {
+  position: absolute;
+  top: 0;
+  bottom: 1px;
+  left: 13px;
+  //@include translateZ(0); // normalize nested element positions
+
+  > span {
+    display: block;
+    height: 2px;
+    width: 10px;
+    background-color: $gray;
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    transition: width $transition-timing-queue, transform $transition-timing-queue, opacity $transition-timing-queue, background-color $transition-timing-queue;
+  }
+
+  + span {
+    margin-left: 17px;
+  }
+
+  .left {
+    width: 12px;
+    background-color: currentColor;
+  }
+
+  .right {
+    width: 12px;
+    transform: rotateZ(90deg) translateZ(0);
+    background-color: currentColor;
+  }
+
+  &[data-state="is-check"] {
+    .left {
+      width: 8px;
+      transform: rotate(40deg) translate(1px, 3px);
+    }
+
+    .right {
+      width: 13px;
+      transform: rotate(121deg) translate(-1px, -2px);
+    }
+  }
+
+  &:only-child {
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    width: 12px;
+    height: 12px;
+  }
+}

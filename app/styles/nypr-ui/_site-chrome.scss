@@ -1,0 +1,388 @@
+@import "compass/css3/images";
+
+@import 'mixins/_layout';
+@import 'mixins/_transitions';
+@import 'mixins/_lists';
+
+$site-chrome-top-bg: white !default;
+$site-chrome-top-bg-small: $site-chrome-top-bg;
+$site-chrome-top-bg-large: $site-chrome-top-bg;
+
+$site-chrome-nav-bg: white !default;
+$site-chrome-nav-bg-small: $site-chrome-nav-bg;
+$site-chrome-nav-bg-large: $site-chrome-nav-bg;
+
+$site-chrome-link-color:  white !default;
+$site-chrome-link-color-small: $site-chrome-link-color;
+$site-chrome-link-color-large: $site-chrome-link-color;
+
+$site-chrome-link-hover: white !default;
+$site-chrome-active-link-bottom-border: white !default;
+$site-chrome-active-link-right-border:  white !default;
+$site-chrome-active-link-bg: $site-chrome-nav-bg;
+
+$site-chrome-footer-bg: black !default;
+
+$site-chrome-button-text: white !default;
+$site-chrome-button-text-small: $site-chrome-button-text;
+$site-chrome-button-text-large: $site-chrome-button-text;
+
+$site-chrome-button-bg: black !default;
+$site-chrome-button-bg-small: $site-chrome-button-bg;
+$site-chrome-button-bg-large: $site-chrome-button-bg;
+$site-chrome-button-hover: #333 !default; 
+
+.site-chrome {
+  @include mq($large-and-up) {
+    padding-left: 150px;
+  }
+}
+
+.site-chrome__top {
+  @extend %vertical-rhythm;
+  padding-top: 20px;
+  background-color: $site-chrome-top-bg-small;
+
+  @include mq($up-to-large) {
+    margin-bottom: 0;
+  }
+
+  @include mq($large-and-up) {
+    background: $site-chrome-top-bg-large;
+    padding-top: 0;
+    height: 83px;
+  }
+}
+
+.site-chrome__top__body {
+  display: flex;
+  flex-wrap: wrap;
+
+  @include mq($large-and-up) {
+    height: 100%;
+  }
+
+  @include mq($medium-and-up) {
+    flex-wrap: nowrap;
+  }
+}
+
+// not currently used
+.site-chrome__top__body-left {
+  @include flex-basis(100%);
+  @include order(2);
+  @include display-flex;
+  @include justify-content(space-between);
+  @include align-items(center);
+
+  padding: 5px 15px;
+  padding: 5px rems(15);
+
+  border-top: 1px solid rgba(white, 0.23);
+
+  @include mq($large-and-up) {
+    border: none;
+  }
+
+  @include mq($medium-and-up) {
+    @include flex(1 0 300px);
+    @include justify-content(space-around);
+    @include order(0);
+    padding: 0;
+    margin-left: 15px;
+  }
+
+  > .btn {
+    @include mq($small-only) {
+      @include fontsize(11);
+    }
+  }
+
+  > .btn:after {
+    @include mq($medium-and-up) {
+      content: '|';
+      margin-left: 10px;
+      opacity: 0.25;
+    }
+  }
+
+  > .btn:last-child:after {
+    content: none;
+  }
+}
+// ^^^^ not currently used
+
+.site-chrome__top__body__right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-basis: 100%;
+  order: 1;
+
+  margin-bottom: 15px;
+  padding: 0 15px 0 24px;
+
+  @include mq($large-and-up) {
+    margin-bottom: 0;
+  }
+
+  @include mq($medium-and-up) {
+    flex: 1 1 auto;
+    order: 0;
+
+    .cta-text {
+      padding: 0 15px;
+      display: inline-block;
+    }
+  }
+
+  > .btn {
+  }
+
+  h1 {
+    margin: 0;
+  }
+}
+
+
+.site-chrome__right-corner {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  @include mq($small-only) {
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  > a,
+  > div {
+    justify-content: center;
+    align-self: center;
+    height: 100%;
+    margin-right: 10px;
+    white-space: nowrap;
+
+    @include mq($small-only) {
+      margin-right: 5px;
+    }
+  }
+}
+
+.site-chrome__nav {
+  background-color: $site-chrome-nav-bg-small;
+  position: relative;
+  transition: all 50ms ease;
+  //for mobile header snap
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: $zIndex--fixedNav;
+  margin-bottom: 24px;
+  
+  @include mq($large-and-up) {
+    background-color: $site-chrome-nav-bg-large;
+    position: fixed;
+    width: 150px;
+    left: 0;
+    height: 100%;
+    padding-bottom: 117px;
+  }
+
+  @include mq($up-to-large) {
+    &:after {
+      content: '';
+      pointer-events: none;
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: 15%;
+      background-image: linear-gradient(to right, rgba(0, 100, 180, 0.0), $site-chrome-nav-bg-small);
+    }
+  }
+
+  .new {
+    color: $gold;
+  }
+}
+
+/*
+.site-chrome__links
+ > .site-chrome__links-wrapper
+  > ul.site-chrome__links-list
+   > li.site-chrome__link
+    > *
+*/
+
+.site-chrome__links {
+  @include mq($up-to-large) {
+    overflow-x: scroll;
+    white-space: nowrap;
+    padding: 5px 25px;
+    padding: rems(6) rems(25) 0 rems(14);
+    padding-right: 35%; //width of the gradient; see below
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  @include mq($h-short) {
+    max-height: calc(100% - 106px);
+    overflow-y: auto;
+    height: 100%;
+  }
+}
+
+.site-chrome__links-wrapper {
+  @include mq($large-and-up) {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+}
+
+.site-chrome__links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  @include fontsize(12);
+  line-height: 1.125rem;
+  
+  @include mq($large-and-up) {
+    text-align: right;
+  }
+}
+
+.site-chrome__link {
+  margin-right: 10px;
+  display: inline-block;
+  padding: 0.5rem 0 0;
+  border-right: 3px solid transparent;
+  
+  @include mq($medium-and-up) {
+    margin-right: 25px;
+  }
+  
+  @include mq($large-and-up) {
+    display: block;
+    padding: 7px 18px 6px 0;
+    margin: 3px 0;
+  }
+  
+  > a,
+  > button {
+    display: block;
+    color: $site-chrome-link-color-small;
+    @include fontsize(14);
+    font-weight: 600;
+    line-height: 1.4;
+    padding-bottom: 9px;
+    
+    @include mq($large-and-up) {
+      @include fontsize(18);
+      font-weight: 700;
+      color: $site-chrome-link-color-large;
+      padding-bottom: 0;
+    }
+  }
+  
+  > a {
+    text-decoration: none;
+    @include mq($medium-only) {
+      border-bottom: 4px solid transparent;
+    }
+  }
+  
+  > a:hover,
+  > button:hover,
+  > a:focus,
+  > button:focus {
+    opacity: 0.8;
+    color: $site-chrome-link-hover;
+    text-decoration: none;
+  }
+}
+
+.site-chrome__link.active,
+.site-chrome__link.ember-transitioning-in {
+  @include mq($large-and-up) {
+    border-right-color: $site-chrome-active-link-right-border;
+    background-color: rgba($site-chrome-active-link-bg, .15);
+  }
+}
+.site-chrome__link.active > a,
+.site-chrome__link.ember-transitioning-in > a {
+  @include mq($medium-only) {
+    border-bottom-color: $site-chrome-active-link-bottom-border;
+  }
+}
+
+.site-chrome__link.ember-transitioning-out {
+  border: 0;
+  background-color: inherit;
+  
+  > a {
+    border: 0;
+  }
+}
+
+.site-chrome__link:last-child {
+  @include mq($small-only) {
+    margin-right: 75px !important;
+  }
+}
+
+.site-chrome__nav__footer {
+  @include l-bottom;
+  @include player-reveal-transition;
+  @include player-reveal-transition--closed;
+}
+
+.sitechrome--player-open .site-chrome__nav__footer {
+  @include player-reveal-transition--open;
+}
+
+// .btn.btn--large.btn--white
+.site-chrome__top-button {
+  display: inline-block;
+  border-radius: 25px;
+  color: $site-chrome-button-text-small;
+  border: none;
+  padding: 2px 18px 2px 18px;
+  background-color: $site-chrome-button-bg-small;
+  white-space: nowrap;
+  @include fontsize(14);
+  font-weight: 600;
+  line-height: 30px;
+  flex-shrink: 0;
+
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background: rgba(white, 0.8);
+    text-decoration: none;
+  }
+
+  transition: background-color $transition-timing, color $transition-timing;
+
+  @include mq($large-and-up) {
+    background-color: $site-chrome-button-bg-large;
+    color: $site-chrome-button-text-large;
+    line-height: 36px;
+
+    &:hover,
+    &:focus {
+      color: white;
+      background: rgba($site-chrome-button-hover, 0.8);
+    }
+  }
+}
+
+.site-chrome__body {
+  position: relative;
+  margin-bottom: 2.4rem;
+}
+
+.site-chrome__footer {
+  background-color: $site-chrome-footer-bg;
+}

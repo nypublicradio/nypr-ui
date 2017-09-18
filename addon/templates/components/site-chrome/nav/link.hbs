@@ -1,0 +1,9 @@
+{{#if hasBlock}}
+  <li class="site-chrome__link">
+    {{yield}}
+  </li>
+{{else}}
+  {{#link-to route tagName='li' href=false class="site-chrome__link" current-when=currentWhen}}
+    {{link-to text route}}
+  {{/link-to}}
+{{/if}}

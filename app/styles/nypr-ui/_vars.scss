@@ -33,6 +33,12 @@ $spacing: 1.5rem;
   }
 }
 
+%vertical-rhythm {
+  display: block;
+  margin-top: 0;
+  margin-bottom: #{$line-height/$base-font}rem;
+}
+
 // MEDIA QUERIES
 // NEW
 

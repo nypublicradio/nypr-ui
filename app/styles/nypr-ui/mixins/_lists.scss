@@ -2,3 +2,18 @@
   list-style: none;
   padding: 0;
 }
+
+@mixin list--noborder {
+  > .list-heading {
+    @extend %vertical-rhythm;
+  }
+
+  > .list-item {
+    border: none;
+
+    &:last-child {
+        border: none;
+        margin-bottom: 0;
+    }
+  }
+}
