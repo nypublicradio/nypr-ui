@@ -1,5 +1,3 @@
-@import "compass/css3/images";
-
 @import 'mixins/_layout';
 @import 'mixins/_transitions';
 @import 'mixins/_lists';
@@ -69,11 +67,11 @@ $site-chrome-button-hover: #333 !default;
 
 // not currently used
 .site-chrome__top__body-left {
-  @include flex-basis(100%);
-  @include order(2);
-  @include display-flex;
-  @include justify-content(space-between);
-  @include align-items(center);
+  flex-basis: 100%;
+  order: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   padding: 5px 15px;
   padding: 5px rems(15);
@@ -85,9 +83,9 @@ $site-chrome-button-hover: #333 !default;
   }
 
   @include mq($medium-and-up) {
-    @include flex(1 0 300px);
-    @include justify-content(space-around);
-    @include order(0);
+    flex: 1 0 300px;
+    justify-content: space-around;
+    order: 0;
     padding: 0;
     margin-left: 15px;
   }
