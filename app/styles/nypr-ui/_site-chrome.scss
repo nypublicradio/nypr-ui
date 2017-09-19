@@ -40,7 +40,7 @@ $site-chrome-button-hover: #333 !default;
 }
 
 .site-chrome__top {
-  @extend %vertical-rhythm;
+  @include vertical-rhythm;
   padding-top: 20px;
   background-color: $site-chrome-top-bg-small;
 

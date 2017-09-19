@@ -1,3 +1,5 @@
+@import "../vars";
+
 @mixin list-base {
   list-style: none;
   padding: 0;
@@ -5,7 +7,7 @@
 
 @mixin list--noborder {
   > .list-heading {
-    @extend %vertical-rhythm;
+    @include vertical-rhythm;
   }
 
   > .list-item {
