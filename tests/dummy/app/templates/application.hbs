@@ -7,11 +7,11 @@
     {{/nav.corner}}
 
     {{#nav.links as |links|}}
-      {{component links.link route='card' text='nypr-card'}}
-      {{component links.link route='multi-card' text='nypr-multi-card'}}
-      {{component links.link route='brick' text='nypr-brick-layout'}}
-      {{component links.link route='tabs' text='nypr-tabs'}}
-      {{component links.link route='chrome' text='site-chrome'}}
+      {{links.link 'nypr-card' 'card'}}
+      {{links.link 'nypr-multi-card' 'multi-card'}}
+      {{links.link 'nypr-brick-layout' 'brick'}}
+      {{links.link 'nypr-tabs' 'tabs'}}
+      {{links.link 'site-chrome' 'chrome'}}
     {{/nav.links}}
 
   {{/chrome.nav}}

@@ -69,7 +69,7 @@ test('full usage', function(assert) {
         {{/nav.corner}}
         
         {{#nav.links as |links|}}
-          {{links.link text='foo'}}
+          {{links.link 'foo'}}
           {{#links.link}}non link item{{/links.link}}
         {{/nav.links}}
         
