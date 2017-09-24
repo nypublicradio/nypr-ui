@@ -6,36 +6,40 @@
 @import 'mixins/_lists';
 
 $site-chrome-top-bg: white !default;
-$site-chrome-top-bg-small: $site-chrome-top-bg;
-$site-chrome-top-bg-large: $site-chrome-top-bg;
+$site-chrome-top-bg-small: $site-chrome-top-bg !default;
+$site-chrome-top-bg-large: $site-chrome-top-bg !default;
 
 $site-chrome-nav-bg: white !default;
-$site-chrome-nav-bg-small: $site-chrome-nav-bg;
-$site-chrome-nav-bg-large: $site-chrome-nav-bg;
+$site-chrome-nav-bg-small: $site-chrome-nav-bg !default;
+$site-chrome-nav-bg-large: $site-chrome-nav-bg !default;
 
 $site-chrome-link-color:  white !default;
-$site-chrome-link-color-small: $site-chrome-link-color;
-$site-chrome-link-color-large: $site-chrome-link-color;
+$site-chrome-link-color-small: $site-chrome-link-color !default;
+$site-chrome-link-color-large: $site-chrome-link-color !default;
 
 $site-chrome-link-hover: white !default;
 $site-chrome-active-link-bottom-border: white !default;
 $site-chrome-active-link-right-border:  white !default;
-$site-chrome-active-link-bg: $site-chrome-nav-bg;
+$site-chrome-active-link-bg: $site-chrome-nav-bg !default;
+
+$site-chrome-active-link-color: black !default;
 
 $site-chrome-footer-bg: black !default;
 
 $site-chrome-button-text: white !default;
-$site-chrome-button-text-small: $site-chrome-button-text;
-$site-chrome-button-text-large: $site-chrome-button-text;
+$site-chrome-button-text-small: $site-chrome-button-text !default;
+$site-chrome-button-text-large: $site-chrome-button-text !default;
 
 $site-chrome-button-bg: black !default;
-$site-chrome-button-bg-small: $site-chrome-button-bg;
-$site-chrome-button-bg-large: $site-chrome-button-bg;
+$site-chrome-button-bg-small: $site-chrome-button-bg !default;
+$site-chrome-button-bg-large: $site-chrome-button-bg !default;
 $site-chrome-button-hover: #333 !default; 
+
+$site-chrome-nav-width-large: 150px !default;
 
 .site-chrome {
   @include mq($large-and-up) {
-    padding-left: 150px;
+    padding-left: $site-chrome-nav-width-large;
   }
 }
 
@@ -184,7 +188,7 @@ $site-chrome-button-hover: #333 !default;
   @include mq($large-and-up) {
     background-color: $site-chrome-nav-bg-large;
     position: fixed;
-    width: 150px;
+    width: $site-chrome-nav-width-large;
     left: 0;
     height: 100%;
     padding-bottom: 117px;
@@ -312,6 +316,7 @@ $site-chrome-button-hover: #333 !default;
 }
 .site-chrome__link.active > a,
 .site-chrome__link.ember-transitioning-in > a {
+  color: $site-chrome-active-link-color;
   @include mq($medium-only) {
     border-bottom-color: $site-chrome-active-link-bottom-border;
   }
