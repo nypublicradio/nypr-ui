@@ -20,7 +20,7 @@ $site-chrome-link-color-large: $site-chrome-link-color !default;
 $site-chrome-link-hover: white !default;
 $site-chrome-active-link-bottom-border: white !default;
 $site-chrome-active-link-right-border:  white !default;
-$site-chrome-active-link-bg: $site-chrome-nav-bg !default;
+$site-chrome-active-link-bg: rgba($site-chrome-nav-bg, 0.15) !default;
 
 $site-chrome-active-link-color: black !default;
 
@@ -33,7 +33,7 @@ $site-chrome-button-text-large: $site-chrome-button-text !default;
 $site-chrome-button-bg: black !default;
 $site-chrome-button-bg-small: $site-chrome-button-bg !default;
 $site-chrome-button-bg-large: $site-chrome-button-bg !default;
-$site-chrome-button-hover: #333 !default; 
+$site-chrome-button-hover: rgba(#333, 0.8) !default;
 
 $site-chrome-nav-width-large: 150px !default;
 
@@ -311,7 +311,7 @@ $site-chrome-nav-width-large: 150px !default;
 .site-chrome__link.ember-transitioning-in {
   @include mq($large-and-up) {
     border-right-color: $site-chrome-active-link-right-border;
-    background-color: rgba($site-chrome-active-link-bg, .15);
+    background-color: $site-chrome-active-link-bg;
   }
 }
 .site-chrome__link.active > a,
@@ -379,7 +379,7 @@ $site-chrome-nav-width-large: 150px !default;
     &:hover,
     &:focus {
       color: white;
-      background: rgba($site-chrome-button-hover, 0.8);
+      background: $site-chrome-button-hover;
     }
   }
 }
