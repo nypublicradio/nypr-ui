@@ -204,7 +204,7 @@ $site-chrome-nav-width-large: 150px !default;
       top: 0;
       height: 100%;
       width: 15%;
-      background-image: linear-gradient(to right, rgba(0, 100, 180, 0.0), $site-chrome-nav-bg-small);
+      background-image: linear-gradient(to right, rgba($site-chrome-nav-bg-small, 0.0), $site-chrome-nav-bg-small);
     }
   }
 
