@@ -2,7 +2,7 @@
   {{#chrome.nav as |nav|}}
     {{#nav.corner}}
       <h1 class="site-title">
-        {{#link-to 'index'}}<code>nypr-ui</code>{{/link-to}}
+        {{link-to 'nypr-ui' 'index'}}
       </h1>
     {{/nav.corner}}
 
@@ -17,6 +17,8 @@
   {{/chrome.nav}}
   
   {{#chrome.body}}
-    {{outlet}}
+    <div class="l-page">
+      {{outlet}}
+    </div>
   {{/chrome.body}}
 {{/site-chrome}}

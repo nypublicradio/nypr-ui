@@ -1,7 +1,34 @@
 {{md-text text="
-# `site-chrome`
+## `site-chrome`
+
+The `site-chrome` component yields a series of nested blocks to give access to the various parts of the site chrome.
+
+See below for sass variables that are available for overwriting before importing the site chrome styles.
+
+### Importing Styles
+Import the sass partial.
+
+```sass
+// app/styles/app.scss
+@import \"nypr-ui/site-chrome\";
+```
+
+The following variables are available for overwriting.
 "}}
-<h2>basic usage</h2>
+{{code-snippet name="sass-vars.scss"}}
+
+{{md-text text="
+When overwriting variables, be sure to set them before the import line.
+
+```sass
+$site-chrome-link-color: blue;
+$site-chrome-link-hover: blue;
+@import \"nypr-ui/site-chrome\";
+```
+
+### Basic Usage
+"}}
+
 {{code-snippet name="site-chrome.hbs"}}
 
 <div style="transform: translate3d(0,0,0)">
@@ -27,7 +54,7 @@
     {{/nav.corner}}
     
     {{#nav.links as |links|}}
-      {{links.link text='foo'}}
+      {{links.link 'foo'}}
       {{#links.link}}non link item{{/links.link}}
     {{/nav.links}}
     

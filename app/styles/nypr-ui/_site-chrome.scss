@@ -5,6 +5,7 @@
 @import 'mixins/_transitions';
 @import 'mixins/_lists';
 
+// BEGIN-SNIPPET sass-vars
 $site-chrome-top-bg: white !default;
 $site-chrome-top-bg-small: $site-chrome-top-bg !default;
 $site-chrome-top-bg-large: $site-chrome-top-bg !default;
@@ -36,6 +37,7 @@ $site-chrome-button-bg-large: $site-chrome-button-bg !default;
 $site-chrome-button-hover: rgba(#333, 0.8) !default;
 
 $site-chrome-nav-width-large: 150px !default;
+// END-SNIPPET
 
 .site-chrome {
   @include mq($large-and-up) {
