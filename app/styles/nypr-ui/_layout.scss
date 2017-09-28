@@ -27,9 +27,7 @@
 
 .l-mobile--col {
   @include mq($mobile) {
-    @include flexbox((
-      display: flex,
-      flex-direction: column
-    ));
+    display: flex;
+    flex-direction: column;
   }
 }

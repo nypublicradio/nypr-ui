@@ -10,4 +10,46 @@ $site-chrome-link-hover: blue;
 
 .site-title {
   color: blue;
+  text-align: right;
+  font-size: 16px;
+  padding-right: 18px;
+}
+
+code {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(27,31,35,0.05);
+  border-radius: 3px;
+  @include mq((max-width: 600px)) {
+    word-break: break-all;
+  }
+  
+  &::before,
+  &::after {
+    letter-spacing: -0.2em;
+    content: "\00a0";
+  }
+}
+
+pre > code {
+  display: block;
+  padding: 16px;
+  overflow: auto;
+  
+  &::before,
+  &::after {
+    display: none;
+  }
+}
+
+.l-page {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.site-chrome__link > a {
+  font-size: 16px;
 }
