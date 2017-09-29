@@ -82,5 +82,37 @@
   }
 }
 
+.panel {
+  position: relative;
+  overflow: hidden; // hides .panel-link border edges when there isn't a panel-body
+  color: black;
+  border-radius: 5px;
+  background-color: white;
+  text-align: left;
+  font-size: medium;
+  // IE doesn't support initial
+  font-size: initial;
+  border: 1px solid $lightestgray;
+}
 
+.panel-link {
+  padding: 15px;
+  border-bottom: 1px $lightestgray solid;
+  display: block;
+  // so it doesn't cllapse if there's no body
+  white-space: nowrap;
+
+  &:hover,
+  &:focus {
+      border-bottom-color: $lightestgray;
+  }
+}
+
+.panel-linkicon {
+  margin-right: 8px;
+  @include fontsize(18);
+}
+
+.panel-body {
+  padding: 15px;
 }
