@@ -154,6 +154,15 @@
   }
 }
 
+@mixin btn--lightgreen {
+  @include btn;
+  @include btn--solid-color(
+    $background-color: $lightgreen,
+    $hover-color: $darkgreen
+  );
+  text-decoration: none;
+}
+
 /**
  * Red Button:
  * `.btn--red`
