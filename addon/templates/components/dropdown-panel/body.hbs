@@ -1,5 +1,5 @@
 {{#component content class="dropdown-body dropdown-fade"}}
   <div class="panel">
-    {{yield}}
+    {{yield (hash link=(component 'dropdown-panel/link'))}}
   </div>
 {{/component}}
