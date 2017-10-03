@@ -187,6 +187,21 @@
   }
 }
 
+@mixin btn--blacktext {
+  color: $darkergray;
+
+  &:not([disabled]) {
+    &:hover,
+    &:focus {
+      color: $pink;
+    }
+
+    &.active {
+      color: black;
+    }
+  }
+}
+
 /**
  * Large Button:
  * `.btn--large`
