@@ -26,7 +26,7 @@
         type='blue-minion'
         itemPK=item.attributes.slug
         itemTitle=(if item.attributes.shortTitle item.attributes.shortTitle item.attributes.title)
-        itemShow=item.attributes.showTitle}}
+        itemShow=(or item.attributes.showTitle item.attributes.headers.brand.title)}}
         Listen {{item.attributes.audioDurationReadable}}
       {{/listen-button}}
     {{/if}}
