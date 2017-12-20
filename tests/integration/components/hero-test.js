@@ -47,4 +47,17 @@ test('it renders', function(assert) {
   assert.ok(find('.hero-lockup'), 'lockup');
 });
 
+test('renders an image', function(assert) {
+  let backgroundImage = 'https://dummyimage.com/200';
+  this.set('image', backgroundImage);
+  this.render(hbs`
+    {{#nypr-ui/hero as |hero|}}
+      {{hero.image src=image source='the source'}}
+    {{/nypr-ui/hero}}
+  `);
+  
+  let setImage = find('.nypr-ui__hero').style.backgroundImage;
+  
+  assert.ok(setImage.match(backgroundImage), 'image should render');
+  assert.equal(find('.hero-source').textContent.trim(), 'the source', 'source should render');
 });
