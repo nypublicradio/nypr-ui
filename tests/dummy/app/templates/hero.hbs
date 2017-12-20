@@ -1,0 +1,35 @@
+{{md-text text="
+# `nypr-ui/hero`
+
+A hero image layout
+"}}
+
+{{#nypr-ui/hero as |hero|}}
+  {{hero.image src="https://dummyimage.com/1200" source="the source"}}
+  {{#hero.top as |top|}}
+    {{#top.left}}
+      {{nypr-svg icon="left-arrow" className="hero-back"}}
+      {{nypr-svg icon="wnyc-logo" className="hero-logo"}}
+    {{/top.left}}
+    
+    {{#top.right}}
+      <a href="" class="">donate</a>
+    {{/top.right}}
+  {{/hero.top}}
+  
+  {{#hero.headline}}
+    unsettled in america
+  {{/hero.headline}}
+  
+  {{#hero.blurb}}
+    <p>
+      blah blah blah
+    </p>
+    
+    <button>listen</button>
+  {{/hero.blurb}}
+  
+  {{#hero.lockup}}
+    social buttons
+  {{/hero.lockup}}
+{{/nypr-ui/hero}}

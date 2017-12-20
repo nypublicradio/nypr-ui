@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('brick');
   this.route('tabs');
   this.route('chrome');
+  this.route('hero');
 });
 
 export default Router;
