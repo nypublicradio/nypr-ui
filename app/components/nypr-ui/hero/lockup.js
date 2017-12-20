@@ -1,1 +1,1 @@
-export { default } from 'nypr-ui/components/hero-header/lockup';
+export { default } from 'nypr-ui/components/hero/lockup';

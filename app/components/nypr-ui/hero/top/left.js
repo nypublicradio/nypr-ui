@@ -1,1 +1,1 @@
-export { default } from 'nypr-ui/components/hero-header/top/left';
+export { default } from 'nypr-ui/components/hero/top/left';
