@@ -1,5 +1,5 @@
 import layout from '../templates/components/nypr-share-button';
-import Component from 'ember-component';
+import Component from '@ember/component';
 
 export default Component.extend({
   layout,

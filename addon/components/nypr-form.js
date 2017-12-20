@@ -1,7 +1,6 @@
-import Component from 'ember-component';
+import Component from "@ember/component"
 import layout from '../templates/components/nypr-form';
-import get from 'ember-metal/get';
-import set from 'ember-metal/set';
+import { get, set } from "@ember/object";
 import RSVP from 'rsvp';
 
 export default Component.extend({
