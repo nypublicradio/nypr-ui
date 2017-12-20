@@ -1,8 +1,8 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 import layout from '../../templates/components/nypr-story/share-buttons';
 import { shareUrl } from 'nypr-ui/helpers/share-url';
 
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
   classNames: ['btn-group'],
   actions: {

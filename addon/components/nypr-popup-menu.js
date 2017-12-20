@@ -1,11 +1,11 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 import layout from '../templates/components/nypr-popup-menu';
 import get from 'ember-metal/get';
 import set from 'ember-metal/set';
 import { next } from 'ember-runloop';
 import { htmlSafe } from 'ember-string';
 
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
   classNames: ['nypr-popupmenu'],
   classNameBindings: ['isOpen'],

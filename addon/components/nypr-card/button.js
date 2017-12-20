@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 import layout from '../../templates/components/nypr-card/button';
 
-const NyprCardButton = Ember.Component.extend({
+const NyprCardButton = Component.extend({
   layout,
   tagName: 'button',
   classNames: ['nypr-card-button'],

@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
 // BEGIN-SNIPPET brick-route
 const row1 = [
@@ -19,7 +19,7 @@ const row3 = [
   {attributes: {title: 'item9'}}
 ];
 
-export default Ember.Route.extend({
+export default Route.extend({
   model() {
     return {
       row1,

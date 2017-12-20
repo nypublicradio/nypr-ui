@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 import layout from '../../templates/components/nypr-story/series';
 import imageLoaderMixin from 'nypr-ui/mixins/image-loader';
 
-export default Ember.Component.extend(imageLoaderMixin, {
+export default Component.extend(imageLoaderMixin, {
   layout,
 });
