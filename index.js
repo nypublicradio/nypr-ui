@@ -1,10 +1,15 @@
-/* jshint node: true */
+/* eslint-env node */
 'use strict';
 
 module.exports = {
   name: 'nypr-ui',
-  included: function() {
-    this._super.included.apply(this, arguments);
+  included: function(app) {
+    this._super.included(app);
+    
+    if (app.options.useWaypoints) {
+      app.import('node_modules/waypoints/lib/noframework.waypoints.js');
+      app.import('vendor/shims/waypoints.js');
+    }
   },
   isDevelopingAddon: () => true
 };
