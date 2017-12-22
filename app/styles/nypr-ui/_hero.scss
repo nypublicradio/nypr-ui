@@ -1,30 +1,28 @@
 @import "colors";
 
 // used to position lockup
-$padding-right: 30px;
-$padding-bottom: 75px;
+$padding-right-medium: 30px;
+$padding-bottom-medium: 75px;
+$padding-right-small:  20px;
+$padding-bottom-small:  20px;
 
-.nypr-ui__hero-body {
+.nypr-ui__hero {
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
+  background-position: center;
   display: flex;
   flex-direction: column;
   color: white;
   
   position: relative;
-  height: 80vh;
-  padding: 0 $padding-right $padding-bottom 50px;
-}
-
-.nypr-ui__hero.is-sticky .nypr-ui__hero-body {
-  position: fixed;
-  bottom: calc(100% - 50px);
-  left: 0;
-  right: 0;
-}
+  height: 90vh;
+  padding: 0 $padding-right-small $padding-bottom-small 20px;
   
-.sticky-reference {
-  display: block;
+  @include mq($medium-and-up) {
+    background-size: 100%;
+    padding: 0 $padding-right-medium $padding-bottom-medium 50px;
+    height: 80vh;
+  }
 }
 
 .nypr-ui__hero .hero-top {
@@ -55,23 +53,36 @@ $padding-bottom: 75px;
 }
 
 .nypr-ui__hero .hero-headline {
+  font-size: 40px;
+  line-height: 1.2;
   margin-top: auto;
-  margin-bottom: 50px;
-  font-size: 90px;
-  line-height: 95px;
-  max-width: 850px;
+  
+  @include mq($medium-and-up) {
+    max-width: 850px;
+    margin-bottom: 50px;
+  }
 }
 
 .nypr-ui__hero .hero-blurb {
-  font-size: 28px;
-  line-height: 38px;
-  max-width: 850px;
+  font-size: 18px;
+  line-height: 1.4;
+  
+  @include mq($medium-and-up) {
+    font-size: 28px;
+    line-height: 38px;
+    max-width: 850px;
+  }
 }
 
 .nypr-ui__hero .hero-lockup {
   position: absolute;
-  right: $padding-right;
-  bottom: $padding-bottom;
+  right: $padding-right-small;
+  bottom: $padding-bottom-small;
+  
+  @include mq($medium-and-up) {
+    right: $padding-right-medium;
+    bottom: $padding-bottom-medium;
+  }
 }
 
 .nypr-ui__hero .hero-source {
@@ -80,4 +91,65 @@ $padding-bottom: 75px;
   right: 15px;
   font-size: 12px;
   color: $lightgray;
+}
+
+//
+// STICKY HEADER STYLES
+//
+
+.nypr-ui__hero.stuck {
+  position: fixed;
+  top: 0;
+  height: 100px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  
+  @include mq($medium-and-up) {
+    padding: 0 30px;
+    flex-wrap: nowrap;
+  }
+}
+
+.stuck > .hero-top {
+  position: static;
+  height: auto;
+
+  .hero-top__right {
+    display: none;
+  }
+}
+
+.stuck > .hero-headline {
+  font-size: 16px;
+  flex: 1 1 100%;
+  max-width: none;
+  order: 1;
+  margin: 0;
+  line-height: 1.2;
+  
+  @include mq($medium-and-up) {
+    order: 0;
+    flex-basis: auto;
+    font-size: 22px;
+    margin: 0 45px;
+    line-height: 4.2;
+  }
+}
+
+.stuck > .hero-blurb {
+  display: none;
+}
+
+.stuck > .hero-lockup {
+  position: static;
+}
+
+.stuck > .hero-source {
+  display: none;
 }
