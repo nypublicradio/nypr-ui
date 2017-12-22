@@ -1,14 +1,20 @@
-{{#if hasBlock}}
-  {{yield (hash 
-    image=(component 'nypr-ui/hero/image' sendImage=(action setImage))
-    top=(component 'nypr-ui/hero/top')
-    headline=(component 'nypr-ui/hero/headline')
-    blurb=(component 'nypr-ui/hero/blurb')
-    lockup=(component 'nypr-ui/hero/lockup')
-  )}}
-  {{#if source}}
-    <span class="hero-source">{{source}}</span>
+<div class="nypr-ui__hero-body" style={{backgroundImage}}>
+  {{#if hasBlock}}
+    {{yield (hash 
+      image=(component 'nypr-ui/hero/image' sendImage=(action setImage))
+      top=(component 'nypr-ui/hero/top')
+      headline=(component 'nypr-ui/hero/headline')
+      blurb=(component 'nypr-ui/hero/blurb')
+      lockup=(component 'nypr-ui/hero/lockup')
+    )}}
+    {{#if source}}
+      <span class="hero-source">{{source}}</span>
+    {{/if}}
+  {{else}}
+    {{log 'Usage without a block is undefined'}}
   {{/if}}
-{{else}}
-  {{log 'Usage without a block is undefined'}}
+</div>
+
+{{#if true}}
+  <span class="sticky-reference" style={{stickyHeight}}></span>
 {{/if}}

@@ -4,7 +4,7 @@
 $padding-right: 30px;
 $padding-bottom: 75px;
 
-.nypr-ui__hero {
+.nypr-ui__hero-body {
   background-repeat: no-repeat;
   background-size: 100%;
   display: flex;
@@ -12,8 +12,19 @@ $padding-bottom: 75px;
   color: white;
   
   position: relative;
-  height: 90vh;
+  height: 80vh;
   padding: 0 $padding-right $padding-bottom 50px;
+}
+
+.nypr-ui__hero.is-sticky .nypr-ui__hero-body {
+  position: fixed;
+  bottom: calc(100% - 50px);
+  left: 0;
+  right: 0;
+}
+  
+.sticky-reference {
+  display: block;
 }
 
 .nypr-ui__hero .hero-top {
@@ -22,6 +33,9 @@ $padding-bottom: 75px;
   align-items: flex-end;
   
   height: 60px;
+  
+  position: sticky;
+  top: 0;
 }
 
 .nypr-ui__hero .hero-top__left,
