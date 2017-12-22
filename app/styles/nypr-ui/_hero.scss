@@ -1,5 +1,9 @@
 @import "colors";
 
+// used to position lockup
+$padding-right: 30px;
+$padding-bottom: 75px;
+
 .nypr-ui__hero {
   background-repeat: no-repeat;
   background-size: 100%;
@@ -9,7 +13,7 @@
   
   position: relative;
   height: 90vh;
-  padding: 0 30px 75px 30px;
+  padding: 0 $padding-right $padding-bottom 50px;
 }
 
 .nypr-ui__hero .hero-top {
@@ -38,14 +42,22 @@
 
 .nypr-ui__hero .hero-headline {
   margin-top: auto;
+  margin-bottom: 50px;
+  font-size: 90px;
+  line-height: 95px;
+  max-width: 850px;
 }
 
 .nypr-ui__hero .hero-blurb {
-  
+  font-size: 28px;
+  line-height: 38px;
+  max-width: 850px;
 }
 
 .nypr-ui__hero .hero-lockup {
-  
+  position: absolute;
+  right: $padding-right;
+  bottom: $padding-bottom;
 }
 
 .nypr-ui__hero .hero-source {
