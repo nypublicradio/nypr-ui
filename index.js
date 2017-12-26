@@ -31,7 +31,7 @@ module.exports = {
     app.import('vendor/shims/waypoints.js');
   },
   treeForVendor(vendorTree) {
-    var waypointsTree = new Funnel(path.dirname(require.resolve('./node_modules/waypoints/lib/waypoints.debug.js')), {
+    var waypointsTree = new Funnel(path.dirname(require.resolve('waypoints/lib/waypoints.debug.js')), {
       files: [
         'jquery.waypoints.js',
         'jquery.waypoints.min.js',
@@ -39,7 +39,7 @@ module.exports = {
       destDir: 'third-party'
     });
     
-    var stickyTree = new Funnel(path.dirname(require.resolve('./node_modules/waypoints/lib/shortcuts/sticky.js')), {
+    var stickyTree = new Funnel(path.dirname(require.resolve('waypoints/lib/shortcuts/sticky.js')), {
       files: [
         'sticky.js',
         'sticky.min.js',
