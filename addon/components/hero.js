@@ -16,5 +16,9 @@ export default Component.extend(StickyHeader, {
   
   setImage({ src, source, caption }) {
     this.setProperties({ src, source, caption });
+  },
+  
+  offset() {
+    return -this.element.clientHeight + 75;
   }
 });

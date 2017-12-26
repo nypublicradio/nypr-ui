@@ -6,9 +6,7 @@ export default Mixin.create({
     this._super(...arguments);
     let waypoint = new Waypoint.Sticky({
       element: this.element,
-      offset() {
-        return -this.element.clientHeight;
-      }
+      offset: this.get('offset')
     });
     this.set('waypoint', waypoint);
   },
