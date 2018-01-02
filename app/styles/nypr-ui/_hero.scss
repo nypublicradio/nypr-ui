@@ -56,7 +56,8 @@ $padding-v-small:  20px;
   justify-content: space-between;
   align-items: flex-end;
   
-  height: 60px;
+  height: 85px;
+  padding-bottom: 25px;
   
   position: sticky;
   top: 0;
@@ -167,6 +168,7 @@ $padding-v-small:  20px;
 .stuck > .hero-top {
   position: static;
   height: auto;
+  padding: 0;
 
   .hero-top__right {
     display: none;
