@@ -110,6 +110,8 @@ $padding-v-small:  20px;
   justify-content: space-between;
   padding: 10px 20px;
   
+  background-position: center calc(100% +  200px);
+  
   @include mq($medium-and-up) {
     padding: 0 30px;
     flex-wrap: nowrap;
