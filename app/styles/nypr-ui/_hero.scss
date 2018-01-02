@@ -19,7 +19,6 @@ $padding-v-small:  20px;
   padding: 0 $padding-h-small $padding-v-small $padding-h-small;
   
   @include mq($medium-and-up) {
-    background-size: 100%;
     padding: 0 $padding-h-medium $padding-v-medium $padding-h-medium;
     height: 80vh;
   }
@@ -58,6 +57,7 @@ $padding-v-small:  20px;
   margin-top: auto;
   
   @include mq($medium-and-up) {
+    font-size: 90px;
     max-width: 850px;
     margin-bottom: 50px;
   }
