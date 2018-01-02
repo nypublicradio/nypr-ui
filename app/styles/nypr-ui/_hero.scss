@@ -1,10 +1,26 @@
 @import "colors";
+@import "z-index";
 
 // used to position lockup
 $padding-h-medium: 30px;
 $padding-v-medium: 75px;
 $padding-h-small:  20px;
 $padding-v-small:  20px;
+
+@mixin with-gradient($gradient) {
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: $zIndex--heroGradient;
+  
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(#{$gradient});
+  }
+}
 
 .nypr-ui__hero {
   background-repeat: no-repeat;
@@ -22,6 +38,17 @@ $padding-v-small:  20px;
     padding: 0 $padding-h-medium $padding-v-medium $padding-h-medium;
     height: 80vh;
   }
+  
+  &.with-gradient {
+    @include with-gradient("to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)");
+  }
+  
+  &.with-gradient {
+    > .hero-headline,
+    > .hero-blurb {
+      z-index: $zIndex--overGradient;
+    }
+  }
 }
 
 .nypr-ui__hero .hero-top {
@@ -33,6 +60,25 @@ $padding-v-small:  20px;
   
   position: sticky;
   top: 0;
+}
+
+.nypr-ui__hero.with-gradient .hero-top {
+  @include with-gradient("to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.0)");
+  
+  &:before {
+    left: -$padding-h-small;
+    right: -$padding-h-small;
+    
+    @include mq($medium-and-up) {
+      left: -$padding-h-medium;
+      right: -$padding-h-medium;
+    }
+  }
+  
+  > .hero-top__left,
+  > .hero-top__right {
+    position: relative;
+  }
 }
 
 .nypr-ui__hero .hero-top__left,
@@ -150,6 +196,7 @@ $padding-v-small:  20px;
 
 .stuck > .hero-lockup {
   position: static;
+  z-index: $zIndex--overGradient;
 }
 
 .stuck > .hero-source {

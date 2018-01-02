@@ -8,6 +8,7 @@ export default Component.extend(StickyHeader, {
   layout,
   classNames: ['nypr-ui__hero'],
   attributeBindings: ['style'],
+  classNameBindings: ['gradient:with-gradient'],
   
   style: computed('src', function() {
     let image = this.get('src');
