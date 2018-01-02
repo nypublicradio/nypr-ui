@@ -30,8 +30,8 @@ $padding-v-small:  20px;
   flex-direction: column;
   color: white;
   
-  position: relative;
   height: 90vh;
+  position: relative;
   padding: 0 $padding-h-small $padding-v-small $padding-h-small;
   
   @include mq($medium-and-up) {
@@ -45,7 +45,8 @@ $padding-v-small:  20px;
   
   &.with-gradient {
     > .hero-headline,
-    > .hero-blurb {
+    > .hero-blurb,
+    > .hero-footer {
       z-index: $zIndex--overGradient;
     }
   }
@@ -90,18 +91,22 @@ $padding-v-small:  20px;
 }
 
 .nypr-ui__hero .hero-logo {
-  width: 80px;
+  width: 56px;
   margin-left: 8px;
   
   path {
     fill: white;
+  }
+  
+  @include mq($medium-and-up) {
+    width: 80px;
   }
 }
 
 .nypr-ui__hero .hero-headline {
   font-size: 40px;
   line-height: 1.2;
-  margin-top: auto;
+  margin: auto 0 15px 0;
   opacity: 1;
   
   transition: opacity 125ms ease;
@@ -110,10 +115,10 @@ $padding-v-small:  20px;
     font-size: 90px;
     max-width: 850px;
     margin-bottom: 50px;
-  }
-  
-  &.is-fade {
-    opacity: 0;
+    
+    &.is-fade {
+      opacity: 0;
+    }
   }
 }
 
@@ -121,6 +126,8 @@ $padding-v-small:  20px;
   font-size: 18px;
   line-height: 1.4;
   opacity: 1;
+  margin-right: 25%;
+  margin-bottom: 25px;
   
   transition: opacity 125ms ease;
   
@@ -128,6 +135,7 @@ $padding-v-small:  20px;
     font-size: 28px;
     line-height: 38px;
     max-width: 850px;
+    margin-right: 0;
   }
   
   &.is-fade {
@@ -135,15 +143,18 @@ $padding-v-small:  20px;
   }
 }
 
-.nypr-ui__hero .hero-lockup {
-  position: absolute;
-  right: $padding-h-small;
-  bottom: $padding-v-small;
+.nypr-ui__hero .hero-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
   
   @include mq($medium-and-up) {
-    right: $padding-h-medium;
-    bottom: $padding-v-medium;
+    margin-bottom: 0;
   }
+}
+
+.nypr-ui__hero .hero-lockup {
+  margin-left: auto;
 }
 
 .nypr-ui__hero .hero-source {
@@ -161,7 +172,8 @@ $padding-v-small:  20px;
 .nypr-ui__hero.stuck {
   position: fixed;
   top: 0;
-  height: 100px;
+  height: auto;
+  min-height: 100px;
   left: 0;
   right: 0;
   z-index: 1000;
@@ -171,11 +183,12 @@ $padding-v-small:  20px;
   justify-content: space-between;
   padding: 10px 20px;
   
-  background-position: center calc(100% +  200px);
+  background-position: bottom;
   
   @include mq($medium-and-up) {
     padding: 0 30px;
     flex-wrap: nowrap;
+    background-position: center calc(100% +  200px);
   }
 }
 
