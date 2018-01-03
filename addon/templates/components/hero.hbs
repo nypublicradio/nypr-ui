@@ -6,8 +6,10 @@
     blurb=(component 'nypr-ui/hero/blurb')
     footer=(component 'nypr-ui/hero/footer')
   )}}
-  {{#if source}}
-    <span class="hero-source">{{source}}</span>
+  {{#if (or source credit caption)}}
+    <span class="hero-source">
+      {{caption}}{{#if (or credit source)}} ({{credit}}{{if source ' / '}}{{link-or-text source}}){{/if}}
+    </span>
   {{/if}}
 {{else}}
   {{log 'Usage without a block is undefined'}}
