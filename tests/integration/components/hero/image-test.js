@@ -7,16 +7,18 @@ moduleForComponent('nypr-ui/hero/image', 'Integration | Component | nypr ui/hero
 });
 
 test('it fires the sendImage action when rendered', function() {
-  const SRC = 'SRC';
-  const SOURCE = 'SOURCE';
+  const SRC     = 'SRC';
+  const SOURCE  = 'SOURCE';
   const CAPTION = 'CAPTION';
-  let mock = this.mock('sendImage').once().withArgs({src: SRC, source: SOURCE, caption: CAPTION});
+  const CREDIT  = 'CREDIT';
+  let mock = this.mock('sendImage').once().withArgs({src: SRC, source: SOURCE, caption: CAPTION, credit: CREDIT});
   this.setProperties({
     sendImage: mock,
     SRC,
     CAPTION,
-    SOURCE
+    SOURCE,
+    CREDIT
   });
   
-  this.render(hbs`{{nypr-ui/hero/image sendImage=sendImage src=SRC source=SOURCE caption=CAPTION}}`);
+  this.render(hbs`{{nypr-ui/hero/image sendImage=sendImage src=SRC source=SOURCE caption=CAPTION credit=CREDIT}}`);
 });

@@ -9,7 +9,7 @@ moduleForComponent('nypr-ui/hero', 'Integration | Component | hero header', {
 test('it renders', function(assert) {
   this.render(hbs`{{nypr-ui/hero}}`);
 
-  assert.ok(find('.nypr-ui__hero'));
+  assert.ok(find('.nypr-ui__hero'), 'should render without a block');
 
   // Template block usage:
   this.render(hbs`
@@ -32,9 +32,11 @@ test('it renders', function(assert) {
         Blurb
       {{/hero.blurb}}
       
-      {{#hero.lockup}}
-        lockup
-      {{/hero.lockup}}
+      {{#hero.footer as |footer|}}
+        {{#footer.lockup}}
+          lockup
+        {{/footer.lockup}}
+      {{/hero.footer}}
     {{/nypr-ui/hero}}
   `);
   
@@ -52,12 +54,12 @@ test('renders an image', function(assert) {
   this.set('image', backgroundImage);
   this.render(hbs`
     {{#nypr-ui/hero as |hero|}}
-      {{hero.image src=image source='the source'}}
+      {{hero.image src=image credit='the credit'}}
     {{/nypr-ui/hero}}
   `);
   
   let setImage = find('.nypr-ui__hero').style.backgroundImage;
   
   assert.ok(setImage.match(backgroundImage), 'image should render');
-  assert.equal(find('.hero-source').textContent.trim(), 'the source', 'source should render');
+  assert.equal(find('.hero-source').textContent.trim(), '(the credit)', 'credit should render');
 });
