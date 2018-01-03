@@ -7,7 +7,7 @@ export default Component.extend({
     this._super(...arguments);
     let sendImage = this.get('sendImage');
     if (sendImage) {
-      sendImage(this.getProperties('src', 'source', 'caption'))
+      sendImage(this.getProperties('src', 'source', 'caption', 'credit'))
     }
   },
   

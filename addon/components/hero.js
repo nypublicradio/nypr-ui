@@ -15,8 +15,8 @@ export default Component.extend(StickyHeader, {
     return htmlSafe(image ? `background-image: url(${image});` : '');
   }),
   
-  setImage({ src, source, caption }) {
-    this.setProperties({ src, source, caption });
+  setImage({ src, source, caption, credit }) {
+    this.setProperties({ src, source, caption, credit });
   },
   
   offset() {
