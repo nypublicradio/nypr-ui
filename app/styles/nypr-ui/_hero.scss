@@ -33,6 +33,8 @@ $padding-v-small:  20px;
   min-height: 90vh;
   position: relative;
   
+  z-index: $zIndex--fixedNav;
+  
   @include mq($medium-and-up) {
     padding: 0 $padding-h-medium $padding-v-medium $padding-h-medium;
     min-height: 80vh;
@@ -63,6 +65,7 @@ $padding-v-small:  20px;
   top: -150px;
   
   > img {
+    max-width: 100%;
     display: block;
     z-index: $zIndex--underGradient;
   }
@@ -77,13 +80,20 @@ $padding-v-small:  20px;
   padding: 0 $padding-h-small 15px;
   
   position: sticky;
-  top: 0;
+  top: -1px; // fix a 1px gap
   z-index: $zIndex--fixedNav;
+  
+  @include with-gradient("to bottom, black, rgba(0, 0, 0, 0.9) 40%, rgba(0, 0, 0, 0)");
   
   @include mq($medium-and-up) {
     height: 85px;
     background-color: transparent;
     padding: 0 0 25px;
+    
+    &:before {
+      left: -$padding-h-medium;
+      right: -$padding-h-medium;
+    }
   }
 }
 
@@ -92,6 +102,7 @@ $padding-v-small:  20px;
   height: 100%;
   display: flex;
   align-items: flex-end;
+  position: relative;
 }
 
 .nypr-ui__hero .hero-headline {
@@ -102,10 +113,6 @@ $padding-v-small:  20px;
   
   transition: opacity 125ms ease;
     
-  &.is-fade {
-    opacity: 0;
-  }
-  
   @include mq($medium-and-up) {
     font-size: 90px;
     max-width: 850px;
@@ -120,10 +127,6 @@ $padding-v-small:  20px;
   margin: 0 $padding-h-small 25px;
   
   transition: opacity 125ms ease;
-  
-  &.is-fade {
-    opacity: 0;
-  }
   
   @include mq($medium-and-up) {
     font-size: 28px;
@@ -187,6 +190,10 @@ $padding-v-small:  20px;
   height: auto;
   padding: 0;
   flex-shrink: 0;
+  
+  &:before {
+    content: none;
+  }
 
   .hero-top__right {
     display: none;
