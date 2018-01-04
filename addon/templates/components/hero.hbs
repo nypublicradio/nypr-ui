@@ -1,6 +1,8 @@
 {{#if hasBlock}}
   {{yield (hash 
-    image=(component 'nypr-ui/hero/image' sendImage=(action setImage))
+    image=(component 'nypr-ui/hero/image'
+           sendImage=(action setImage)
+           useBackgroundImage=useBackgroundImage)
     top=(component 'nypr-ui/hero/top')
     headline=(component 'nypr-ui/hero/headline')
     blurb=(component 'nypr-ui/hero/blurb')
