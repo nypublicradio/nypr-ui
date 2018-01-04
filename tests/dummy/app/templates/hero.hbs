@@ -5,7 +5,6 @@ A hero image layout
 "}}
 
 {{#nypr-ui/hero gradient=true as |hero|}}
-  {{hero.image src="https://dummyimage.com/1200" source="the source"}}
   {{#hero.top as |top|}}
     {{#top.left}}
       {{nypr-svg icon="left-arrow" className="hero-back"}}
@@ -19,6 +18,8 @@ A hero image layout
     {{/top.right}}
   {{/hero.top}}
   
+  {{hero.image src="https://dummyimage.com/1200" credit="the credit"}}
+  
   {{#hero.headline}}
     unsettled in america
   {{/hero.headline}}
@@ -31,9 +32,11 @@ A hero image layout
     <button>listen</button>
   {{/hero.blurb}}
   
-  {{#hero.lockup}}
-    social buttons
-  {{/hero.lockup}}
+  {{#hero.footer as |footer|}}
+    {{#footer.lockup}}
+      social buttons
+    {{/footer.lockup}}
+  {{/hero.footer}}
 {{/nypr-ui/hero}}
 
 
