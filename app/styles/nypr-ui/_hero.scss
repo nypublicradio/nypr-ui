@@ -8,6 +8,8 @@ $padding-h-small:  20px;
 $padding-v-small:  20px;
 
 @mixin with-gradient($gradient) {
+  position: relative;
+  
   &:before {
     content: '';
     display: block;
@@ -30,9 +32,8 @@ $padding-v-small:  20px;
   flex-direction: column;
   color: white;
   
-  height: 90vh;
-  position: relative;
-  padding: 0 $padding-h-small $padding-v-small $padding-h-small;
+  min-height: 90vh;
+  // position: relative;
   
   @include mq($medium-and-up) {
     padding: 0 $padding-h-medium $padding-v-medium $padding-h-medium;
@@ -40,7 +41,12 @@ $padding-v-small:  20px;
   }
   
   &.with-gradient {
-    @include with-gradient("to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)");
+    background-color: black;
+    
+    @include mq($medium-and-up) {
+      @include with-gradient("to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)");
+      background-color: transparent;
+    }
   }
   
   &.with-gradient {
@@ -52,34 +58,53 @@ $padding-v-small:  20px;
   }
 }
 
+.nypr-ui__hero .hero-image {
+  @include with-gradient("to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.9)");
+  position: sticky;
+  top: -150px;
+  
+  > img {
+    z-index: $zIndex--underGradient;
+  }
+}
+
 .nypr-ui__hero .hero-top {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   
-  height: 85px;
-  padding-bottom: 25px;
+  height: 60px;
+  padding: 0 $padding-h-small 15px;
   
   position: sticky;
   top: 0;
+  z-index: $zIndex--fixedNav;
+  
+  @include mq($medium-and-up) {
+    height: 85px;
+    background-color: transparent;
+    padding: 0 0 25px;
+  }
 }
 
 .nypr-ui__hero.with-gradient .hero-top {
-  @include with-gradient("to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.0)");
   
-  &:before {
-    left: -$padding-h-small;
-    right: -$padding-h-small;
+  @include mq($medium-and-up) {
+    @include with-gradient("to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.0)");
     
-    @include mq($medium-and-up) {
-      left: -$padding-h-medium;
-      right: -$padding-h-medium;
+    &:before {
+      left: -$padding-h-small;
+      right: -$padding-h-small;
+      
+      @include mq($medium-and-up) {
+        left: -$padding-h-medium;
+        right: -$padding-h-medium;
+      }
     }
-  }
-  
-  > .hero-top__left,
-  > .hero-top__right {
-    position: relative;
+    > .hero-top__left,
+    > .hero-top__right {
+      position: relative;
+    }
   }
 }
 
@@ -90,23 +115,10 @@ $padding-v-small:  20px;
   align-items: flex-end;
 }
 
-.nypr-ui__hero .hero-logo {
-  width: 56px;
-  margin-left: 8px;
-  
-  path {
-    fill: white;
-  }
-  
-  @include mq($medium-and-up) {
-    width: 80px;
-  }
-}
-
 .nypr-ui__hero .hero-headline {
   font-size: 40px;
   line-height: 1.2;
-  margin: auto 0 15px 0;
+  margin: auto $padding-h-small 15px $padding-h-small;
   opacity: 1;
   
   transition: opacity 125ms ease;
@@ -114,7 +126,7 @@ $padding-v-small:  20px;
   @include mq($medium-and-up) {
     font-size: 90px;
     max-width: 850px;
-    margin-bottom: 50px;
+    margin: auto 0 50px;
     
     &.is-fade {
       opacity: 0;
@@ -126,8 +138,7 @@ $padding-v-small:  20px;
   font-size: 18px;
   line-height: 1.4;
   opacity: 1;
-  margin-right: 25%;
-  margin-bottom: 25px;
+  margin: 0 $padding-h-small 25px;
   
   transition: opacity 125ms ease;
   
@@ -135,7 +146,7 @@ $padding-v-small:  20px;
     font-size: 28px;
     line-height: 38px;
     max-width: 850px;
-    margin-right: 0;
+    margin: 0 0 25px 0;
   }
   
   &.is-fade {
@@ -146,10 +157,10 @@ $padding-v-small:  20px;
 .nypr-ui__hero .hero-footer {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin: 0 $padding-h-small 20px;
   
   @include mq($medium-and-up) {
-    margin-bottom: 0;
+    margin: 0;
   }
 }
 
@@ -181,7 +192,7 @@ $padding-v-small:  20px;
   flex-flow: row wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 10px 20px 15px;
   
   background-position: bottom;
   
@@ -201,6 +212,14 @@ $padding-v-small:  20px;
   .hero-top__right {
     display: none;
   }
+}
+
+.stuck > .hero-image {
+  position: absolute;
+  top: auto !important;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .nypr-ui__hero.stuck > .hero-headline {
@@ -226,6 +245,7 @@ $padding-v-small:  20px;
 
 .stuck > .hero-footer {
   flex-shrink: 0;
+  margin: 0 0 10px 0;
 }
 
 .stuck > .hero-footer > :not(.hero-lockup) {
