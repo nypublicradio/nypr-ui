@@ -1,6 +1,6 @@
 import { helper } from "@ember/component/helper"
 import { listSeparator } from 'nypr-ui/helpers/list-separator';
-import { linkOrText } from 'nypr-ui/helpers/list-separator';
+import { linkOrText } from 'nypr-ui/helpers/link-or-text';
 import { htmlSafe } from '@ember/string';
 import { get } from '@ember/object';
 
