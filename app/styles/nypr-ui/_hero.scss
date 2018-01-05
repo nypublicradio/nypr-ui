@@ -113,7 +113,7 @@ $padding-v-small:  20px;
   transition: opacity 125ms ease;
     
   @include mq($medium-and-up) {
-    font-size: 90px;
+    font-size: 70px;
     max-width: 850px;
     margin: auto 0 50px;
   }
