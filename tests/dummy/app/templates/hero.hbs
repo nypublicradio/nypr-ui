@@ -1,10 +1,39 @@
 {{md-text text="
 # `nypr-ui/hero`
 
-A hero image layout
+A hero image layout with optional gradients and sticky headers. Exposes multiple contextual components that can be used to layout content.
 "}}
 
-{{#nypr-ui/hero gradient=true as |hero|}}
+{{code-snippet name="hero.hbs"}}
+
+{{md-text text="
+## `nypr-ui/hero` params
+The top level `nypr-ui/hero` component accepts two params. 
+
+key | default | description
+--- | --- | ---
+sticky | false | Stick the hero top to the top of screen when it scrolls past.
+
+## `nypr-ui/hero` yields
+
+key name | yields | description
+--- | --- | ---
+`.top` | `.left`, `.right` | header area. this will stick to the top of the page if `sticky=true`.
+`.top.left` | N/A | left area. sticks to the upper left in stuck state.
+`.top.right` | N/A | right side of header. disappears in stuck state.
+`.image` | N/A | Hero image. If the breakpoint matches, the image will be a background image on the top-level component element, otherwise it will render as an image element.
+`.headline` | N/A | Intended for headline use. Renders font very large.
+`.blurb` | N/A | Renders with a small font size.
+`.footer` | `.lockup` | Renders elements spaced apart.
+`.footer.lockup` | N/A | Aligned to far right of the footer area and \"locked up\" to the upper right in the stuck state.
+
+## `nypr-ui/hero/image`
+The hero image is rendered as a background element on `.nypr-ui__hero` (the top level component) or as an `<img />` element, depending on whether the value of the `breakpoint` attribute is set. The default for `breakpoint` is `(min-width: 801px)`, but can be overridden at run time.
+
+"}}
+
+{{!-- BEGIN-SNIPPET hero --}}
+{{#nypr-ui/hero gradient=true sticky=true as |hero|}}
   {{#hero.top as |top|}}
     {{#top.left}}
       {{nypr-svg icon="left-arrow" className="hero-back"}}
@@ -38,6 +67,7 @@ A hero image layout
     {{/footer.lockup}}
   {{/hero.footer}}
 {{/nypr-ui/hero}}
+{{!-- END-SNIPPET --}}
 
 
 <h1>header</h1>
