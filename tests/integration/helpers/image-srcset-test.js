@@ -8,10 +8,7 @@ moduleForComponent('image-srcset', 'helper:image-srcset', {
 
 // Replace this with your real tests.
 test('it renders', function(assert) {
-  this.set('inputValue', '1234');
+  this.render(hbs`{{image-srcset}}`);
 
-  this.render(hbs`{{image-srcset inputValue}}`);
-
-  assert.equal(this.$().text().trim(), '1234');
+  assert.equal(this.$().text().trim(), '');
 });
-
