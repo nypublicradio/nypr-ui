@@ -9,6 +9,8 @@ module.exports = {
   name: 'nypr-ui',
   included: function(app, parentAddon) {
     this._super.included.apply(this, arguments);
+    app.import('vendor/shims/waypoints.js');
+    
     if (!app.options.useWaypoints) {
       return;
     }
@@ -27,8 +29,6 @@ module.exports = {
       development: 'vendor/third-party/sticky.js',
       production: 'vendor/third-party/sticky.min.js'
     });
-    
-    app.import('vendor/shims/waypoints.js');
   },
   treeForVendor(vendorTree) {
     var waypointsTree = new Funnel(path.dirname(require.resolve('waypoints/lib/waypoints.debug.js')), {
