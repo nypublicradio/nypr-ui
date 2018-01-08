@@ -8,8 +8,6 @@ import StickyHeader from '../mixins/sticky-header';
 export default Component.extend(StickyHeader, {
   layout,
   classNames: ['nypr-ui__hero'],
-  attributeBindings: ['style'],
-  classNameBindings: ['gradient:with-gradient'],
   breakpoint: '(min-width: 801px)',
   
   init() {
@@ -34,7 +32,7 @@ export default Component.extend(StickyHeader, {
     this.set('useBackgroundImage', matches);
   },
   
-  style: computed('src', 'useBackgroundImage', function() {
+  backgroundImage: computed('src', 'useBackgroundImage', function() {
     if (this.get('useBackgroundImage'))  {
       let image = this.get('src');
       return htmlSafe(image ? `background-image: url(${image});` : '');

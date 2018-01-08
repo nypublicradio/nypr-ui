@@ -1,13 +1,16 @@
 {{#if hasBlock}}
-  {{yield (hash 
-    image=(component 'nypr-ui/hero/image'
-           sendImage=(action setImage)
-           useBackgroundImage=useBackgroundImage)
-    top=(component 'nypr-ui/hero/top')
-    headline=(component 'nypr-ui/hero/headline')
-    blurb=(component 'nypr-ui/hero/blurb')
-    footer=(component 'nypr-ui/hero/footer')
-  )}}
+  <div class={{concat 'image-container' (if gradient ' with-gradient')}} style={{backgroundImage}}>
+    {{yield (hash 
+      image=(component 'nypr-ui/hero/image'
+             sendImage=(action setImage)
+             useBackgroundImage=useBackgroundImage)
+      top=(component 'nypr-ui/hero/top')
+      headline=(component 'nypr-ui/hero/headline')
+      blurb=(component 'nypr-ui/hero/blurb')
+      footer=(component 'nypr-ui/hero/footer')
+    )}}
+  </div>
+  
   {{#if (or source credit caption)}}
     <span class="hero-source">
       {{caption}}{{#if (or credit source)}} ({{credit}}{{if source ' / '}}{{link-or-text source}}){{/if}}

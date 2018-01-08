@@ -23,20 +23,34 @@ $padding-v-small:  20px;
 }
 
 .nypr-ui__hero {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
   display: flex;
   flex-direction: column;
   color: white;
+  
+  @include mq($medium-and-up) {
+    min-height: 80vh;
+  }
+  
+}
+
+.nypr-ui__hero > .image-container {
+  flex: 1;
+  flex-basis: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   
   position: relative;
   
   z-index: $zIndex--fixedNav;
   
+    
   @include mq($medium-and-up) {
     padding: 0 $padding-h-medium $padding-v-medium $padding-h-medium;
-    min-height: 80vh;
   }
   
   &.with-gradient {
@@ -150,11 +164,14 @@ $padding-v-small:  20px;
 }
 
 .nypr-ui__hero .hero-source {
-  position: absolute;
-  bottom: -25px;
-  right: 15px;
   font-size: 12px;
   color: $lightgray;
+  padding: 0 $padding-h-small;
+  text-align: right;
+  
+  @include mq($medium-and-up) {
+    padding: 0 $padding-h-medium;
+  }
 }
 
 //
@@ -170,6 +187,10 @@ $padding-v-small:  20px;
   right: 0;
   z-index: 1000;
   
+  flex-direction: row;
+}
+
+.stuck > .image-container {
   flex-flow: row wrap;
   align-items: center;
   justify-content: space-between;
@@ -184,7 +205,7 @@ $padding-v-small:  20px;
   }
 }
 
-.stuck > .hero-top {
+.stuck > .image-container > .hero-top {
   position: static;
   height: auto;
   padding: 0;
@@ -199,7 +220,7 @@ $padding-v-small:  20px;
   }
 }
 
-.stuck > .hero-image {
+.stuck > .image-container > .hero-image {
   position: absolute;
   top: auto !important;
   bottom: 0;
@@ -207,7 +228,7 @@ $padding-v-small:  20px;
   right: 0;
 }
 
-.nypr-ui__hero.stuck > .hero-headline {
+.nypr-ui__hero.stuck > .image-container > .hero-headline {
   font-size: 16px;
   flex: 1 1 100%;
   max-width: none;
@@ -224,16 +245,16 @@ $padding-v-small:  20px;
   }
 }
 
-.stuck > .hero-blurb {
+.stuck > .image-container > .hero-blurb {
   display: none;
 }
 
-.stuck > .hero-footer {
+.stuck > .image-container > .hero-footer {
   flex-shrink: 0;
   margin: 0 0 10px 0;
 }
 
-.stuck > .hero-footer > :not(.hero-lockup) {
+.stuck > .image-container > .hero-footer > :not(.hero-lockup) {
   display: none;
 }
 
