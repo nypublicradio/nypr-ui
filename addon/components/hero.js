@@ -47,5 +47,9 @@ export default Component.extend(StickyHeader, {
   
   offset() {
     return -this.element.clientHeight + 155;
+  },
+  
+  measure() {
+    this.refresh();
   }
 });

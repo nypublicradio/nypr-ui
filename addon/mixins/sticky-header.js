@@ -21,4 +21,8 @@ export default Mixin.create({
       this.get('waypoint').destroy();
     }
   },
+  
+  refresh() {
+    Waypoint.refreshAll();
+  }
 });

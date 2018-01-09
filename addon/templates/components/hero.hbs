@@ -3,7 +3,8 @@
     {{yield (hash 
       image=(component 'nypr-ui/hero/image'
              sendImage=(action setImage)
-             useBackgroundImage=useBackgroundImage)
+             useBackgroundImage=useBackgroundImage
+             measure=(action measure))
       top=(component 'nypr-ui/hero/top')
       headline=(component 'nypr-ui/hero/headline')
       blurb=(component 'nypr-ui/hero/blurb')
