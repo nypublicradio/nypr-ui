@@ -58,7 +58,7 @@ test('renders an image', function(assert) {
     {{/nypr-ui/hero}}
   `);
   
-  let setImage = find('.nypr-ui__hero').style.backgroundImage;
+  let setImage = find('.nypr-ui__hero > .image-container').style.backgroundImage;
   
   assert.ok(setImage.match(backgroundImage), 'image should render');
   assert.equal(find('.hero-source').textContent.trim(), '(the credit)', 'credit should render');
