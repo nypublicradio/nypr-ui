@@ -7,6 +7,13 @@ $padding-v-medium: 55px;
 $padding-h-small:  20px;
 $padding-v-small:  20px;
 
+// there are multiple gradients in play, depending on screen size and "stuck" state,
+// i.e. user has scrolled and the `.stuck` class is added to the `.nypr-ui__hero` element
+// 1. narrow screen, hero image (as image element) in "un stuck" state
+// 2. narrow screen, hero image & header in "stuck" state
+// 3. wide screen, hero image (as CSS background image) in "un stuck" state
+// 4. wide screen, top header in "un stuck" state
+// 5. wide screen, hero image & header in "stuck" state
 @mixin with-gradient($gradient) {
   &:before {
     content: '';
@@ -28,7 +35,7 @@ $padding-v-small:  20px;
   color: white;
   
   @include mq($medium-and-up) {
-    min-height: 80vh;
+    min-height: 95vh;
   }
   
 }
@@ -54,11 +61,14 @@ $padding-v-small:  20px;
   }
   
   &.with-gradient {
-    @include with-gradient("to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)");
+    // narrow screen header background, un stuck state
     background-color: black;
     
     @include mq($medium-and-up) {
       background-color: transparent;
+      
+      // 3. wide screen, hero image (as CSS background image) in "un stuck" state
+      @include with-gradient("to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)");
     }
   }
   
@@ -73,6 +83,7 @@ $padding-v-small:  20px;
 }
 
 .nypr-ui__hero .hero-image {
+  // 1. narrow screen, hero image (as image element) in "un stuck" state
   @include with-gradient("to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.9)");
   position: sticky;
   top: -150px;
@@ -96,12 +107,14 @@ $padding-v-small:  20px;
   top: -1px; // fix a 1px gap
   z-index: $zIndex--fixedNav;
   
-  @include with-gradient("to bottom, black, rgba(0, 0, 0, 0.9) 40%, rgba(0, 0, 0, 0)");
-  
   @include mq($medium-and-up) {
     height: 85px;
     background-color: transparent;
     padding: 0 0 25px;
+
+    // 4. wide screen, top header in "un stuck" state
+    @include with-gradient("to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)");
+  
     
     &:before {
       left: -$padding-h-medium;
@@ -129,7 +142,7 @@ $padding-v-small:  20px;
   @include mq($medium-and-up) {
     font-size: 70px;
     max-width: 850px;
-    margin: auto 0 50px;
+    margin: auto 0 30px;
   }
 }
 
@@ -144,7 +157,7 @@ $padding-v-small:  20px;
   @include mq($medium-and-up) {
     font-size: 28px;
     line-height: 38px;
-    max-width: 850px;
+    max-width: 512px;
     margin: 0 0 25px 0;
   }
 }
@@ -202,6 +215,11 @@ $padding-v-small:  20px;
     padding: 0 30px;
     flex-wrap: nowrap;
     background-position: center calc(100% +  200px);
+  
+    &.with-gradient {
+      // 5. wide screen, hero image & header in "stuck" state
+      @include with-gradient("to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.0)");
+    }
   }
 }
 
@@ -226,6 +244,11 @@ $padding-v-small:  20px;
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+.stuck > .with-gradient.image-container > .hero-image {
+  // 2. narrow screen, hero image & header in "stuck" state
+  @include with-gradient("to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)");
 }
 
 .nypr-ui__hero.stuck > .image-container > .hero-headline {
