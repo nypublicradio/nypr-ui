@@ -140,8 +140,9 @@ $padding-v-small:  20px;
     
   @include mq($medium-and-up) {
     font-size: 70px;
+    line-height: 80px;
     max-width: 850px;
-    margin: auto 0 30px;
+    margin: auto 0 10px;
   }
 }
 
