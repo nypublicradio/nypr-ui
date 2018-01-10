@@ -216,9 +216,18 @@ $padding-v-small:  20px;
     flex-wrap: nowrap;
     background-position: center calc(100% +  200px);
   
-    &.with-gradient {
+    &.with-gradient:before {
       // 5. wide screen, hero image & header in "stuck" state
-      @include with-gradient("to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.0)");
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: $zIndex--heroGradient;
+    
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(black, 0.6);
     }
   }
 }
