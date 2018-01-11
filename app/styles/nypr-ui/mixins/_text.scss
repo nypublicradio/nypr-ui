@@ -48,3 +48,9 @@
       line-height: 1.5rem;
   }
 }
+
+@mixin hero-emphasis {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-style: oblique;
+}

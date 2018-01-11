@@ -163,6 +163,19 @@
   text-decoration: none;
 }
 
+@mixin btn--brightred {
+  @include btn;
+  @include btn--solid-color(
+    $background-color: $brightred,
+    $hover-color: $red
+  );
+}
+
+@mixin btn--brightred--square {
+  @include btn--brightred;
+  border-radius: 0;
+}
+
 /**
  * Red Button:
  * `.btn--red`

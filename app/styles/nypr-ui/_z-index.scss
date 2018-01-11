@@ -5,6 +5,7 @@
 // header.l-bgimg - 200
 
 $zIndex-vanish: -1;
+$zIndex-0:      0;
 $zIndex-1:      100;
 $zIndex-2:      200;
 $zIndex-3:      300;
@@ -22,12 +23,16 @@ $zIndex--playerBackdrop:    $zIndex-vanish;
 $zIndex--isRight:           $zIndex-vanish;
 $zIndex--isUp:              $zIndex-vanish;
 $zIndex--isShrunk:          $zIndex-vanish;
+$zIndex--underGradient:     $zIndex-vanish;
+
+$zIndex--heroGradient:      $zIndex-0;
 
 $zIndex--accordion:         $zIndex-1;
 $zIndex--lBgImgAfter:       $zIndex-1;
 $zIndex--isVisible:         $zIndex-1;
 $zIndex--djangocontent:     $zIndex-1;
 $zIndex--brickItem:         $zIndex-1;
+$zIndex--overGradient:      $zIndex-1;
 
 $zIndex--abs:               $zIndex-2;
 $zIndex--lBgImg:            $zIndex-2;

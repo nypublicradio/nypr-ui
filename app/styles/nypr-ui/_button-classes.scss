@@ -1,0 +1,12 @@
+@import "buttons"; // mixins
+
+.nypr-ui__button-red {
+  @include btn--brightred--square;
+  text-decoration: none;
+  
+  &.tall {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+  }
+}

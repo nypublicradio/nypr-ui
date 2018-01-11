@@ -1,0 +1,295 @@
+@import "colors";
+@import "z-index";
+
+// used to position gradient
+$padding-h-medium: 65px;
+$padding-v-medium: 55px;
+$padding-h-small:  20px;
+$padding-v-small:  20px;
+
+// there are multiple gradients in play, depending on screen size and "stuck" state,
+// i.e. user has scrolled and the `.stuck` class is added to the `.nypr-ui__hero` element
+// 1. narrow screen, hero image (as image element) in "un stuck" state
+// 2. narrow screen, hero image & header in "stuck" state
+// 3. wide screen, hero image (as CSS background image) in "un stuck" state
+// 4. wide screen, top header in "un stuck" state
+// 5. wide screen, hero image & header in "stuck" state
+@mixin with-gradient($gradient) {
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: $zIndex--heroGradient;
+  
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(#{$gradient});
+  }
+}
+
+.nypr-ui__hero {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  
+  @include mq($medium-and-up) {
+    min-height: 95vh;
+  }
+  
+}
+
+.nypr-ui__hero > .image-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  
+  position: relative;
+  
+  z-index: $zIndex--fixedNav;
+  
+    
+  @include mq($medium-and-up) {
+    padding: 0 $padding-h-medium $padding-v-medium $padding-h-medium;
+  }
+  
+  &.with-gradient {
+    // narrow screen header background, un stuck state
+    background-color: black;
+    
+    @include mq($medium-and-up) {
+      background-color: transparent;
+      
+      // 3. wide screen, hero image (as CSS background image) in "un stuck" state
+      @include with-gradient("to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)");
+    }
+  }
+  
+  &.with-gradient {
+    > .hero-headline,
+    > .hero-blurb,
+    > .hero-footer {
+      position: relative;
+      z-index: $zIndex--overGradient;
+    }
+  }
+}
+
+.nypr-ui__hero .hero-image {
+  // 1. narrow screen, hero image (as image element) in "un stuck" state
+  @include with-gradient("to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.9)");
+  position: sticky;
+  top: -150px;
+  
+  > img {
+    max-width: 100%;
+    display: block;
+    z-index: $zIndex--underGradient;
+  }
+}
+
+.nypr-ui__hero .hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  
+  height: 60px;
+  padding: 0 $padding-h-small 15px;
+  
+  position: sticky;
+  top: -1px; // fix a 1px gap
+  z-index: $zIndex--fixedNav;
+  
+  @include mq($medium-and-up) {
+    height: 85px;
+    background-color: transparent;
+    padding: 0 0 25px;
+
+    // 4. wide screen, top header in "un stuck" state
+    @include with-gradient("to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)");
+  
+    
+    &:before {
+      left: -$padding-h-medium;
+      right: -$padding-h-medium;
+    }
+  }
+}
+
+.nypr-ui__hero .hero-top__left,
+.nypr-ui__hero .hero-top__right {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+}
+
+.nypr-ui__hero .hero-headline {
+  font-size: 40px;
+  line-height: 1.2;
+  margin: auto $padding-h-small 15px $padding-h-small;
+  opacity: 1;
+  
+  transition: opacity 125ms ease;
+    
+  @include mq($medium-and-up) {
+    font-size: 70px;
+    line-height: 80px;
+    max-width: 850px;
+    margin: auto 0 10px;
+  }
+}
+
+.nypr-ui__hero .hero-blurb {
+  font-size: 18px;
+  line-height: 1.4;
+  opacity: 1;
+  margin: 0 $padding-h-small 25px;
+  
+  transition: opacity 125ms ease;
+  
+  @include mq($medium-and-up) {
+    font-size: 28px;
+    line-height: 38px;
+    max-width: 512px;
+    margin: 0 0 25px 0;
+  }
+}
+
+.nypr-ui__hero .hero-footer {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 $padding-h-small 20px;
+  
+  @include mq($medium-and-up) {
+    margin: 0;
+  }
+}
+
+.nypr-ui__hero .hero-lockup {
+  margin-left: auto;
+}
+
+.nypr-ui__hero .hero-source {
+  font-size: 12px;
+  color: $lightgray;
+  padding: 0 $padding-h-small;
+  text-align: right;
+  
+  @include mq($medium-and-up) {
+    padding: 0 $padding-h-medium;
+  }
+}
+
+//
+// STICKY HEADER STYLES
+//
+
+.nypr-ui__hero.stuck {
+  position: fixed;
+  top: 0;
+  height: auto;
+  min-height: 100px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  
+  flex-direction: row;
+}
+
+.stuck > .image-container {
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px 15px;
+  
+  background-position: bottom;
+  
+  @include mq($medium-and-up) {
+    padding: 0 30px;
+    flex-wrap: nowrap;
+    background-position: center calc(100% +  200px);
+  
+    &.with-gradient:before {
+      // 5. wide screen, hero image & header in "stuck" state
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: $zIndex--heroGradient;
+    
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(black, 0.6);
+    }
+  }
+}
+
+.stuck > .image-container > .hero-top {
+  position: static;
+  height: auto;
+  padding: 0;
+  flex-shrink: 0;
+  
+  &:before {
+    content: none;
+  }
+
+  .hero-top__right {
+    display: none;
+  }
+}
+
+.stuck > .image-container > .hero-image {
+  position: absolute;
+  top: auto !important;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.stuck > .with-gradient.image-container > .hero-image {
+  // 2. narrow screen, hero image & header in "stuck" state
+  @include with-gradient("to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)");
+}
+
+.nypr-ui__hero.stuck > .image-container > .hero-headline {
+  font-size: 16px;
+  flex: 1 1 100%;
+  max-width: none;
+  order: 1;
+  margin: 0;
+  line-height: 1.2;
+  opacity: 1;
+  
+  @include mq($medium-and-up) {
+    order: 0;
+    flex-basis: auto;
+    font-size: 22px;
+    margin: 0 45px;
+  }
+}
+
+.stuck > .image-container > .hero-blurb {
+  display: none;
+}
+
+.stuck > .image-container > .hero-footer {
+  flex-shrink: 0;
+  margin: 0 0 10px 0;
+}
+
+.stuck > .image-container > .hero-footer > :not(.hero-lockup) {
+  display: none;
+}
+
+.stuck > .hero-source {
+  display: none;
+}

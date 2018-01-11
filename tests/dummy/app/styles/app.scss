@@ -1,12 +1,16 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 @import "base";
 @import "text";
+@import "hero-dummy";
 
 @import "nypr-ui";
 
 $site-chrome-link-color: blue;
 $site-chrome-link-hover: blue;
 @import "nypr-ui/site-chrome";
+
+@import "nypr-ui/hero";
+@import "nypr-ui/button-classes";
 
 .site-title {
   color: blue;

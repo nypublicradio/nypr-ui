@@ -7,6 +7,7 @@ module.exports = function(defaults) {
   let app = new EmberAddon(defaults, {
     // Add options here
     snippetSearchPaths: ['app', 'tests/dummy/app', 'addon'],
+    useWaypoints: true
   });
 
   /*

@@ -1,5 +1,6 @@
 import { helper } from "@ember/component/helper"
 import { listSeparator } from 'nypr-ui/helpers/list-separator';
+import { linkOrText } from 'nypr-ui/helpers/link-or-text';
 import { htmlSafe } from '@ember/string';
 import { get } from '@ember/object';
 
@@ -18,7 +19,7 @@ export function serialLinks([ links ], {unlinked=false, textKey='name', urlKey='
     if (unlinked){
       line += get(link, textKey);
     } else {
-      line += `<a href="${get(link, urlKey)}" >${get(link, textKey)}</a>`;
+      line += linkOrText([ link ], {textKey, urlKey});
     }
 
     finalString += line;
