@@ -1,10 +1,11 @@
-import Ember from 'ember';
+import { run } from '@ember/runloop';
+import Mixin from '@ember/object/mixin';
 
-export default Ember.Mixin.create({
+export default Mixin.create({
   didRender() {
     this.$().imagesLoaded()
       .progress((i, image) => {
-        Ember.run(() => {
+        run(() => {
           image.img.classList.add('is-loaded');
         });
       });

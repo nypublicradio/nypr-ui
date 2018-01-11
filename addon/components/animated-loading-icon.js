@@ -1,8 +1,8 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 import LoadingIcon from 'nypr-ui/utils/animated-loading-icon';
 import layout from '../templates/components/animated-loading-icon';
 
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
   classNames: ['animated-loading-icon'],
   

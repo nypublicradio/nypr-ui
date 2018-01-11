@@ -1,7 +1,7 @@
-import { helper } from 'ember-helper';
+import { helper } from "@ember/component/helper"
 import { listSeparator } from 'nypr-ui/helpers/list-separator';
-import { htmlSafe } from 'ember-string';
-import get from 'ember-metal/get';
+import { htmlSafe } from '@ember/string';
+import { get } from '@ember/object';
 
 //this helper is expecting an array of objects with text and url keys
 export function serialLinks([ links ], {unlinked=false, textKey='name', urlKey='url'}={}) {

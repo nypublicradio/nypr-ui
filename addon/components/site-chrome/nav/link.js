@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 import layout from '../../../templates/components/site-chrome/nav/link';
 
-const LinkComponent =  Ember.Component.extend({
+const LinkComponent =  Component.extend({
   layout,
   tagName: ''
 });

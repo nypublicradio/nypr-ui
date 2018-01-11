@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 import layout from '../templates/components/nypr-social-icons';
 
-export default Ember.Component.extend({
+export default Component.extend({
   classNames: ["nypr-social-icons"],
   layout
 });

@@ -1,7 +1,8 @@
-import Ember from 'ember';
+import { A } from '@ember/array';
+import Component from '@ember/component';
 import layout from '../templates/components/nypr-multi-card';
 
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
   
   children: null,
@@ -9,7 +10,7 @@ export default Ember.Component.extend({
   
   init() {
     this._super(...arguments);
-    this.set('children', Ember.A([]));
+    this.set('children', A([]));
   },
   
   activate(to) {

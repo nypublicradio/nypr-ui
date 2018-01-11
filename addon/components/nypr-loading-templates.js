@@ -1,7 +1,8 @@
 import Ember from 'ember';
 import layout from '../templates/components/nypr-loading-templates';
-import computed from 'ember-computed';
-import Component from 'ember-component';
+import { computed } from '@ember/object';
+import Component from '@ember/component';
+
 export default Component.extend({
   layout,
   classNames: ['l-full'],

@@ -1,7 +1,8 @@
-import Component from 'ember-component';
-import computed, { equal } from 'ember-computed';
-import { htmlSafe } from 'ember-string';
-import get from 'ember-metal/get';
+import Component from "@ember/component";
+import { computed } from "@ember/object";
+import { equal } from "@ember/object/computed";
+import { htmlSafe } from "@ember/string";
+import { get } from "@ember/object";
 import layout from '../templates/components/nypr-brick-item';
 import { imageTemplate } from 'nypr-ui/helpers/image-template';
 
