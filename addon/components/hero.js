@@ -9,7 +9,7 @@ export default Component.extend(StickyHeader, {
   layout,
   classNames: ['nypr-ui__hero'],
   breakpoint: '(min-width: 801px)',
-  
+
   init() {
     this._super(...arguments);
     let breakpoint = this.get('breakpoint');
@@ -18,20 +18,20 @@ export default Component.extend(StickyHeader, {
       this.set('mql', mql);
       this.set('boundListener', bind(this, 'toggleImage'));
       mql.addListener(this.get('boundListener'));
-      
+
       this.toggleImage(mql);
     }
   },
-  
+
   willDestroyElement() {
     this._super(...arguments);
     this.get('mql').removeListener(this.get('boundListener'));
   },
-  
+
   toggleImage({ matches }) {
     this.set('useBackgroundImage', matches);
   },
-  
+
   backgroundImage: computed('src', 'useBackgroundImage', function() {
     if (this.get('useBackgroundImage'))  {
       let image = this.get('src');
@@ -40,15 +40,15 @@ export default Component.extend(StickyHeader, {
       return htmlSafe('');
     }
   }),
-  
+
   setImage({ src, source, caption, credit }) {
     this.setProperties({ src, source, caption, credit });
   },
-  
+
   offset() {
     return -this.element.clientHeight + 155;
   },
-  
+
   measure() {
     this.refresh();
   }
