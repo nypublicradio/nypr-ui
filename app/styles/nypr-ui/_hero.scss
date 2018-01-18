@@ -34,10 +34,17 @@ $padding-v-small:  20px;
   flex-direction: column;
   color: white;
 
-  @include mq($medium-and-up) {
-    min-height: 95vh;
+  &.no-image {
+    color: black;
   }
 
+  @include mq($medium-and-up) {
+    min-height: 95vh;
+
+    &.no-image {
+      min-height: auto;
+    }
+  }
 }
 
 .nypr-ui__hero > .image-container {
@@ -119,6 +126,12 @@ $padding-v-small:  20px;
       left: -$padding-h-medium;
       right: -$padding-h-medium;
     }
+  }
+}
+
+.nypr-ui__hero.no-image .hero-top {
+  @include mq($medium-and-up) {
+    background-color: white;
   }
 }
 
@@ -230,6 +243,10 @@ $padding-v-small:  20px;
       background: rgba(black, 0.6);
     }
   }
+}
+
+.stuck.no-image > .image-container {
+  background-color: white;
 }
 
 .stuck > .image-container > .hero-top {
