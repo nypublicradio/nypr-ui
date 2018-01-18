@@ -8,6 +8,7 @@ import StickyHeader from '../mixins/sticky-header';
 export default Component.extend(StickyHeader, {
   layout,
   classNames: ['nypr-ui__hero'],
+  classNameBindings: ['src::no-image'],
   breakpoint: '(min-width: 801px)',
 
   init() {
