@@ -20,7 +20,7 @@ $padding-v-small:  20px;
     display: block;
     position: absolute;
     z-index: $zIndex--heroGradient;
-  
+
     top: 0;
     bottom: 0;
     left: 0;
@@ -33,11 +33,11 @@ $padding-v-small:  20px;
   display: flex;
   flex-direction: column;
   color: white;
-  
+
   @include mq($medium-and-up) {
     min-height: 95vh;
   }
-  
+
 }
 
 .nypr-ui__hero > .image-container {
@@ -49,28 +49,28 @@ $padding-v-small:  20px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  
+
   position: relative;
-  
+
   z-index: $zIndex--fixedNav;
-  
-    
+
+
   @include mq($medium-and-up) {
     padding: 0 $padding-h-medium $padding-v-medium $padding-h-medium;
   }
-  
+
   &.with-gradient {
     // narrow screen header background, un stuck state
     background-color: black;
-    
+
     @include mq($medium-and-up) {
       background-color: transparent;
-      
       // 3. wide screen, hero image (as CSS background image) in "un stuck" state
+
       @include with-gradient("to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)");
     }
   }
-  
+
   &.with-gradient {
     > .hero-headline,
     > .hero-blurb,
@@ -86,7 +86,7 @@ $padding-v-small:  20px;
   @include with-gradient("to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.9)");
   position: sticky;
   top: -150px;
-  
+
   > img {
     max-width: 100%;
     display: block;
@@ -98,14 +98,14 @@ $padding-v-small:  20px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  
+
   height: 60px;
   padding: 0 $padding-h-small 15px;
-  
+
   position: sticky;
   top: -1px; // fix a 1px gap
   z-index: $zIndex--fixedNav;
-  
+
   @include mq($medium-and-up) {
     height: 85px;
     background-color: transparent;
@@ -135,9 +135,9 @@ $padding-v-small:  20px;
   line-height: 1.2;
   margin: auto $padding-h-small 15px $padding-h-small;
   opacity: 1;
-  
+
   transition: opacity 125ms ease;
-    
+
   @include mq($medium-and-up) {
     font-size: 70px;
     line-height: 80px;
@@ -151,9 +151,9 @@ $padding-v-small:  20px;
   line-height: 1.4;
   opacity: 1;
   margin: 0 $padding-h-small 25px;
-  
+
   transition: opacity 125ms ease;
-  
+
   @include mq($medium-and-up) {
     font-size: 28px;
     line-height: 38px;
@@ -166,7 +166,7 @@ $padding-v-small:  20px;
   display: flex;
   justify-content: space-between;
   margin: 0 $padding-h-small 20px;
-  
+
   @include mq($medium-and-up) {
     margin: 0;
   }
@@ -181,7 +181,7 @@ $padding-v-small:  20px;
   color: $lightgray;
   padding: 0 $padding-h-small;
   text-align: right;
-  
+
   @include mq($medium-and-up) {
     padding: 0 $padding-h-medium;
   }
@@ -199,7 +199,7 @@ $padding-v-small:  20px;
   left: 0;
   right: 0;
   z-index: 1000;
-  
+
   flex-direction: row;
 }
 
@@ -208,21 +208,21 @@ $padding-v-small:  20px;
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px 15px;
-  
+
   background-position: bottom;
-  
+
   @include mq($medium-and-up) {
     padding: 0 30px;
     flex-wrap: nowrap;
     background-position: center calc(100% +  200px);
-  
+
     &.with-gradient:before {
       // 5. wide screen, hero image & header in "stuck" state
       content: '';
       display: block;
       position: absolute;
       z-index: $zIndex--heroGradient;
-    
+
       top: 0;
       bottom: 0;
       left: 0;
@@ -237,7 +237,7 @@ $padding-v-small:  20px;
   height: auto;
   padding: 0;
   flex-shrink: 0;
-  
+
   &:before {
     content: none;
   }
@@ -268,7 +268,7 @@ $padding-v-small:  20px;
   margin: 0;
   line-height: 1.2;
   opacity: 1;
-  
+
   @include mq($medium-and-up) {
     order: 0;
     flex-basis: auto;
