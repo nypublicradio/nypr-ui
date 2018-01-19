@@ -82,8 +82,6 @@ $padding-v-small:  20px;
 }
 
 .nypr-ui__hero .hero-image {
-  // 1. narrow screen, hero image (as image element) in "un stuck" state
-  @include with-gradient("to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.9)");
   position: sticky;
   top: -150px;
 
@@ -92,6 +90,11 @@ $padding-v-small:  20px;
     display: block;
     z-index: $zIndex--underGradient;
   }
+}
+
+.with-gradient > .hero-image {
+  // 1. narrow screen, hero image (as image element) in "un stuck" state
+  @include with-gradient("to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.9)");
 }
 
 .nypr-ui__hero .hero-top {
@@ -111,14 +114,17 @@ $padding-v-small:  20px;
     background-color: transparent;
     padding: 0 0 25px;
 
-    // 4. wide screen, top header in "un stuck" state
-    @include with-gradient("to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)");
-  
-    
     &:before {
       left: -$padding-h-medium;
       right: -$padding-h-medium;
     }
+  }
+}
+
+.with-gradient > .hero-top {
+  @include mq($medium-and-up) {
+    // 6. wide screen, top header in "un stuck" state
+    @include with-gradient("to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)");
   }
 }
 
