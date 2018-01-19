@@ -10,10 +10,11 @@ $padding-v-small:  20px;
 // there are multiple gradients in play, depending on screen size and "stuck" state,
 // i.e. user has scrolled and the `.stuck` class is added to the `.nypr-ui__hero` element
 // 1. narrow screen, hero image (as image element) in "un stuck" state
-// 2. narrow screen, hero image & header in "stuck" state
-// 3. wide screen, hero image (as CSS background image) in "un stuck" state
-// 4. wide screen, top header in "un stuck" state
-// 5. wide screen, hero image & header in "stuck" state
+// 2. narrow screen, top header in "un stuck" state
+// 3. narrow screen, hero image & header in "stuck" state
+// 4. wide screen, hero image (as CSS background image) in "un stuck" state
+// 5. wide screen, top header in "un stuck" state
+// 6. wide screen, hero image & header in "stuck" state
 @mixin with-gradient($gradient) {
   &:before {
     content: '';
@@ -65,8 +66,8 @@ $padding-v-small:  20px;
 
     @include mq($medium-and-up) {
       background-color: transparent;
-      // 3. wide screen, hero image (as CSS background image) in "un stuck" state
 
+      // 4. wide screen, hero image (as CSS background image) in "un stuck" state
       @include with-gradient("to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)");
     }
   }
@@ -122,6 +123,9 @@ $padding-v-small:  20px;
 }
 
 .with-gradient > .hero-top {
+  // 2. narrow screen, top header in "un stuck" state
+  @include with-gradient("to bottom, #000000, rgba(0, 0, 0, 0)");
+
   @include mq($medium-and-up) {
     // 6. wide screen, top header in "un stuck" state
     @include with-gradient("to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)");
@@ -262,7 +266,7 @@ $padding-v-small:  20px;
 }
 
 .stuck > .with-gradient.image-container > .hero-image {
-  // 2. narrow screen, hero image & header in "stuck" state
+  // 3. narrow screen, hero image & header in "stuck" state
   @include with-gradient("to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)");
 }
 
