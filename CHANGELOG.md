@@ -1,5 +1,8 @@
 # nypr-ui Changelog
 
+## 0.1.2
+- [Enhancement] Add download-arrow svg
+
 ## 0.1.1
 - [FEATURE] `nypr-ui/hero` component and docs
 
