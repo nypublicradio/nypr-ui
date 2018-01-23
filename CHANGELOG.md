@@ -2,6 +2,9 @@
 
 ## 0.1.2
 - [Enhancement] Add download-arrow svg
+- [FEATURE] `pull-quote` mixin
+- [ENHANCEMENT] scope hero gradients to `.with-gradient` class
+- [ENHANCEMENT] adds gradient to hero top header in unstuck states
 
 ## 0.1.1
 - [FEATURE] `nypr-ui/hero` component and docs
