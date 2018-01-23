@@ -1,5 +1,8 @@
 # nypr-ui Changelog
 
+## 0.1.3
+- [BUGFIX] Fix gradient width for `.hero-top` on wide screens
+
 ## 0.1.2
 - [Enhancement] Add download-arrow svg
 - [FEATURE] `pull-quote` mixin
