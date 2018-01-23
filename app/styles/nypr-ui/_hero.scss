@@ -127,7 +127,7 @@ $padding-v-small:  20px;
   @include with-gradient("to bottom, #000000, rgba(0, 0, 0, 0)");
 
   @include mq($medium-and-up) {
-    // 6. wide screen, top header in "un stuck" state
+    // 5. wide screen, top header in "un stuck" state
     @include with-gradient("to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)");
   }
 }
@@ -227,7 +227,7 @@ $padding-v-small:  20px;
     background-position: center calc(100% +  200px);
 
     &.with-gradient:before {
-      // 5. wide screen, hero image & header in "stuck" state
+      // 6. wide screen, hero image & header in "stuck" state
       content: '';
       display: block;
       position: absolute;
