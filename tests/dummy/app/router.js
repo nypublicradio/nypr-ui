@@ -13,6 +13,7 @@ Router.map(function() {
   this.route('tabs');
   this.route('chrome');
   this.route('hero');
+  this.route('svg');
 });
 
 export default Router;

@@ -1,0 +1,50 @@
+{{md-text
+  text="
+# `nypr-svg`
+
+The `nypr-svg` component can be used to insert an SVG icon into your template without including a huge block of SVG markup.
+
+## Basic Usage
+The component accepts two properties, an icon name and a css class name.
+
+```htmlbars
+{{nypr-svg icon='volume' className='player__volume-icon'}}
+```
+
+## Example component
+"}}
+
+{{nypr-svg icon='volume' className='player__volume-icon'}}
+
+{{md-text
+  text="
+## Extending the component
+
+In your app, create an `app/templates/components/nypr-svg/` folder, and add your SVGs as handlebars templates. You can then use the names of those templates with the `nypr-svg` component.
+
+## Available icons"}}
+
+<table>
+  <tr>
+    <th><code>fill: black;</code></th>
+    <th>default</th>
+    <th><code>fill: white;</code></th>
+  </tr>
+  {{#each icons as |icon|}}
+    <tr>
+      <td style="background: #eee;">
+        {{nypr-svg icon=icon className='example-icon example-icon--black'}}
+        <div>{{icon}}</div>
+      </td>
+      <td style="background: #aaa;">
+        {{nypr-svg icon=icon className='example-icon'}}
+        <div>{{icon}}</div>
+      </td>
+      <td style="background: #333;">
+        {{nypr-svg icon=icon className='example-icon example-icon--white'}}
+        <div>{{icon}}</div>
+      </td>
+    </tr>
+  {{/each}}
+</table>
+{{outlet}}

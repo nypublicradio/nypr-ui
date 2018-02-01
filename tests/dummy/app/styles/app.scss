@@ -30,7 +30,7 @@ code {
   @include mq((max-width: 600px)) {
     word-break: break-all;
   }
-  
+
   &::before,
   &::after {
     letter-spacing: -0.2em;
@@ -42,7 +42,7 @@ pre > code {
   display: block;
   padding: 16px;
   overflow: auto;
-  
+
   &::before,
   &::after {
     display: none;
@@ -57,3 +57,23 @@ pre > code {
 .site-chrome__link > a {
   font-size: 16px;
 }
+
+.example-icon {
+  height: 25px;
+}
+
+.example-icon--black {
+  fill: black;
+  rect, path, circle {
+    fill: black;
+  }
+}
+
+.example-icon--white {
+  fill: white;
+  rect, path, circle {
+    fill: white;
+  }
+}
+
+
