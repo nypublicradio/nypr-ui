@@ -1,5 +1,9 @@
 # nypr-ui Changelog
 
+## 0.1.4
+- [ENHANCEMENT] Add embed icon svg
+- [DOCUMENTATION] Add documentation for `nypr-svg` component
+
 ## 0.1.3
 - [BUGFIX] Fix gradient width for `.hero-top` on wide screens
 
