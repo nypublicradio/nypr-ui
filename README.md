@@ -73,6 +73,7 @@ This add-on also provides a few components which can be invoked in templates:
 * `nypr-multi-card`: switch between multiple panels in the same card
 * `nypr-input`: form field with error states. compatible with changesets
 * `nypr-social-icons`: a list of links formatted as a row of font awesome icons
+* `nypr-svg`: add svg icons in your templates
 
 ## Installation
 
