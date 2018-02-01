@@ -6,6 +6,7 @@ export default Controller.extend({
     'checkmark',
     'close',
     'download-arrow',
+    'embed',
     'forward15',
     'jlgreene-logo',
     'left-arrow',
