@@ -1,5 +1,9 @@
 # nypr-ui Changelog
 
+## 0.1.5
+- [BUGFIX] #74 Fix for image source when source is a link
+- [ENHANCEMENT] #75 Allow color and font parameters for pullquote mixin
+
 ## 0.1.4
 - [ENHANCEMENT] Add embed icon svg
 - [DOCUMENTATION] Add documentation for `nypr-svg` component
