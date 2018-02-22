@@ -19,8 +19,6 @@
   svg {
     display: block;
     margin: 0 auto;
-
-    fill: #bbb;
   }
 
   > .nypr {
@@ -97,12 +95,6 @@
   > .greene > svg {
     max-width: 75px;
     margin-left: 15px;
-
-    fill: #ddd;
-
-    .bump {
-      fill: #bbb;
-    }
   }
 
   @include mq("(min-width: 1000px)") {
@@ -162,14 +154,9 @@
 
     > .greene {
       flex-basis: 80px;
-      fill: #ddd;
 
       > svg {
         margin: 0;
-      }
-
-      .bump {
-        fill: #bbb;
       }
     }
   }
