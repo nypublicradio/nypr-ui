@@ -107,7 +107,8 @@
 
   @include mq("(min-width: 1000px)") {
     flex-wrap: nowrap;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 10px 0;
 
     svg {
       max-height: 100px;
