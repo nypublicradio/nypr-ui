@@ -6,6 +6,16 @@
   justify-content: center;
   flex-wrap: wrap;
 
+  > a {
+    text-decoration: none;
+    border: none;
+    transition: opacity 125ms ease;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
   svg {
     display: block;
     margin: 0 auto;
