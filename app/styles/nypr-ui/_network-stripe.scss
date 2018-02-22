@@ -97,7 +97,7 @@
     margin-left: 15px;
   }
 
-  @include mq("(min-width: 1000px)") {
+  @include mq("(min-width: 1115px)") {
     flex-wrap: nowrap;
     justify-content: space-between;
     padding: 10px 0;
