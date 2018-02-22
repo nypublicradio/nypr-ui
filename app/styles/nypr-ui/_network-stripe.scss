@@ -1,0 +1,165 @@
+@import "vars";
+
+.network-stripe {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  svg {
+    display: block;
+    margin: 0 auto;
+
+    fill: #bbb;
+  }
+
+  > .nypr {
+    flex-basis: 100%;
+
+    > svg {
+      max-width: 150px;
+    }
+  }
+
+  > .right-bracket,
+  > .left-bracket {
+    flex-basis: 100%;
+
+    > svg {
+      max-width: 15px;
+    }
+  }
+
+  > .left-bracket > svg {
+    transform: rotate(90deg);
+  }
+
+  > .right-bracket > svg {
+    transform: rotate(90deg);
+  }
+
+  // ROW 1
+  > .wnyc,
+  > .gothamist,
+  > .studios {
+    flex-basis: 28%;
+    margin-bottom: 25px;
+  }
+
+  > .wnyc > svg {
+    max-width: 75px;
+  }
+
+  > .gothamist > svg {
+    max-width: 60px;
+  }
+
+  > .studios > svg {
+    max-width: 75px;
+  }
+
+  // ROW 2
+  > .wqxr,
+  > .new-sounds {
+    flex-basis: 50%;
+    margin-bottom: 25px;
+  }
+
+  > .wqxr > svg {
+    max-width: 115px;
+  }
+
+  > .new-sounds > svg {
+    max-width: 155px;
+  }
+
+  // ROW 3
+  > .njpr,
+  > .greene {
+    flex-basis: 50%;
+  }
+
+  > .njpr > svg {
+    max-width: 95px;
+    margin-right: 15px;
+  }
+
+  > .greene > svg {
+    max-width: 75px;
+    margin-left: 15px;
+
+    fill: #ddd;
+
+    .bump {
+      fill: #bbb;
+    }
+  }
+
+  @include mq($medium-and-up) {
+    flex-wrap: nowrap;
+    justify-content: space-around;
+
+    svg {
+      max-height: 100px;
+    }
+
+    > .nypr {
+      flex-basis: 140px;
+    }
+
+    > .left-bracket,
+    > .right-bracket {
+      flex-basis: 25px;
+
+      > svg {
+        transform: none;
+      }
+    }
+
+    > .wnyc {
+      flex-basis: 80px;
+      margin: 0;
+    }
+
+    > .gothamist {
+      flex-basis: 60px;
+      margin: 0;
+    }
+
+    > .studios {
+      flex-basis: 70px;
+      margin: 0;
+    }
+
+    > .wqxr {
+      flex-basis: 100px;
+      margin: 0;
+    }
+
+    > .new-sounds {
+      flex-basis: 140px;
+      margin: 0;
+    }
+
+    > .njpr {
+      flex-basis: 100px;
+
+      > svg {
+        margin: 0;
+      }
+    }
+
+    > .greene {
+      flex-basis: 80px;
+      fill: #ddd;
+
+      > svg {
+        margin: 0;
+      }
+
+      .bump {
+        fill: #bbb;
+      }
+    }
+  }
+}
