@@ -105,7 +105,7 @@
     }
   }
 
-  @include mq($medium-and-up) {
+  @include mq("(min-width: 1000px)") {
     flex-wrap: nowrap;
     justify-content: space-around;
 
