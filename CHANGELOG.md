@@ -1,5 +1,8 @@
 # nypr-ui Changelog
 
+## 0.1.7
+- [ENHANCEMENT] Adds and cleans up logo assets and adds network stripe component
+
 ## 0.1.6
 - [BUGFIX] ad06907d only include one level of quotes for pull quote
 
