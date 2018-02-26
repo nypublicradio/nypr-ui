@@ -1,5 +1,8 @@
 # nypr-ui Changelog
 
+## 0.1.8
+- [ENHANCEMENT] Adds data-action property to share buttons for simpler analytics tracking.
+
 ## 0.1.7
 - [ENHANCEMENT] Adds and cleans up logo assets and adds network stripe component
 
