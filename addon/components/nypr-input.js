@@ -1,7 +1,7 @@
 import Component from '@ember/component';
-import layout from '../templates/components/nypr-input';
 import { computed } from '@ember/object';
 import { and, or } from '@ember/object/computed';
+import layout from '../templates/components/nypr-input';
 
 export default Component.extend({
   layout,

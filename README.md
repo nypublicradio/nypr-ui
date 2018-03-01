@@ -55,7 +55,7 @@ addon/
 app/
 |__ styles/
     |__ <your-addon-name>.scss # put your styles and exportable sass mixins here
-    
+
 tests/
 |__ dummy/
     |__ app/
@@ -75,26 +75,33 @@ This add-on also provides a few components which can be invoked in templates:
 * `nypr-social-icons`: a list of links formatted as a row of font awesome icons
 * `nypr-svg`: add svg icons in your templates
 
-## Installation
+Installation
+------------------------------------------------------------------------------
 
 * `git clone git@github.com:nypublicradio/nypr-ui.git` this repository
 * `cd nypr-ui`
 * `npm install`
 * `bower install`
 
-## Running
+### Linting
+
+* `npm run lint:js`
+* `npm run lint:js -- --fix`
+
+### Running tests
+
+* `ember test` – Runs the test suite on the current Ember version
+* `ember test --server` – Runs the test suite in "watch mode"
+* `npm test` – Runs `ember try:each` to test your addon against multiple Ember versions
+
+### Running the dummy application
 
 * `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-
-## Running Tests
-
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
-
-## Building
-
-* `ember build`
+* Visit the dummy application at [http://localhost:4200](http://localhost:4200).
 
 For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+
+License
+------------------------------------------------------------------------------
+
+This project is licensed under the [MIT License](LICENSE.md).

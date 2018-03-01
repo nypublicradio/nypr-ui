@@ -4,12 +4,13 @@ import layout from '../../templates/components/nypr-multi-card/panel';
 export default Component.extend({
   tagName: '',
   layout,
-  
+
   didInsertElement() {
     this._super(...arguments);
+    // eslint-disable-next-line ember/closure-actions
     this.sendAction('notify', this);
   },
-  
+
   actions: {
     goTo(to) {
       this.get('setActive')(to);

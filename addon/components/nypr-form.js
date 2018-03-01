@@ -1,14 +1,19 @@
-import Component from "@ember/component"
+import Component from '@ember/component';
+import { get, set, getWithDefault } from '@ember/object';
 import layout from '../templates/components/nypr-form';
-import { get, set } from "@ember/object";
+
 import RSVP from 'rsvp';
 
 export default Component.extend({
   layout,
 
+  init() {
+    this._super(...arguments);
+    getWithDefault(this, 'allowedKeys', []);
+  },
+
   // pass these in
   changeset: null,
-  allowedKeys: [],
   onSubmit: () => {},
   onFailure: () => {},
   onSuccess: () => {},

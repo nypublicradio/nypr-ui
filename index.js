@@ -1,4 +1,3 @@
-/* eslint-env node */
 'use strict';
 
 var path = require('path');
@@ -10,7 +9,7 @@ module.exports = {
   included: function(app, parentAddon) {
     this._super.included.apply(this, arguments);
     app.import('vendor/shims/waypoints.js');
-    
+
     if (!app.options.useWaypoints) {
       return;
     }
@@ -19,12 +18,12 @@ module.exports = {
     while (target.app && !target.bowerDirectory) {
       target = target.app;
     }
-    
+
     target.import({
       development: 'vendor/third-party/jquery.waypoints.js',
       production: 'vendor/third-party/jquery.waypoints.min.js',
     });
-    
+
     target.import({
       development: 'vendor/third-party/sticky.js',
       production: 'vendor/third-party/sticky.min.js'
@@ -38,7 +37,7 @@ module.exports = {
       ],
       destDir: 'third-party'
     });
-    
+
     var stickyTree = new Funnel(path.dirname(require.resolve('waypoints/lib/shortcuts/sticky.js')), {
       files: [
         'sticky.js',
@@ -46,7 +45,7 @@ module.exports = {
       ],
       destDir: 'third-party'
     });
-    
+
     return mergeTrees([vendorTree, waypointsTree, stickyTree]);
 
   },

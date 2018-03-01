@@ -1,4 +1,4 @@
-import { helper } from "@ember/component/helper"
+import { helper } from '@ember/component/helper';
 
 export function imageTemplate([template, x, y, crop]) {
   function replaceFn(originalString, base, path) {
