@@ -9,6 +9,7 @@ module.exports = function() {
     getChannelURL('canary'),
   ]).then((urls) => {
     return {
+      useYarn: true,
       scenarios: [
         {
           name: 'ember-lts-2.12',
@@ -44,6 +45,7 @@ module.exports = function() {
         },
         {
           name: 'ember-beta',
+          allowedToFail: true,
           npm: {
             devDependencies: {
               'ember-source': urls[1]
@@ -52,6 +54,7 @@ module.exports = function() {
         },
         {
           name: 'ember-canary',
+          allowedToFail: true,
           npm: {
             devDependencies: {
               'ember-source': urls[2]
@@ -62,6 +65,9 @@ module.exports = function() {
           name: 'ember-default',
           npm: {
             devDependencies: {}
+          },
+          bower: {
+            dependencies: {}
           }
         }
       ]
