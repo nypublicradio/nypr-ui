@@ -7,8 +7,10 @@ export default Component.extend({
 
   didInsertElement() {
     this._super(...arguments);
-    // eslint-disable-next-line ember/closure-actions
-    this.sendAction('notify', this);
+    let notify = this.get('notify');
+    if (notify) {
+      this.get('notify')(this);
+    }
   },
 
   actions: {
