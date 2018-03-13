@@ -1,8 +1,8 @@
 import Component from '@ember/component';
 import layout from '../templates/components/nypr-popup-menu';
+import { htmlSafe } from '@ember/string';
 import { get, set } from '@ember/object';
 import { next } from '@ember/runloop';
-import { htmlSafe } from '@ember/string';
 
 export default Component.extend({
   layout,

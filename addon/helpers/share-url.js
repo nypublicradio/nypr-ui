@@ -1,4 +1,4 @@
-import { helper } from "@ember/component/helper"
+import { helper } from '@ember/component/helper';
 import { urlEncode } from '../helpers/url-encode';
 
 export function shareUrl([destination, shareUrl, shareText, via, twitterHeadline]) {

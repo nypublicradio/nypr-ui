@@ -1,8 +1,9 @@
-import { helper } from "@ember/component/helper"
+import { helper } from '@ember/component/helper';
 import { listSeparator } from 'nypr-ui/helpers/list-separator';
-import { linkOrText } from 'nypr-ui/helpers/link-or-text';
 import { htmlSafe } from '@ember/string';
 import { get } from '@ember/object';
+import { linkOrText } from 'nypr-ui/helpers/link-or-text';
+
 
 //this helper is expecting an array of objects with text and url keys
 export function serialLinks([ links ], {unlinked=false, textKey='name', urlKey='url'}={}) {
@@ -15,7 +16,7 @@ export function serialLinks([ links ], {unlinked=false, textKey='name', urlKey='
   links.forEach((link, idx) => {
     let line = '';
     line += separators[idx];
-    
+
     if (unlinked){
       line += get(link, textKey);
     } else {
