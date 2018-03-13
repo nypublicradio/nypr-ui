@@ -1,5 +1,8 @@
 # nypr-ui Changelog
 
+## 0.2.0
+- [CHORE] Upgrade to Ember 3.0
+
 ## 0.1.8
 - [ENHANCEMENT] Adds data-action property to share buttons for simpler analytics tracking.
 
