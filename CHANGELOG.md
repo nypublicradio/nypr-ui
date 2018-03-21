@@ -1,5 +1,8 @@
 # nypr-ui Changelog
 
+## 0.2.1
+- [ENHANCEMENT] Change image-template to defualt to 85 quality instead of 99, and accept a quality parameter
+
 ## 0.2.0
 - [CHORE] Upgrade to Ember 3.0
 
