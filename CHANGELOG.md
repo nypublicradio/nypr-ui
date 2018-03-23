@@ -1,5 +1,8 @@
 # nypr-ui Changelog
 
+## 0.2.2
+- [FEATURE] Adds popout icon
+
 ## 0.2.1
 - [ENHANCEMENT] Change image-template to defualt to 85 quality instead of 99, and accept a quality parameter
 
