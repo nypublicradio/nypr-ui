@@ -1,0 +1,36 @@
+{{md-text text="
+# `nypr-ui/support-stripe`
+
+A special call out with a responsive layout. Used on wnyc.org to link out to a pledge form to raise money for gothamist.
+"}}
+
+{{code-snippet name="support-stripe.hbs"}}
+
+{{md-text text="
+## `nypr-ui/support-stripe` params
+The top level `nypr-ui/support-stripe` component accepts two params.
+
+key | default | description
+--- | --- | ---
+theme | undefined | A short name to define a small set of styles included in `app/styles/_support-stripe.scss`. Accepted values are `wnyc`.
+background | undefined | An url pointing to an image that will included in the layout.
+
+## `nypr-ui/support-stripe` yields
+
+The `nypr-ui/support-stripe` yields two conextual components which accept positional params.
+
+key name | description | positional params
+--- | --- | ---
+`.text` | A short line of text calling out the support plea | 0: `text`
+`.link` | A prominent button | 0: `text` 1: `href`
+"}}
+
+{{!-- BEGIN-SNIPPET support-stripe --}}
+{{#nypr-ui/support-stripe
+  theme='wnyc'
+  background='http://assets.gothamistllc.com/images/comeBack/nyc.jpg' as |stripe|}}
+  {{stripe.text 'Join WNYC in bringing Gothamist back to NYC.'}}
+
+  {{stripe.link 'Support us' 'https://pledge3.wnyc.org/donate/gothamist/onestep/'}}
+{{/nypr-ui/support-stripe}}
+{{!-- END-SNIPPET --}}
