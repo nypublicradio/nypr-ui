@@ -26,7 +26,7 @@
     flex-wrap: no-wrap;
     justify-content: flex-start;
     align-items: center;
-    padding: 10px 15px;
+    padding: 15px 0 15px 25px;
   }
 }
 
@@ -36,11 +36,14 @@
   text-align: right;
   font-size: 18px;
   line-height: 1.44;
-  padding: 15px;
+  padding: 10px;
 
   @include mq($medium-and-up) {
     flex-basis: auto;
     background-color: transparent;
+    
+    padding: 0;
+    margin-right: 15px;
 
     font-size: 24px;
   }
@@ -48,15 +51,14 @@
 
 .support-stripe__link {
   display: block;
-  padding: 8px;
+  padding: 4px 8px;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 600;
   text-decoration: none;
-  letter-spacing: 1px;
 
   @include mq($medium-and-up) {
     font-size: 20px;
-    padding: 10px 15px;
+    padding: 4px 12px;
   }
 }
 
