@@ -9,7 +9,7 @@
   background-color: white;
 
   @include mq($medium-and-up) {
-    background-size: 50%;
+    background-size: 504px;
     background-position: right;
   }
 }
