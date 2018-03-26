@@ -1,0 +1,74 @@
+.support-stripe {
+  display: flex;
+
+  font-family: "Open Sans", sans-serif;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: white;
+
+  @include mq($medium-and-up) {
+    background-size: 50%;
+    background-position: right;
+  }
+}
+
+.support-stripe__wrapper {
+  flex-basis: 50%;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+
+  @include mq($medium-and-up) {
+    flex-basis: auto;
+    flex-wrap: no-wrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 15px;
+  }
+}
+
+.support-stripe__heading {
+  flex-basis: 100%;
+  background-color: white;
+  text-align: right;
+  font-size: 18px;
+  line-height: 1.44;
+  padding: 15px;
+
+  @include mq($medium-and-up) {
+    flex-basis: auto;
+    background-color: transparent;
+
+    font-size: 24px;
+  }
+}
+
+.support-stripe__link {
+  display: block;
+  padding: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 1px;
+
+  @include mq($medium-and-up) {
+    font-size: 20px;
+    padding: 10px 15px;
+  }
+}
+
+.support-stripe__arrow {
+  fill: white;
+  width: 12px;
+}
+
+// themes
+.support-stripe.wnyc {
+  .support-stripe__link {
+    color: white;
+    background-color: $red;
+  }
+}
