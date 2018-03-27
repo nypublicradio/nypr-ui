@@ -1,0 +1,22 @@
+{{#side-menu side="right" width="200px" class="nypr-brand-header-menu" as |burger|}}
+  {{#side-menu-toggle class="nypr-brand-header-button nypr-brand-header-close"}}
+    <span>NYPR Network</span>
+    {{nypr-svg className="icon nypr-brand-header-close-icon" icon="close"}}
+  {{/side-menu-toggle}}
+
+  <ul class="nypr-brand-header-menu-items">
+    <li><a href="https://wnyc.org">WNYC</a></li>
+    <li><a href="https://gothamist.com">Gothamist</a></li>
+    <li><a href="https://wnycstudios.org">WNYC Studios</a></li>
+    <li><a href="https://wqxr.org">WQXR</a></li>
+    <li><a href="https://newsounds.org">New Sounds</a></li>
+  </ul>
+{{/side-menu}}
+{{content-backdrop}}
+
+<header class="nypr-brand-header">
+  <a class="nypr-brand-header-button mod-donate" href="{{donationUrl}}">Support Us</a>
+  {{#side-menu-toggle}}
+    <a class="nypr-brand-header-button mod-network">NYPR Network{{nypr-svg className="icon nypr-brand-header-caret" icon="left-arrow"}}</a>
+  {{/side-menu-toggle}}
+</header>

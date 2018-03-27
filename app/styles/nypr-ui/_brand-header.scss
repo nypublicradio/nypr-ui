@@ -1,0 +1,99 @@
+@import '../ember-side-menu';
+
+$brand-stripe-background: #f1f1f1;
+$brand-stripe-button-color: #000;
+
+.nypr-brand-header {
+  background-color: $brand-stripe-background;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: space-between;
+  width: 100%;
+  margin-bottom: 5px;
+
+  @include mq($medium-and-up) {
+    justify-content: flex-end;
+  }
+
+  /* override defaults that set heights and
+     widths for default hamburger menu */
+
+  .side-menu-toggle {
+    white-space: nowrap;
+    height: auto;
+    width: auto;
+  }
+}
+
+.nypr-brand-header-button {
+  padding: 7px 15px;
+  font-size: 14px;
+  line-height: 18px;
+  display: inline-block;
+  color: $brand-stripe-button-color;
+  font-weight: 500;
+  width: auto;
+  white-space: nowrap;
+}
+
+.nypr-brand-header-caret {
+  transform: rotate(180deg);
+  width: auto;
+  path { fill: $brand-stripe-button-color; }
+  height: 14px;
+  top: 1px;
+  position: relative;
+  margin-left: 6px;
+}
+
+.nypr-brand-header-button.mod-donate {
+  background-color: $brand-stripe-button-color;
+  color: #FFF;
+}
+
+.nypr-brand-header-button.mod-network {
+  // pointer-events: none;
+}
+
+.nypr-brand-header-close {
+  white-space: nowrap;
+  height: auto;
+  align-items: center;
+  justify-content: flex-end;
+  font-weight: normal;
+  border-bottom: 1px solid #CCC;
+}
+
+.nypr-brand-header-close-icon {
+  width: auto;
+  height: 12px;
+  margin-top: 2px;
+  margin-left: 5px;
+  top: 1px;
+  position: relative;
+  margin-left: 6px;
+}
+
+.nypr-brand-header-menu {
+  background-color: $brand-stripe-background;
+  text-align: right;
+}
+
+.nypr-brand-header-menu-items {
+  margin: 0;
+  padding: 0;
+  text-align: right;
+  flex-direction: column;
+  padding: 10px 10px;
+}
+
+.nypr-brand-header-menu-items a {
+  display: block;
+  padding: 5px 0;
+  font-size: 15px;
+  color: $brand-stripe-button-color;
+  font-weight: bold;
+}
