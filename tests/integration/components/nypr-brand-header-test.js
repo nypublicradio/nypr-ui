@@ -6,9 +6,9 @@ import hbs from 'htmlbars-inline-precompile';
 module('Integration | Component | nypr-brand-header', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
+  test('it renders with ref', async function(assert) {
     await render(hbs`{{nypr-brand-header donationUrl="http://example.com/donate"}}`);
-    assert.equal(find('.mod-donate').getAttribute('href'), 'http://example.com/donate');
+    assert.equal(find('.mod-donate').getAttribute('href'), 'http://example.com/donate?ref=nypr-brand-header');
   });
 
   test('clicking nypr network opens menu', async function(assert) {
