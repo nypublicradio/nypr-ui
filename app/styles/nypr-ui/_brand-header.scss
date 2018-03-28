@@ -1,7 +1,42 @@
-@import '../ember-side-menu';
 
 $brand-stripe-background: #f1f1f1;
 $brand-stripe-button-color: #000;
+// Burger Menu Overrides
+$bm-transition-duration: 0.3s;
+$bm-overlay-background: rgba(0, 0, 0, 0.7);
+
+@import '../ember-burger-menu';
+
+.bm-overlay-background {
+  pointer-events: none;
+  position: fixed;
+  left: 0; right: 0; bottom: 0; top: 0;
+  opacity: 0;
+  z-index: 500;
+  transition: opacity 0.3s ease-in-out;
+  background-color: #000;
+}
+
+.bm-overlay-background.active {
+  opacity: 0.3;
+  pointer-events: all;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.nypr-brand-header-menu .bm-menu-container .bm-menu,
+.nypr-brand-header-menu .bm-outlet > .bm-menu-container .bm-menu {
+  position: fixed;
+  z-index: 900;
+  background-color: $brand-stripe-background;
+  text-align: right;
+  padding: 0 10px;
+}
+
+.nypr-brand-header-menu,
+.nypr-brand-header-menu .bm-outlet > .bm-content {
+  position: static;
+  overflow: visible;
+}
 
 .nypr-brand-header {
   background-color: $brand-stripe-background;
@@ -17,26 +52,23 @@ $brand-stripe-button-color: #000;
   @include mq($medium-and-up) {
     justify-content: flex-end;
   }
-
-  /* override defaults that set heights and
-     widths for default hamburger menu */
-
-  .side-menu-toggle {
-    white-space: nowrap;
-    height: auto;
-    width: auto;
-  }
 }
 
 .nypr-brand-header-button {
-  padding: 7px 15px;
+  padding: 9px 15px;
   font-size: 14px;
   line-height: 18px;
   display: inline-block;
   color: $brand-stripe-button-color;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 500;
   width: auto;
   white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .nypr-brand-header-caret {
@@ -75,14 +107,11 @@ $brand-stripe-button-color: #000;
   top: 1px;
   position: relative;
   margin-left: 6px;
-}
-
-.nypr-brand-header-menu {
-  background-color: $brand-stripe-background;
-  text-align: right;
+  path { fill: $brand-stripe-button-color; }
 }
 
 .nypr-brand-header-menu-items {
+  list-style-type: none;
   margin: 0;
   padding: 0;
   text-align: right;
@@ -91,14 +120,22 @@ $brand-stripe-button-color: #000;
 }
 
 .nypr-brand-header-menu-items li {
-  padding: 0;
+  padding: 8px 0;
+  line-height: 15px;
   margin: 0;
 }
 
 .nypr-brand-header-menu-items a {
   display: block;
   padding: 5px 0;
+  font-family: 'Open Sans', sans-serif;
   font-size: 15px;
+  line-height: 18px;
   color: $brand-stripe-button-color;
   font-weight: bold;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
