@@ -2,7 +2,7 @@
 {{#burger-menu class="nypr-brand-header-menu" width=200 open=open position="right" as |burger|}}
   {{#burger.menu dismissOnItemClick=true itemTagName="li" as |menu|}}
     <a {{action burger.state.actions.close}} role="button" class="nypr-brand-header-button nypr-brand-header-close"><span>NYPR Network</span>
-      {{nypr-svg className="icon nypr-brand-header-close-icon" icon="close"}}
+      {{nypr-svg className="nypr-brand-header-close-icon" icon="close"}}
     </a>
     <ul class="nypr-brand-header-menu-items">
       {{#each menuItems as |item|}}
@@ -17,6 +17,6 @@
   {{#if donationUrl}}
     <a class="nypr-brand-header-button mod-donate" href="{{donationUrlWithRef}}">Support Us</a>
   {{/if}}
-  
-  <a class="nypr-brand-header-button mod-network" {{action (toggle "open" this)}}>NYPR Network{{nypr-svg className="icon nypr-brand-header-caret" icon="left-arrow"}}</a>
+
+  <a class="nypr-brand-header-button mod-network" {{action (toggle "open" this)}}>NYPR Network{{nypr-svg className="nypr-brand-header-caret" icon="left-arrow"}}</a>
 </header>

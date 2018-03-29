@@ -47,7 +47,7 @@ $bm-overlay-background: rgba(0, 0, 0, 0.7);
   justify-content: space-between;
   align-items: space-between;
   width: 100%;
-  margin-bottom: 5px;
+  margin-bottom: 0;
 
   @include mq($medium-and-up) {
     justify-content: flex-end;
@@ -134,8 +134,10 @@ $bm-overlay-background: rgba(0, 0, 0, 0.7);
   color: $brand-stripe-button-color;
   font-weight: bold;
   text-decoration: none;
+  border-bottom: 0;
 
   &:hover {
     text-decoration: underline;
+    border-bottom: 0;
   }
 }
