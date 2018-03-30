@@ -1,0 +1,17 @@
+{{outlet}}
+
+
+{{md-text html=true text="
+  # `nypr-ui/brand-header`
+  The header that gets displayed across all NYPR brands, linking to other brands and displaying a contextual donate link
+"}}
+
+{{! BEGIN-SNIPPET brand-header }}
+{{nypr-ui/brand-header donationUrl="http://example.com/donate/"}}
+{{! END-SNIPPET brand-header }}
+
+{{code-snippet name="brand-header.hbs"}}
+
+{{md-text html=true text="
+  This should live above the site chrome so it covers the full width of the browser.
+"}}

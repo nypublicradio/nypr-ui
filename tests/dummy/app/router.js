@@ -14,6 +14,7 @@ Router.map(function() {
   this.route('chrome');
   this.route('hero');
   this.route('svg');
+  this.route('brand-header');
 });
 
 export default Router;
