@@ -1,51 +1,73 @@
 .support-stripe {
   display: flex;
+  position: relative;
 
   font-family: "Open Sans", sans-serif;
+}
+
+.support-stripe__image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: white;
+
+
+  @include mq($middle-narrow-and-up) {
+    position: relative;
+    width: auto;
+    height: auto;
+    flex-basis: 65%;
+  }
 
   @include mq($medium-and-up) {
-    background-size: 504px;
-    background-position: right;
+    flex-basis: 45%;
   }
 }
 
 .support-stripe__wrapper {
-  flex-basis: 50%;
+  position: relative;
+  flex-basis: 195px;
 
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
 
-  @include mq($medium-and-up) {
-    flex-basis: auto;
-    flex-wrap: no-wrap;
-    justify-content: flex-start;
+  @include mq($middle-narrow-and-up) {
+    flex-basis: 35%;
     align-items: center;
-    padding: 15px 0 15px 25px;
+  }
+
+  @include mq($medium-and-up) {
+    flex-basis: 55%;
   }
 }
 
 .support-stripe__heading {
   flex-basis: 100%;
   background-color: white;
+
   text-align: right;
   font-size: 18px;
+  font-weight: normal;
   line-height: 1.44;
   padding: 10px;
+  margin-bottom: 0;
+
+  @include mq($middle-narrow-and-up) {
+    font-size: 16px;
+    padding: 10px 25px 10px 10px;
+  }
 
   @include mq($medium-and-up) {
-    flex-basis: auto;
-    background-color: transparent;
-    
-    padding: 0;
-    margin-right: 15px;
-
+    text-align: left;
     font-size: 24px;
+    padding: 20px 60px 20px 20px;
   }
 }
 
@@ -55,10 +77,18 @@
   font-size: 18px;
   font-weight: 600;
   text-decoration: none;
+  white-space: nowrap;
+  border: none;
+
+  @include mq($middle-narrow-and-up) {
+    position: absolute;
+    left: 95%;
+  }
 
   @include mq($medium-and-up) {
     font-size: 20px;
     padding: 4px 12px;
+    left: 90%;
   }
 }
 
