@@ -3,6 +3,7 @@ import layout from '../../templates/components/support-stripe/heading';
 
 const Heading = Component.extend({
   layout,
+  tagName: 'h3',
   classNames: ['support-stripe__heading']
 });
 
