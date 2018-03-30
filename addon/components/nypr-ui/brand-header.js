@@ -19,9 +19,10 @@ export default Component.extend({
       {name: "WNYC Studios", url: "https://www.wnycstudios.org"},
       {name: "WQXR", url: "https://www.wqxr.org"},
       {name: "New Sounds", url: "https://www.newsounds.org"},
+      {name: "NJPR", url: "http://www.njpublicradio.org"}
     ];
     this.set('menuItems', menuItems);
 
     this._super(...arguments);
-  },
+  }
 });
