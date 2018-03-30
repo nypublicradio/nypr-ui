@@ -3,11 +3,11 @@ $brand-stripe-background: #f1f1f1;
 $brand-stripe-button-color: #000;
 // Burger Menu Overrides
 $bm-transition-duration: 0.3s;
-$bm-overlay-background: rgba(0, 0, 0, 0.7);
+$nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
 
 @import '../ember-burger-menu';
 
-.bm-overlay-background {
+.nypr-brand-header-overlay-bg {
   pointer-events: none;
   position: fixed;
   left: 0; right: 0; bottom: 0; top: 0;
@@ -17,7 +17,7 @@ $bm-overlay-background: rgba(0, 0, 0, 0.7);
   background-color: #000;
 }
 
-.bm-overlay-background.active {
+.nypr-brand-header-overlay-bg.active {
   opacity: 0.3;
   pointer-events: all;
   transition: opacity 0.3s ease-in-out;
