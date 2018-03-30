@@ -1,5 +1,8 @@
 # nypr-ui Changelog
 
+## 0.2.4
+- [CHANGE] Add NJPR link to brand header
+
 ## 0.2.3
 - [FEATURE] Add NYPR Brand header component
 
