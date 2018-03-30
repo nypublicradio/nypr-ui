@@ -1,5 +1,8 @@
 # nypr-ui Changelog
 
+## 0.2.3
+- [FEATURE] Add NYPR Brand header component
+
 ## 0.2.2
 - [FEATURE] Adds popout icon
 
