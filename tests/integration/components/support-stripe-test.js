@@ -31,10 +31,10 @@ module('Integration | Component | support-stripe', function(hooks) {
       {{/nypr-ui/support-stripe}}
     `);
 
-    assert.equal(find('.support-stripe').style.backgroundImage, `url("${BG_IMG}")`);
-    assert.equal(find('.support-stripe__heading').textContent.trim(), TEXT);
-    assert.equal(find('.support-stripe__link').textContent.trim(), LINK_TEXT);
-    assert.equal(find('.support-stripe__link').getAttribute('href'), LINK_HREF);
+    assert.equal(find('.support-stripe__image').style.backgroundImage, `url("${BG_IMG}")`, "should have correct background image");
+    assert.equal(find('.support-stripe__heading').textContent.trim(), TEXT, 'should have correct heading text');
+    assert.equal(find('.support-stripe__link').textContent.trim(), LINK_TEXT, "should have correct link text");
+    assert.equal(find('.support-stripe__link').getAttribute('href'), LINK_HREF, "should have correct link url");
 
     let link = find('.support-stripe__link');
     assert.equal(getComputedStyle(link).backgroundColor, 'rgb(222, 30, 61)', 'it applies themes');
