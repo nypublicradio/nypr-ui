@@ -1,5 +1,8 @@
 # nypr-ui Changelog
 
+## 0.2.5
+- [CHORE] Upgrade ember-holygrail-layout
+
 ## 0.2.4
 - [CHANGE] Add NJPR link to brand header
 
