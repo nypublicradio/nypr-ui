@@ -1,5 +1,10 @@
 # nypr-ui Changelog
 
+## 0.2.6
+- [CHORE] circle 2.0
+- [CHORE] upgrade ivy-tabs
+- [ENHANCEMENT] don't open mailto: links in a new tab
+
 ## 0.2.5
 - [CHORE] Upgrade ember-holygrail-layout
 
