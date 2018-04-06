@@ -7,9 +7,14 @@ jobs:
 
     steps:
       - checkout
-
       - restore_cache:
           key: node-deps-{{ checksum "yarn.lock" }}
+      - run:
+          name: greenkeeper-lockfile
+          command: yarn global add greenkeeper-lockfile@1
+      - run:
+          name: greenkeeper-lockfile-update
+          command: yarn greenkeeper-lockfile-update
       - run:
           name: Install node dependencies
           command: yarn --pure-lockfile
@@ -45,6 +50,9 @@ jobs:
       - run:
           name: Test
           command: yarn test
+      - run:
+          name: greenkeeper-lockfile-upload
+          command: yarn greenkeeper-lockfile-upload
 
   deploy:
     docker:
