@@ -1,4 +1,6 @@
 # nypr-ui
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/nypublicradio/nypr-ui.svg)](https://greenkeeper.io/)
 [![CircleCI](https://img.shields.io/circleci/project/github/nypublicradio/nypr-ui.svg?style=flat-square-blue)](https://circleci.com/gh/nypublicradio/nypr-ui) [![GitHub release](https://img.shields.io/github/release/nypublicradio/nypr-ui.svg?style=flat-square)](https://github.com/nypublicradio/nypr-ui/releases/latest) [![GitHub pull requests](https://img.shields.io/github/issues-pr/nypublicradio/nypr-ui.svg?style=flat-square)](https://github.com/nypublicradio/nypr-ui/pulls) [![GitHub contributors](https://img.shields.io/github/contributors/nypublicradio/nypr-ui.svg?style=flat-square)](https://github.com/nypublicradio/nypr-ui/graphs/contributors)
 
 ### The New York Public Radio UI Library
