@@ -49,6 +49,8 @@ jobs:
           name: greenkeeper-lockfile-update
           command: greenkeeper-lockfile-update
       - run:
+          command: yarn --pure-lockfile
+      - run:
           name: Test
           command: yarn test
       - run:
