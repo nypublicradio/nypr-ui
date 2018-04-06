@@ -4,7 +4,6 @@ jobs:
   install:
     docker:
       - image: circleci/node:8.7
-
     steps:
       - checkout
       - restore_cache:
@@ -13,8 +12,11 @@ jobs:
           name: greenkeeper-lockfile
           command: yarn global add greenkeeper-lockfile@1
       - run:
+          name: Add Yarn global bin to path
+          command: echo 'export PATH=$PATH:`yarn global bin`' >> $BASH_ENV
+      - run:
           name: Install node dependencies
-          command: yarn install
+          command: yarn --pure-lockfile
       - run:
           name: greenkeeper-lockfile-update
           command: greenkeeper-lockfile-update
