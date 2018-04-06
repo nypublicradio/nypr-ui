@@ -13,11 +13,11 @@ jobs:
           name: greenkeeper-lockfile
           command: yarn global add greenkeeper-lockfile@1
       - run:
-          name: greenkeeper-lockfile-update
-          command: yarn greenkeeper-lockfile-update
-      - run:
           name: Install node dependencies
           command: yarn --pure-lockfile
+      - run:
+          name: greenkeeper-lockfile-update
+          command: greenkeeper-lockfile-update
       - save_cache:
           key: node-deps-{{ checksum "yarn.lock" }}
           paths:
@@ -52,7 +52,7 @@ jobs:
           command: yarn test
       - run:
           name: greenkeeper-lockfile-upload
-          command: yarn greenkeeper-lockfile-upload
+          command: greenkeeper-lockfile-upload
 
   deploy:
     docker:
