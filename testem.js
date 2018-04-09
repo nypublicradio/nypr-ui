@@ -1,4 +1,6 @@
 module.exports = {
+  report_file: 'test-results/nypr-ui/nypr-ui-test.xml',
+  reporter: 'xunit',
   test_page: 'tests/index.html?hidepassed',
   disable_watching: true,
   launch_in_ci: [
