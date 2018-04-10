@@ -1,6 +1,6 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import { clickTrigger } from 'dummy/tests/helpers/ember-basic-dropdown';
+import { clickTrigger } from 'ember-basic-dropdown/test-support/helpers';
 
 moduleForComponent('dropdown-panel', 'Integration | Component | dropdown panel', {
   integration: true
