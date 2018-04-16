@@ -47,7 +47,11 @@ jobs:
           key: bower-deps-{{ checksum "bower.json" }}
       - run:
           name: Test
+          environment:
+            CIRCLE_TEST_REPORTS: test-results
           command: npx ember test
+      - store_test_results:
+          path: test-results/
 
   deploy:
     docker:
