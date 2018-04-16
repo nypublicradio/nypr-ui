@@ -45,6 +45,11 @@ export default Component.extend(StickyHeader, {
     }
   }),
 
+  showCredits: computed('noHeaderImage', 'source', 'credit', 'caption', function() {
+    let { noHeaderImage, source, credit, caption } = this.getProperties('noHeaderImage', 'source', 'credit', 'caption');
+    return !noHeaderImage && (source || credit || caption);
+  }),
+
   setImage({ src, source, caption, credit}) {
     this.setProperties({ src, source, caption, credit});
   },

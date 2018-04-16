@@ -13,7 +13,7 @@
     )}}
   </div>
 
-  {{#if (and (not noHeaderImage) (or source credit caption))}}
+  {{#if showCredits}}
     <span class="hero-source">
       {{caption}}{{#if (or credit source)}} ({{credit}}{{if (and credit source) ' / '}}{{{link-or-text source}}}){{/if}}
     </span>

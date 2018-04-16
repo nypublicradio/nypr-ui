@@ -93,7 +93,7 @@ $padding-v-small:  20px;
   padding-bottom: 0px;
   margin-bottom: 0px;
   @include mq($medium-and-up) {
-      min-height: 65vh;
+    min-height: 0vh;
   }
 }
 
@@ -178,6 +178,7 @@ $padding-v-small:  20px;
   @include mq($medium-and-up) {
     font-size: 90px;
     line-height: 1.06;
+    margin-top:70px;
   }
 }
 

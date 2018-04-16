@@ -1,14 +1,14 @@
 {{md-text text="
 # `nypr-ui/hero`
 
-A hero image layout with optional gradients and sticky headers. Exposes multiple contextual components that can be used to layout content.
+A hero image layout with optional gradients and sticky headers, and an alternate template for stories with no main image. Exposes multiple contextual components that can be used to layout content.
 "}}
 
 {{code-snippet name="hero.hbs"}}
 
 {{md-text text="
 ## `nypr-ui/hero` params
-The top level `nypr-ui/hero` component accepts two params. 
+The top level `nypr-ui/hero` component accepts two params.
 
 key | default | description
 --- | --- | ---
@@ -33,34 +33,34 @@ The hero image is rendered as a background element on `.nypr-ui__hero` (the top 
 "}}
 
 {{!-- BEGIN-SNIPPET hero --}}
-{{#nypr-ui/hero gradient=true sticky=true as |hero|}}
+{{#nypr-ui/hero gradient=true sticky=true noHeaderImage=false as |hero|}}
   {{#hero.top as |top|}}
     {{#top.left}}
       {{nypr-svg icon="left-arrow" className="hero-back"}}
       {{nypr-svg icon="wnyc-logo" className="hero-logo"}}
     {{/top.left}}
-    
+
     {{#top.right}}
       {{#nypr-ui/buttons/red tagName="a" href="http://www.wnyc.org" tall=true}}
         Donate
       {{/nypr-ui/buttons/red}}
     {{/top.right}}
   {{/hero.top}}
-  
+
   {{hero.image src="https://dummyimage.com/1200" credit="the credit"}}
-  
+
   {{#hero.headline}}
     unsettled in america
   {{/hero.headline}}
-  
+
   {{#hero.blurb}}
     <p>
       blah blah blah
     </p>
-    
+
     <button>listen</button>
   {{/hero.blurb}}
-  
+
   {{#hero.footer as |footer|}}
     {{#footer.lockup}}
       social buttons
