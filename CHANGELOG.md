@@ -1,5 +1,8 @@
 # nypr-ui Changelog
 
+## 0.2.7
+- [FEATURE] add new hero variants for small or no lead image.
+
 ## 0.2.6
 - [CHORE] circle 2.0
 - [CHORE] upgrade ivy-tabs
