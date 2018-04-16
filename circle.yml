@@ -4,10 +4,8 @@ jobs:
   install:
     docker:
       - image: circleci/node:8.7
-
     steps:
       - checkout
-
       - restore_cache:
           key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
       - run:
@@ -20,7 +18,6 @@ jobs:
           key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
-
       - restore_cache:
           key: bower-deps-{{ checksum "bower.json" }}
       - run:
@@ -46,8 +43,26 @@ jobs:
       - restore_cache:
           key: bower-deps-{{ checksum "bower.json" }}
       - run:
+          name: greenkeeper-lockfile
+          command: yarn global add greenkeeper-lockfile@1
+      - run:
+          name: Add Yarn global bin to path
+          command: echo 'export PATH=$PATH:`yarn global bin`' >> $BASH_ENV
+      - run:
+          name: greenkeeper-lockfile-update
+          command: greenkeeper-lockfile-update
+      - run:
+          command: yarn --pure-lockfile
+      - run:
           name: Test
+          environment:
+            CIRCLE_TEST_REPORTS: test-results
           command: npx ember test
+      - run:
+          name: greenkeeper-lockfile-upload
+          command: greenkeeper-lockfile-upload
+      - store_test_results:
+          path: test-results/
 
   deploy:
     docker:
