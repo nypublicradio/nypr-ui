@@ -75,11 +75,11 @@ jobs:
           key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
       - restore_cache:
           key: bower-deps-{{ checksum "bower.json" }}
-      - run:
-          name: Deploy to GitHub Pages
-          command: |
-            git checkout gh-pages; git checkout master
-            npx ember deploy production
+      # - run:
+      #    name: Deploy to GitHub Pages
+      #    command: |
+      #       git checkout gh-pages; git checkout master
+      #      npx ember deploy production
 
 workflows:
   version: 2
