@@ -335,6 +335,11 @@ $padding-v-small:  20px;
   }
 }
 
+
+.stuck > .image-container.no-image {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.4);
+}
+
 .stuck > .image-container > .hero-blurb {
   display: none;
 }
