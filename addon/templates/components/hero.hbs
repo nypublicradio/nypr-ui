@@ -1,9 +1,10 @@
 {{#if hasBlock}}
-  <div class={{concat 'image-container' (if gradient ' with-gradient')}} style={{backgroundImage}}>
+  <div class={{concat 'image-container' (if gradient ' with-gradient') (if no-image ' no-image')}} style={{backgroundImage}}>
     {{yield (hash
       image=(component 'nypr-ui/hero/image'
              sendImage=(action setImage)
              useBackgroundImage=useBackgroundImage
+             noHeaderImage=noHeaderImage
              measure=(action measure))
       top=(component 'nypr-ui/hero/top')
       headline=(component 'nypr-ui/hero/headline')
@@ -12,7 +13,7 @@
     )}}
   </div>
 
-  {{#if (or source credit caption)}}
+  {{#if showCredits}}
     <span class="hero-source">
       {{caption}}{{#if (or credit source)}} ({{credit}}{{if (and credit source) ' / '}}{{{link-or-text source}}}){{/if}}
     </span>

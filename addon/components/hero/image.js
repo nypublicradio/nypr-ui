@@ -4,7 +4,7 @@ import layout from '../../templates/components/hero/image';
 export default Component.extend({
   layout,
   tagName: '',
-  
+
   didRender() {
     this._super(...arguments);
     let sendImage = this.get('sendImage');
@@ -12,5 +12,5 @@ export default Component.extend({
       sendImage(this.getProperties('src', 'source', 'caption', 'credit'))
     }
   },
-  
+
 });

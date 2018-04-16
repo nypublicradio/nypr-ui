@@ -1,4 +1,4 @@
-{{#if (and (not useBackgroundImage) src)}}
+{{#if (and (not useBackgroundImage) (not noHeaderImage) src)}}
   <div class="hero-image">
     <img src={{src}} sizes={{sizes}} srcset={{srcset}} onload={{measure}} />
   </div>
