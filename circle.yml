@@ -73,6 +73,9 @@ jobs:
           key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
       - restore_cache:
           key: bower-deps-{{ checksum "bower.json" }}
+      - add_ssh_keys:
+          fingerprints:
+            - "46:1b:e7:bf:91:16:06:e2:79:99:fd:3d:00:c1:28:0a"
       - run:
          name: Deploy to GitHub Pages
          command: |
