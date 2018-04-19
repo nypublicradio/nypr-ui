@@ -14,9 +14,5 @@
   {{/burger.menu}}
 {{/burger-menu}}
 <header class="nypr-brand-header">
-  {{#if donationUrl}}
-    <a class="nypr-brand-header-button mod-donate" href="{{donationUrlWithRef}}">Support Us</a>
-  {{/if}}
-
   <a class="nypr-brand-header-button mod-network" {{action (toggle "open" this)}}>NYPR Network{{nypr-svg className="nypr-brand-header-caret" icon="left-arrow"}}</a>
 </header>
