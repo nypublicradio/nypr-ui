@@ -72,7 +72,10 @@ jobs:
           key: bower-deps-{{ checksum "bower.json" }}
       - run:
          name: Deploy to GitHub Pages
-         command: npx ember deploy production
+         command: |
+           git config --global user.email "deploy@circleci"
+           git config --global user.name "deploy"
+           npx ember deploy production
 
 workflows:
   version: 2
