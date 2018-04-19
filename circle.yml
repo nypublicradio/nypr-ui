@@ -79,8 +79,8 @@ jobs:
       - run:
          name: Deploy to GitHub Pages
          command: |
-           git config --global user.email "deploy@circleci"
-           git config --global user.name "deploy"
+           # git config --global user.email "deploy@circleci"
+           # git config --global user.name "deploy"
            npx ember deploy production
 
 workflows:
