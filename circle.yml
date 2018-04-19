@@ -46,13 +46,8 @@ jobs:
           name: greenkeeper-lockfile
           command: yarn global add greenkeeper-lockfile@1
       - run:
-          name: Add Yarn global bin to path
-          command: echo 'export PATH=$PATH:`yarn global bin`' >> $BASH_ENV
-      - run:
           name: greenkeeper-lockfile-update
-          command: greenkeeper-lockfile-update
-      - run:
-          command: yarn --pure-lockfile
+          command: npx greenkeeper-lockfile-update
       - run:
           name: Test
           environment:
@@ -60,7 +55,7 @@ jobs:
           command: npx ember test
       - run:
           name: greenkeeper-lockfile-upload
-          command: greenkeeper-lockfile-upload
+          command: npx greenkeeper-lockfile-upload
       - store_test_results:
           path: test-results/
 
