@@ -24,19 +24,16 @@ module('Integration | Component | support-stripe', function(hooks) {
     });
     // Template block usage:
     await render(hbs`
-      {{#nypr-ui/support-stripe theme='wnyc' background=background as |stripe|}}
+      {{#nypr-ui/support-stripe theme='wnyc' href=linkHref background=background as |stripe|}}
         {{stripe.text text}}
 
-        {{stripe.link linkText linkHref}}
+        {{stripe.label linkText}}
       {{/nypr-ui/support-stripe}}
     `);
 
+    assert.equal(find('.support-stripe').getAttribute('href'), LINK_HREF, "should have correct link url");
     assert.equal(find('.support-stripe__image').style.backgroundImage, `url("${BG_IMG}")`, "should have correct background image");
     assert.equal(find('.support-stripe__heading').textContent.trim(), TEXT, 'should have correct heading text');
-    assert.equal(find('.support-stripe__link').textContent.trim(), LINK_TEXT, "should have correct link text");
-    assert.equal(find('.support-stripe__link').getAttribute('href'), LINK_HREF, "should have correct link url");
-
-    let link = find('.support-stripe__link');
-    assert.equal(getComputedStyle(link).backgroundColor, 'rgb(222, 30, 61)', 'it applies themes');
+    assert.equal(find('.support-stripe__label').textContent.trim(), LINK_TEXT, "should have correct link text");
   });
 });

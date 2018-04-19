@@ -5,8 +5,12 @@ import { computed } from '@ember/object';
 
 export default Component.extend({
   layout,
+  tagName: 'a',
   classNames: ['support-stripe'],
   classNameBindings: ['theme'],
+  attributeBindings: ['href', 'target'],
+  href: '',
+  target: '_blank',
 
   image: computed('background', function() {
     let bg = this.background;

@@ -12,6 +12,7 @@ The top level `nypr-ui/support-stripe` component accepts two params.
 
 key | default | description
 --- | --- | ---
+href | undefined | Defines where the entire component will click through to; assumed to be an external link, so target='_blank' is applied automatically.
 theme | undefined | A short name to define a small set of styles included in `app/styles/_support-stripe.scss`. Accepted values are `wnyc`.
 background | undefined | An url pointing to an image that will included in the layout.
 
@@ -22,15 +23,16 @@ The `nypr-ui/support-stripe` yields two conextual components which accept positi
 key name | description | positional params
 --- | --- | ---
 `.text` | A short line of text calling out the support plea | 0: `text`
-`.link` | A prominent button | 0: `text` 1: `href`
+`.label` | A prominent button | 0: `text` 1: `href`
 "}}
 
 {{!-- BEGIN-SNIPPET support-stripe --}}
 {{#nypr-ui/support-stripe
   theme='wnyc'
+  href='https://pledge3.wnyc.org/donate/gothamist/onestep/'
   background='http://assets.gothamistllc.com/images/comeBack/nyc.jpg' as |stripe|}}
   {{stripe.text 'Join WNYC in bringing Gothamist back to NYC.'}}
 
-  {{stripe.link 'Support us' 'https://pledge3.wnyc.org/donate/gothamist/onestep/'}}
+  {{stripe.label 'Support us'}}
 {{/nypr-ui/support-stripe}}
 {{!-- END-SNIPPET --}}

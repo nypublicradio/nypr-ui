@@ -1,13 +1,6 @@
 @import "z-index";
 
 .support-stripe {
-  display: flex;
-  position: relative;
-
-  font-family: "Open Sans", sans-serif;
-}
-
-.support-stripe > a {
   border-bottom-color: transparent;
   border-bottom: none;
   display: flex;
@@ -97,7 +90,7 @@
   }
 }
 
-.support-stripe__link {
+.support-stripe__label {
   display: block;
   padding: 4px 8px;
   font-size: 18px;
@@ -125,7 +118,7 @@
 
 // themes
 .support-stripe.wnyc {
-  .support-stripe__link {
+  .support-stripe__label {
     color: white;
     background-color: $red;
   }
