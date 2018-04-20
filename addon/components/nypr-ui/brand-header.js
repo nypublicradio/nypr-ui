@@ -1,16 +1,7 @@
 import Component from '@ember/component';
 import layout from '../../templates/components/nypr-ui/brand-header';
-import { computed } from '@ember/object';
 export default Component.extend({
   layout,
-  donationUrlWithRef: computed('donationUrl', function() {
-    if (this.donationUrl) {
-      let url = new URL(this.donationUrl);
-      url.searchParams.set('ref', 'nypr-brand-header')
-
-      return url;
-    }
-  }),
   tagName: '',
   init() {
     let menuItems = [
