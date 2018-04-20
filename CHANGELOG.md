@@ -1,5 +1,8 @@
 # nypr-ui Changelog
 
+## 0.2.8
+- [CHORE] removes support link from `brand-header`
+
 ## 0.2.7
 - [FEATURE] add new hero variants for small or no lead image.
 
