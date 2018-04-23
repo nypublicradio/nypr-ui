@@ -1,5 +1,8 @@
 # nypr-ui Changelog
 
+## 0.2.9
+- [CHORE] reorder links in `brand-header` menu flyout
+
 ## 0.2.8
 - [CHORE] removes support link from `brand-header`
 
