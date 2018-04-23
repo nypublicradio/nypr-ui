@@ -1,5 +1,8 @@
 # nypr-ui Changelog
 
+## 0.2.10
+- [FEATURE] adds `support-stripe` component
+
 ## 0.2.9
 - [CHORE] reorder links in `brand-header` menu flyout
 
