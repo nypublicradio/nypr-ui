@@ -15,6 +15,7 @@ Router.map(function() {
   this.route('hero');
   this.route('svg');
   this.route('brand-header');
+  this.route('support-stripe');
 });
 
 export default Router;
