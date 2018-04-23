@@ -35,5 +35,8 @@ module('Integration | Component | support-stripe', function(hooks) {
     assert.equal(find('.support-stripe__image').style.backgroundImage, `url("${BG_IMG}")`, "should have correct background image");
     assert.equal(find('.support-stripe__heading').textContent.trim(), TEXT, 'should have correct heading text');
     assert.equal(find('.support-stripe__label').textContent.trim(), LINK_TEXT, "should have correct link text");
+
+    let label = find('.support-stripe__label');
+    assert.equal(getComputedStyle(label).backgroundColor, 'rgb(222, 30, 61)', 'it applies themes');
   });
 });
