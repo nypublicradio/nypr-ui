@@ -8,7 +8,7 @@ export default Component.extend({
   tagName: 'a',
   classNames: ['support-stripe'],
   classNameBindings: ['theme'],
-  attributeBindings: ['href', 'target'],
+  attributeBindings: ['href', 'target', 'data-action', 'data-label'],
   href: '',
   target: '_blank',
 
