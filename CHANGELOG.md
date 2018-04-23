@@ -1,5 +1,8 @@
 # nypr-ui Changelog
 
+## 0.2.11
+- [CHORE] add analytics attribute bindings to `support-stripe`
+
 ## 0.2.10
 - [FEATURE] adds `support-stripe` component
 
