@@ -8,9 +8,9 @@ export default Component.extend({
       {name: "WNYC", url: "https://www.wnyc.org"},
       {name: "Gothamist", url: "https://www.gothamist.com"},
       {name: "WNYC Studios", url: "https://www.wnycstudios.org"},
+      {name: "NJPR", url: "http://www.njpublicradio.org"},
       {name: "WQXR", url: "https://www.wqxr.org"},
-      {name: "New Sounds", url: "https://www.newsounds.org"},
-      {name: "NJPR", url: "http://www.njpublicradio.org"}
+      {name: "New Sounds", url: "https://www.newsounds.org"}
     ];
     this.set('menuItems', menuItems);
 
