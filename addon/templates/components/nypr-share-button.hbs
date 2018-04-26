@@ -1,22 +1,15 @@
 {{#nypr-popup-menu text=text icon="share" as |closePopup|}}
   <ul class="nypr-sharebutton-list">
-    <li class="nypr-sharebutton-listitem">
-      <button {{action (queue (action 'popupShareWindow' 'Facebook' (share-url 'Facebook' shareUrl shareText))
-                              (action (optional onShare) 'Facebook'))}}
-      onclick={{action closePopup}}
-      >Facebook</button>
-    </li>
-    <li class="nypr-sharebutton-listitem">
-      <button {{action (queue (action 'popupShareWindow' 'Twitter' (share-url 'Twitter' shareUrl shareText via))
-                              (action (optional onShare) 'Twitter'))}}
-      onclick={{action closePopup}}
-      >Twitter</button>
-    </li>
-    <li class="nypr-sharebutton-listitem">
-      <a href={{share-url 'Email' shareUrl shareText}}
-        onclick={{action (queue (action closePopup)
-                                (action (optional onShare) 'Email'))}}
-        >Email</a>
-    </li>
+    {{yield (hash
+      button=(component
+        'nypr-share-button/button'
+        openPopup=(action 'popupShareWindow')
+        closePopup=closePopup
+        shareUrl=shareUrl
+        shareText=shareText
+        data-category=data-category
+        data-action=data-action
+        data-label=data-label)
+    )}}
   </ul>
 {{/nypr-popup-menu}}

@@ -3,15 +3,7 @@ import Component from '@ember/component';
 
 export default Component.extend({
   layout,
-  text: null,
-  region: null,
-  type: null,
-
   classNames: ['nypr-sharebutton'],
-
-  shareText: null,
-  shareUrl: null,
-  analyticsCode: null,
 
   actions: {
     popupShareWindow(destination, href) {
