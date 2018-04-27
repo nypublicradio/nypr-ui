@@ -8,6 +8,7 @@ export default Component.extend({
 
   classNames: ['nypr-input-container'],
   classNameBindings: ['hasError'],
+  attributeBindings: ['data-action', 'data-label', 'data-category', 'data-value'],
   type: 'text',
   focused: false,
   blurred: false,
