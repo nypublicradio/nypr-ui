@@ -1,3 +1,17 @@
+{{#if (has-block)}}
+  {{yield (hash
+    button=(component
+      'nypr-share-button/button'
+      tagName=''
+      openPopup=(action 'popupShareWindow')
+      closePopup=closePopup
+      shareUrl=shareUrl
+      shareText=shareText
+      data-category=data-category
+      data-action=data-action
+      data-label=data-label)
+  )}}
+{{else}}
   <button class="btn btn--circle btn--mq-graywhite" {{action 'popupShareWindow' 'Facebook'}} title="Share on Facebook" data-action="Facebook">
     <i class="fa fa-facebook"></i>
     <span class="for-screenreaders">Share on Facebook</span>
@@ -10,3 +24,4 @@
     <i class="fa fa-envelope"></i>
     <span class="for-screenreaders">Email a Friend</span>
   </a>
+{{/if}}
