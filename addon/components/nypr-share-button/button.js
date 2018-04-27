@@ -16,5 +16,13 @@ export default Component.extend({
     if (closePopup) {
       closePopup();
     }
+  },
+
+  actions: {
+    closePopup() {
+      if (this.get('closePopup'))  {
+        this.get('closePopup')();
+      }
+    }
   }
 });
