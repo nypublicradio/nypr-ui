@@ -1,6 +1,6 @@
 {{#if (eq type 'Email')}}
 <a href={{share-url 'Email' shareUrl shareText}}
-  class="gtm__click-tracking"
+  class={{concat "gtm__click-tracking " class}}
   data-action={{data-action}} data-label={{data-label}} data-category={{data-category}}
   {{action 'closePopup' preventDefault=false}}
   target="_blank">
@@ -12,7 +12,7 @@
 </a>
 {{else}}
 <button
-  class="gtm__click-tracking"
+  class={{concat "gtm__click-tracking " class}}
   data-action={{data-action}} data-label={{data-label}} data-category={{data-category}}
   {{action open (share-url type shareUrl shareText via)}}>
   {{#if (has-block)}}
