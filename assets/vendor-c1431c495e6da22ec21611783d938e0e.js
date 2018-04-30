@@ -5354,9 +5354,7 @@ Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ember.Component.exten
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ember.Component.extend({layout:t.default,classNames:["row__col"],classNameBindings:["flipped"]})}),define("nypr-ui/components/nypr-card",["exports","nypr-ui/templates/components/nypr-card"],function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ember.Component.extend({layout:t.default,classNames:["nypr-card"]})}),define("nypr-ui/components/nypr-card/alert",["exports","nypr-ui/templates/components/nypr-card/alert"],function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ember.Component.extend({layout:t.default,classNames:["nypr-card-alert"]})}),define("nypr-ui/components/nypr-card/button",["exports","nypr-ui/templates/components/nypr-card/button"],function(e,t){"use strict"
-Object.defineProperty(e,"__esModule",{value:!0})
-var n=Ember.Component.extend({layout:t.default,tagName:"button",classNames:["nypr-card-button"],"data-test-selector":"nypr-card-button"})
-n.reopen({attributeBindings:["data-test-selector"]}),e.default=n})
+Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ember.Component.extend({layout:t.default,tagName:"button",classNames:["nypr-card-button"],attributeBindings:["data-category","data-action","data-label","data-value","data-test-selector"],"data-test-selector":"nypr-card-button"})})
 define("nypr-ui/components/nypr-card/header",["exports","nypr-ui/templates/components/nypr-card/header"],function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ember.Component.extend({layout:t.default,classNames:["nypr-card-header"]})}),define("nypr-ui/components/nypr-card/title",["exports","nypr-ui/templates/components/nypr-card/title"],function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ember.Component.extend({layout:t.default,tagName:""})}),define("nypr-ui/components/nypr-floating-banner",["exports","nypr-ui/templates/components/nypr-floating-banner"],function(e,t){"use strict"
