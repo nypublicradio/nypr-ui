@@ -1,15 +1,10 @@
 import Component from '@ember/component';
 import layout from '../../templates/components/nypr-card/button';
 
-const NyprCardButton = Component.extend({
+export default Component.extend({
   layout,
   tagName: 'button',
   classNames: ['nypr-card-button'],
+  attributeBindings: ['data-category', 'data-action', 'data-label', 'data-value'],
   'data-test-selector': 'nypr-card-button'
 });
-
-NyprCardButton.reopen({
-  attributeBindings: ['data-test-selector']
-});
-
-export default NyprCardButton;
