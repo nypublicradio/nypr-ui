@@ -10,7 +10,6 @@ moduleForComponent('nypr-nypr-share-button', 'Integration | Component | nypr sha
 let exampleStory = {
   title: 'Cool Link',
   url: 'http://wnyc.org/story/cool-link',
-  analyticsCode: '123',
 };
 
 test('it renders', function(assert) {
