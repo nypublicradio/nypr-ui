@@ -16,7 +16,12 @@
       {{item.attributes.headers.brand.title}}
     </a>
     <h2 class="item__head__headline">
-      {{#link-to 'story' item.attributes.slug title=analyticsTitle}}
+      {{#link-to
+        'story'
+        item.attributes.slug
+        class="gtm__click-tracking"
+        data-action=data-action
+        data-label=data-label}}
         {{nypr-svg className="icon" icon="video"}}
         {{if item.attributes.shortTitle item.attributes.shortTitle item.attributes.title}}
       {{/link-to}}
@@ -31,7 +36,12 @@
       {{/listen-button}}
     {{/if}}
   </div>
-  {{#link-to 'story' item.attributes.slug class="item__link--hidden" title=analyticsTitle}}
+  {{#link-to
+    'story'
+    item.attributes.slug
+    class="item__link--hidden gtm__click-tracking"
+    data-action=data-action
+    data-label=data-label}}
     {{if item.attributes.shortTitle item.attributes.shortTitle item.attributes.title}}
   {{/link-to}}
 {{/if}}
