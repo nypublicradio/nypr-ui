@@ -1,5 +1,8 @@
 # nypr-ui Changelog
 
+## 0.3.0-beta
+- [FEATURE] analytics upgrades
+
 ## 0.2.19
 - [BUGFIX] fix NYPR brand header mobile landscape vertical scroll https://jira.wnyc.org/browse/RT-941
 - [ENHANCEMENT] remove NYPR logo link
