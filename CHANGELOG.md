@@ -1,5 +1,8 @@
 # nypr-ui Changelog
 
+## 0.3.0-beta
+- [FEATURE] analytics upgrades
+
 ## 0.2.20
 - [BUGFIX] standardize red accent color across components https://jira.wnyc.org/browse/RT-892
 
