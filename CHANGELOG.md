@@ -1,5 +1,8 @@
 # nypr-ui Changelog
 
+## 0.3.0-beta
+- [FEATURE] analytics upgrades
+
 ## 0.2.11
 - [CHORE] add analytics attribute bindings to `support-stripe`
 
