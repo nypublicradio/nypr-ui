@@ -1,5 +1,8 @@
 # nypr-ui Changelog
 
+## 0.3.0-beta
+- [FEATURE] analytics upgrades
+
 ## 0.2.17
 - [BUGFIX] when scrolling on safari, keep hero-image behind title text, blurb text and hero-bottom sections. https://jira.wnyc.org/browse/RT-870.
 
