@@ -8,9 +8,9 @@ import { imageTemplate } from 'nypr-ui/helpers/image-template';
 
 export default Component.extend({
   layout,
-  classNames: ['brick__item'],
+  classNames: ['brick__item', 'gtm__click-tracking-container'],
   classNameBindings: ['item.attributes.template'],
-  attributeBindings: ['style', 'data-category', 'data-action', 'data-label', 'data-value'],
+  attributeBindings: ['style'],
 
   style: computed.reads('backgroundImage'),
   vertical: equal('template', 'vertical'),
