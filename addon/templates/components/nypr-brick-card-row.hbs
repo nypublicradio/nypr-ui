@@ -1,9 +1,9 @@
 {{#if hasBlock}}
   {{yield (hash
-    brick=(component 'nypr-brick-item' template='vertical')
+    brick=(component 'nypr-brick-item' template='vertical' data-action=data-action)
   )}}
 {{else}}
-  {{nypr-brick-item item=items.[0] template='vertical'}}
-  {{nypr-brick-item item=items.[1] template='vertical'}}
-  {{nypr-brick-item item=items.[2] template='vertical'}}
+  {{nypr-brick-item item=items.[0] template='vertical' data-action=data-action}}
+  {{nypr-brick-item item=items.[1] template='vertical' data-action=data-action}}
+  {{nypr-brick-item item=items.[2] template='vertical' data-action=data-action}}
 {{/if}}
