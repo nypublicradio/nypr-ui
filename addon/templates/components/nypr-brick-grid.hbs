@@ -1,3 +1,8 @@
 {{#each items as |item|}}
-  {{nypr-brick-item item=item template='vertical'}}
+  {{nypr-brick-item
+    item=item
+    template='vertical'
+    data-category=data-category
+    data-action=data-action
+    data-label=data-label}}
 {{/each}}
