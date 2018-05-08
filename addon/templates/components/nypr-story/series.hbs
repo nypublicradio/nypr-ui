@@ -1,4 +1,4 @@
-<aside id="series" data-category="series">
+<aside id="series">
   <h1 class="h4 h--flush outlineonly">Also Seen In...</h1>
   <div class="list">
     {{#each series as |item|}}
@@ -6,7 +6,7 @@
       <div class="flag flush">
         {{#if item.logoImage}}
         <div class="flag-image">
-          <img alt="{{item.title}}" class="squarebadge badge--large" 
+          <img alt="{{item.title}}" class="squarebadge badge--large"
             src="{{image-template item.logoImage.template 100 100 item.logoImage.crop 99}}"
             srcset="{{image-template item.logoImage.template 200 200 item.logoImage.crop 99}} 2x,
               {{image-template item.logoImage.template 300 300 item.logoImage.crop 99}} 3x"
