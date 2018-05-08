@@ -12,15 +12,15 @@
       data-label=data-label)
   )}}
 {{else}}
-  <button class="btn btn--circle btn--mq-graywhite" {{action 'popupShareWindow' 'Facebook'}} title="Share on Facebook" data-action="Facebook">
+  <button class="btn btn--circle btn--mq-graywhite" {{action 'popupShareWindow' 'Facebook'}} title="Share on Facebook">
     <i class="fa fa-facebook"></i>
     <span class="for-screenreaders">Share on Facebook</span>
   </button>
-  <button class="btn btn--circle btn--mq-graywhite" {{action 'popupShareWindow' 'Twitter'}} title="Share on Twitter" data-action="Twitter">
+  <button class="btn btn--circle btn--mq-graywhite" {{action 'popupShareWindow' 'Twitter'}} title="Share on Twitter">
     <i class="fa fa-twitter"></i>
     <span class="for-screenreaders">Share on Twitter</span>
   </button>
-  <a href="mailto:?subject={{url-encode story.title}}&body={{story.url}}" class="btn btn--circle btn--mq-graywhite" data-category="SharedE" id="shareEmail" title="Email a Friend" data-action="Email">
+  <a href="mailto:?subject={{url-encode story.title}}&body={{story.url}}" class="btn btn--circle btn--mq-graywhite" id="shareEmail" title="Email a Friend">
     <i class="fa fa-envelope"></i>
     <span class="for-screenreaders">Email a Friend</span>
   </a>

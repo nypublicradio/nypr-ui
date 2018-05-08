@@ -28,10 +28,8 @@
         {{#panel.body}}
           {{#each podcasts as |podcast|}}
             <a
-              class="panel-link text--medium link--dark gtm__click-tracking"
+              class="panel-link text--medium link--dark"
               href={{podcast.href}}
-              data-action="Subscribe to {{showName}}"
-              data-label={{podcast.title}}
               target="_blank">
               <i class="fa {{if (eq podcast.title 'via RSS') 'fa-rss' 'fa-mobile'}}"></i> {{podcast.title}}
             </a>
