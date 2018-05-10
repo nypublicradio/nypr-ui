@@ -1,5 +1,8 @@
 # nypr-ui Changelog
 
+## 0.2.12
+- [CHORE] add analytics bindinds to nypr-ui/button/red
+
 ## 0.2.11
 - [CHORE] add analytics attribute bindings to `support-stripe`
 
