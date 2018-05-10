@@ -6,5 +6,5 @@ export default Component.extend({
   tagName: 'button',
   classNames: ['nypr-ui__button-red'],
   classNameBindings: ['tall'],
-  attributeBindings: ['disabled', 'href']
+  attributeBindings: ['disabled', 'href', 'data-category', 'data-action', 'data-label', 'data-value']
 });
