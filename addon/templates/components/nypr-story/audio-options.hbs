@@ -2,9 +2,9 @@
   {{#panel.button tagName="button" aria-haspopup="true" aria-label="More Options" aria-owns=story.id class="btn btn--circle btn--white medium-up"}}
     <i class="fa fa-ellipsis-h"></i>
   {{/panel.button}}
-  
+
   {{#panel.body class="medium-up"}}
-    {{#if (and story.audio story.audioMayDownload)}}
+    {{#if (and story.audio story.audioMayDownload (not story.segmentedAudio))}}
     <a href="{{story.audio}}" download="{{story.title}}" class="panel-link link--dark text--medium">
       <i class="fa fa-cloud-download panel-linkicon"></i>
       Download this audio
