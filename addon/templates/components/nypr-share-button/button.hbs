@@ -1,0 +1,24 @@
+{{#if (eq type 'Email')}}
+<a href={{share-url 'Email' shareUrl shareText}}
+  class={{concat "gtm__click-tracking " class}}
+  data-action={{data-action}} data-label={{data-label}} data-category={{data-category}}
+  {{action 'closePopup' preventDefault=false}}
+  target="_blank">
+  {{#if (has-block)}}
+    {{yield}}
+  {{else}}
+    Email
+  {{/if}}
+</a>
+{{else}}
+<button
+  class={{concat "gtm__click-tracking " class}}
+  data-action={{data-action}} data-label={{data-label}} data-category={{data-category}}
+  {{action open (share-url type shareUrl shareText via)}}>
+  {{#if (has-block)}}
+    {{yield}}
+  {{else}}
+    {{type}}
+  {{/if}}
+</button>
+{{/if}}

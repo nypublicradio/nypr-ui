@@ -6,9 +6,9 @@
   <div class="nudge-big">
     {{{showTease}}}
     {{#if showProducingOrgs}}
-      <p>Produced by 
+      <p>Produced by
       {{serial-links showProducingOrgs}}.
-      </p> 
+      </p>
     {{/if}}
   </div>
 
@@ -27,7 +27,12 @@
         {{#panel.button}}Subscribe to the podcast ▾{{/panel.button}}
         {{#panel.body}}
           {{#each podcasts as |podcast|}}
-            <a class="panel-link text--medium link--dark" href={{podcast.href}} target="_blank">
+            <a
+              class="panel-link text--medium link--dark gtm__click-tracking"
+              href={{podcast.href}}
+              data-action="Subscribe to {{showName}}"
+              data-label={{podcast.title}}
+              target="_blank">
               <i class="fa {{if (eq podcast.title 'via RSS') 'fa-rss' 'fa-mobile'}}"></i> {{podcast.title}}
             </a>
           {{/each}}
