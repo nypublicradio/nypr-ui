@@ -1,5 +1,4 @@
-
-$brand-stripe-background: #f1f1f1;
+$brand-stripe-background: #333333;
 $brand-stripe-button-color: #000;
 // Burger Menu Overrides
 $bm-transition-duration: 0.3s;
@@ -15,6 +14,87 @@ $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
   z-index: 500;
   transition: opacity 0.3s ease-in-out;
   background-color: #000;
+}
+
+.nypr-brand-header__logo-list {
+  align-items: center;
+  display: flex;
+  flex-basis: 100%;
+  flex-direction: row;
+	max-width: 870px;
+	justify-content: space-evenly;
+}
+
+.nypr-brand-header__logo-list svg {
+	display: flex;
+	fill: white;
+
+	&:hover {
+		opacity: 0.7;
+	}
+}
+
+.nypr-brand-header__logo-list a {
+  text-decoration: none;
+  border: none;
+
+  &:hover {
+    text-decoration: none;
+    border: none;
+  }
+}
+
+.nypr-brand-header__nypr-logo {
+	width: 85px;
+	height: 36px;
+}
+
+.nypr-brand-header__logo-wnyc-logo {
+  width: 64px;
+  height: 27px;
+}
+
+.nypr-brand-header__logo-wnyc-logo {
+  width: 64px;
+  height: 27px;
+}
+
+.nypr-brand-header__logo-gothamist-logo {
+  width: 40px;
+  height: 40px;
+}
+
+.nypr-brand-header__logo-wnyc-studios-logo {
+  width: 55px;
+  height: 30px;
+}
+
+.nypr-brand-header__logo-njpr-logo {
+  width: 77px;
+  height: 30px;
+}
+
+.nypr-brand-header__logo-wqxr-logo {
+  width: 85px;
+  height: 20px;
+}
+
+.nypr-brand-header__logo-new-sounds-logo {
+  width: 119px;
+  height: 15px;
+}
+
+.nypr-brand-header__logo-greene-space-logo {
+  width: 44px;
+  height: 35px;
+
+  .bump {
+    fill: white !important;
+  }
+}
+
+.nypr-brand-header__square-bracket-open, .nypr-brand-header__square-bracket-close {
+	opacity: 0.5;
 }
 
 .nypr-brand-header-overlay-bg.active {
@@ -51,6 +131,7 @@ $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
 
   @include mq($medium-and-up) {
     justify-content: flex-end;
+    height: 62px;
   }
 }
 
@@ -88,6 +169,10 @@ $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
 
 .nypr-brand-header-button.mod-network {
   // pointer-events: none;
+
+  @include mq($medium-and-up) {
+    display: none;
+  }
 }
 
 .nypr-brand-header-close {

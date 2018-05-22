@@ -14,5 +14,17 @@
   {{/burger.menu}}
 {{/burger-menu}}
 <header class="nypr-brand-header">
+  <div class="nypr-brand-header__logo-list">
+    <a href="http://www.nypublicradio.org" target="_blank">
+      {{nypr-svg icon="nypr-logo" className="nypr-brand-header__nypr-logo"}}
+    </a>
+    {{nypr-svg icon="square-bracket-open" className="nypr-brand-header__square-bracket-open"}}
+    {{#each menuItems as |item|}}
+			<a href={{item.url}} target="_blank">
+				{{nypr-svg icon=item.svg className=(concat 'nypr-brand-header__logo-' item.svg)}}
+			</a>
+    {{/each}}
+    {{nypr-svg icon="square-bracket-close" className="nypr-brand-header__square-bracket-close"}}
+  </div>
   <a class="nypr-brand-header-button mod-network" {{action (toggle "open" this)}}>NYPR Network{{nypr-svg className="nypr-brand-header-caret" icon="left-arrow"}}</a>
 </header>
