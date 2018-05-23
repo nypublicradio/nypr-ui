@@ -10,13 +10,13 @@ export default Component.extend({
 
   isBannerCookieSet: computed('closed', function() {
     let cookieService = this.get('cookies');
-    return cookieService.read('hasSeenBannerBanner');
+    return cookieService.read('hasSeenBanner');
   }),
 
   actions: {
     setBannerCookie() {
       let cookieService = this.get('cookies');
-      cookieService.write('hasSeenBannerBanner', true, {path: '/'});
+      cookieService.write('hasSeenBanner', true, {path: '/'});
       this.set('closed', true);
     },
   },
