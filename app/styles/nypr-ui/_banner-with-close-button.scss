@@ -8,6 +8,10 @@ $darker-white: darken(white, 30%);
   justify-content: center;
   align-items: center;
   position: relative;
+
+  @media screen and (max-width: 946px) {
+    height: 161px;
+  }
 }
 
 .banner-with-close-button__header-sentence {

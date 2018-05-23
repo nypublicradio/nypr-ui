@@ -8,15 +8,15 @@ export default Component.extend({
   cookies: service(),
   classNames: ['banner-with-close-button'],
 
-  isGdprCookieSet: computed('closed', function() {
+  isBannerCookieSet: computed('closed', function() {
     let cookieService = this.get('cookies');
-    return cookieService.read('hasSeenGdprBanner');
+    return cookieService.read('hasSeenBannerBanner');
   }),
 
   actions: {
-    setGdprCookie() {
+    setBannerCookie() {
       let cookieService = this.get('cookies');
-      cookieService.write('hasSeenGdprBanner', true, {path: '/'});
+      cookieService.write('hasSeenBannerBanner', true, {path: '/'});
       this.set('closed', true);
     },
   },
