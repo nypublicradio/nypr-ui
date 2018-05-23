@@ -1,6 +1,12 @@
 $white: white;
 $darker-white: darken(white, 30%);
 
+.banner-with-close-button {
+  position: sticky;
+  top: 0;
+  z-index: 10000000;
+}
+
 .banner-with-close-button__container {
   background-color: #434343;
   height: 131px;
