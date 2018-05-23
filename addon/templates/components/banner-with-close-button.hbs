@@ -3,7 +3,7 @@
     <div {{action "setBannerCookie"}} class="banner-with-close-button__close-button">
       {{nypr-svg icon="close"}}
     </div>
-    <p>
+    <p onclick={{action "elementClicked"}}>
       <span class="banner-with-close-button__header-sentence">{{headline}}</span>
       {{#if hasBlock}}
         {{yield}}

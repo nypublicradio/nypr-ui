@@ -19,5 +19,12 @@ export default Component.extend({
       cookieService.write('hasSeenBanner', true, {path: '/'});
       this.set('closed', true);
     },
+    elementClicked({target}) {
+      if (target.tagName.toLowerCase() === 'a') {
+        let cookieService = this.get('cookies');
+        cookieService.write('hasSeenBanner', true, {path: '/'});
+        this.set('closed', true);
+      }
+    }
   },
 });
