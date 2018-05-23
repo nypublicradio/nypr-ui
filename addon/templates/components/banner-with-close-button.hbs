@@ -1,5 +1,11 @@
-{{nypr-svg icon="close" className="banner-with-close-button__close-button"}}
-<p><span class="banner-with-close-button__header-sentence">We've Updated Our Terms</span> We have updated our Privacy Policy as of May 25, 2018; please review the
-  terms of our new policy <a href="https://www.nypublicradio.org/privacy/" target="_blank">here</a> and
-  <a href="https://nypublicradio.zendesk.com/hc/en-us">contact us</a> if you have any
-  questions.</p>
+{{#unless isGdprCookieSet}}
+  <div class="banner-with-close-button__container">
+    <div {{action "setGdprCookie"}} class="banner-with-close-button__close-button">
+      {{nypr-svg icon="close"}}
+    </div>
+    <p><span class="banner-with-close-button__header-sentence">We've Updated Our Terms</span> We have updated our Privacy Policy as of May 25, 2018; please review the
+      terms of our new policy <a href="https://www.nypublicradio.org/privacy/" target="_blank">here</a> and
+      <a href="https://nypublicradio.zendesk.com/hc/en-us">contact us</a> if you have any
+      questions.</p>
+  </div>
+{{/unless}}

@@ -1,7 +1,7 @@
 $white: white;
 $darker-white: darken(white, 30%);
 
-.banner-with-close-button {
+.banner-with-close-button__container {
   background-color: #434343;
   height: 131px;
   display: flex;
@@ -47,14 +47,17 @@ $darker-white: darken(white, 30%);
 
 .banner-with-close-button__close-button {
   cursor: pointer;
-  fill: $white;
   height: 17px;
   position: absolute;
   right: 15px;
   top: 15px;
   width: 17px;
 
-  &:hover {
-    fill: $darker-white;
+  svg {
+    fill: $white;
+
+    &:hover {
+      fill: $darker-white;
+    }
   }
 }
