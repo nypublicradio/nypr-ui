@@ -3,6 +3,7 @@
 var path = require('path');
 var Funnel = require('broccoli-funnel');
 var mergeTrees = require('broccoli-merge-trees');
+var map = require('broccoli-stew').map;
 
 module.exports = {
   name: 'nypr-ui',
@@ -37,6 +38,7 @@ module.exports = {
       ],
       destDir: 'third-party'
     });
+    waypointsTree = map(waypointsTree, content => `if (typeof FastBoot === 'undefined') { ${content} }`);
 
     var stickyTree = new Funnel(path.dirname(require.resolve('waypoints/lib/shortcuts/sticky.js')), {
       files: [
@@ -45,6 +47,7 @@ module.exports = {
       ],
       destDir: 'third-party'
     });
+    stickyTree = map(stickyTree, content => `if (typeof FastBoot === 'undefined') { ${content} }`);
 
     return mergeTrees([vendorTree, waypointsTree, stickyTree]);
 
