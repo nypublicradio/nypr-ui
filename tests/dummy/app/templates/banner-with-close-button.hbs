@@ -1,0 +1,19 @@
+{{outlet}}
+
+
+{{md-text html=true text="
+  # `banner-with-close-button`
+  This is a full width banner that displays text, and can be dismissed. When
+  closed, it sets a cookie to remember that the user has already seen the
+  banner.
+"}}
+
+{{! BEGIN-SNIPPET banner-with-close-button }}
+{{#banner-with-close-button headline="This is a banner headline"}}
+  This is an example of banner text. It is left aligns and has a max-width of
+  ~900px before it wraps to a second line. Don't dismiss this or you'll never
+  see it again (without wiping your cookies for this domain).
+{{/banner-with-close-button}}
+{{! END-SNIPPET banner-with-close-button }}
+
+{{code-snippet name="banner-with-close-button.hbs"}}

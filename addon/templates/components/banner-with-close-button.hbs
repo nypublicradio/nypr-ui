@@ -1,0 +1,13 @@
+{{#unless isBannerCookieSet}}
+  <div class="banner-with-close-button__container">
+    <div {{action "setBannerCookie"}} class="banner-with-close-button__close-button">
+      {{nypr-svg icon="close"}}
+    </div>
+    <p onclick={{action "elementClicked"}}>
+      <span class="banner-with-close-button__header-sentence">{{headline}}</span>
+      {{#if hasBlock}}
+        {{yield}}
+      {{/if}}
+    </p>
+  </div>
+{{/unless}}

@@ -16,6 +16,7 @@ Router.map(function() {
   this.route('svg');
   this.route('brand-header');
   this.route('support-stripe');
+  this.route('banner-with-close-button');
 });
 
 export default Router;

@@ -1,0 +1,1 @@
+export { default } from 'nypr-ui/components/banner-with-close-button';
