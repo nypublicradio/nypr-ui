@@ -1,5 +1,8 @@
 # nypr-ui Changelog
 
+## 0.2.13
+- [ENHANCEMENT] add banner-with-close button component
+
 ## 0.2.12
 - [CHORE] add analytics bindinds to nypr-ui/button/red
 
