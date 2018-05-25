@@ -16,13 +16,17 @@ export default Component.extend({
   actions: {
     setBannerCookie() {
       let cookieService = this.get('cookies');
-      cookieService.write('hasSeenBanner', true, {path: '/'});
+      let future = new Date();
+      future.setDate(future.getDate() + 30);
+      cookieService.write('hasSeenBanner', true, {path: '/', expires: future});
       this.set('closed', true);
     },
     elementClicked({target}) {
       if (target.tagName.toLowerCase() === 'a') {
         let cookieService = this.get('cookies');
-        cookieService.write('hasSeenBanner', true, {path: '/'});
+        let future = new Date();
+        future.setDate(future.getDate() + 30);
+        cookieService.write('hasSeenBanner', true, {path: '/', expires: future});
         this.set('closed', true);
       }
     }
