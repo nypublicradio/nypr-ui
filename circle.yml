@@ -65,7 +65,7 @@ jobs:
 
   test_wnyc:
     docker:
-      - images: circleci/node:8.7-browsers
+      - image: circleci/node:8.7-browsers
         environment:
           JOBS: 2
 
@@ -123,7 +123,7 @@ jobs:
 
   test_wqxr:
     docker:
-      - images: circleci/node:8.7-browsers
+      - image: circleci/node:8.7-browsers
         environment:
           JOBS: 2
 
@@ -180,7 +180,7 @@ jobs:
 
   test_new_sounds:
     docker:
-      - images: circleci/node:8.7-browsers
+      - image: circleci/node:8.7-browsers
         environment:
           JOBS: 2
 
@@ -223,7 +223,7 @@ jobs:
   test_wnyc_studios:
     parallelism: 4
     docker:
-      - images: circleci/node:8.7-browsers
+      - image: circleci/node:8.7-browsers
         environment:
           JOBS: 2
 
