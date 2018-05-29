@@ -212,8 +212,8 @@ jobs:
           paths:
             - node_modules
 
-        - run:
-            name: link and test
+      - run:
+          name: link and test
           environment:
             CIRCLE_TEST_REPORTS: new-sounds-test-results
           command: |
