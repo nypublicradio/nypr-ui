@@ -71,6 +71,11 @@ jobs:
     working_directory: /home/circleci
     steps:
       - run:
+          name: Keyscan Github
+          command: |
+            mkdir ~/.ssh
+            ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+      - run:
           name: clone clients
           command: |
             for client in wnyc wqxr new-sounds wnyc-studios; do
