@@ -71,7 +71,7 @@ jobs:
       - run:
           name: Keyscan Github
           command: |
-            md ~/.ssh
+            mkdir ~/.ssh
             ssh-keyscan -H github.com >> ~/.ssh/known_hosts
       - run:
           name: clone clients
