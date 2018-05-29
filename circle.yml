@@ -101,7 +101,7 @@ jobs:
           key: bower-deps-{{ checksum "bower.json" }}
 
       - attach_workspace:
-          at: ~/wnyc-web-client
+          at: $HOME
 
       - restore_cache:
           key: bower-deps-{{ checksum "~/wnyc-web-client/bower.json" }}
