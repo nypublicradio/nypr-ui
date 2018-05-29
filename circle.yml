@@ -69,9 +69,6 @@ jobs:
     working_directory: ~
     steps:
       - run:
-          name: Keyscan Github
-          command: ssh-keyscan -H github.com >> ~/.ssh/known_hosts
-      - run:
           name: clone clients
           command: |
             for client in wnyc wqxr new-sounds wnyc-studios; do
