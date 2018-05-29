@@ -88,6 +88,7 @@ jobs:
             - wqxr-web-client
             - new-sounds-web-client
             - wnyc-studios-web-client
+            - nypr-ui
 
   test_wnyc:
     working_directory: /home/circleci/wnyc-web-client
@@ -100,17 +101,16 @@ jobs:
           JOBS: 2
 
     steps:
-      - checkout
-      - restore_cache:
-          key: nypr-ui-yarn-deps-{{ arch }}-{{ checksum "/home/circleci/nypr-ui/yarn.lock" }}
-      - restore_cache:
-          key: nypr-ui-bower-deps-{{ checksum "/home/circleci/nypr-ui/bower.json" }}
+      - attach_workspace:
+          at: /home/circleci
+
+#      - restore_cache:
+#          key: nypr-ui-yarn-deps-{{ arch }}-{{ checksum "/home/circleci/nypr-ui/yarn.lock" }}
+#      - restore_cache:
+#          key: nypr-ui-bower-deps-{{ checksum "/home/circleci/nypr-ui/bower.json" }}
       - run:
           name: make global symlink
           command: cd /home/circleci/nypr-ui && yarn link
-
-      - attach_workspace:
-          at: /home/circleci
 
       - restore_cache:
           key: bower-deps-{{ checksum "bower.json" }}
