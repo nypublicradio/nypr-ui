@@ -184,12 +184,19 @@ $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
 }
 
 .nypr-brand-header-close {
-  white-space: nowrap;
-  height: auto;
   align-items: center;
-  justify-content: flex-end;
+  border-bottom: 0;
   font-weight: normal;
-  border-bottom: 1px solid #ccc;
+  height: auto;
+  justify-content: flex-end;
+  transition: none;
+  white-space: nowrap;
+
+  &:hover {
+    text-decoration: none;
+    border-bottom: 0;
+    opacity: 0.8;
+  }
 }
 
 .nypr-brand-header-close-icon {
@@ -206,6 +213,7 @@ $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
 }
 
 .nypr-brand-header-menu-items {
+  border-top: 1px solid #ccc;
   list-style-type: none;
   margin: 0;
   padding: 0;
