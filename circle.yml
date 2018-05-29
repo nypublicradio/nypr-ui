@@ -63,6 +63,25 @@ jobs:
       - store_test_results:
           path: test-results/
 
+  setup_test_clients:
+    docker:
+      - image: circleci/buildpack-deps:jessie
+    working_directory: ~
+    steps:
+      - run:
+          name: clone clients
+          command: |
+            for client in "wnyc wqxr new-sounds wnyc-studios"; do
+              git clone git@github.com:nypublicradio/$client-web-client
+            done
+      - persist_to_workspace:
+          root: .
+          paths:
+            - wnyc-web-client
+            - wqxr-web-client
+            - new-sounds-web-client
+            - wnyc-studios-web-client
+
   test_wnyc:
     docker:
       - image: circleci/node:8.7-browsers
@@ -81,10 +100,8 @@ jobs:
       - restore_cache:
           key: bower-deps-{{ checksum "bower.json" }}
 
-      - run:
-          name: clone wnyc
-          working_directory: ~
-          command: git clone git@github.com:nypublicradio/wnyc-web-client
+      - attach_workspace:
+          at: ~
 
       - restore_cache:
           key: bower-deps-{{ checksum "~/wnyc-web-client/bower.json" }}
@@ -315,27 +332,33 @@ workflows:
       - test:
           requires:
             - install
-      - test_wnyc:
+      - setup_test_clients:
           requires:
             - install
+          filters:
+            branches:
+              only: qa-build
+      - test_wnyc:
+          requires:
+            - setup_test_clients
           filters:
             branches:
               only: qa-build
       - test_wqxr:
           requires:
-            - install
+            - setup_test_clients
           filters:
             branches:
               only: qa-build
       - test_wnyc_studios:
           requires:
-            - install
+            - setup_test_clients
           filters:
             branches:
               only: qa-build
       - test_new_sounds:
           requires:
-            - install
+            - setup_test_clients
           filters:
             branches:
               only: qa-build
