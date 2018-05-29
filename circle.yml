@@ -22,13 +22,14 @@ jobs:
           key: bower-deps-{{ checksum "bower.json" }}
       - run:
           name: Install bower dependencies
-          command: |
-            yarn global add bower
-            npx bower i
+          command: npx bower i
       - save_cache:
           key: bower-deps-{{ checksum "bower.json" }}
           paths:
             - ./bower_components
+      - run:
+          name: make global symlink
+          command: yarn link
 
   test:
     docker:
@@ -62,6 +63,215 @@ jobs:
       - store_test_results:
           path: test-results/
 
+  test_wnyc:
+    docker:
+      - images: circleci/node:8.7-browsers
+        environment:
+          JOBS: 2
+
+    steps:
+      - checkout
+      - store_test_results:
+          path: wnyc-test-results/
+      - restore_cache:
+          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
+      - restore_cache:
+          key: bower-deps-{{ checksum "bower.json" }}
+
+      - run:
+          name: clone wnyc
+          command: |
+            cd ~
+            git clone git@github.com:nypublicradio/wnyc-web-client
+            cd ~/wnyc-web-client
+
+      - restore_cache:
+          key: bower-deps-{{ checksum "bower.json" }}
+      - run:
+          name: wnyc bower deps
+          command: npx bower i
+      - save_cache:
+          key: bower-deps-{{ checksum "bower.json" }}
+          paths:
+            - bower_components
+
+      - restore_cache:
+          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
+      - run:
+          name: wnyc node deps
+          command: |
+            if [ ! -d ./node_modules ]; then
+              yarn --pure-lockfile
+            fi
+      - save_cache:
+          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+
+      - run:
+          name: Build modernizr
+          command: npx grunt modernizr:dist
+
+      - run:
+          name: link and test
+          environment:
+            CIRCLE_TEST_REPORTS: wnyc-test-results
+          command: |
+            yarn link nypr-ui
+            npx ember test
+
+
+  test_wqxr:
+    docker:
+      - images: circleci/node:8.7-browsers
+        environment:
+          JOBS: 2
+
+    steps:
+      - checkout
+      - store_test_results:
+          path: wqxr-test-results/
+      - restore_cache:
+          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
+      - restore_cache:
+          key: bower-deps-{{ checksum "bower.json" }}
+
+      - run:
+          name: clone wqxr
+          command: |
+            cd ~
+            git clone git@github.com:nypublicradio/wqxr-web-client
+            cd ~/wqxr-web-client
+
+      - restore_cache:
+          key: bower-deps-{{ checksum "bower.json" }}
+      - run:
+          name: wqxr bower deps
+          command: npx bower i
+      - save_cache:
+          key: bower-deps-{{ checksum "bower.json" }}
+          paths:
+            - bower_components
+
+      - restore_cache:
+          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
+      - run:
+          name: wqxr node deps
+          command: |
+            if [ ! -d ./node_modules ]; then
+              yarn --pure-lockfile
+            fi
+      - save_cache:
+          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+
+      - run:
+          name: Build modernizr
+          command: npx grunt modernizr:dist
+
+      - run:
+          name: link and test
+          environment:
+            CIRCLE_TEST_REPORTS: wqxr-test-results
+          command: |
+            yarn link nypr-ui
+            npx ember test
+
+  test_new_sounds:
+    docker:
+      - images: circleci/node:8.7-browsers
+        environment:
+          JOBS: 2
+
+    steps:
+      - checkout
+      - store_test_results:
+          path: new-sounds-test-results/
+      - restore_cache:
+          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
+      - restore_cache:
+          key: bower-deps-{{ checksum "bower.json" }}
+      - run:
+          name: clone new sounds
+          command: |
+            cd ~
+            git clone git@github.com:nypublicradio/new-sounds-web-client
+            cd ~/new-sounds-web-client
+
+      - restore_cache:
+          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
+      - run:
+          name: new sounds node deps
+          command: |
+            if [ ! -d ./node_modules ]; then
+              yarn --pure-lockfile
+            fi
+      - save_cache:
+          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+
+        - run:
+            name: link and test
+          environment:
+            CIRCLE_TEST_REPORTS: new-sounds-test-results
+          command: |
+            yarn link nypr-ui
+            npx ember test
+
+  test_wnyc_studios:
+    parallelism: 4
+    docker:
+      - images: circleci/node:8.7-browsers
+        environment:
+          JOBS: 2
+
+    steps:
+      - checkout
+      - store_test_results:
+          path: wnyc-studios-test-results/
+      - restore_cache:
+          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
+      - restore_cache:
+          key: bower-deps-{{ checksum "bower.json" }}
+
+      - run:
+          name: clone wnyc studios
+          command: |
+            cd ~
+            git clone git@github.com:nypublicradio/wnyc-studios-web-client
+            cd ~/wnyc-studios-web-client
+
+      - restore_cache:
+          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
+      - run:
+          name: wqxr node deps
+          command: |
+            if [ ! -d ./node_modules ]; then
+              yarn --pure-lockfile
+            fi
+      - save_cache:
+          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+
+      - run:
+          name: Build modernizr
+          command: npx grunt modernizr:dist
+
+      - run:
+          name: link and test
+          environment:
+            CIRCLE_TEST_REPORTS: wnyc-studios-test-results
+          command: |
+            yarn link nypr-ui
+            npx ember exam --split=$CIRCLE_NODE_TOTAL --partition=$(($CIRCLE_NODE_INDEX + 1))
+            sudo apt-get install libgconf-2-4
+            cp .env.sample .env
+            yarn run cy:ci:test
+
+
   deploy:
     docker:
       - image: circleci/node:8.7
@@ -91,9 +301,37 @@ workflows:
       - test:
           requires:
             - install
+      - test_wnyc:
+          requires:
+            - install
+          filters:
+            branches:
+              only: qa-build
+      - test_wqxr:
+          requires:
+            - install
+          filters:
+            branches:
+              only: qa-build
+      - test_wnyc_studios:
+          requires:
+            - install
+          filters:
+            branches:
+              only: qa-build
+      - test_new_sounds:
+          requires:
+            - install
+          filters:
+            branches:
+              only: qa-build
       - deploy:
           requires:
             - test
+            - test_wnyc
+            - test_wqxr
+            - test_wnyc_studios
+            - test_new_sounds
           filters:
             branches:
               only: master
