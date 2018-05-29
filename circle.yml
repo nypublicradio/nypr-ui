@@ -93,6 +93,7 @@ jobs:
         environment:
           JOBS: 2
 
+    working_directory: ~
     steps:
       - checkout
       - restore_cache:
@@ -101,7 +102,7 @@ jobs:
           key: bower-deps-{{ checksum "bower.json" }}
 
       - attach_workspace:
-          at: $HOME
+          at: .
 
       - restore_cache:
           key: bower-deps-{{ checksum "~/wnyc-web-client/bower.json" }}
