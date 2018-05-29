@@ -6,9 +6,9 @@
     </a>
     <ul class="nypr-brand-header-menu-items">
       {{#each menuItems as |item|}}
-        {{#menu.item}}
-          <a href="{{item.url}}">{{item.name}}</a>
-        {{/menu.item}}
+        <a href={{item.url}} target="_blank">
+          {{nypr-svg icon=item.svg className=(concat 'nypr-brand-header__logo-' item.svg)}}
+        </a>
       {{/each}}
     </ul>
   {{/burger.menu}}
