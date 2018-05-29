@@ -2,7 +2,7 @@ version: 2
 
 jobs:
   install:
-    >>: *defaults
+    <<: *defaults
     working_directory: /home/circleci/nypr-ui
     steps:
       - checkout
@@ -36,7 +36,7 @@ jobs:
             - nypr-ui
 
   test:
-    >>: *defaults
+    <<: *defaults
     working_directory: /home/circleci/nypr-ui
 
     steps:
@@ -91,66 +91,66 @@ jobs:
             - wnyc-studios-web-client
 
   test_wnyc:
-    >>: *defaults
+    <<: *defaults
     working_directory: /home/circleci/wnyc-web-client
     environment:
       CIRCLE_TEST_REPORTS: wnyc-test-results
 
     steps:
-      >>: *link_nypr_ui
-      >>: *client_install_node
-      >>: *client_install_bower
-      >>: *client_build_modernizr
+      <<: *link_nypr_ui
+      <<: *client_install_node
+      <<: *client_install_bower
+      <<: *client_build_modernizr
 
-      >>: *client_test_steps
+      <<: *client_test_steps
 
       - store_test_results:
           path: wnyc-test-results/
 
 
   test_wqxr:
-    >>: *defaults
+    <<: *defaults
     working_directory: /home/circleci/wqxr-web-client
     environment:
       CIRCLE_TEST_REPORTS: wqxr-test-results
 
     steps:
-      >>: *link_nypr_ui
-      >>: *client_install_node
-      >>: *client_install_bower
-      >>: *client_build_modernizr
+      <<: *link_nypr_ui
+      <<: *client_install_node
+      <<: *client_install_bower
+      <<: *client_build_modernizr
 
-      >>: *client_test_steps
+      <<: *client_test_steps
 
       - store_test_results:
           path: wqxr-test-results/
 
   test_new_sounds:
-    >>: *defaults
+    <<: *defaults
     working_directory: /home/circleci/new-sounds-web-client
     environment:
       CIRCLE_TEST_REPORTS: new-sounds-test-results
 
     steps:
-      >>: *link_nypr_ui
-      >>: *client_install_node
+      <<: *link_nypr_ui
+      <<: *client_install_node
 
-      >>: *client_test_steps
+      <<: *client_test_steps
 
       - store_test_results:
           path: new-sounds-test-results/
 
   test_wnyc_studios_ember:
-    >>: *defaults
+    <<: *defaults
     parallelism: 4
     working_directory: /home/circleci/wnyc-studios-web-client
     environment:
       CIRCLE_TEST_REPORTS: wnyc-studios-test-results
 
     steps:
-      >>: *link_nypr_ui
-      >>: *client_install_node
-      >>: *client_build_modernizr
+      <<: *link_nypr_ui
+      <<: *client_install_node
+      <<: *client_build_modernizr
 
       - run: |
           cp .env.sample .env
@@ -160,16 +160,16 @@ jobs:
           path: wnyc-studios-test-results/
 
   test_wnyc_studios_cypress:
-    >>: *defaults
+    <<: *defaults
     parallelism: 4
     working_directory: /home/circleci/wnyc-studios-web-client
     environment:
       CIRCLE_TEST_REPORTS: wnyc-studios-test-results
 
     steps:
-      >>: *link_nypr_ui
-      >>: *client_install_node
-      >>: *client_build_modernizr
+      <<: *link_nypr_ui
+      <<: *client_install_node
+      <<: *client_build_modernizr
 
       - run: |
           cp .env.sample .env
@@ -181,7 +181,7 @@ jobs:
 
 
   deploy:
-    >>: *defaults
+    <<: *defaults
     working_directory: /home/circleci/nypr-ui
     steps:
       - attach_workspace:
@@ -249,20 +249,20 @@ workflows:
             branches:
               only: master
 
-&container_defaults: *defaults
+container_defaults: &defaults
   docker:
     - image: circleci/node:8.7-browsers
       environment:
         JOBS: 2
 
-&link_nypr_ui: *link_nypr_ui
+link_nypr_ui: &link_nypr_ui
   - attach_workspace:
       at: /home/circleci
   - run:
       name: make global symlink
       command: cd /home/circleci/nypr-ui && yarn link
 
-&client_install_node: *client_install_node
+client_install_node: &client_install_node
   - restore_cache:
       key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
   - run:
@@ -276,7 +276,7 @@ workflows:
       paths:
         - node_modules
 
-&client_install_bower: *client_install_bower
+client_install_bower: &client_install_bower
   - restore_cache:
       key: bower-deps-{{ checksum "bower.json" }}
   - run:
@@ -287,12 +287,12 @@ workflows:
       paths:
         - bower_components
 
-&client_build_modernizr: *client_build_modernizr
+client_build_modernizr: &client_build_modernizr
   - run:
       name: Build modernizr
       command: npx grunt modernizr:dist
 
-&client_test_steps: *client_test_steps
+client_test_steps: &client_test_steps
   - run:
       name: link and test
       environment:
