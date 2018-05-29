@@ -83,40 +83,42 @@ jobs:
 
       - run:
           name: clone wnyc
-          command: |
-            cd ~
-            git clone git@github.com:nypublicradio/wnyc-web-client
-            cd ~/wnyc-web-client
+          working_directory: ~
+          command: git clone git@github.com:nypublicradio/wnyc-web-client
 
       - restore_cache:
-          key: bower-deps-{{ checksum "bower.json" }}
+          key: bower-deps-{{ checksum "~/wnyc-web-client/bower.json" }}
       - run:
           name: wnyc bower deps
+          working_directory: ~/wnyc-web-client
           command: npx bower i
       - save_cache:
-          key: bower-deps-{{ checksum "bower.json" }}
+          key: bower-deps-{{ checksum "~/wnyc-web-client/bower.json" }}
           paths:
             - bower_components
 
       - restore_cache:
-          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
+          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "~/wnyc-web-client/yarn.lock" }}
       - run:
           name: wnyc node deps
+          working_directory: ~/wnyc-web-client
           command: |
             if [ ! -d ./node_modules ]; then
               yarn --pure-lockfile
             fi
       - save_cache:
-          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
+          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "~/wnyc-web-client/yarn.lock" }}
           paths:
-            - node_modules
+            - ~/wnyc-web-client/node_modules
 
       - run:
           name: Build modernizr
           command: npx grunt modernizr:dist
+          working_directory: ~/wnyc-web-client
 
       - run:
           name: link and test
+          working_directory: ~/wnyc-web-client
           environment:
             CIRCLE_TEST_REPORTS: wnyc-test-results
           command: |
