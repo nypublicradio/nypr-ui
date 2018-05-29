@@ -95,8 +95,6 @@ jobs:
 
     steps:
       - checkout
-      - store_test_results:
-          path: wnyc-test-results/
       - restore_cache:
           key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
       - restore_cache:
@@ -143,6 +141,8 @@ jobs:
           command: |
             yarn link nypr-ui
             npx ember test
+      - store_test_results:
+          path: wnyc-test-results/
 
 
   test_wqxr:
