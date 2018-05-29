@@ -72,6 +72,9 @@ jobs:
           fingerprints:
             - "46:1b:e7:bf:91:16:06:e2:79:99:fd:3d:00:c1:28:0a"
       - run:
+          name: Keyscan Github
+          command: ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+      - run:
           name: clone clients
           command: |
             for client in wnyc wqxr new-sounds wnyc-studios; do
