@@ -2,10 +2,12 @@ version: 2
 
 jobs:
   install:
+    working_directory: /home/circleci/nypr-ui
     docker:
       - image: circleci/node:8.7
     steps:
       - checkout
+
       - restore_cache:
           key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
       - run:
@@ -18,6 +20,7 @@ jobs:
           key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
+
       - restore_cache:
           key: bower-deps-{{ checksum "bower.json" }}
       - run:
@@ -29,10 +32,11 @@ jobs:
             - ./bower_components
 
   test:
+    working_directory: /home/circleci/nypr-ui
+    environment:
+      JOBS: 2
     docker:
       - image: circleci/node:8.7-browsers
-        environment:
-          JOBS: 2
 
     steps:
       - checkout
@@ -63,7 +67,7 @@ jobs:
   setup_test_clients:
     docker:
       - image: circleci/buildpack-deps:jessie
-    working_directory: ~
+    working_directory: /home/circleci
     steps:
       - run:
           name: Keyscan Github
@@ -85,17 +89,22 @@ jobs:
             - wnyc-studios-web-client
 
   test_wnyc:
+    working_directory: /home/circleci/wnyc-web-client
+    environment:
+      CIRCLE_TEST_REPORTS: wnyc-test-results
+
     docker:
       - image: circleci/node:8.7-browsers
         environment:
           JOBS: 2
+          ADDON_DIR: /home/circleci/nypr-ui
 
     steps:
       - checkout
       - restore_cache:
-          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
+          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "$ADDON_DIR/yarn.lock" }}
       - restore_cache:
-          key: bower-deps-{{ checksum "bower.json" }}
+          key: bower-deps-{{ checksum "$ADDON_DIR/bower.json" }}
       - run:
           name: make global symlink
           command: yarn link
@@ -104,43 +113,39 @@ jobs:
           at: /home/circleci
 
       - restore_cache:
-          key: bower-deps-{{ checksum "~/wnyc-web-client/bower.json" }}
+          key: bower-deps-{{ checksum "bower.json" }}
       - run:
-          name: wnyc bower deps
-          working_directory: ~/wnyc-web-client
+          name: bower deps
           command: npx bower i
       - save_cache:
-          key: bower-deps-{{ checksum "~/wnyc-web-client/bower.json" }}
+          key: bower-deps-{{ checksum "bower.json" }}
           paths:
             - bower_components
 
       - restore_cache:
-          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "~/wnyc-web-client/yarn.lock" }}
+          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
       - run:
-          name: wnyc node deps
-          working_directory: ~/wnyc-web-client
+          name: node deps
           command: |
             if [ ! -d ./node_modules ]; then
               yarn --pure-lockfile
             fi
       - save_cache:
-          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "~/wnyc-web-client/yarn.lock" }}
+          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
           paths:
-            - ~/wnyc-web-client/node_modules
+            - node_modules
 
       - run:
           name: Build modernizr
           command: npx grunt modernizr:dist
-          working_directory: ~/wnyc-web-client
 
       - run:
           name: link and test
-          working_directory: ~/wnyc-web-client
           environment:
-            CIRCLE_TEST_REPORTS: wnyc-test-results
           command: |
             yarn link nypr-ui
             npx ember test
+
       - store_test_results:
           path: wnyc-test-results/
 
@@ -306,10 +311,11 @@ jobs:
 
 
   deploy:
+    working_directory: /home/circleci/nypr-ui
+    environment:
+      JOBS: 2
     docker:
       - image: circleci/node:8.7
-        environment:
-          JOBS: 2
     steps:
       - checkout
       - restore_cache:
