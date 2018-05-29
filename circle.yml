@@ -9,27 +9,27 @@ jobs:
       - checkout
 
       - restore_cache:
-          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
+          key: nypr-ui-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
       - run:
           name: Install node dependencies
           command: |
-            if [ ! -d ./node_modules ]; then
+            if [ ! -d node_modules ]; then
               yarn --pure-lockfile
             fi
       - save_cache:
-          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
+          key: nypr-ui-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
           paths:
-            - ./node_modules
+            - node_modules
 
       - restore_cache:
-          key: bower-deps-{{ checksum "bower.json" }}
+          key: nypr-ui-bower-deps-{{ checksum "bower.json" }}
       - run:
           name: Install bower dependencies
           command: npx bower i
       - save_cache:
-          key: bower-deps-{{ checksum "bower.json" }}
+          key: nypr-ui-bower-deps-{{ checksum "bower.json" }}
           paths:
-            - ./bower_components
+            - bower_components
 
   test:
     working_directory: /home/circleci/nypr-ui
@@ -41,9 +41,10 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
+          key: nypr-ui-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
       - restore_cache:
-          key: bower-deps-{{ checksum "bower.json" }}
+          key: nypr-ui-bower-deps-{{ checksum "bower.json" }}
+
       - run:
           name: greenkeeper-lockfile
           command: yarn global add greenkeeper-lockfile@1
@@ -70,11 +71,6 @@ jobs:
     working_directory: /home/circleci
     steps:
       - run:
-          name: Keyscan Github
-          command: |
-            mkdir ~/.ssh
-            ssh-keyscan -H github.com >> ~/.ssh/known_hosts
-      - run:
           name: clone clients
           command: |
             for client in wnyc wqxr new-sounds wnyc-studios; do
@@ -97,17 +93,16 @@ jobs:
       - image: circleci/node:8.7-browsers
         environment:
           JOBS: 2
-          ADDON_DIR: /home/circleci/nypr-ui
 
     steps:
       - checkout
       - restore_cache:
-          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "$ADDON_DIR/yarn.lock" }}
+          key: nypr-ui-yarn-deps-{{ arch }}-{{ checksum "/home/circleci/nypr-ui/yarn.lock" }}
       - restore_cache:
-          key: bower-deps-{{ checksum "$ADDON_DIR/bower.json" }}
+          key: nypr-ui-bower-deps-{{ checksum "/home/circleci/nypr-ui/bower.json" }}
       - run:
           name: make global symlink
-          command: yarn link
+          command: cd /home/circleci/nypr-ui && yarn link
 
       - attach_workspace:
           at: /home/circleci
@@ -127,7 +122,7 @@ jobs:
       - run:
           name: node deps
           command: |
-            if [ ! -d ./node_modules ]; then
+            if [ ! -d node_modules ]; then
               yarn --pure-lockfile
             fi
       - save_cache:
@@ -319,9 +314,9 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
+          key: nypr-ui-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
       - restore_cache:
-          key: bower-deps-{{ checksum "bower.json" }}
+          key: nypr-ui-bower-deps-{{ checksum "bower.json" }}
       - add_ssh_keys:
           fingerprints:
             - "46:1b:e7:bf:91:16:06:e2:79:99:fd:3d:00:c1:28:0a"
