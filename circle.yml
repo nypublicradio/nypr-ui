@@ -148,12 +148,12 @@ jobs:
       CIRCLE_TEST_REPORTS: wnyc-test-results
 
     steps:
-      <<: *link_nypr_ui
-      <<: *client_install_node
-      <<: *client_install_bower
-      <<: *client_build_modernizr
+      - <<: *link_nypr_ui
+      - <<: *client_install_node
+      - <<: *client_install_bower
+      - <<: *client_build_modernizr
 
-      <<: *client_test_steps
+      - <<: *client_test_steps
 
       - store_test_results:
           path: wnyc-test-results/
@@ -166,12 +166,12 @@ jobs:
       CIRCLE_TEST_REPORTS: wqxr-test-results
 
     steps:
-      <<: *link_nypr_ui
-      <<: *client_install_node
-      <<: *client_install_bower
-      <<: *client_build_modernizr
+      - <<: *link_nypr_ui
+      - <<: *client_install_node
+      - <<: *client_install_bower
+      - <<: *client_build_modernizr
 
-      <<: *client_test_steps
+      - <<: *client_test_steps
 
       - store_test_results:
           path: wqxr-test-results/
@@ -183,10 +183,10 @@ jobs:
       CIRCLE_TEST_REPORTS: new-sounds-test-results
 
     steps:
-      <<: *link_nypr_ui
-      <<: *client_install_node
+      - <<: *link_nypr_ui
+      - <<: *client_install_node
 
-      <<: *client_test_steps
+      - <<: *client_test_steps
 
       - store_test_results:
           path: new-sounds-test-results/
@@ -199,9 +199,9 @@ jobs:
       CIRCLE_TEST_REPORTS: wnyc-studios-test-results
 
     steps:
-      <<: *link_nypr_ui
-      <<: *client_install_node
-      <<: *client_build_modernizr
+      - <<: *link_nypr_ui
+      - <<: *client_install_node
+      - <<: *client_build_modernizr
 
       - run: |
           cp .env.sample .env
@@ -218,9 +218,9 @@ jobs:
       CIRCLE_TEST_REPORTS: wnyc-studios-test-results
 
     steps:
-      <<: *link_nypr_ui
-      <<: *client_install_node
-      <<: *client_build_modernizr
+      - <<: *link_nypr_ui
+      - <<: *client_install_node
+      - <<: *client_build_modernizr
 
       - run: |
           cp .env.sample .env
