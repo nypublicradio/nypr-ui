@@ -219,7 +219,13 @@ workflows:
           filters:
             branches:
               only: qa-build
-      - test_wnyc_studios:
+      - test_wnyc_studios_ember:
+          requires:
+            - setup_test_clients
+          filters:
+            branches:
+              only: qa-build
+      - test_wnyc_studios_cypress:
           requires:
             - setup_test_clients
           filters:
@@ -236,7 +242,8 @@ workflows:
             - test
             - test_wnyc
             - test_wqxr
-            - test_wnyc_studios
+            - test_wnyc_studios_ember
+            - test_wnyc_studios_cypress
             - test_new_sounds
           filters:
             branches:
