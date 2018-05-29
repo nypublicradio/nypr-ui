@@ -31,6 +31,11 @@ jobs:
           paths:
             - bower_components
 
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+
   test:
     working_directory: /home/circleci/nypr-ui
     environment:
@@ -88,7 +93,6 @@ jobs:
             - wqxr-web-client
             - new-sounds-web-client
             - wnyc-studios-web-client
-            - nypr-ui
 
   test_wnyc:
     working_directory: /home/circleci/wnyc-web-client
