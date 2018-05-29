@@ -71,7 +71,7 @@ jobs:
       - run:
           name: clone clients
           command: |
-            for client in "wnyc wqxr new-sounds wnyc-studios"; do
+            for client in wnyc wqxr new-sounds wnyc-studios; do
               git clone git@github.com:nypublicradio/$client-web-client
             done
       - persist_to_workspace:
