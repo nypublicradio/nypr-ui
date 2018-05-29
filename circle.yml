@@ -71,6 +71,9 @@ jobs:
 
     steps:
       - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "46:1b:e7:bf:91:16:06:e2:79:99:fd:3d:00:c1:28:0a"
       - store_test_results:
           path: wnyc-test-results/
       - restore_cache:
@@ -129,6 +132,9 @@ jobs:
 
     steps:
       - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "46:1b:e7:bf:91:16:06:e2:79:99:fd:3d:00:c1:28:0a"
       - store_test_results:
           path: wqxr-test-results/
       - restore_cache:
@@ -186,6 +192,9 @@ jobs:
 
     steps:
       - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "46:1b:e7:bf:91:16:06:e2:79:99:fd:3d:00:c1:28:0a"
       - store_test_results:
           path: new-sounds-test-results/
       - restore_cache:
@@ -229,6 +238,9 @@ jobs:
 
     steps:
       - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "46:1b:e7:bf:91:16:06:e2:79:99:fd:3d:00:c1:28:0a"
       - store_test_results:
           path: wnyc-studios-test-results/
       - restore_cache:
