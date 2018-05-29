@@ -32,9 +32,9 @@ jobs:
             - bower_components
 
       - persist_to_workspace:
-          root: .
+          root: /home/circleci
           paths:
-            - .
+            - nypr-ui
 
   test:
     working_directory: /home/circleci/nypr-ui
