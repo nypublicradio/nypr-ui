@@ -70,6 +70,7 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
+            - "c5:68:42:20:05:ba:99:2f:9f:07:22:46:30:71:ca:a1" # for studios
             - "8b:44:88:9d:98:b1:2e:01:c9:95:40:1d:3e:45:ed:42" # for new sounds
       - run:
           name: Keyscan Github
