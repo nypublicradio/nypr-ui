@@ -1,5 +1,11 @@
 version: 2
 
+container_defaults: &defaults
+  docker:
+    - image: circleci/node:8.7-browsers
+      environment:
+        JOBS: 2
+
 jobs:
   install:
     <<: *defaults
@@ -373,9 +379,3 @@ workflows:
           filters:
             branches:
               only: master
-
-container_defaults: &defaults
-  docker:
-    - image: circleci/node:8.7-browsers
-      environment:
-        JOBS: 2
