@@ -27,9 +27,6 @@ jobs:
           key: bower-deps-{{ checksum "bower.json" }}
           paths:
             - ./bower_components
-      - run:
-          name: make global symlink
-          command: yarn link
 
   test:
     docker:
@@ -99,6 +96,9 @@ jobs:
           key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
       - restore_cache:
           key: bower-deps-{{ checksum "bower.json" }}
+      - run:
+          name: make global symlink
+          command: yarn link
 
       - attach_workspace:
           at: /home/circleci
