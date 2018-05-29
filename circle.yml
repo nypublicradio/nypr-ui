@@ -53,7 +53,10 @@ client_test_steps: &client_test_steps
 
 jobs:
   install:
-    <<: *defaults
+    docker:
+      - image: circleci/node:8.7-browsers
+        environment:
+          JOBS: 2
     working_directory: /home/circleci/nypr-ui
     steps:
       - checkout
