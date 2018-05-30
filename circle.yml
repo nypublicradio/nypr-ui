@@ -94,11 +94,13 @@ jobs:
       - <<: *restore_node
       - <<: *restore_bower
 
-      - run: |
-          sudo yarn global add greenkeeper-lockfile@1
-          greenkeeper-lockfile-update
-          npx ember test
-          greenkeeper-lockfile-upload
+      - run:
+          name: Run addon tests
+          command: |
+            sudo yarn global add greenkeeper-lockfile@1
+            greenkeeper-lockfile-update
+            npx ember test
+            greenkeeper-lockfile-upload
 
       - store_test_results:
           path: test-results/
