@@ -27,7 +27,7 @@ export default Component.extend({
       },
       {
         name: 'NJPR',
-        url: `http://www.njpublicradio.org?utm_medium=partnersite&utm_campaign=brandheader&utm_source=${config.siteSlug}`,
+        url: `http://www.njpublicradio.org`,
         svg: 'njpr-logo',
       },
       {
