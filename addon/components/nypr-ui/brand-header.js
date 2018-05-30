@@ -12,17 +12,17 @@ export default Component.extend({
     let menuItems = [
       {
         name: 'WNYC',
-        url: `https://www.wnyc.org?utm_medium=partnersite&utm_campaign=brandheader&utm_source=${config.siteSlug}`,
+        url: `https://www.wnyc.org`,
         svg: 'wnyc-logo',
       },
       {
         name: 'Gothamist',
-        url: `https://www.gothamist.com?utm_medium=partnersite&utm_campaign=brandheader&utm_source=${config.siteSlug}`,
+        url: `https://www.gothamist.com`,
         svg: 'gothamist-logo',
       },
       {
         name: 'WNYC Studios',
-        url: `https://www.wnycstudios.org?utm_medium=partnersite&utm_campaign=brandheader&utm_source=${config.siteSlug}`,
+        url: `https://www.wnycstudios.org`,
         svg: 'wnyc-studios-logo',
       },
       {
@@ -32,17 +32,17 @@ export default Component.extend({
       },
       {
         name: 'WQXR',
-        url: `https://www.wqxr.org?utm_medium=partnersite&utm_campaign=brandheader&utm_source=${config.siteSlug}`,
+        url: `https://www.wqxr.org`,
         svg: 'wqxr-logo',
       },
       {
         name: 'New Sounds',
-        url: `https://www.newsounds.org?utm_medium=partnersite&utm_campaign=brandheader&utm_source=${config.siteSlug}`,
+        url: `https://www.newsounds.org`,
         svg: 'new-sounds-logo',
       },
       {
         name: 'The Greene Space',
-        url: `https://www.thegreenespace.org?utm_medium=partnersite&utm_campaign=brandheader&utm_source=${config.siteSlug}`,
+        url: `https://www.thegreenespace.org`,
         svg: 'greene-space-logo',
       },
     ];
