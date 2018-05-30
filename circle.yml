@@ -11,7 +11,7 @@ register_nypr_ui: &register_nypr_ui
 
 restore_node: &restore_node
   restore_cache:
-    key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
+    key: node-deps-{{ arch }}-{{ checksum "yarn.lock" }}
 
 install_node: &install_node
   run:
@@ -23,13 +23,13 @@ install_node: &install_node
 
 save_node: &save_node
   save_cache:
-    key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
+    key: node-deps-{{ arch }}-{{ checksum "yarn.lock" }}
     paths:
       - node_modules
 
 restore_bower: &restore_bower
   restore_cache:
-    key: bower-deps-{{ checksum "bower.json" }}
+    key: bower-deps-{{ arch }}-{{ checksum "bower.json" }}
 
 install_bower: &install_bower
   run:
@@ -41,7 +41,7 @@ install_bower: &install_bower
 
 save_bower: &save_bower
   save_cache:
-    key: bower-deps-{{ checksum "bower.json" }}
+    key: bower-deps-{{ arch }}-{{ checksum "bower.json" }}
     paths:
       - bower_components
 
