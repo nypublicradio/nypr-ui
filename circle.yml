@@ -270,48 +270,30 @@ workflows:
   test-and-deploy:
     jobs:
       - install
+          filters:
+            branches:
+              only: master
       - test:
           requires:
             - install
-          filters:
-            branches:
-              only: qa-build
       - setup_test_clients:
           requires:
             - install
-          filters:
-            branches:
-              only: qa-build
       - test_wnyc:
           requires:
             - setup_test_clients
-          filters:
-            branches:
-              only: qa-build
       - test_wqxr:
           requires:
             - setup_test_clients
-          filters:
-            branches:
-              only: qa-build
       - test_wnyc_studios_ember:
           requires:
             - setup_test_clients
-          filters:
-            branches:
-              only: qa-build
       - test_wnyc_studios_cypress:
           requires:
             - setup_test_clients
-          filters:
-            branches:
-              only: qa-build
       - test_new_sounds:
           requires:
             - setup_test_clients
-          filters:
-            branches:
-              only: qa-build
       - deploy:
           requires:
             - test
@@ -320,6 +302,3 @@ workflows:
             - test_wnyc_studios_ember
             - test_wnyc_studios_cypress
             - test_new_sounds
-          filters:
-            branches:
-              only: master
