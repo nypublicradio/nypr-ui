@@ -154,7 +154,6 @@ jobs:
       - store_test_results:
           path: wnyc-test-results/
 
-
   test_wqxr:
     <<: *defaults
     working_directory: /home/circleci/wqxr-web-client
@@ -248,7 +247,6 @@ jobs:
       - store_test_results:
           path: wnyc-studios-test-results/
 
-
   deploy:
     <<: *defaults
     working_directory: /home/circleci/nypr-ui
@@ -263,12 +261,21 @@ jobs:
 
 workflows:
   version: 2
+  just-test:
+    jobs:
+      - install
+      - test:
+          requires:
+            - install
   test-and-deploy:
     jobs:
       - install
       - test:
           requires:
             - install
+          filters:
+            branches:
+              only: qa-build
       - setup_test_clients:
           requires:
             - install
