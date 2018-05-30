@@ -1,5 +1,62 @@
 version: 2
 
+attach: &attach
+  attach_workspace:
+    at: /home/circleci
+
+register_nypr_ui: &register_nypr_ui
+  run:
+    name: make global symlink
+    command: cd /home/circleci/nypr-ui && yarn link
+
+restore_node: &restore_node
+  restore_cache:
+    key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
+
+install_node: &install_node
+  run:
+    name: node deps
+    command: |
+      if [ ! -d node_modules ]; then
+        yarn --pure-lockfile
+      fi
+
+save_node: &save_node
+  save_cache:
+    key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
+    paths:
+      - node_modules
+
+restore_bower: &restore_bower
+  restore_cache:
+    key: bower-deps-{{ checksum "bower.json" }}
+
+install_bower: &install_bower
+  run:
+    name: bower deps
+    command: |
+      if [ ! -d bower_components ]; then
+        npx bower i
+      fi
+
+save_bower: &save_bower
+  save_cache:
+    key: bower-deps-{{ checksum "bower.json" }}
+    paths:
+      - bower_components
+
+build_modernizr: &build_modernizr
+  run:
+    name: Build modernizr
+    command: npx grunt modernizr:dist
+
+run_client_tests: &run_client_tests
+  run:
+    name: link and test
+    command: |
+      yarn link nypr-ui
+      npx ember test
+
 container_defaults: &defaults
   docker:
     - image: circleci/node:8.7-browsers
@@ -13,28 +70,13 @@ jobs:
     steps:
       - checkout
 
-      - restore_cache:
-          key: nypr-ui-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
-      - run:
-          name: Install node dependencies
-          command: |
-            if [ ! -d node_modules ]; then
-              yarn --pure-lockfile
-            fi
-      - save_cache:
-          key: nypr-ui-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
-          paths:
-            - node_modules
+      - <<: *restore_node
+      - <<: *install_node
+      - <<: *save_node
 
-      - restore_cache:
-          key: nypr-ui-bower-deps-{{ checksum "bower.json" }}
-      - run:
-          name: Install bower dependencies
-          command: npx bower i
-      - save_cache:
-          key: nypr-ui-bower-deps-{{ checksum "bower.json" }}
-          paths:
-            - bower_components
+      - <<: *restore_bower
+      - <<: *install_bower
+      - <<: *save_bower
 
       - persist_to_workspace:
           root: /home/circleci
@@ -44,31 +86,18 @@ jobs:
   test:
     <<: *defaults
     working_directory: /home/circleci/nypr-ui
+    environment:
+      CIRCLE_TEST_REPORTS: test-results
 
     steps:
       - checkout
-      - restore_cache:
-          key: nypr-ui-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
-      - restore_cache:
-          key: nypr-ui-bower-deps-{{ checksum "bower.json" }}
+      - <<: *restore_node
+      - <<: *restore_bower
 
-      - run:
-          name: greenkeeper-lockfile
-          command: yarn global add greenkeeper-lockfile@1
-      - run:
-          name: Add Yarn global bin to path
-          command: echo 'export PATH=$PATH:`yarn global bin`' >> $BASH_ENV
-      - run:
-          name: greenkeeper-lockfile-update
-          command: greenkeeper-lockfile-update
-      - run:
-          name: Test
-          environment:
-            CIRCLE_TEST_REPORTS: test-results
-          command: npx ember test
-      - run:
-          name: greenkeeper-lockfile-upload
-          command: greenkeeper-lockfile-upload
+      - run: yarn global add greenkeeper-lockfile@1
+      - run: greenkeeper-lockfile-update
+      - run: npx ember test
+      - run: greenkeeper-lockfile-upload
       - store_test_results:
           path: test-results/
 
@@ -103,45 +132,20 @@ jobs:
       CIRCLE_TEST_REPORTS: wnyc-test-results
 
     steps:
-      - attach_workspace:
-          at: /home/circleci
-      - run:
-          name: make global symlink
-          command: cd /home/circleci/nypr-ui && yarn link
+      - <<: *attach
+      - <<: *register_nypr_ui
 
-      - restore_cache:
-          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
-      - run:
-          name: node deps
-          command: |
-            if [ ! -d node_modules ]; then
-              yarn --pure-lockfile
-            fi
-      - save_cache:
-          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
-          paths:
-            - node_modules
+      - <<: *restore_node
+      - <<: *install_node
+      - <<: *save_node
 
-      - restore_cache:
-          key: bower-deps-{{ checksum "bower.json" }}
-      - run:
-          name: bower deps
-          command: npx bower i
-      - save_cache:
-          key: bower-deps-{{ checksum "bower.json" }}
-          paths:
-            - bower_components
+      - <<: *restore_bower
+      - <<: *install_bower
+      - <<: *save_bower
 
-      - run:
-          name: Build modernizr
-          command: npx grunt modernizr:dist || true
+      - <<: *build_modernizr
 
-      - run:
-          name: link and test
-          environment:
-          command: |
-            yarn link nypr-ui
-            npx ember test
+      - <<: *run_client_tests
 
       - store_test_results:
           path: wnyc-test-results/
@@ -154,45 +158,20 @@ jobs:
       CIRCLE_TEST_REPORTS: wqxr-test-results
 
     steps:
-      - attach_workspace:
-          at: /home/circleci
-      - run:
-          name: make global symlink
-          command: cd /home/circleci/nypr-ui && yarn link
+      - <<: *attach
+      - <<: *register_nypr_ui
 
-      - restore_cache:
-          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
-      - run:
-          name: node deps
-          command: |
-            if [ ! -d node_modules ]; then
-              yarn --pure-lockfile
-            fi
-      - save_cache:
-          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
-          paths:
-            - node_modules
+      - <<: *restore_node
+      - <<: *install_node
+      - <<: *save_node
 
-      - restore_cache:
-          key: bower-deps-{{ checksum "bower.json" }}
-      - run:
-          name: bower deps
-          command: npx bower i
-      - save_cache:
-          key: bower-deps-{{ checksum "bower.json" }}
-          paths:
-            - bower_components
+      - <<: *restore_bower
+      - <<: *install_bower
+      - <<: *save_bower
 
-      - run:
-          name: Build modernizr
-          command: npx grunt modernizr:dist
+      - <<: *build_modernizr
 
-      - run:
-          name: link and test
-          environment:
-          command: |
-            yarn link nypr-ui
-            npx ember test
+      - <<: *run_client_tests
 
       - store_test_results:
           path: wqxr-test-results/
@@ -204,31 +183,14 @@ jobs:
       CIRCLE_TEST_REPORTS: new-sounds-test-results
 
     steps:
-      - attach_workspace:
-          at: /home/circleci
-      - run:
-          name: make global symlink
-          command: cd /home/circleci/nypr-ui && yarn link
+      - <<: *attach
+      - <<: *register_nypr_ui
 
-      - restore_cache:
-          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
-      - run:
-          name: node deps
-          command: |
-            if [ ! -d node_modules ]; then
-              yarn --pure-lockfile
-            fi
-      - save_cache:
-          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
-          paths:
-            - node_modules
+      - <<: *restore_node
+      - <<: *install_node
+      - <<: *save_node
 
-      - run:
-          name: link and test
-          environment:
-          command: |
-            yarn link nypr-ui
-            npx ember test
+      - <<: *run_client_tests
 
       - store_test_results:
           path: new-sounds-test-results/
@@ -241,28 +203,14 @@ jobs:
       CIRCLE_TEST_REPORTS: wnyc-studios-test-results
 
     steps:
-      - attach_workspace:
-          at: /home/circleci
-      - run:
-          name: make global symlink
-          command: cd /home/circleci/nypr-ui && yarn link
+      - <<: *attach
+      - <<: *register_nypr_ui
 
-      - restore_cache:
-          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
-      - run:
-          name: node deps
-          command: |
-            if [ ! -d node_modules ]; then
-              yarn --pure-lockfile
-            fi
-      - save_cache:
-          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
-          paths:
-            - node_modules
+      - <<: *restore_node
+      - <<: *install_node
+      - <<: *save_node
 
-      - run:
-          name: Build modernizr
-          command: npx grunt modernizr:dist
+      - <<: *build_modernizr
 
       - run: |
           cp .env.sample .env
@@ -279,28 +227,14 @@ jobs:
       CIRCLE_TEST_REPORTS: wnyc-studios-test-results
 
     steps:
-      - attach_workspace:
-          at: /home/circleci
-      - run:
-          name: make global symlink
-          command: cd /home/circleci/nypr-ui && yarn link
+      - <<: *attach
+      - <<: *register_nypr_ui
 
-      - restore_cache:
-          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
-      - run:
-          name: node deps
-          command: |
-            if [ ! -d node_modules ]; then
-              yarn --pure-lockfile
-            fi
-      - save_cache:
-          key: v2-node8-yarn-deps-{{ arch }}-{{ checksum "yarn.lock" }}
-          paths:
-            - node_modules
+      - <<: *restore_node
+      - <<: *install_node
+      - <<: *save_node
 
-      - run:
-          name: Build modernizr
-          command: npx grunt modernizr:dist
+      - <<: *build_modernizr
 
       - run: |
           cp .env.sample .env
@@ -315,8 +249,7 @@ jobs:
     <<: *defaults
     working_directory: /home/circleci/nypr-ui
     steps:
-      - attach_workspace:
-          at: /home/circleci
+      - <<: *attach
       - run:
          name: Deploy to GitHub Pages
          command: |
