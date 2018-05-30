@@ -94,10 +94,12 @@ jobs:
       - <<: *restore_node
       - <<: *restore_bower
 
-      - run: yarn global add greenkeeper-lockfile@1
-      - run: npx greenkeeper-lockfile-update
-      - run: npx ember test
-      - run: npx greenkeeper-lockfile-upload
+      - run: |
+          yarn global add greenkeeper-lockfile@1
+          npx greenkeeper-lockfile-update
+          npx ember test
+          npx greenkeeper-lockfile-upload
+
       - store_test_results:
           path: test-results/
 
