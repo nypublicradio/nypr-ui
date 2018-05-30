@@ -269,7 +269,7 @@ workflows:
             - install
   test-and-deploy:
     jobs:
-      - install
+      - install:
           filters:
             branches:
               only: master
