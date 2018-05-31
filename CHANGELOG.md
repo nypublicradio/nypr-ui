@@ -1,5 +1,11 @@
 # nypr-ui Changelog
 
+## 0.2.15
+- [BUGFIX] don't show audio options when given story has segmented audio
+
+## 0.2.14
+- [ENHANCEMENT] Add 30 day expiration to cookie on gdpr banner
+
 ## 0.2.13
 - [ENHANCEMENT] add banner-with-close button component
 
