@@ -18,13 +18,13 @@
     <a href={{concat "http://www.nypublicradio.org?utm_medium=partnersite&utm_campaign=brandheader&utm_source=" siteSlug}} target="_blank" class="gtm__click-tracking" data-action="Brand Header" data-label="nypr-logo">
       {{nypr-svg icon="nypr-logo" className="nypr-brand-header__nypr-logo"}}
     </a>
-    {{nypr-svg icon="square-bracket-open" className="nypr-brand-header__square-bracket-open"}}
+    {{nypr-svg icon="left-bracket" className="nypr-brand-header__square-bracket-open"}}
     {{#each menuItems as |item|}}
 			<a href={{item.url}} target="_blank" class="gtm__click-tracking" data-action="Brand Header" data-label={{item.svg}}>
 				{{nypr-svg icon=item.svg className=(concat 'nypr-brand-header__logo-' item.svg)}}
 			</a>
     {{/each}}
-    {{nypr-svg icon="square-bracket-close" className="nypr-brand-header__square-bracket-close"}}
+    {{nypr-svg icon="right-bracket" className="nypr-brand-header__square-bracket-close"}}
   </div>
   <a class="nypr-brand-header-button mod-network" {{action (toggle "open" this)}}>NYPR Network{{nypr-svg className="nypr-brand-header-caret" icon="left-arrow"}}</a>
 </header>
