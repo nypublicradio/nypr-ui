@@ -7,8 +7,6 @@ export default Component.extend({
   layout,
   tagName: '',
   init() {
-    let config = getOwner(this).resolveRegistration('config:environment');
-
     let menuItems = [
       {
         name: 'WNYC',
