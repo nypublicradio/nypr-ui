@@ -121,7 +121,6 @@ $padding-v-small:  20px;
   height: 60px;
   padding: 0 $padding-h-small 15px;
   position: relative;
-  top: -1px; // fix a 1px gap
   z-index: $zIndex--fixedNav;
 
   @include mq($medium-and-up) {
