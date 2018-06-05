@@ -6,7 +6,7 @@
     </a>
     <ul class="nypr-brand-header-menu-items">
       {{#each menuItems as |item|}}
-        <a href={{item.url}} target="_blank" class="gtm__click-tracking" data-action="Brand Header" data-label={{item.svg}}>
+        <a href={{item.url}} class="gtm__click-tracking" data-action="Brand Header" data-label={{item.svg}}>
           {{nypr-svg icon=item.svg className=(concat 'nypr-brand-header__logo-' item.svg)}}
         </a>
       {{/each}}
@@ -20,7 +20,7 @@
     </a>
     {{nypr-svg icon="left-bracket" className="nypr-brand-header__square-bracket-open"}}
     {{#each menuItems as |item|}}
-			<a href={{item.url}} target="_blank" class="gtm__click-tracking" data-action="Brand Header" data-label={{item.svg}}>
+			<a href={{item.url}} class="gtm__click-tracking" data-action="Brand Header" data-label={{item.svg}}>
 				{{nypr-svg icon=item.svg className=(concat 'nypr-brand-header__logo-' item.svg)}}
 			</a>
     {{/each}}
