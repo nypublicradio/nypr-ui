@@ -25,7 +25,7 @@ $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
   display: none;
   flex-basis: 100%;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   max-width: 870px;
 
   @include mq($medium-and-up) {
