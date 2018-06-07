@@ -1,5 +1,8 @@
 # nypr-ui Changelog
 
+## 0.2.16
+- [BUGFIX] stop hero-top from sticking when user scrolls over hero image. note: sticky nav still appears after image is scrolled over.
+
 ## 0.2.15
 - [BUGFIX] don't show audio options when given story has segmented audio
 
