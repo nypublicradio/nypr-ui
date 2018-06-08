@@ -85,6 +85,14 @@ $padding-v-small:  20px;
       z-index: $zIndex--overGradient;
     }
   }
+
+  // safari hack for correct z-index while scrolling
+  // https://css-tricks.com/forums/topic/safari-for-ios-z-index-ordering-bug-while-scrolling-a-page-with-a-fixed-element/
+  > .hero-headline,
+  > .hero-blurb,
+  > .hero-footer {
+    -webkit-transform: translate3d(0,0,0);
+  }
 }
 
 .nypr-ui__hero > .no-image {
