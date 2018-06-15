@@ -139,8 +139,9 @@ $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
   margin-bottom: 0;
 
   @include mq($medium-and-up) {
-    justify-content: space-between;
     height: 62px;
+    justify-content: space-between;
+    padding-left: 26px;
   }
 }
 
