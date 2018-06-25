@@ -1,5 +1,8 @@
 # nypr-ui Changelog
 
+## 0.2.17
+- [BUGFIX] when scrolling on safari, keep hero-image behind title text, blurb text and hero-bottom sections. https://jira.wnyc.org/browse/RT-870.
+
 ## 0.2.16
 - [BUGFIX] stop hero-top from sticking when user scrolls over hero image. note: sticky nav still appears after image is scrolled over.
 
