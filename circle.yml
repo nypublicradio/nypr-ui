@@ -257,6 +257,8 @@ jobs:
          command: |
            git config --global user.email "deploy@circleci"
            git config --global user.name "deploy"
+
+           ssh-keyscan github.com >> ~/.ssh/known_hosts
            npx ember deploy production
 
 workflows:
