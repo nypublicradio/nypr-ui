@@ -252,6 +252,7 @@ jobs:
     working_directory: /home/circleci/nypr-ui
     steps:
       - <<: *attach
+      - run:
           name: Keyscan Github
           command: |
             mkdir ~/.ssh
