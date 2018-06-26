@@ -6,13 +6,21 @@
     </a>
     <ul class="nypr-brand-header-menu-items">
       {{#each menuItems as |item|}}
-        {{#menu.item}}
-          <a href="{{item.url}}">{{item.name}}</a>
-        {{/menu.item}}
+        {{logo-link logo=item}}
       {{/each}}
     </ul>
   {{/burger.menu}}
 {{/burger-menu}}
 <header class="nypr-brand-header">
+  <div class="nypr-brand-header__logo-list">
+    <a href={{concat "http://www.nypublicradio.org?utm_medium=partnersite&utm_campaign=brandheader&utm_source=" siteSlug}} target="_blank" class="gtm__click-tracking" data-action="Brand Header" data-label="nypr-logo">
+      {{nypr-svg icon="nypr-logo" className="nypr-brand-header__nypr-logo"}}
+    </a>
+    {{nypr-svg icon="left-bracket" className="nypr-brand-header__square-bracket-open"}}
+    {{#each menuItems as |item|}}
+      {{logo-link logo=item}}
+    {{/each}}
+    {{nypr-svg icon="right-bracket" className="nypr-brand-header__square-bracket-close"}}
+  </div>
   <a class="nypr-brand-header-button mod-network" {{action (toggle "open" this)}}>NYPR Network{{nypr-svg className="nypr-brand-header-caret" icon="left-arrow"}}</a>
 </header>
