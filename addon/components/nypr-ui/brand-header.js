@@ -35,15 +35,16 @@ export default Component.extend({
       {
         name: 'NJPR',
         slug: 'njpr',
-        url: `https://www.wqxr.org?utm_medium=partnersite&utm_campaign=brandheader&utm_source=${this.get(
-          'siteSlug',
-        )}`,
+        // Use a static UTM code for njpr since siteSlug will return wnyc
+        url: `http://www.njpublicradio.org?utm_medium=partnersite&utm_campaign=brandheader&utm_source=njpr`,
         svg: 'njpr-logo',
       },
       {
         name: 'WQXR',
         slug: 'wqxr',
-        url: `https://www.wqxr.org`,
+        url: `https://www.wqxr.org?utm_medium=partnersite&utm_campaign=brandheader&utm_source=${this.get(
+          'siteSlug',
+        )}`,
         svg: 'wqxr-logo',
       },
       {

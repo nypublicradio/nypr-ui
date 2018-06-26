@@ -43,11 +43,13 @@ $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
   text-decoration: none;
   border: none;
   display: flex;
+  opacity: 0.6;
+  transition: opacity 0.3s ease-in-out;
 
   &:hover {
     text-decoration: none;
     border: none;
-    opacity: 0.7;
+    opacity: 1;
   }
 }
 
@@ -61,11 +63,9 @@ $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
 
 .logo-link__logo-wnyc-logo {
   width: 64px;
-  height: 27px;
 
   @include mq($small-only) {
-    width: 77px;
-    height: 30px;
+    width: 100px;
   }
 }
 
@@ -74,58 +74,48 @@ $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
   height: 36px;
 
   @include mq($small-only) {
-    width: 63px;
-    height: 63px;
+    width: 75px;
+    height: 77px;
   }
 }
 
 .logo-link__logo-wnyc-studios-logo {
   width: 55px;
-  height: 30px;
 
   @include mq($small-only) {
-    width: 73px;
-    height: 39px;
+    width: 100px;
   }
 }
 
 .logo-link__logo-njpr-logo {
   width: 77px;
-  height: 30px;
 
   @include mq($small-only) {
-    width: 93px;
-    height: 33px;
+    width: 100px;
   }
 }
 
 .logo-link__logo-wqxr-logo {
   width: 85px;
-  height: 20px;
 
   @include mq($small-only) {
-    width: 101px;
-    height: 25px;
+    width: 100px;
   }
 }
 
 .logo-link__logo-new-sounds-logo {
   width: 119px;
-  height: 15px;
 
   @include mq($small-only) {
-    width: 136px;
-    height: 15px;
+    width: 100px;
   }
 }
 
 .logo-link__logo-greene-space-logo {
   width: 44px;
-  height: 35px;
 
   @include mq($small-only) {
-    width: 70px;
-    height: 49px;
+    width: 100px;
   }
 
   .bump {
@@ -254,11 +244,10 @@ $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
   border-top: 1px solid rgba(204, 204, 204, 0.36);
   list-style-type: none;
   margin: 0;
-  padding: 0;
   text-align: center;
   flex-direction: column;
-  padding: 10px 10px;
-  max-height: 480px;
+  padding: 28px 10px 0;
+  max-height: 530px;
   height: 85vh;
   display: flex;
   justify-content: space-between;
@@ -285,10 +274,12 @@ $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
   font-weight: bold;
   text-decoration: none;
   border-bottom: 0;
+  opacity: 0.6;
+  transition: opacity 0.3s ease-in-out;
 
   &:hover {
     text-decoration: underline;
     border-bottom: 0;
-    opacity: 0.8;
+    opacity: 1;
   }
 }

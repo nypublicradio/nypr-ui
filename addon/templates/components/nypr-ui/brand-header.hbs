@@ -6,9 +6,7 @@
     </a>
     <ul class="nypr-brand-header-menu-items">
       {{#each menuItems as |item|}}
-        {{#if (not-eq item.slug siteSlug)}}
-          {{logo-link logo=item}}
-        {{/if}}
+        {{logo-link logo=item}}
       {{/each}}
     </ul>
   {{/burger.menu}}
@@ -20,9 +18,7 @@
     </a>
     {{nypr-svg icon="left-bracket" className="nypr-brand-header__square-bracket-open"}}
     {{#each menuItems as |item|}}
-      {{#if (not-eq item.slug siteSlug)}}
-        {{logo-link logo=item}}
-      {{/if}}
+      {{logo-link logo=item}}
     {{/each}}
     {{nypr-svg icon="right-bracket" className="nypr-brand-header__square-bracket-close"}}
   </div>
