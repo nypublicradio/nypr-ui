@@ -14,7 +14,7 @@ module('Integration | Component | nypr-ui/brand-header', function(hooks) {
   test('clicking nypr network opens menu', async function(assert) {
     await render(hbs`{{nypr-ui/brand-header}}`);
     await click('.nypr-brand-header-button.mod-network');
-    assert.ok(findAll('.nypr-brand-header-menu-items li').length > 5, "menu should be visible");
+    assert.ok(findAll('.nypr-brand-header-menu-items a').length > 5, "menu should be visible");
     await click('.nypr-brand-header-button.mod-network'); // reenable scroll
   });
 });

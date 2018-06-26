@@ -1,6 +1,6 @@
+$brand-stripe-background: #333333;
+$brand-stripe-button-color: white;
 
-$brand-stripe-background: #f1f1f1;
-$brand-stripe-button-color: #000;
 // Burger Menu Overrides
 $bm-transition-duration: 0.3s;
 $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
@@ -10,11 +10,133 @@ $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
 .nypr-brand-header-overlay-bg {
   pointer-events: none;
   position: fixed;
-  left: 0; right: 0; bottom: 0; top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
   opacity: 0;
   z-index: 500;
   transition: opacity 0.3s ease-in-out;
   background-color: #000;
+}
+
+.nypr-brand-header__logo-list {
+  align-items: center;
+  display: none;
+  flex-basis: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 838px;
+
+  @include mq($medium-and-up) {
+    display: flex;
+  }
+}
+
+.nypr-brand-header__logo-list svg {
+  display: flex;
+  fill: white;
+  pointer-events: none;
+}
+
+.nypr-brand-header__logo-list a {
+  text-decoration: none;
+  border: none;
+  display: flex;
+
+  &:hover {
+    text-decoration: none;
+    border: none;
+    opacity: 0.7;
+  }
+}
+
+.nypr-brand-header__nypr-logo {
+  width: 85px;
+  height: 36px;
+
+  @include mq($small-only) {
+  }
+}
+
+.logo-link__logo-wnyc-logo {
+  width: 64px;
+  height: 27px;
+
+  @include mq($small-only) {
+    width: 77px;
+    height: 30px;
+  }
+}
+
+.logo-link__logo-gothamist-logo {
+  width: 50px;
+  height: 36px;
+
+  @include mq($small-only) {
+    width: 63px;
+    height: 63px;
+  }
+}
+
+.logo-link__logo-wnyc-studios-logo {
+  width: 55px;
+  height: 30px;
+
+  @include mq($small-only) {
+    width: 73px;
+    height: 39px;
+  }
+}
+
+.logo-link__logo-njpr-logo {
+  width: 77px;
+  height: 30px;
+
+  @include mq($small-only) {
+    width: 93px;
+    height: 33px;
+  }
+}
+
+.logo-link__logo-wqxr-logo {
+  width: 85px;
+  height: 20px;
+
+  @include mq($small-only) {
+    width: 101px;
+    height: 25px;
+  }
+}
+
+.logo-link__logo-new-sounds-logo {
+  width: 119px;
+  height: 15px;
+
+  @include mq($small-only) {
+    width: 136px;
+    height: 15px;
+  }
+}
+
+.logo-link__logo-greene-space-logo {
+  width: 44px;
+  height: 35px;
+
+  @include mq($small-only) {
+    width: 70px;
+    height: 49px;
+  }
+
+  .bump {
+    fill: white !important;
+  }
+}
+
+.nypr-brand-header__square-bracket-open,
+.nypr-brand-header__square-bracket-close {
+  opacity: 0.5;
+  height: 31px;
 }
 
 .nypr-brand-header-overlay-bg.active {
@@ -26,7 +148,7 @@ $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
 .nypr-brand-header-menu .bm-menu-container .bm-menu,
 .nypr-brand-header-menu .bm-outlet > .bm-menu-container .bm-menu {
   position: fixed;
-  z-index: 900;
+  z-index: 1110;
   background-color: $brand-stripe-background;
   text-align: right;
   padding: 0 10px;
@@ -44,13 +166,16 @@ $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
   margin: 0;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: space-between;
   width: 100%;
   margin-bottom: 0;
 
   @include mq($medium-and-up) {
-    justify-content: flex-end;
+    height: 62px;
+    justify-content: space-between;
+    padding-left: 42px;
+    padding-right: 42px;
   }
 }
 
@@ -74,7 +199,9 @@ $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
 .nypr-brand-header-caret {
   transform: rotate(180deg);
   width: auto;
-  path { fill: $brand-stripe-button-color; }
+  path {
+    fill: $brand-stripe-button-color;
+  }
   height: 14px;
   top: 1px;
   position: relative;
@@ -83,20 +210,31 @@ $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
 
 .nypr-brand-header-button.mod-donate {
   background-color: $brand-stripe-button-color;
-  color: #FFF;
+  color: #fff;
 }
 
 .nypr-brand-header-button.mod-network {
   // pointer-events: none;
+
+  @include mq($medium-and-up) {
+    display: none;
+  }
 }
 
 .nypr-brand-header-close {
-  white-space: nowrap;
-  height: auto;
   align-items: center;
-  justify-content: flex-end;
+  border-bottom: 0;
   font-weight: normal;
-  border-bottom: 1px solid #CCC;
+  height: auto;
+  justify-content: flex-end;
+  transition: none;
+  white-space: nowrap;
+
+  &:hover {
+    text-decoration: none;
+    border-bottom: 0;
+    opacity: 0.8;
+  }
 }
 
 .nypr-brand-header-close-icon {
@@ -107,16 +245,28 @@ $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
   top: 1px;
   position: relative;
   margin-left: 6px;
-  path { fill: $brand-stripe-button-color; }
+  path {
+    fill: $brand-stripe-button-color;
+  }
 }
 
 .nypr-brand-header-menu-items {
+  border-top: 1px solid rgba(204, 204, 204, 0.36);
   list-style-type: none;
   margin: 0;
   padding: 0;
-  text-align: right;
+  text-align: center;
   flex-direction: column;
   padding: 10px 10px;
+  max-height: 480px;
+  height: 85vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nypr-brand-header-menu-items svg {
+  fill: white;
+  pointer-events: none;
 }
 
 .nypr-brand-header-menu-items li {
@@ -139,5 +289,6 @@ $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
   &:hover {
     text-decoration: underline;
     border-bottom: 0;
+    opacity: 0.8;
   }
 }
