@@ -219,11 +219,16 @@ $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
   justify-content: flex-end;
   transition: none;
   white-space: nowrap;
+  padding-right: 0;
 
   &:hover {
     text-decoration: none;
     border-bottom: 0;
     opacity: 0.8;
+  }
+
+  span {
+    padding-right: 22px;
   }
 }
 
@@ -274,12 +279,12 @@ $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
   font-weight: bold;
   text-decoration: none;
   border-bottom: 0;
-  opacity: 0.6;
+  opacity: 1; // Mobile logos start at full opacity
   transition: opacity 0.3s ease-in-out;
 
   &:hover {
     text-decoration: underline;
     border-bottom: 0;
-    opacity: 1;
+    opacity: 0.6;
   }
 }
