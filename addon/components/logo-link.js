@@ -5,8 +5,4 @@ import {computed} from '@ember/object';
 
 export default Component.extend({
   layout,
-  siteSlug: computed(function() {
-    let config = getOwner(this).resolveRegistration('config:environment');
-    return config.siteSlug;
-  }),
 });

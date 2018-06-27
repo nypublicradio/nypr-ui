@@ -35,8 +35,9 @@ export default Component.extend({
       {
         name: 'NJPR',
         slug: 'njpr',
-        // Use a static UTM code for njpr since siteSlug will return wnyc
-        url: `http://www.njpublicradio.org?utm_medium=partnersite&utm_campaign=brandheader&utm_source=njpr`,
+        url: `http://www.njpublicradio.org?utm_medium=partnersite&utm_campaign=brandheader&utm_source=${this.get(
+          'siteSlug',
+        )}`,
         svg: 'njpr-logo',
       },
       {
