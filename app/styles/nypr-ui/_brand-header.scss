@@ -44,7 +44,6 @@ $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
   border: none;
   display: flex;
   opacity: 0.6;
-  transition: opacity 0.3s ease-in-out;
 
   &:hover {
     text-decoration: none;
@@ -280,7 +279,6 @@ $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
   text-decoration: none;
   border-bottom: 0;
   opacity: 1; // Mobile logos start at full opacity
-  transition: opacity 0.3s ease-in-out;
 
   &:hover {
     text-decoration: underline;
