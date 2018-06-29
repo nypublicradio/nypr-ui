@@ -1,5 +1,8 @@
 # nypr-ui Changelog
 
+## 0.2.18
+- [ENHANCEMENT] Enhance NYPR Brand header with logos
+
 ## 0.2.17
 - [BUGFIX] when scrolling on safari, keep hero-image behind title text, blurb text and hero-bottom sections. https://jira.wnyc.org/browse/RT-870.
 
