@@ -14,13 +14,21 @@
   {{/if}}
   <div class="item__head">
     <a
-      class="item__head__brand"
+      class="item__head__brand gtm__click-tracking"
       title={{or items.showTitle item.headers.brand.title}}
+      data-action={{data-action}}
+      data-label={{or item.showTitle item.headers.brand.title}}
       href={{item.headers.brand.url}}>
       {{or item.showTitle item.headers.brand.title}}
     </a>
     <h2 class="item__head__headline">
-      {{#link-to 'story' item.slug}}
+      {{#link-to
+        'story'
+        item.slug
+        class="gtm__click-tracking"
+        data-category=data-category
+        data-action=data-action
+        data-label=(concat item.title " | " (or item.showTitle item.headers.brand.title))}}
         {{nypr-svg className="icon" icon="video"}}
         {{or item.shortTitle item.title}}
       {{/link-to}}
@@ -35,7 +43,13 @@
       {{/listen-button}}
     {{/if}}
   </div>
-  {{#link-to 'story' item.slug class="item__link--hidden"}}
+  {{#link-to
+    'story'
+    item.slug
+    class="item__link--hidden gtm__click-tracking"
+    data-category=data-category
+    data-action=data-action
+    data-label=(concat item.title " | " (or item.showTitle item.headers.brand.title))}}
     {{or item.shortTitle item.title}}
   {{/link-to}}
 {{/with}}
