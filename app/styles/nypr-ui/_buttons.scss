@@ -36,7 +36,7 @@
     border-color: initial;
     color: initial;
   }
-  
+
   > * {
     pointer-events: none;
   }
@@ -166,8 +166,8 @@
 @mixin btn--brightred {
   @include btn;
   @include btn--solid-color(
-    $background-color: $brightred,
-    $hover-color: $red
+    $background-color: $red,
+    $hover-color: $darkred
   );
 }
 
