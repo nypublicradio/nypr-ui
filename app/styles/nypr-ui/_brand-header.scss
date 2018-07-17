@@ -55,6 +55,7 @@ $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
 .nypr-brand-header__nypr-logo {
   width: 85px;
   height: 36px;
+  opacity: 0.6;
 
   @include mq($small-only) {
   }
@@ -255,6 +256,7 @@ $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
   height: 85vh;
   display: flex;
   justify-content: space-between;
+  overflow-y: scroll;
 }
 
 .nypr-brand-header-menu-items svg {
