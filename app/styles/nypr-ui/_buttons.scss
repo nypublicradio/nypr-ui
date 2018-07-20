@@ -166,8 +166,8 @@
 @mixin btn--brightred {
   @include btn;
   @include btn--solid-color(
-    $background-color: $red,
-    $hover-color: $darkred
+    $background-color: $red, // instead of $brightred in some places, the new 
+    $hover-color: $darkred   // standard is $red across the whole site
   );
 }
 
