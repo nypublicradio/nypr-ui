@@ -1,13 +1,13 @@
 {{#if hasBlock}}
   {{yield (hash
-    main=(component 'nypr-brick-item' data-action=data-action)
-    column=(component 'nypr-brick-row-blowout/column' data-action=data-action)
+    main=(component 'nypr-brick-item')
+    column=(component 'nypr-brick-row-blowout/column')
   )}}
 {{else}}
-  {{nypr-brick-item item=items.[0] data-action=data-action}}
+  {{nypr-brick-item item=items.[0]}}
 
   <div class="row__col {{if flip 'flipped'}}">
-    {{nypr-brick-item item=items.[1] data-action=data-action}}
-    {{nypr-brick-item item=items.[2] data-action=data-action}}
+    {{nypr-brick-item item=items.[1]}}
+    {{nypr-brick-item item=items.[2]}}
   </div>
 {{/if}}
