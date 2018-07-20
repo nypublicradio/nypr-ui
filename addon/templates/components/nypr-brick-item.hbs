@@ -14,21 +14,17 @@
   {{/if}}
   <div class="item__head">
     <a
-      class="item__head__brand gtm__click-tracking"
-      title={{or items.showTitle item.headers.brand.title}}
-      data-action={{data-action}}
-      data-label={{or item.showTitle item.headers.brand.title}}
+      class="item__head__brand"
+      title={{or items.showTitle item.channelTitle}}
+      data-label={{or item.showTitle item.channelTitle}}
       href={{item.headers.brand.url}}>
-      {{or item.showTitle item.headers.brand.title}}
+      {{or item.showTitle item.channelTitle}}
     </a>
     <h2 class="item__head__headline">
       {{#link-to
         'story'
         item.slug
-        class="gtm__click-tracking"
-        data-category=data-category
-        data-action=data-action
-        data-label=(concat item.title " | " (or item.showTitle item.headers.brand.title))}}
+        data-label=(concat item.title " | " (or item.showTitle item.channelTitle))}}
         {{nypr-svg className="icon" icon="video"}}
         {{or item.shortTitle item.title}}
       {{/link-to}}
@@ -38,7 +34,7 @@
         type='blue-minion'
         itemPK=item.slug
         itemTitle=(or item.shortTitle item.title)
-        itemShow=(or item.showTitle item.headers.brand.title)}}
+        itemShow=(or item.showTitle item.channelTitle)}}
         Listen {{item.audioDurationReadable}}
       {{/listen-button}}
     {{/if}}
@@ -46,10 +42,8 @@
   {{#link-to
     'story'
     item.slug
-    class="item__link--hidden gtm__click-tracking"
-    data-category=data-category
-    data-action=data-action
-    data-label=(concat item.title " | " (or item.showTitle item.headers.brand.title))}}
+    class="item__link--hidden"
+    data-label=(concat item.title " | " (or item.showTitle item.channelTitle))}}
     {{or item.shortTitle item.title}}
   {{/link-to}}
 {{/with}}
