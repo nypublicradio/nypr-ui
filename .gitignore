@@ -28,3 +28,4 @@ bower.json.ember-try
 package.json.ember-try
 
 test-results
+yarn-error.log
