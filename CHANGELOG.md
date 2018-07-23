@@ -1,5 +1,8 @@
 # nypr-ui Changelog
 
+## 0.2.20
+- [BUGFIX] standardize red accent color across components https://jira.wnyc.org/browse/RT-892
+
 ## 0.2.19
 - [BUGFIX] fix NYPR brand header mobile landscape vertical scroll https://jira.wnyc.org/browse/RT-941
 - [ENHANCEMENT] remove NYPR logo link
