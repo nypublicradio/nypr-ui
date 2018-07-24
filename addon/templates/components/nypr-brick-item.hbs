@@ -15,8 +15,8 @@
   <div class="item__head">
     <a
       class="item__head__brand"
-      title={{or items.showTitle item.channelTitle}}
-      data-label={{or item.showTitle item.channelTitle}}
+      title={{or items.showTitle item.channelTitle 'NPR Article'}}
+      data-label={{or item.showTitle item.channelTitle 'NPR Article'}}
       href={{item.headers.brand.url}}>
       {{or item.showTitle item.channelTitle}}
     </a>
@@ -24,7 +24,7 @@
       {{#link-to
         'story'
         item.slug
-        data-label=(concat item.title " | " (or item.showTitle item.channelTitle))}}
+        data-label=(concat item.title " | " (or item.showTitle item.channelTitle 'NPR Article'))}}
         {{nypr-svg className="icon" icon="video"}}
         {{or item.shortTitle item.title}}
       {{/link-to}}
@@ -34,7 +34,7 @@
         type='blue-minion'
         itemPK=item.slug
         itemTitle=(or item.shortTitle item.title)
-        itemShow=(or item.showTitle item.channelTitle)}}
+        itemShow=(or item.showTitle item.channelTitle 'NPR Article')}}
         Listen {{item.audioDurationReadable}}
       {{/listen-button}}
     {{/if}}
@@ -43,7 +43,7 @@
     'story'
     item.slug
     class="item__link--hidden"
-    data-label=(concat item.title " | " (or item.showTitle item.channelTitle))}}
+    data-label=(concat item.title " | " (or item.showTitle item.channelTitle 'NPR Article'))}}
     {{or item.shortTitle item.title}}
   {{/link-to}}
 {{/with}}
