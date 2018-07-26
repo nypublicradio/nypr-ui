@@ -55,7 +55,7 @@ export default Component.extend(StickyHeader, {
   },
 
   offset() {
-    return -this.element.clientHeight + 155;
+    return -this.element.clientHeight + 100 // 100 is height of the sticky header;
   },
 
   measure() {
