@@ -66,14 +66,14 @@ pre > code {
 
 .example-icon--black {
   fill: black;
-  rect, path, circle {
+  rect, path, circle, polygon {
     fill: black;
   }
 }
 
 .example-icon--white {
   fill: white;
-  rect, path, circle {
+  rect, path, circle, polygon {
     fill: white;
   }
 }
