@@ -29,16 +29,4 @@ export default Component.extend({
       return htmlSafe('');
     }
   }),
-  analyticsTitle: computed('item.attributes', function() {
-    let attributes = this.get('item.attributes');
-    if (!attributes) {
-      return;
-    }
-    let { headers, title } = attributes;
-    if (!headers || !headers.links) {
-      return title;
-    }
-    let shows = headers.links.reverse().map(l => l.title).join(' | ');
-    return shows += ` | ${title}`;
-  })
 });

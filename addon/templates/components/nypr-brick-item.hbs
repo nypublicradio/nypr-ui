@@ -1,6 +1,7 @@
 {{#if hasBlock}}
   {{yield}}
 {{else}}
+{{#with item.attributes as |item|}}
   <div class="item__icons">
     <div class="item__icons__video">
       {{nypr-svg className="icon" icon="video"}}
@@ -12,26 +13,38 @@
     </div>
   {{/if}}
   <div class="item__head">
-    <a class="item__head__brand" title={{item.attributes.headers.brand.title}} href={{item.attributes.headers.brand.url}}>
-      {{item.attributes.headers.brand.title}}
+    <a
+      class="item__head__brand"
+      title={{or items.showTitle item.channelTitle 'NPR Article'}}
+      data-label={{or item.showTitle item.channelTitle 'NPR Article'}}
+      href={{item.headers.brand.url}}>
+      {{or item.showTitle item.channelTitle}}
     </a>
     <h2 class="item__head__headline">
-      {{#link-to 'story' item.attributes.slug title=analyticsTitle}}
+      {{#link-to
+        'story'
+        item.slug
+        data-label=(concat item.title " | " (or item.showTitle item.channelTitle 'NPR Article'))}}
         {{nypr-svg className="icon" icon="video"}}
-        {{if item.attributes.shortTitle item.attributes.shortTitle item.attributes.title}}
+        {{or item.shortTitle item.title}}
       {{/link-to}}
     </h2>
-    {{#if item.attributes.audio}}
+    {{#if item.audio}}
       {{#listen-button
         type='blue-minion'
-        itemPK=item.attributes.slug
-        itemTitle=(if item.attributes.shortTitle item.attributes.shortTitle item.attributes.title)
-        itemShow=(or item.attributes.showTitle item.attributes.headers.brand.title)}}
-        Listen {{item.attributes.audioDurationReadable}}
+        itemPK=item.slug
+        itemTitle=(or item.shortTitle item.title)
+        itemShow=(or item.showTitle item.channelTitle 'NPR Article')}}
+        Listen {{item.audioDurationReadable}}
       {{/listen-button}}
     {{/if}}
   </div>
-  {{#link-to 'story' item.attributes.slug class="item__link--hidden" title=analyticsTitle}}
-    {{if item.attributes.shortTitle item.attributes.shortTitle item.attributes.title}}
+  {{#link-to
+    'story'
+    item.slug
+    class="item__link--hidden"
+    data-label=(concat item.title " | " (or item.showTitle item.channelTitle 'NPR Article'))}}
+    {{or item.shortTitle item.title}}
   {{/link-to}}
+{{/with}}
 {{/if}}

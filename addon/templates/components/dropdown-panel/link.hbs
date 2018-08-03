@@ -1,5 +1,12 @@
 {{#if href}}
-  <a class="panel-link text--medium link--dark" href={{href}} target="_blank">
+  <a
+    class="panel-link text--medium link--dark {{classNames}}"
+    href={{href}}
+    data-category={{data-category}}
+    data-action={{data-action}}
+    data-label={{data-label}}
+    data-value={{data-value}}
+    target="_blank">
     {{yield}}
   </a>
 {{/if}}
