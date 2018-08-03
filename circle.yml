@@ -263,10 +263,14 @@ workflows:
   version: 2
   just-test:
     jobs:
-      - install
+      - install:
+          filters:
+            branches:
+              ignore: master
       - test:
           requires:
             - install
+
   test-and-deploy:
     jobs:
       - install:
