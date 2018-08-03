@@ -1,6 +1,6 @@
 # nypr-ui Changelog
 
-## 0.3.0-beta
+## 0.3.0
 - [FEATURE] analytics upgrades
 
 ## 0.2.20
