@@ -146,10 +146,6 @@ jobs:
       - <<: *install_node
       - <<: *save_node
 
-      - <<: *restore_bower
-      - <<: *install_bower
-      - <<: *save_bower
-
       - <<: *build_modernizr
 
       - <<: *run_client_tests
@@ -170,10 +166,6 @@ jobs:
       - <<: *restore_node
       - <<: *install_node
       - <<: *save_node
-
-      - <<: *restore_bower
-      - <<: *install_bower
-      - <<: *save_bower
 
       - <<: *build_modernizr
 
