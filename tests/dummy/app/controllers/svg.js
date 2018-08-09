@@ -7,6 +7,7 @@ export default Controller.extend({
       'caret-down',
       'checkmark',
       'close',
+      'down-arrow',
       'download-arrow',
       'embed',
       'forward15',
