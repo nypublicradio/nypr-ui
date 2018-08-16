@@ -1,5 +1,9 @@
 # nypr-ui Changelog
 
+## 0.3.1
+- [FEATURE] adds `down-arrow` and `down-caret` svgs
+- [CHORE] adds log to `caret-down` svg to use the new `down-caret` (the latter has cleaner svg markup)
+
 ## 0.3.0
 - [FEATURE] analytics upgrades
 
