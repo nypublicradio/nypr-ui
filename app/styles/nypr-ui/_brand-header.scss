@@ -20,16 +20,28 @@ $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
   background-color: #000;
 }
 
+.nypr-brand-header__left,
+.nypr-brand-header__right {
+  display: flex;
+  flex: 1;
+}
+
+@include mq($medium-and-up) {
+  .nypr-brand-header__left {
+    flex-basis: auto;
+  }
+}
+
 .nypr-brand-header__logo-list {
   align-items: center;
   display: none;
-  flex-basis: 100%;
   flex-direction: row;
   justify-content: space-between;
   max-width: 838px;
 
   @include mq($medium-and-up) {
     display: flex;
+    flex-basis: 100%;
   }
 }
 
@@ -157,7 +169,6 @@ $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  align-items: space-between;
   width: 100%;
   margin-bottom: 0;
 
@@ -181,6 +192,9 @@ $nypr-brand-header-overlay-bg: rgba(0, 0, 0, 0.7);
   white-space: nowrap;
   text-decoration: none;
   cursor: pointer;
+
+  margin-left: auto;
+
   &:hover {
     text-decoration: underline;
   }

@@ -11,14 +11,10 @@
     </ul>
   {{/burger.menu}}
 {{/burger-menu}}
-<header class="nypr-brand-header">
-  <div class="nypr-brand-header__logo-list">
-    {{nypr-svg icon="nypr-logo" className="nypr-brand-header__nypr-logo"}}
-    {{nypr-svg icon="left-bracket" className="nypr-brand-header__square-bracket-open"}}
-    {{#each menuItems as |item|}}
-      {{logo-link logo=item}}
-    {{/each}}
-    {{nypr-svg icon="right-bracket" className="nypr-brand-header__square-bracket-close"}}
-  </div>
-  <a class="nypr-brand-header-button mod-network" {{action (toggle "open" this)}}>NYPR Network{{nypr-svg className="nypr-brand-header-caret" icon="left-arrow"}}</a>
-</header>
+{{#if (has-block)}}
+  {{yield (hash
+    header=(component 'nypr-ui/brand-header/header' menuItems=menuItems open=open)
+  )}}
+{{else}}
+  {{nypr-ui/brand-header/header menuItems=menuItems open=open}}
+{{/if}}
