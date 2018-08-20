@@ -7,20 +7,7 @@ module('Integration | Component | nypr-ui/brand-header/header', function(hooks) 
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
     await render(hbs`{{nypr-ui/brand-header/header}}`);
-
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      {{#nypr-ui/brand-header/header}}
-        template block text
-      {{/nypr-ui/brand-header/header}}
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.dom('.nypr-brand-header').exists();
   });
 });
