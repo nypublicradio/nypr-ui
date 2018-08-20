@@ -1,4 +1,9 @@
-<label for="{{fieldname}}" class="nypr-input-label">{{{label}}}</label>
+{{#if label}}
+  <label for="{{fieldname}}" class="nypr-input-label">{{{label}}}</label>
+{{/if}}
+{{#if icon}}
+  {{fa-icon icon class="nypr-input-icon"}}
+{{/if}}
 {{input
   name=fieldname
   id=fieldname
