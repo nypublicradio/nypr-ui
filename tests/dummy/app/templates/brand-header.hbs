@@ -14,4 +14,35 @@
 
 {{md-text html=true text="
   This should live above the site chrome so it covers the full width of the browser.
+
+  ## block usage
+  The component yields blocks at each level.
+
+  ## yields
+  key name | yields | description
+  --- | --- | ---
+  `.header` | `.left`, `.right` | two flex blocks with laid out with `justify-content: speace-between`.
+  `.left` | `.logos` | left side of the top bar
+  `.logos` | N/A | list of NYPR network logos rendered as SVGs with links
+  `.right` |  `.button` | right side of the top bar
+  `.button` | N/A | a button that opens the `burger-menu` when clicked
 "}}
+
+{{! BEGIN-SNIPPET brand-header-block }}
+{{#nypr-ui/brand-header as |brands|}}
+  {{#brands.header as |header|}}
+    {{#header.left as |left|}}
+      <div style="display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+        <a href="/donate" style="color: white;">donate</a>
+      </div>
+      {{left.logos}}
+    {{/header.left}}
+
+    {{#header.right as |right|}}
+      {{right.button}}
+    {{/header.right}}
+  {{/brands.header}}
+{{/nypr-ui/brand-header}}
+{{! END-SNIPPET }}
+
+{{code-snippet name="brand-header-block.hbs"}}

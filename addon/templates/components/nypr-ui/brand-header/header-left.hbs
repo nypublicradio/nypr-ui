@@ -1,0 +1,7 @@
+{{#if (has-block)}}
+  {{yield (hash
+    logos=(component 'nypr-ui/brand-header/header-logos' menuItems=menuItems)
+  )}}
+{{else}}
+  {{nypr-ui/brand-header/header-logos menuItems=menuItems}}
+{{/if}}

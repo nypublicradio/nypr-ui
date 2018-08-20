@@ -1,0 +1,7 @@
+{{#if (has-block)}}
+  {{yield (hash
+    button=(component 'nypr-ui/brand-header/menu-button' open=open)
+  )}}
+{{else}}
+  {{nypr-ui/brand-header/menu-button open=open}}
+{{/if}}
