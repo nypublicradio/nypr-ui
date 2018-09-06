@@ -2,6 +2,9 @@ import { helper } from '@ember/component/helper';
 import { urlEncode } from '../helpers/url-encode';
 
 export function shareUrl([destination, shareUrl, shareText, via, twitterHeadline]) {
+  if(typeof document === 'undefined') {
+    return;
+  }
   let a = document.createElement('a');
   a.href = shareUrl;
 
