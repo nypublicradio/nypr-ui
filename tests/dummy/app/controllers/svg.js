@@ -26,6 +26,7 @@ export default Controller.extend({
       'play',
       'reorder',
       'rewind15',
+      'right-arrow',
       'search',
       'share',
       'speaker',
