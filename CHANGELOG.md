@@ -1,6 +1,9 @@
 # nypr-ui Changelog
 
 ## 0.4.0
+- [FEATURE] adds `right-arrow` svg
+
+## 0.4.0
 - [ENHANCEMENT] Fastboot compatibility
 
 ## 0.3.1
