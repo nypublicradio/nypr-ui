@@ -10,7 +10,7 @@ register_nypr_ui: &register_nypr_ui
     command: cd /home/circleci/nypr-ui && yarn link
 
 node_key: &node_key
-  key: node-deps-v2-{{ arch }}-{{ checksum "yarn.lock" }}
+  key: node-deps-{{ arch }}-{{ checksum "yarn.lock" }}-{{ checksum "circle.yml" }}
 
 restore_node: &restore_node
   restore_cache:
@@ -63,7 +63,7 @@ run_client_tests: &run_client_tests
 
 container_defaults: &defaults
   docker:
-    - image: circleci/node:8.11-browsers
+    - image: circleci/node:8-browsers
       environment:
         JOBS: 2
 
