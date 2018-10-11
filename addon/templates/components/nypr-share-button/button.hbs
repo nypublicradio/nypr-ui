@@ -2,8 +2,7 @@
 <a href={{share-url 'Email' shareUrl shareText}}
   class={{concat "gtm__click-tracking " class}}
   data-action={{data-action}} data-label={{data-label}} data-category={{data-category}}
-  {{action 'closePopup' preventDefault=false}}
-  target="_blank">
+  {{action 'closePopup' preventDefault=false}}>
   {{#if (has-block)}}
     {{yield}}
   {{else}}
