@@ -29,6 +29,7 @@ save_node: &save_node
     <<: *node_key
     paths:
       - node_modules
+      - /home/circleci/.cache/Cypress
 
 restore_bower: &restore_bower
   restore_cache:
