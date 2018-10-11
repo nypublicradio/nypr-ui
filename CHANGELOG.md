@@ -1,5 +1,9 @@
 # nypr-ui Changelog
 
+## 0.4.2
+
+- [BUGFIX] tapping 'mailto:' link launches mail client no longer launches new browser tab: https://jira.wnyc.org/browse/GT-593
+
 ## 0.4.0
 - [FEATURE] adds `right-arrow` svg
 
