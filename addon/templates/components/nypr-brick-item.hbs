@@ -21,13 +21,13 @@
       {{or item.showTitle item.channelTitle}}
     </a>
     <h2 class="item__head__headline">
-      {{#link-to
-        'story'
-        item.slug
-        data-label=(concat item.title " | " (or item.showTitle item.channelTitle 'NPR Article'))}}
-        {{nypr-svg className="icon" icon="video"}}
-        {{or item.shortTitle item.title}}
-      {{/link-to}}
+      <a
+        title={{or item.shortTitle item.title}}
+        data-label=(concat item.title " | " (or item.showTitle item.channelTitle 'NPR Article'))
+        href={{item.url}}>
+          {{nypr-svg className="icon" icon="video"}}
+          {{or item.shortTitle item.title}}
+      </a>
     </h2>
     {{#if item.audio}}
       {{#listen-button
