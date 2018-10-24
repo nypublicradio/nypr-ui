@@ -23,7 +23,7 @@
     <h2 class="item__head__headline">
       <a
         title={{or item.shortTitle item.title}}
-        data-label=(concat item.title " | " (or item.showTitle item.channelTitle 'NPR Article'))
+        data-label={{concat item.title " | " (or item.showTitle item.channelTitle 'NPR Article')}}
         href={{item.url}}>
           {{nypr-svg className="icon" icon="video"}}
           {{or item.shortTitle item.title}}
