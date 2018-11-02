@@ -1,0 +1,39 @@
+// Make sure your checkbox precedes your label element in the markup
+@mixin nypr-checkbox($check-color, $border-color, $bg-color) {
+  input[type="checkbox"] {
+    position: absolute;
+    left: -9999px;
+    text-indent: -9999px;
+  }
+
+  input[type="checkbox"] + label:before {
+    content: '';
+    display: block;
+    flex-shrink: 0;
+    margin-top: 3px;
+    margin-right: 8px;
+    width: 18px;
+    height: 18px;
+    border: 2px solid $border-color;
+    background-color: $bg-color;
+  }
+
+  input[type="checkbox"] + label:after {
+    content: '';
+    width: 6px;
+    height: 10px;
+    border: solid $check-color;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) scale(0);
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    opacity: 0;
+    transition: opacity 125ms ease, transform 125ms ease;
+  }
+
+  input[type="checkbox"]:checked + label:after {
+    opacity: 1;
+    transform: rotate(45deg) scale(1);
+  }
+}
