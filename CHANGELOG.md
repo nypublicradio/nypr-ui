@@ -1,9 +1,12 @@
 # nypr-ui Changelog
 
+## 0.4.4
+
+- [BUGFIX] builds `nypr-brick-item` links manually to support promoting content from other nypr sites
+
 ## 0.4.3
 
 - [FEATURE] adds `nypr-checkbox` mixin
-- [BUGFIX] builds `nypr-brick-item` links manually to support promoting content from other nypr sites
 
 ## 0.4.2
 
