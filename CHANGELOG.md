@@ -1,5 +1,10 @@
 # nypr-ui Changelog
 
+## 0.4.3
+
+- [FEATURE] adds `nypr-checkbox` mixin
+- [BUGFIX] builds `nypr-brick-item` links manually to support promoting content from other nypr sites
+
 ## 0.4.2
 
 - [BUGFIX] tapping 'mailto:' link launches mail client no longer launches new browser tab: https://jira.wnyc.org/browse/GT-593
