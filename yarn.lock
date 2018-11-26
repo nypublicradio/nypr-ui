@@ -2658,12 +2658,13 @@ ember-cli@~3.0.0:
     watch-detector "^0.1.0"
     yam "0.0.22"
 
-ember-click-outside@0.1.11:
-  version "0.1.11"
-  resolved "https://registry.yarnpkg.com/ember-click-outside/-/ember-click-outside-0.1.11.tgz#f76034e37513a9b140221d3103cd755ae5023a0b"
+ember-click-outside@1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/ember-click-outside/-/ember-click-outside-1.0.3.tgz#c1f5d5eef1a4991484deeb56dbb943288722760b"
   dependencies:
-    ember-cli-babel "^6.3.0"
+    ember-cli-babel "^6.6.0"
     ember-cli-htmlbars "^2.0.1"
+    ember-native-dom-helpers "^0.5.10"
 
 ember-code-snippet@^2.0.0:
   version "2.1.0"
@@ -2750,7 +2751,7 @@ ember-maybe-import-regenerator@^0.1.5, ember-maybe-import-regenerator@^0.1.6:
     ember-cli-babel "^6.0.0-beta.4"
     regenerator-runtime "^0.9.5"
 
-ember-native-dom-helpers@^0.5.4:
+ember-native-dom-helpers@^0.5.10, ember-native-dom-helpers@^0.5.4:
   version "0.5.10"
   resolved "https://registry.yarnpkg.com/ember-native-dom-helpers/-/ember-native-dom-helpers-0.5.10.tgz#9c7172e4ddfa5dd86830c46a936e2f8eca3e5896"
   dependencies:
