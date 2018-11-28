@@ -1,5 +1,9 @@
 # nypr-ui Changelog
 
+## 0.4.5
+
+- [BUGFIX] removes forced fill color from NJPR svg
+
 ## 0.4.4
 
 - [BUGFIX] builds `nypr-brick-item` links manually to support promoting content from other nypr sites
