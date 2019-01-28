@@ -1,5 +1,9 @@
 # nypr-ui Changelog
 
+## 0.4.6
+
+- [ENHANCEMENT] adds ability to block option on nypr-brick-item component.
+
 ## 0.4.5
 
 - [BUGFIX] removes forced fill color from NJPR svg
