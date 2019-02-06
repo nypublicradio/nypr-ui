@@ -1,5 +1,9 @@
 # nypr-ui Changelog
 
+## 0.4.7
+
+- [BUGFIX] make image link on nypr-brick-item link to the correct place. 
+
 ## 0.4.6
 
 - [ENHANCEMENT] adds ability to block option on nypr-brick-item component.
