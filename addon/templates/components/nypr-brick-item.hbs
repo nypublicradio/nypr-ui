@@ -41,12 +41,12 @@
       {{/listen-button}}
     {{/if}}
   </div>
-  {{#link-to
-    'story'
-    item.slug
-    class="item__link--hidden"
-    data-label=(concat item.title " | " (or item.showTitle item.channelTitle 'NPR Article'))}}
+  <a
+    title={{or item.shortTitle item.title}}
+    data-label={{concat item.title " | " (or item.showTitle item.channelTitle 'NPR Article')}}
+    href={{item.url}}
+    class="item__link--hidden">
     {{or item.shortTitle item.title}}
-  {{/link-to}}
+  </a>
 {{/with}}
 {{/if}}
