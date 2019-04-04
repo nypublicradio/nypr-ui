@@ -12,7 +12,7 @@ module('Integration | Component | nypr-ui/brand-header/header-left', function(ho
 
     await render(hbs`{{nypr-ui/brand-header/header-left}}`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.equal(this.element.textContent.trim(), 'A list of our sites');
 
     // Template block usage:
     await render(hbs`
