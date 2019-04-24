@@ -1,8 +1,11 @@
 # nypr-ui Changelog
 
+## 0.5.0
+- [ENHANCEMENT] accessibility fixes to brand header, producing org, and SVGs.
+
 ## 0.4.7
 
-- [BUGFIX] make image link on nypr-brick-item link to the correct place. 
+- [BUGFIX] make image link on nypr-brick-item link to the correct place.
 
 ## 0.4.6
 
