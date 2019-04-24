@@ -1,0 +1,19 @@
+@import 'mixins/visually-hidden';
+
+/* accessibility helpers */
+
+.for-screenreaders {
+  @include visually-hidden;
+}
+
+// Using the :focus-ring polyfill to provide focus styles only during keyboard navigation
+// https://github.com/WICG/focus-ring
+
+.js-focus-ring {
+  :focus {
+    outline: inital;
+  }
+  :focus:not(.focus-ring) {
+    outline-width: 0;
+  }
+}

@@ -1,7 +1,14 @@
+{{#if (has-block)}}
+  {{yield (hash
+    header=(component 'nypr-ui/brand-header/header' menuItems=menuItems open=open)
+  )}}
+{{else}}
+  {{nypr-ui/brand-header/header menuItems=menuItems open=open}}
+{{/if}}
 <div class="nypr-brand-header-overlay-bg {{if open 'active'}}"></div>
-{{#burger-menu class="nypr-brand-header-menu" width=200 open=open position="right" as |burger|}}
+{{#burger-menu class="nypr-brand-header-menu" aria-hidden=(if open "false" "true") width=200 open=open position="right" as |burger|}}
   {{#burger.menu dismissOnItemClick=true itemTagName="li" as |menu|}}
-    <a {{action burger.state.actions.close}} role="button" class="nypr-brand-header-button nypr-brand-header-close"><span>NYPR Network</span>
+    <a {{action burger.state.actions.close}} role="button" class="nypr-brand-header-button nypr-brand-header-close"><span aria-label="close navigation">NYPR Network</span>
       {{nypr-svg className="nypr-brand-header-close-icon" icon="close"}}
     </a>
     <ul class="nypr-brand-header-menu-items">
@@ -11,10 +18,4 @@
     </ul>
   {{/burger.menu}}
 {{/burger-menu}}
-{{#if (has-block)}}
-  {{yield (hash
-    header=(component 'nypr-ui/brand-header/header' menuItems=menuItems open=open)
-  )}}
-{{else}}
-  {{nypr-ui/brand-header/header menuItems=menuItems open=open}}
-{{/if}}
+

@@ -1,7 +1,7 @@
 {{#if url}}
   <a href="{{url}}" class="link--dark">
   {{#if (and org.logo org.logo.template)}}
-    <img class="img--inline" 
+    <img class="img--inline" alt="{{org.name}} (Opens in new window)"
     src="{{image-template org.logo.template 0 15 org.logo.crop 99}}"
     srcset="{{image-template org.logo.template 0 30 org.logo.crop 99}} 2x,
             {{image-template org.logo.template 0 45 org.logo.crop 99}} 3x"
@@ -12,7 +12,7 @@
   </a>
 {{else}}
   {{#if (and org.logo org.logo.template)}}
-    <img class="img--inline" 
+    <img class="img--inline" alt="{{org.name}}"
     src="{{image-template org.logo.template 0 15 org.logo.crop 99}}"
     srcset="{{image-template org.logo.template 0 30 org.logo.crop 99}} 2x,
             {{image-template org.logo.template 0 45 org.logo.crop 99}} 3x"
