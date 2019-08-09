@@ -29,7 +29,7 @@
     "ember-composable-helpers": "2.0.3",
     "ember-cookies": "^0.3.0",
     "ember-holygrail-layout": "^0.3.0",
-    "ember-power-select": "^1.9.2",
+    "ember-power-select": "^3.0.3",
     "ivy-tabs": "^3.3.0",
     "waypoints": "^4.0.1"
   },
