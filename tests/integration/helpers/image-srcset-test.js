@@ -1,14 +1,16 @@
 
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('image-srcset', 'helper:image-srcset', {
-  integration: true
-});
+module('helper:image-srcset', function(hooks) {
+  setupRenderingTest(hooks);
 
-// Replace this with your real tests.
-test('it renders', function(assert) {
-  this.render(hbs`{{image-srcset}}`);
+  // Replace this with your real tests.
+  test('it renders', async function(assert) {
+    await render(hbs`{{image-srcset}}`);
 
-  assert.equal(this.$().text().trim(), '');
+    assert.dom(this.element).hasText('');
+  });
 });

@@ -1,17 +1,19 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('nypr-loading-templates', 'Integration | Component | nypr loading templates', {
-  integration: true
-});
+module('Integration | Component | nypr loading templates', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
+  test('it renders', async function(assert) {
 
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.set('type', 'index');
-  this.render(hbs`{{nypr-loading-templates type=type}}`);
+    this.set('type', 'index');
+    await render(hbs`{{nypr-loading-templates type=type}}`);
 
-  assert.equal(this.$().text().trim(), '');
+    assert.dom(this.element).hasText('');
+  });
 });

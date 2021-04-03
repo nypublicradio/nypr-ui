@@ -7,7 +7,7 @@ export default Component.extend({
   classNames: ['dropdown', 'dropdown-fade'],
   classNameBindings: ['directionClass', 'colorClass'],
   directionClass: computed('direction', function() {
-    let direction = this.get('direction');
+    let direction = this.direction;
     switch(direction) {
       case 'br':
         return 'dropdown--br';
@@ -18,7 +18,7 @@ export default Component.extend({
     }
   }),
   colorClass: computed('color', function() {
-    let color = this.get('color');
+    let color = this.color;
     switch (color) {
       case 'white':
         return 'dropdown--white';

@@ -1,4 +1,6 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import sinon from 'sinon';
 import RSVP from 'rsvp';
@@ -6,9 +8,10 @@ import Ember from 'ember';
 
 let originalTestAdapterException;
 
-moduleForComponent('nypr-form', 'Integration | Component | nypr form', {
-  integration: true,
-  beforeEach() {
+module('Integration | Component | nypr form', function(hooks) {
+  setupRenderingTest(hooks);
+
+  hooks.beforeEach(function() {
     this.mockChangeSet = {
       cast() {
         return {
@@ -22,137 +25,138 @@ moduleForComponent('nypr-form', 'Integration | Component | nypr form', {
     };
     originalTestAdapterException = Ember.Test.adapter.exception;
     Ember.Test.adapter.exception = function() {};
-  },
-  afterEach() {
+  });
+
+  hooks.afterEach(function() {
     Ember.Test.adapter.exception = originalTestAdapterException;
-  }
-});
+  });
 
-test('it renders', function(assert) {
-  this.render(hbs`{{nypr-form}}`);
+  test('it renders', async function(assert) {
+    await render(hbs`{{nypr-form}}`);
 
-  assert.equal(this.$().text().trim(), '');
+    assert.dom(this.element).hasText('');
 
-  this.render(hbs`
-    {{#nypr-form}}
-      template block text
-    {{/nypr-form}}
-  `);
+    await render(hbs`
+      {{#nypr-form}}
+        template block text
+      {{/nypr-form}}
+    `);
 
-  assert.equal(this.$().text().trim(), 'template block text');
-});
+    assert.dom(this.element).hasText('template block text');
+  });
 
-test('it succeeds', function(assert) {
-  this.set('changeset', this.mockChangeSet);
-  let onSubmit = sinon.stub().returns( RSVP.Promise.resolve({}) );
-  let onSuccess = sinon.spy();
-  let onFailure = sinon.spy();
-  let onInvalid = sinon.spy();
-  this.set('onSubmit', onSubmit);
-  this.set('onSuccess', onSuccess);
-  this.set('onFailure', onFailure);
-  this.set('onInvalid', onInvalid);
+  test('it succeeds', async function(assert) {
+    this.set('changeset', this.mockChangeSet);
+    let onSubmit = sinon.stub().returns( RSVP.Promise.resolve({}) );
+    let onSuccess = sinon.spy();
+    let onFailure = sinon.spy();
+    let onInvalid = sinon.spy();
+    this.set('onSubmit', onSubmit);
+    this.set('onSuccess', onSuccess);
+    this.set('onFailure', onFailure);
+    this.set('onInvalid', onInvalid);
 
-  this.render(hbs`{{#nypr-form
-                    changeset=changeset
-                    onSubmit=(action onSubmit)
-                    onSuccess=(action onSuccess)
-                    onFailure=(action onFailure)
-                    onInvalid=(action onInvalid)
-                    as |form|}}
-                    <input type="submit" Value="Submit">
-                    <span class='status'
-                      data-tried="{{form.status.tried}}"
-                      data-success="{{form.status.success}}"
-                      data-failure="{{form.status.failure}}"
-                      data-invalid="{{form.status.invalid}}"
-                      data-processing="{{form.status.processing}}"></span>
-                  {{/nypr-form}}`);
-  this.$('input').click();
+    await render(hbs`{{#nypr-form
+                      changeset=changeset
+                      onSubmit=(action onSubmit)
+                      onSuccess=(action onSuccess)
+                      onFailure=(action onFailure)
+                      onInvalid=(action onInvalid)
+                      as |form|}}
+                      <input type="submit" Value="Submit">
+                      <span class='status'
+                        data-tried="{{form.status.tried}}"
+                        data-success="{{form.status.success}}"
+                        data-failure="{{form.status.failure}}"
+                        data-invalid="{{form.status.invalid}}"
+                        data-processing="{{form.status.processing}}"></span>
+                    {{/nypr-form}}`);
+    await click('input');
 
-  assert.equal(onSubmit.callCount,  1, 'called onSubmit');
-  assert.equal(onSuccess.callCount, 1, 'called onSuccess');
-  assert.equal(onFailure.callCount, 0, 'called onFailure');
-  assert.equal(onInvalid.callCount, 0, 'called onInvalid');
+    assert.equal(onSubmit.callCount,  1, 'called onSubmit');
+    assert.equal(onSuccess.callCount, 1, 'called onSuccess');
+    assert.equal(onFailure.callCount, 0, 'called onFailure');
+    assert.equal(onInvalid.callCount, 0, 'called onInvalid');
 
-  let data = this.$('.status').data();
-  let formState = Object.keys(data).filter(key => !!data[key]).sort();
-  assert.deepEqual(formState, ['tried', 'success'].sort());
-});
+    let data = this.$('.status').data();
+    let formState = Object.keys(data).filter(key => !!data[key]).sort();
+    assert.deepEqual(formState, ['tried', 'success'].sort());
+  });
 
-test('it fails', function(assert) {
-  this.set('changeset', this.mockChangeSet);
-  let onSubmit = sinon.stub().returns( RSVP.Promise.reject() );
-  let onSuccess = sinon.spy();
-  let onFailure = sinon.spy();
-  let onInvalid = sinon.spy();
-  this.set('onSubmit', onSubmit);
-  this.set('onSuccess', onSuccess);
-  this.set('onFailure', onFailure);
-  this.set('onInvalid', onInvalid);
+  test('it fails', async function(assert) {
+    this.set('changeset', this.mockChangeSet);
+    let onSubmit = sinon.stub().returns( RSVP.Promise.reject() );
+    let onSuccess = sinon.spy();
+    let onFailure = sinon.spy();
+    let onInvalid = sinon.spy();
+    this.set('onSubmit', onSubmit);
+    this.set('onSuccess', onSuccess);
+    this.set('onFailure', onFailure);
+    this.set('onInvalid', onInvalid);
 
-  this.render(hbs`{{#nypr-form
-                    changeset=changeset
-                    onSubmit=(action onSubmit)
-                    onSuccess=(action onSuccess)
-                    onFailure=(action onFailure)
-                    onInvalid=(action onInvalid)
-                    as |form|}}
-                    <input type="submit" Value="Submit">
-                    <span class='status'
-                      data-tried="{{form.status.tried}}"
-                      data-success="{{form.status.success}}"
-                      data-failure="{{form.status.failure}}"
-                      data-invalid="{{form.status.invalid}}"
-                      data-processing="{{form.status.processing}}"></span>
-                  {{/nypr-form}}`);
-  this.$('input').click();
+    await render(hbs`{{#nypr-form
+                      changeset=changeset
+                      onSubmit=(action onSubmit)
+                      onSuccess=(action onSuccess)
+                      onFailure=(action onFailure)
+                      onInvalid=(action onInvalid)
+                      as |form|}}
+                      <input type="submit" Value="Submit">
+                      <span class='status'
+                        data-tried="{{form.status.tried}}"
+                        data-success="{{form.status.success}}"
+                        data-failure="{{form.status.failure}}"
+                        data-invalid="{{form.status.invalid}}"
+                        data-processing="{{form.status.processing}}"></span>
+                    {{/nypr-form}}`);
+    await click('input');
 
-  assert.equal(onSubmit.callCount,  1, 'called onSubmit');
-  assert.equal(onSuccess.callCount, 0, 'called onSuccess');
-  assert.equal(onFailure.callCount, 1, 'called onFailure');
-  assert.equal(onInvalid.callCount, 0, 'called onInvalid');
+    assert.equal(onSubmit.callCount,  1, 'called onSubmit');
+    assert.equal(onSuccess.callCount, 0, 'called onSuccess');
+    assert.equal(onFailure.callCount, 1, 'called onFailure');
+    assert.equal(onInvalid.callCount, 0, 'called onInvalid');
 
-  let data = this.$('.status').data();
-  let formState = Object.keys(data).filter(key => !!data[key]).sort();
-  assert.deepEqual(formState, ['tried', 'failure'].sort(), "event order is correct");
-});
+    let data = this.$('.status').data();
+    let formState = Object.keys(data).filter(key => !!data[key]).sort();
+    assert.deepEqual(formState, ['tried', 'failure'].sort(), "event order is correct");
+  });
 
-test('it invalids', function(assert) {
-  this.mockChangeSet.isValid = false;
-  this.set('changeset', this.mockChangeSet);
-  let onSubmit = sinon.stub().returns( RSVP.Promise.resolve({}) );
-  let onSuccess = sinon.spy();
-  let onFailure = sinon.spy();
-  let onInvalid = sinon.spy();
-  this.set('onSubmit', onSubmit);
-  this.set('onSuccess', onSuccess);
-  this.set('onFailure', onFailure);
-  this.set('onInvalid', onInvalid);
+  test('it invalids', async function(assert) {
+    this.mockChangeSet.isValid = false;
+    this.set('changeset', this.mockChangeSet);
+    let onSubmit = sinon.stub().returns( RSVP.Promise.resolve({}) );
+    let onSuccess = sinon.spy();
+    let onFailure = sinon.spy();
+    let onInvalid = sinon.spy();
+    this.set('onSubmit', onSubmit);
+    this.set('onSuccess', onSuccess);
+    this.set('onFailure', onFailure);
+    this.set('onInvalid', onInvalid);
 
-  this.render(hbs`{{#nypr-form
-                    changeset=changeset
-                    onSubmit=(action onSubmit)
-                    onSuccess=(action onSuccess)
-                    onFailure=(action onFailure)
-                    onInvalid=(action onInvalid)
-                    as |form|}}
-                    <input type="submit" Value="Submit">
-                    <span class='status'
-                      data-tried="{{form.status.tried}}"
-                      data-success="{{form.status.success}}"
-                      data-failure="{{form.status.failure}}"
-                      data-invalid="{{form.status.invalid}}"
-                      data-processing="{{form.status.processing}}"></span>
-                  {{/nypr-form}}`);
-  this.$('input').click();
+    await render(hbs`{{#nypr-form
+                      changeset=changeset
+                      onSubmit=(action onSubmit)
+                      onSuccess=(action onSuccess)
+                      onFailure=(action onFailure)
+                      onInvalid=(action onInvalid)
+                      as |form|}}
+                      <input type="submit" Value="Submit">
+                      <span class='status'
+                        data-tried="{{form.status.tried}}"
+                        data-success="{{form.status.success}}"
+                        data-failure="{{form.status.failure}}"
+                        data-invalid="{{form.status.invalid}}"
+                        data-processing="{{form.status.processing}}"></span>
+                    {{/nypr-form}}`);
+    await click('input');
 
-  assert.equal(onSubmit.callCount,  0, 'called onSubmit');
-  assert.equal(onSuccess.callCount, 0, 'called onSuccess');
-  assert.equal(onFailure.callCount, 0, 'called onFailure');
-  assert.equal(onInvalid.callCount, 1, 'called onInvalid');
+    assert.equal(onSubmit.callCount,  0, 'called onSubmit');
+    assert.equal(onSuccess.callCount, 0, 'called onSuccess');
+    assert.equal(onFailure.callCount, 0, 'called onFailure');
+    assert.equal(onInvalid.callCount, 1, 'called onInvalid');
 
-  let data = this.$('.status').data();
-  let formState = Object.keys(data).filter(key => !!data[key]).sort();
-  assert.deepEqual(formState, ['tried', 'invalid'].sort());
+    let data = this.$('.status').data();
+    let formState = Object.keys(data).filter(key => !!data[key]).sort();
+    assert.deepEqual(formState, ['tried', 'invalid'].sort());
+  });
 });

@@ -1,25 +1,27 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('site-chrome/footer', 'Integration | Component | site chrome/footer', {
-  integration: true
-});
+module('Integration | Component | site chrome/footer', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
+  test('it renders', async function(assert) {
 
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{site-chrome/footer}}`);
+    await render(hbs`{{site-chrome/footer}}`);
 
-  assert.equal(this.$().text().trim(), 'Document Footer');
+    assert.dom(this.element).hasText('Document Footer');
 
-  // Template block usage:
-  this.render(hbs`
-    {{#site-chrome/footer}}
-      template block text
-    {{/site-chrome/footer}}
-  `);
+    // Template block usage:
+    await render(hbs`
+      {{#site-chrome/footer}}
+        template block text
+      {{/site-chrome/footer}}
+    `);
 
-  assert.ok(this.$().text().match('template block text'));
+    assert.ok(this.element.textContent.match('template block text'));
+  });
 });

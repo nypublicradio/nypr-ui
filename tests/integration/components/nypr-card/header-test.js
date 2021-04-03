@@ -1,27 +1,29 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('nypr-card/header', 'Integration | Component | nypr card/header', {
-  integration: true
-});
+module('Integration | Component | nypr card/header', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
+  test('it renders', async function(assert) {
 
-  assert.expect(4);
-  this.set('buttonAction', () => assert.ok('buttonAction fired'));
-  this.render(hbs`{{nypr-card/header title="hello world" buttonAction=buttonAction}}`);
+    assert.expect(4);
+    this.set('buttonAction', () => assert.ok('buttonAction fired'));
+    await render(hbs`{{nypr-card/header title="hello world" buttonAction=buttonAction}}`);
 
-  assert.equal(this.$().text().trim(), 'hello world');
-  this.$('[data-test-selector="nypr-card-button"]').click();
+    assert.dom(this.element).hasText('hello world');
+    await click('[data-test-selector="nypr-card-button"]');
 
-  // Template block usage:
-  this.render(hbs`
-    {{#nypr-card/header as |header|}}
-      {{header.title text="hello world"}}
-      {{header.button text="the button"}}
-    {{/nypr-card/header}}
-  `);
+    // Template block usage:
+    await render(hbs`
+      {{#nypr-card/header as |header|}}
+        {{header.title text="hello world"}}
+        {{header.button text="the button"}}
+      {{/nypr-card/header}}
+    `);
 
-  assert.equal(this.$('.nypr-card-title').text().trim(), 'hello world');
-  assert.equal(this.$('.nypr-card-button').text().trim(), 'the button');
+    assert.dom('.nypr-card-title').hasText('hello world');
+    assert.dom('.nypr-card-button').hasText('the button');
+  });
 });

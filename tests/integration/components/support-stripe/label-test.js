@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, find } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Component | support-stripe/label', function(hooks) {
@@ -12,7 +12,7 @@ module('Integration | Component | support-stripe/label', function(hooks) {
 
     await render(hbs`{{nypr-ui/support-stripe/label 'text'}}`);
 
-    assert.ok(find('.support-stripe__label'));
-    assert.equal(find('.support-stripe__label').textContent.trim(), 'text');
+    assert.dom('.support-stripe__label').exists();
+    assert.dom('.support-stripe__label').hasText('text');
   });
 });

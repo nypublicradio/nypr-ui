@@ -1,15 +1,17 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('network-stripe', 'Integration | Component | network stripe', {
-  integration: true
-});
+module('Integration | Component | network stripe', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  test('it renders', async function(assert) {
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{network-stripe}}`);
+    await render(hbs`{{network-stripe}}`);
 
-  assert.equal(this.$('.network-stripe').length, 1);
+    assert.dom('.network-stripe').exists({ count: 1 });
+  });
 });

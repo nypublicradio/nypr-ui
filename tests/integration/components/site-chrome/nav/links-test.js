@@ -1,25 +1,27 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('site-chrome/nav/links', 'Integration | Component | site chrome/nav/links', {
-  integration: true
-});
+module('Integration | Component | site chrome/nav/links', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
+  test('it renders', async function(assert) {
 
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{site-chrome/nav/links}}`);
+    await render(hbs`{{site-chrome/nav/links}}`);
 
-  assert.equal(this.$().text().trim(), '');
+    assert.dom(this.element).hasText('');
 
-  // Template block usage:
-  this.render(hbs`
-    {{#site-chrome/nav/links}}
-      template block text
-    {{/site-chrome/nav/links}}
-  `);
+    // Template block usage:
+    await render(hbs`
+      {{#site-chrome/nav/links}}
+        template block text
+      {{/site-chrome/nav/links}}
+    `);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+    assert.dom(this.element).hasText('template block text');
+  });
 });

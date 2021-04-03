@@ -12,7 +12,7 @@ module('Integration | Component | nypr-ui/brand-header/header-left', function(ho
 
     await render(hbs`{{nypr-ui/brand-header/header-left}}`);
 
-    assert.equal(this.element.textContent.trim(), 'A list of our sites');
+    assert.dom(this.element).hasText('A list of our sites');
 
     // Template block usage:
     await render(hbs`
@@ -21,6 +21,6 @@ module('Integration | Component | nypr-ui/brand-header/header-left', function(ho
       {{/nypr-ui/brand-header/header-left}}
     `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.dom(this.element).hasText('template block text');
   });
 });

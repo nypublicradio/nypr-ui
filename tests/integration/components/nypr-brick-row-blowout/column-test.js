@@ -1,25 +1,27 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('nypr-brick-row-blowout/column', 'Integration | Component | nypr brick row blowout/column', {
-  integration: true
-});
+module('Integration | Component | nypr brick row blowout/column', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
+  test('it renders', async function(assert) {
 
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{nypr-brick-row-blowout/column}}`);
+    await render(hbs`{{nypr-brick-row-blowout/column}}`);
 
-  assert.equal(this.$().text().trim(), '');
+    assert.dom(this.element).hasText('');
 
-  // Template block usage:
-  this.render(hbs`
-    {{#nypr-brick-row-blowout/column}}
-      template block text
-    {{/nypr-brick-row-blowout/column}}
-  `);
+    // Template block usage:
+    await render(hbs`
+      {{#nypr-brick-row-blowout/column}}
+        template block text
+      {{/nypr-brick-row-blowout/column}}
+    `);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+    assert.dom(this.element).hasText('template block text');
+  });
 });

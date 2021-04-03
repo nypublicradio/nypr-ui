@@ -5,11 +5,11 @@ import Waypoint from 'waypoints';
 export default Mixin.create({
   didInsertElement() {
     this._super(...arguments);
-    if (this.get('sticky'))  {
+    if (this.sticky)  {
       assert("Waypoint.Sticky is not defined. Did you include `useWaypoints: true` in your application config?", Waypoint.Sticky);
       let waypoint = new Waypoint.Sticky({
         element: this.element,
-        offset: this.get('offset')
+        offset: this.offset
       });
       this.set('waypoint', waypoint);
     }
@@ -17,8 +17,8 @@ export default Mixin.create({
   
   willDestroyElement() {
     this._super(...arguments);
-    if (this.get('sticky'))  {
-      this.get('waypoint').destroy();
+    if (this.sticky)  {
+      this.waypoint.destroy();
     }
   },
   

@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import layout from '../templates/components/nypr-popup-menu';
 import { htmlSafe } from '@ember/string';
-import { get, set } from '@ember/object';
+import { set } from '@ember/object';
 import { next } from '@ember/runloop';
 
 export default Component.extend({
@@ -18,7 +18,7 @@ export default Component.extend({
   },
   actions: {
     togglePopup: function() {
-      if (get(this, 'isOpen')) {
+      if (this.isOpen) {
         this.send('closePopup');
       } else {
         this.send('openPopup');
@@ -74,7 +74,7 @@ export default Component.extend({
     // check if that rect is out of bounds of the viewportWidth,
     // and calculate an offscreenOffset to move rect back onscreen.
     let viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    let screenMargin = get(this, 'screenMargin');
+    let screenMargin = this.screenMargin;
     let offscreenOffset = 0;
     if (rect.left + startingOffset < screenMargin) {
       offscreenOffset = screenMargin - (rect.left + startingOffset);

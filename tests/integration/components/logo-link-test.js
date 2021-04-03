@@ -12,6 +12,6 @@ module('Integration | Component | logo-link', function(hooks) {
 
     await render(hbs`{{logo-link}}`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.dom(this.element).hasText('');
   });
 });

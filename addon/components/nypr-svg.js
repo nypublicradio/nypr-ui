@@ -4,7 +4,7 @@ import { computed } from '@ember/object';
 export default Component.extend({
   tagName: '',
   svgPartial: computed(function() {
-    let icon = this.get('icon');
+    let icon = this.icon;
     return icon ? `components/nypr-svg/${icon}` : false;
   })
 });

@@ -1,36 +1,38 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, find } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import { clickTrigger } from 'ember-basic-dropdown/test-support/helpers';
 
-moduleForComponent('dropdown-panel', 'Integration | Component | dropdown panel', {
-  integration: true
-});
+module('Integration | Component | dropdown panel', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
+  test('it renders', async function(assert) {
 
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{dropdown-panel}}`);
+    await render(hbs`{{dropdown-panel}}`);
 
-  assert.equal(this.$().text().trim(), '');
+    assert.dom(this.element).hasText('');
 
-  // Template block usage:
-  let items = ['foo', 'bar'];
-  this.set('items', items);
-  this.render(hbs`
-    {{#dropdown-panel as |panel|}}
-      {{#panel.button}}button{{/panel.button}}
-      {{#panel.body}}
-        {{#each items as |i|}}
-          {{i}}
-        {{/each}}
-      {{/panel.body}}
-    {{/dropdown-panel}}
-  `);
+    // Template block usage:
+    let items = ['foo', 'bar'];
+    this.set('items', items);
+    await render(hbs`
+      {{#dropdown-panel as |panel|}}
+        {{#panel.button}}button{{/panel.button}}
+        {{#panel.body}}
+          {{#each items as |i|}}
+            {{i}}
+          {{/each}}
+        {{/panel.body}}
+      {{/dropdown-panel}}
+    `);
 
-  assert.equal(this.$().text().trim(), 'button');
-  clickTrigger();
-  assert.ok(/foo/.test(this.$('.panel').text()));
-  assert.ok(/bar/.test(this.$('.panel').text()));
+    assert.dom(this.element).hasText('button');
+    clickTrigger();
+    assert.ok(/foo/.test(find('.panel').textContent));
+    assert.ok(/bar/.test(find('.panel').textContent));
+  });
 });

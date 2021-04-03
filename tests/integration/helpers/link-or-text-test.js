@@ -1,27 +1,29 @@
 
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('link-or-text', 'helper:link-or-text', {
-  integration: true
-});
+module('helper:link-or-text', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders link', function(assert) {
-  let name = 'link';
-  let url = 'http://example.com';
-  this.set('inputValue', {name, url});
+  test('it renders link', async function(assert) {
+    let name = 'link';
+    let url = 'http://example.com';
+    this.set('inputValue', {name, url});
 
-  this.render(hbs`{{{link-or-text inputValue}}}`);
+    await render(hbs`{{{link-or-text inputValue}}}`);
 
-  assert.equal(this.$('a').length, 1);
-  assert.equal(this.$('a').text(), name);
-  assert.equal(this.$('a').attr('href'), url);
-});
+    assert.dom('a').exists({ count: 1 });
+    assert.dom('a').hasText(name);
+    assert.dom('a').hasAttribute('href', url);
+  });
 
-test('it renders text', function(assert) {
-  this.set('inputValue', '1234');
+  test('it renders text', async function(assert) {
+    this.set('inputValue', '1234');
 
-  this.render(hbs`{{link-or-text inputValue}}`);
+    await render(hbs`{{link-or-text inputValue}}`);
 
-  assert.equal(this.$().text().trim(), '1234');
+    assert.dom(this.element).hasText('1234');
+  });
 });
