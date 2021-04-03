@@ -7,15 +7,15 @@ export default Component.extend({
 
   didInsertElement() {
     this._super(...arguments);
-    let notify = this.get('notify');
+    let notify = this.notify;
     if (notify) {
-      this.get('notify')(this);
+      this.notify(this);
     }
   },
 
   actions: {
     goTo(to) {
-      this.get('setActive')(to);
+      this.setActive(to);
     }
   }
 });

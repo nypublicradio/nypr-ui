@@ -9,7 +9,7 @@ export default Component.extend({
     popupShareWindow(destination) {
       let shareText = this.get('story.title');
       let url = this.get('story.url');
-      let via = this.get('story.twitterHandle') || this.get('via');
+      let via = this.get('story.twitterHandle') || this.via;
       let twitterHeadline = this.get('story.twitterHeadline') || shareText;
 
       let href = shareUrl([destination, url, shareText, via, twitterHeadline]);

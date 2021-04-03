@@ -7,7 +7,7 @@ export default Component.extend({
 
   didRender() {
     this._super(...arguments);
-    let sendImage = this.get('sendImage');
+    let sendImage = this.sendImage;
     if (sendImage) {
       sendImage(this.getProperties('src', 'source', 'caption', 'credit'))
     }

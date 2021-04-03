@@ -9,15 +9,15 @@ export default Component.extend({
   classNameBindings: ['cssOverrides'],
   attributeBindings: ['style'],
   pageTemplate: computed('type', function() {
-    let type = this.get('type');
+    let type = this.type;
     return `components/nypr-loading-templates/${type}`;
   }),
   cssOverrides: computed('type', function() {
-    let type = this.get('type');
+    let type = this.type;
     return `${type}-loading`;
   }),
   didRender() {
-    if (!Ember.testing && this.get('type') !== 'channel-page') {
+    if (!Ember.testing && this.type !== 'channel-page') {
       window.scrollTo(0, 0);
     }
   }

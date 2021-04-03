@@ -14,16 +14,16 @@ export default Component.extend({
   },
   
   activate(to) {
-    this.get('children').setEach('active', false);
+    this.children.setEach('active', false);
     if (typeof to === 'number') {
-      this.get('children').objectAt(to).set('active', true);
+      this.children.objectAt(to).set('active', true);
     } else {
-      this.get('children').findBy('name', to).set('active', true);
+      this.children.findBy('name', to).set('active', true);
     }
   },
   actions: {
     notify(child) {
-      this.get('children').pushObject(child);
+      this.children.pushObject(child);
       if (this.get('children.length') === 1) {
         this.get('children.firstObject').set('active', true);
       }

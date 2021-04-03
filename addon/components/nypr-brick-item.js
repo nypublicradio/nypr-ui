@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
-import { equal } from '@ember/object/computed';
+import { equal, reads } from '@ember/object/computed';
 import { htmlSafe } from '@ember/string';
 import { get } from '@ember/object';
 import layout from '../templates/components/nypr-brick-item';
@@ -12,7 +12,7 @@ export default Component.extend({
   classNameBindings: ['item.attributes.template'],
   attributeBindings: ['style'],
 
-  style: computed.reads('backgroundImage'),
+  style: reads('backgroundImage'),
   vertical: equal('template', 'vertical'),
   backgroundImage: computed('item.attributes.imageMain.url', function() {
     var imageMain = get(this, 'item.attributes.imageMain');

@@ -12,8 +12,8 @@ export default Component.extend(StickyHeader, {
 
   init() {
     this._super(...arguments);
-    let breakpoint = this.get('breakpoint');
-    if (this.get('noHeaderImage')){
+    let breakpoint = this.breakpoint;
+    if (this.noHeaderImage){
       this.set('gradient', false);
       this.set('no-image', true);
     }
@@ -21,7 +21,7 @@ export default Component.extend(StickyHeader, {
       let mql = window.matchMedia(breakpoint);
       this.set('mql', mql);
       this.set('boundListener', bind(this, 'toggleImage'));
-      mql.addListener(this.get('boundListener'));
+      mql.addListener(this.boundListener);
 
       this.toggleImage(mql);
     }
@@ -29,7 +29,7 @@ export default Component.extend(StickyHeader, {
 
   willDestroyElement() {
     this._super(...arguments);
-    this.get('mql').removeListener(this.get('boundListener'));
+    this.mql.removeListener(this.boundListener);
   },
 
   toggleImage({ matches }) {
@@ -37,8 +37,8 @@ export default Component.extend(StickyHeader, {
   },
 
   backgroundImage: computed('src', 'useBackgroundImage', function() {
-    if (this.get('useBackgroundImage') && !this.get('noHeaderImage'))  {
-      let image = this.get('src');
+    if (this.useBackgroundImage && !this.noHeaderImage)  {
+      let image = this.src;
       return htmlSafe(image ? `background-image: url(${image});` : '');
     } else {
       return htmlSafe('');
@@ -46,7 +46,7 @@ export default Component.extend(StickyHeader, {
   }),
 
   showCredits: computed('noHeaderImage', 'source', 'credit', 'caption', function() {
-    let { noHeaderImage, source, credit, caption } = this.getProperties('noHeaderImage', 'source', 'credit', 'caption');
+    let { noHeaderImage, source, credit, caption } = this;
     return !noHeaderImage && (source || credit || caption);
   }),
 

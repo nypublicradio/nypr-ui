@@ -9,7 +9,7 @@ export default Component.extend({
   closePopup() {}, // passed in from context
 
   open(href) {
-    let { openPopup, closePopup, type } = this.getProperties('openPopup', 'closePopup', 'type');
+    let { openPopup, closePopup, type } = this;
     if (openPopup) {
       openPopup(type, href);
     }
@@ -20,8 +20,8 @@ export default Component.extend({
 
   actions: {
     closePopup() {
-      if (this.get('closePopup'))  {
-        this.get('closePopup')();
+      if (this.closePopup)  {
+        this.closePopup();
       }
     }
   }

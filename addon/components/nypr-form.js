@@ -29,29 +29,29 @@ export default Component.extend({
     submit() {
       set(this, 'tried', true);
       set(this, 'processing', true);
-      let changeset = get(this, 'changeset');
+      let changeset = this.changeset;
       let snapshot = changeset.snapshot();
-      return changeset.cast(get(this, 'allowedKeys'))
+      return changeset.cast(this.allowedKeys)
       .validate()
       .then(() => {
         if(get(changeset, 'isValid')) {
           changeset.execute();
-          RSVP.Promise.resolve(get(this, 'onSubmit')())
+          RSVP.Promise.resolve(this.onSubmit())
           .then(() => {
             set(this, 'success', true);
-            get(this, 'onSuccess')();
+            this.onSuccess();
             set(this, 'processing', false);
           })
           .catch(e => {
             changeset.restore(snapshot);
             set(this, 'failure', true);
-            get(this, 'onFailure')(e);
+            this.onFailure(e);
             set(this, 'processing', false);
           });
         } else {
           changeset.restore(snapshot);
           set(this, 'invalid', true);
-          get(this, 'onInvalid')();
+          this.onInvalid();
           set(this, 'processing', false);
         }
       });

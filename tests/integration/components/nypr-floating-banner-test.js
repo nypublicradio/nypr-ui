@@ -1,32 +1,34 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, click, findAll } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('nypr-floating-banner', 'Integration | Component | nypr floating banner', {
-  integration: true
-});
+module('Integration | Component | nypr floating banner', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
+  test('it renders', async function(assert) {
 
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{nypr-floating-banner}}`);
+    await render(hbs`{{nypr-floating-banner}}`);
 
-  assert.equal(this.$().text().trim(), '');
+    assert.dom(this.element).hasText('');
 
-  // Template block usage:
-  this.render(hbs`
-    {{#nypr-floating-banner}}
-      template block text
-    {{/nypr-floating-banner}}
-  `);
+    // Template block usage:
+    await render(hbs`
+      {{#nypr-floating-banner}}
+        template block text
+      {{/nypr-floating-banner}}
+    `);
 
-  assert.equal(this.$().text().trim(), 'template block text');
-});
+    assert.dom(this.element).hasText('template block text');
+  });
 
-test('it can be dismissed', function(assert) {
-  this.render(hbs`{{nypr-floating-banner}}`);
-  this.$('.nypr-floating-banner__close').click();
-  
-  assert.notOk(this.$('.nypr-floating-banner__wrapper').length);
+  test('it can be dismissed', async function(assert) {
+    await render(hbs`{{nypr-floating-banner}}`);
+    await click('.nypr-floating-banner__close');
+    
+    assert.notOk(findAll('.nypr-floating-banner__wrapper').length);
+  });
 });
