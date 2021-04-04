@@ -1,9 +1,15 @@
 # nypr-ui Changelog
 
+## 0.6.1
+
+- [BUGFIX] update ember-holygrail-layout and run yarn upgrade
+
 ## 0.6.0
+
 - [CHORE] Upgrade Ember to 3.3
 
 ## 0.5.0
+
 - [ENHANCEMENT] accessibility fixes to brand header, producing org, and SVGs.
 
 ## 0.4.7

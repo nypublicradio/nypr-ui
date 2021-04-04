@@ -3,7 +3,8 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/nypublicradio/nypr-ui.svg)](https://greenkeeper.io/)
 [![CircleCI](https://img.shields.io/circleci/project/github/nypublicradio/nypr-ui.svg?style=flat-square-blue)](https://circleci.com/gh/nypublicradio/nypr-ui) [![GitHub release](https://img.shields.io/github/release/nypublicradio/nypr-ui.svg?style=flat-square)](https://github.com/nypublicradio/nypr-ui/releases/latest) [![GitHub pull requests](https://img.shields.io/github/issues-pr/nypublicradio/nypr-ui.svg?style=flat-square)](https://github.com/nypublicradio/nypr-ui/pulls) [![GitHub contributors](https://img.shields.io/github/contributors/nypublicradio/nypr-ui.svg?style=flat-square)](https://github.com/nypublicradio/nypr-ui/graphs/contributors)
 
-### The New York Public Radio UI Library
+## The New York Public Radio UI Library
+
 The goal of this ember add on is to centralize all of our common UI components so we can avoid branching dependencies and also provide a way for the multiple client apps to share reusable code.
 
 ## Install and Setup
@@ -21,7 +22,9 @@ As of this writing, this provides access to these SASS partials:
 Careful when using these. `nypr-ui/card`, `nypr-ui/input`, and `nypr-ui/buttons` all output CSS, so they should not be imported more than once in a project or else your CSS will become bloated.
 
 ### Most Common Use Case
+
 Looks like this:
+
 ```scss
 // project/app/styles/app.scss
 @import "nypr-ui";
@@ -33,6 +36,7 @@ Looks like this:
 Then you can freely use mixins or override styles defined in `nypr-ui`.
 
 ### Notes for Addons
+
 When using this library in an addon, some things to remember.
 
 * Add an `included` hook to the addon's `index.js`:
@@ -47,6 +51,7 @@ module.exports = {
   ...
 }
 ```
+
 * If you're using `ember-cli-sass` or `ember-cli-compass-compiler`, special care needs to be taken when arranging your sass files.
 
 ```sh
@@ -64,11 +69,13 @@ tests/
         |__ styles/
             |__ app.scss # dummy app styles go here, never touched by consuming app or addons
 ```
+
 With this structure, apps or addons which consume your addon *should* be have access to your sass mixins through `@import "<your-addon-name>";`.
 
 * If you're using `ember-cli-sass` or `ember-cli-compass-compiler`, they need to be listed in the `dependencies` section of your `package.json` -- not the `devDependencies` section. And remember that those addons are mutually exclusive.
 
 ### Components
+
 This add-on also provides a few components which can be invoked in templates:
 * `nypr-form`: basic form which abstracts a lot of boilerplate for using changesets
 * `nypr-card`: basic UI widget
@@ -77,18 +84,17 @@ This add-on also provides a few components which can be invoked in templates:
 * `nypr-social-icons`: a list of links formatted as a row of font awesome icons
 * `nypr-svg`: add svg icons in your templates
 
-Installation
-------------------------------------------------------------------------------
+### Installation
 
 * `git clone git@github.com:nypublicradio/nypr-ui.git` this repository
 * `cd nypr-ui`
-* `npm install`
+* `yarn install`
 * `bower install`
 
 ### Linting
 
-* `npm run lint:js`
-* `npm run lint:js -- --fix`
+* `yarn run lint:js`
+* `yarn run lint:js -- --fix`
 
 ### Running tests
 
@@ -103,7 +109,6 @@ Installation
 
 For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
 
-License
-------------------------------------------------------------------------------
+### License
 
 This project is licensed under the [MIT License](LICENSE.md).
