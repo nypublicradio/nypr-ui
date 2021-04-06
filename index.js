@@ -50,7 +50,5 @@ module.exports = {
     stickyTree = map(stickyTree, content => `if (typeof FastBoot === 'undefined') { ${content} }`);
 
     return mergeTrees([vendorTree, waypointsTree, stickyTree]);
-
-  },
-  isDevelopingAddon: () => true
+  }
 };
