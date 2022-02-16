@@ -324,7 +324,10 @@
     z-index: $zIndex--brickItemInner;
     width: 100%;
     padding: 20px 25px;
-
+    &.play-button{
+      height: 240px;
+      justify-content: center;
+    }
     @include mq($mobile) {
       display: none;
     }
