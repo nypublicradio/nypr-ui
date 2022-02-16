@@ -48,7 +48,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-
+    pointer-events: none;
     &__video {
       display: none;
     }
@@ -324,6 +324,7 @@
     z-index: $zIndex--brickItemInner;
     width: 100%;
     padding: 20px 25px;
+    pointer-events: none;
     &.play-button{
       height: 240px;
       justify-content: center;
@@ -334,6 +335,18 @@
     }
     @include mq($mobile) {
       display: none;
+    }
+  }
+
+.brick-row--blowout .brick__item .item {
+  &__icons {
+    pointer-events: none;
+    &.play-button{
+      justify-content: center;
+      .item__icons__video svg{
+        width: 100px;
+        height: 100px;
+      }
     }
   }
 
