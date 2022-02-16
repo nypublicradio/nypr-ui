@@ -327,6 +327,10 @@
     &.play-button{
       height: 240px;
       justify-content: center;
+      .item__icons__video svg{
+        width: 100px;
+        height: 100px;
+      }
     }
     @include mq($mobile) {
       display: none;
