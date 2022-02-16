@@ -316,7 +316,18 @@
     }
   }
 }
-
+.brick-row--blowout .brick__item .item {
+  &__icons {
+    pointer-events: none;
+    &.play-button{
+      justify-content: center;
+      .item__icons__video svg{
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+}
 .brick-row--cards .brick__item .item,
 .brick-grid .brick__item .item {
   &__icons {
@@ -335,18 +346,6 @@
     }
     @include mq($mobile) {
       display: none;
-    }
-  }
-
-.brick-row--blowout .brick__item .item {
-  &__icons {
-    pointer-events: none;
-    &.play-button{
-      justify-content: center;
-      .item__icons__video svg{
-        width: 100px;
-        height: 100px;
-      }
     }
   }
 
