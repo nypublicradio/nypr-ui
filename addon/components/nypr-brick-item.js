@@ -19,14 +19,13 @@ export default Component.extend({
     var urlString;
     var fallbackUrlString = 'https://media.wnyc.org/i/raw/2022/02/wqxr-default-image.jpg';
     if (imageMain){
-      console.log('imageMain = ', imageMain);
       // just in case we don't get a template and crop from the API, fallback to url
       if (imageMain.template && imageMain.crop){
         urlString = imageTemplate([imageMain.template, 800,  0, imageMain.crop]);
       } else {
         urlString = imageMain.url;
       }
-      return htmlSafe(`background-image: url(${fallbackUrlString});`);
+      return htmlSafe(`background-image: url(${urlString});`);
     } else {
       return htmlSafe(`background-image: url(${fallbackUrlString});`);
     }
