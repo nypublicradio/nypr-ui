@@ -16,8 +16,6 @@ export default Component.extend({
   vertical: equal('template', 'vertical'),
   backgroundImage: computed('item.attributes.imageMain.url', function() {
     var imageMain = get(this, 'item.attributes.imageMain');
-    var youtubeUrl = get(this, 'item.attributes');
-    console.log('youtubeUrl = ', youtubeUrl)
     var urlString;
 
     // fallback image is hosted in publisher
