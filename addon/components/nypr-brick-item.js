@@ -19,7 +19,7 @@ export default Component.extend({
     var urlString;
 
     // fallback image is hosted in publisher
-    var fallbackUrlString = 'https://media.wnyc.org/i/raw/2022/02/wqxr-default-image-pattern.jpg';
+    var fallbackUrlString = "https://media.wnyc.org/i/raw/2022/02/fallback-universal.jpg";
 
     if (imageMain){
       // just in case we don't get a template and crop from the API, fallback to url
