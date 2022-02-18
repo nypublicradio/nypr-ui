@@ -1,6 +1,6 @@
 .brick-row,
 .brick-grid {
-  font-family: 'Lato';
+  font-family: "Lato";
   list-style: none;
   padding: 0;
   margin-bottom: 35px;
@@ -316,18 +316,7 @@
     }
   }
 }
-.brick-row--blowout .brick__item .item {
-  &__icons {
-    pointer-events: none;
-    &.play-button{
-      justify-content: center;
-      .item__icons__video svg{
-        width: 100px;
-        height: 100px;
-      }
-    }
-  }
-}
+
 .brick-row--cards .brick__item .item,
 .brick-grid .brick__item .item {
   &__icons {
@@ -336,14 +325,6 @@
     width: 100%;
     padding: 20px 25px;
     pointer-events: none;
-    &.play-button{
-      height: 240px;
-      justify-content: center;
-      .item__icons__video svg{
-        width: 100px;
-        height: 100px;
-      }
-    }
     @include mq($mobile) {
       display: none;
     }
