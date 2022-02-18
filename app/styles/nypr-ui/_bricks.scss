@@ -1,6 +1,6 @@
 .brick-row,
 .brick-grid {
-  font-family: 'Lato';
+  font-family: "Lato";
   list-style: none;
   padding: 0;
   margin-bottom: 35px;
@@ -48,7 +48,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-
+    pointer-events: none;
     &__video {
       display: none;
     }
@@ -324,7 +324,7 @@
     z-index: $zIndex--brickItemInner;
     width: 100%;
     padding: 20px 25px;
-
+    pointer-events: none;
     @include mq($mobile) {
       display: none;
     }
