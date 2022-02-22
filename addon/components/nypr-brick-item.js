@@ -1,6 +1,6 @@
 import Component from "@ember/component";
 import { computed } from "@ember/object";
-import { equal } from "@ember/object/computed";
+import { equal, or } from "@ember/object/computed";
 import { htmlSafe } from "@ember/string";
 import { get } from "@ember/object";
 import layout from "../templates/components/nypr-brick-item";
@@ -14,8 +14,9 @@ export default Component.extend({
 
   style: computed.reads("backgroundImage"),
   vertical: equal("template", "vertical"),
-  backgroundImage: computed("item.attributes.imageMain.url", function () {
-    var imageMain = get(this, "item.attributes.imageMain");
+  imageMain: or("item.attributes.image", "item.attributes.imageMain"),
+  backgroundImage: computed("imageMain.url", function () {
+    var imageMain = get(this, "imageMain");
     var urlString;
 
     if (imageMain) {
